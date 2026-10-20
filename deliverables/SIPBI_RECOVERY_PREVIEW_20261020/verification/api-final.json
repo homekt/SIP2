@@ -1,0 +1,117 @@
+{
+  "testedAt": "2026-10-20T12:39:23.897Z",
+  "base": "http://localhost:55152",
+  "pages": [
+    {
+      "id": "D04",
+      "source": {
+        "server": "localhost:25000",
+        "database": "JDE_SALES_CUBE_20261020",
+        "cube": "JDE Sales",
+        "dateRole": "Invoice Date",
+        "currency": "USD",
+        "quantityUnit": "KG",
+        "synthetic": true,
+        "coverageStart": "202401",
+        "coverageEnd": "202609",
+        "queriedAt": "2026-10-20T12:39:12.190Z"
+      },
+      "kpis": {
+        "netSalesUSD": 16234174.4534,
+        "netCostUSD": 11872808.7568,
+        "grossProfitUSD": 4361365.6966,
+        "netQtyKG": 5564253.57,
+        "salesQtyKG": 5684976.86,
+        "returnQtyKG": 120723.29,
+        "orderCount": 811,
+        "salesLineCount": 2384,
+        "fullReturnLineCount": 24,
+        "partialReturnLineCount": 226,
+        "allowanceLineCount": 201,
+        "negativeMarginLineCount": 44,
+        "grossMarginPercent": 0.26865337126438105,
+        "returnRatePercent": 0.021235493648077926,
+        "averageSellingPriceUSD": 2.917583508581907
+      },
+      "rows": {
+        "products": 132,
+        "customers": 238,
+        "months": 33
+      }
+    },
+    {
+      "id": "D11",
+      "source": {
+        "server": "localhost:25000",
+        "database": "JDE_SALES_CUBE_20261020",
+        "cube": "JDE Sales",
+        "dateRole": "Invoice Date",
+        "currency": "USD",
+        "quantityUnit": "KG",
+        "synthetic": true,
+        "coverageStart": "202401",
+        "coverageEnd": "202609",
+        "queriedAt": "2026-10-20T12:39:12.190Z"
+      },
+      "kpis": {
+        "netSalesUSD": 16234174.4534,
+        "netCostUSD": 11872808.7568,
+        "grossProfitUSD": 4361365.6966,
+        "netQtyKG": 5564253.57,
+        "salesQtyKG": 5684976.86,
+        "returnQtyKG": 120723.29,
+        "orderCount": 811,
+        "salesLineCount": 2384,
+        "fullReturnLineCount": 24,
+        "partialReturnLineCount": 226,
+        "allowanceLineCount": 201,
+        "negativeMarginLineCount": 44,
+        "grossMarginPercent": 0.26865337126438105,
+        "returnRatePercent": 0.021235493648077926,
+        "averageSellingPriceUSD": 2.917583508581907
+      },
+      "rows": {
+        "products": 132,
+        "customers": 238,
+        "months": 33
+      }
+    },
+    {
+      "id": "D15",
+      "source": {
+        "server": "localhost:25000",
+        "database": "JDE_SALES_CUBE_20261020",
+        "cube": "JDE Sales",
+        "dateRole": "Invoice Date",
+        "currency": "USD",
+        "quantityUnit": "KG",
+        "synthetic": true,
+        "coverageStart": "202401",
+        "coverageEnd": "202609",
+        "queriedAt": "2026-10-20T12:39:12.190Z"
+      },
+      "kpis": {
+        "netSalesUSD": 16234174.4534,
+        "netCostUSD": 11872808.7568,
+        "grossProfitUSD": 4361365.6966,
+        "netQtyKG": 5564253.57,
+        "salesQtyKG": 5684976.86,
+        "returnQtyKG": 120723.29,
+        "orderCount": 811,
+        "salesLineCount": 2384,
+        "fullReturnLineCount": 24,
+        "partialReturnLineCount": 226,
+        "allowanceLineCount": 201,
+        "negativeMarginLineCount": 44,
+        "grossMarginPercent": 0.26865337126438105,
+        "returnRatePercent": 0.021235493648077926,
+        "averageSellingPriceUSD": 2.917583508581907
+      },
+      "rows": {
+        "products": 132,
+        "customers": 238,
+        "months": 33
+      }
+    }
+  ]
+}

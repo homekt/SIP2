@@ -1,0 +1,19 @@
+[
+  {
+    "[Measures].[Sales Line Count]": 60000,
+    "[Measures].[Order Count]": 20111,
+    "[Measures].[Net Sales USD]": 350835465.5863,
+    "[Measures].[Net Cost USD]": 258256100.7729,
+    "[Measures].[Gross Profit USD]": 92579364.8134,
+    "[Measures].[Sales Quantity KG]": 126819350.68,
+    "[Measures].[Return Quantity KG]": 2498962.59,
+    "[Measures].[Net Quantity KG]": 124320388.09,
+    "[Measures].[Gross Margin Percent]": 0.2638825714460927,
+    "[Measures].[Return Rate Percent]": 0.019704899738097286,
+    "[Measures].[Net Sales Local]": null,
+    "[Measures].[Full Return Line Count]": 581,
+    "[Measures].[Partial Return Line Count]": 5472,
+    "[Measures].[Allowance Line Count]": 4701,
+    "[Measures].[Negative Margin Line Count]": 1177
+  }
+]

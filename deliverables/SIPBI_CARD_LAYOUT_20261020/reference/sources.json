@@ -1,0 +1,122 @@
+{
+  "files": {
+    "md": {
+      "path": "C:\\Users\\user\\Downloads\\BI_Dashboard_View_Design_Specification.md",
+      "sha256": "7caadec8118990ec659959f2933332efe84ad11bcea09a94f49edf957872b4d1",
+      "bytes": 16555
+    },
+    "html": {
+      "path": "C:\\Users\\user\\Downloads\\BI_Dashboard_View_Design_Specification.html",
+      "sha256": "856693ca65d3357faa129097ee7bf34d3627d2e3bde794a4fb8e5159c47c3ce4",
+      "bytes": 16567395
+    },
+    "pdf": {
+      "path": "C:\\Users\\user\\Downloads\\BI_Dashboard_View_Design_Specification.pdf",
+      "sha256": "ae85a894816f91a5fe44df4acfb839e6db020f824339533e603915904b7a42e6",
+      "bytes": 13624126
+    }
+  },
+  "htmlHeadings": [
+    "導讀：為什麼我們需要這本設計手冊？",
+    "一、 原 Dashboard 視圖優缺點分析與設計意涵",
+    "1. 第一張原型視圖：Card Layout (總覽型)",
+    "視圖架構與特徵剖析",
+    "優點與設計意涵",
+    "2. 第二張原型視圖：Analytics Dashboard (現代監控型)",
+    "視圖架構與特徵剖析",
+    "優點與設計意涵",
+    "二、 核心視覺元件設計規範",
+    "1. KPI 卡片 / 關鍵數字 (KPI Cards)",
+    "情境化 KPI 的四層黃金結構（The Full Make-Over）",
+    "2. 甜甜圈圖 (Donut Chart)",
+    "甜甜圈圖三大設計準則",
+    "3. 折線趨勢與雙軸圖 (Line / Combo Dual-Axis Chart)",
+    "三、 進階分析視圖規範",
+    "1. 區域地圖與熱力圖 (Map & Heatmap)",
+    "2. 營收瀑布圖 (Revenue Bridge / Waterfall Chart)",
+    "瀑布圖色彩與語意標準",
+    "3. 轉換漏斗圖與進度表格 (Funnel & Progress Table)",
+    "4. 相關性散佈圖 (Scatter Plot with Regression Trendline)",
+    "5. 層級樹狀圖 (Treemap Hierarchy)",
+    "四、 儀表板整合佈局與最佳實踐",
+    "企業級 BI 儀表板設計與發布檢核表 (Quality Gate Checklist)"
+  ],
+  "htmlImages": [
+    {
+      "alt": "第一張 Card Layout 原型視圖",
+      "sourceKind": "embedded",
+      "src": "(embedded image)"
+    },
+    {
+      "alt": "第二張 Analytics Dashboard 原型視圖",
+      "sourceKind": "embedded",
+      "src": "(embedded image)"
+    },
+    {
+      "alt": "18.6% KPI 卡片",
+      "sourceKind": "embedded",
+      "src": "(embedded image)"
+    },
+    {
+      "alt": "KPI 卡片情境化對比",
+      "sourceKind": "embedded",
+      "src": "(embedded image)"
+    },
+    {
+      "alt": "中心顯示 Total 100% 的 Market Share 甜甜圈圖",
+      "sourceKind": "embedded",
+      "src": "(embedded image)"
+    },
+    {
+      "alt": "Revenue vs Conversion Rate 柱狀+折線雙軸圖",
+      "sourceKind": "embedded",
+      "src": "(embedded image)"
+    },
+    {
+      "alt": "Sales by State 美國銷售熱度圖",
+      "sourceKind": "embedded",
+      "src": "(embedded image)"
+    },
+    {
+      "alt": "Activity by Hour and Day 熱力圖",
+      "sourceKind": "embedded",
+      "src": "(embedded image)"
+    },
+    {
+      "alt": "Revenue Bridge 營收瀑布圖",
+      "sourceKind": "embedded",
+      "src": "(embedded image)"
+    },
+    {
+      "alt": "Conversion Funnel 帶轉換率標註的漏斗圖",
+      "sourceKind": "embedded",
+      "src": "(embedded image)"
+    },
+    {
+      "alt": "Financial Performance 進度條狀態表格",
+      "sourceKind": "embedded",
+      "src": "(embedded image)"
+    },
+    {
+      "alt": "Revenue vs Customer Count 散佈圖",
+      "sourceKind": "embedded",
+      "src": "(embedded image)"
+    },
+    {
+      "alt": "層級樹狀圖",
+      "sourceKind": "embedded",
+      "src": "(embedded image)"
+    },
+    {
+      "alt": "改善版一 (總覽型 Card Layout Dashboard)",
+      "sourceKind": "embedded",
+      "src": "(embedded image)"
+    },
+    {
+      "alt": "改善版二 (監控型 Analytics Dashboard)",
+      "sourceKind": "embedded",
+      "src": "(embedded image)"
+    }
+  ],
+  "mdLines": 214
+}

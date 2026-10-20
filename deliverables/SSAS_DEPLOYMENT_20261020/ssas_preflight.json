@@ -1,0 +1,10 @@
+{
+  "Endpoint": "localhost:25000",
+  "Connected": true,
+  "Version": "17.0.25.223",
+  "ServerMode": "Multidimensional",
+  "DatabaseNames": [
+    "Synthetic Sales BI",
+    "SI_Powered_BI"
+  ]
+}

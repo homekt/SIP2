@@ -1,0 +1,10 @@
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
+const appRoot=fs.existsSync(path.join(__dirname,'app'))?path.join(__dirname,'app'):path.join(__dirname,'../preview/app');
+const ts=require(path.join(appRoot,'frontend/node_modules/typescript'));
+const source=fs.readFileSync(path.join(appRoot,'frontend/src/utils/salesFormat.ts'),'utf8');
+let currentBlob,filename,clicks=0;
+const anchor={click(){clicks++},set download(v){filename=v},get download(){return filename}};
+const mod={exports:{}};
+vm.runInNewContext(ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText,{module:mod,exports:mod.exports,Blob,URL:{createObjectURL(b){currentBlob=b;return 'blob:test'},revokeObjectURL(){}},document:{createElement(){return anchor},body:{appendChild(){},removeChild(){}}}});
+const data=JSON.parse(fs.readFileSync(path.join(__dirname,'live-data-final.json'),'utf8'));
+(async()=>{const cases=[];for(const [group,key]of[['customers','CustomerKey'],['products','ProductKey'],['salespeople','SalespersonKey']]){mod.exports.exportSalesRowsCsv(group+'.csv',data.datasets[group],key);const csv=await currentBlob.text();const lines=csv.trimEnd().split('\n');assert.equal(lines.length,data.datasets[group].length+1);assert.ok(lines[0].includes(key));assert.ok(csv.includes(data.datasets[group].at(-1).key));cases.push({group,rows:lines.length-1,filename,bytes:Buffer.byteLength(csv)});}assert.equal(clicks,3);fs.writeFileSync('csv-validation.json',JSON.stringify({testedAt:new Date().toISOString(),scope:'real CSV serializer invoked with DOM/URL substitutes; native browser saved download is not established',cases},null,2));console.log(JSON.stringify(cases));})().catch(e=>{console.error(e);process.exitCode=1});

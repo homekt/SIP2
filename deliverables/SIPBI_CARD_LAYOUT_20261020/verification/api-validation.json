@@ -1,0 +1,1700 @@
+{
+  "testedAt": "2026-10-20T15:32:00.781Z",
+  "rows": [
+    {
+      "id": "D00",
+      "status": "ok",
+      "queryHash": "956627c88a663b3c1afc5b4a287b2a03657f7bea4e93fb0a9ef2193a29923585",
+      "kpis": {
+        "netSalesUSD": 16234174.4534,
+        "netCostUSD": 11872808.7568,
+        "grossProfitUSD": 4361365.6966,
+        "netQtyKG": 5564253.57,
+        "salesQtyKG": 5684976.86,
+        "returnQtyKG": 120723.29,
+        "orderCount": 811,
+        "salesLineCount": 2384,
+        "fullReturnLineCount": 24,
+        "partialReturnLineCount": 226,
+        "allowanceLineCount": 201,
+        "negativeMarginLineCount": 44,
+        "grossMarginPercent": 0.26865337126438105,
+        "returnRatePercent": 0.021235493648077926,
+        "averageSellingPriceUSD": 2.917583508581907
+      },
+      "counts": {
+        "monthly": 33,
+        "companies": 5,
+        "products": 132,
+        "categories": 7,
+        "customers": 238,
+        "salespeople": 20,
+        "plants": 10,
+        "costCenters": 30
+      }
+    },
+    {
+      "id": "D01",
+      "status": "ok",
+      "queryHash": "f4a4cdfb3e44fcb474d1ccab82f46b773504f5e2931437a1fd1b73d508fdf85c",
+      "kpis": {
+        "netSalesUSD": 16234174.4534,
+        "netCostUSD": 11872808.7568,
+        "grossProfitUSD": 4361365.6966,
+        "netQtyKG": 5564253.57,
+        "salesQtyKG": 5684976.86,
+        "returnQtyKG": 120723.29,
+        "orderCount": 811,
+        "salesLineCount": 2384,
+        "fullReturnLineCount": 24,
+        "partialReturnLineCount": 226,
+        "allowanceLineCount": 201,
+        "negativeMarginLineCount": 44,
+        "grossMarginPercent": 0.26865337126438105,
+        "returnRatePercent": 0.021235493648077926,
+        "averageSellingPriceUSD": 2.917583508581907
+      },
+      "counts": {
+        "monthly": 33,
+        "companies": 5,
+        "products": 132,
+        "categories": 7,
+        "customers": 238,
+        "salespeople": 20,
+        "plants": 10,
+        "costCenters": 30
+      }
+    },
+    {
+      "id": "D02",
+      "status": "ok",
+      "queryHash": "daebeff8867c279e85cfb9b01997fbf2b4c03acfa95a879c0ef3d35c835c1d7e",
+      "kpis": {
+        "netSalesUSD": 16234174.4534,
+        "netCostUSD": 11872808.7568,
+        "grossProfitUSD": 4361365.6966,
+        "netQtyKG": 5564253.57,
+        "salesQtyKG": 5684976.86,
+        "returnQtyKG": 120723.29,
+        "orderCount": 811,
+        "salesLineCount": 2384,
+        "fullReturnLineCount": 24,
+        "partialReturnLineCount": 226,
+        "allowanceLineCount": 201,
+        "negativeMarginLineCount": 44,
+        "grossMarginPercent": 0.26865337126438105,
+        "returnRatePercent": 0.021235493648077926,
+        "averageSellingPriceUSD": 2.917583508581907
+      },
+      "counts": {
+        "monthly": 33,
+        "companies": 5,
+        "products": 132,
+        "categories": 7,
+        "customers": 238,
+        "salespeople": 20,
+        "plants": 10,
+        "costCenters": 30
+      }
+    },
+    {
+      "id": "D04",
+      "status": "ok",
+      "queryHash": "7e3ff5673bc1c67062d09be78686c5268e1300e77483085999c7a89ea158a163",
+      "kpis": {
+        "netSalesUSD": 16234174.4534,
+        "netCostUSD": 11872808.7568,
+        "grossProfitUSD": 4361365.6966,
+        "netQtyKG": 5564253.57,
+        "salesQtyKG": 5684976.86,
+        "returnQtyKG": 120723.29,
+        "orderCount": 811,
+        "salesLineCount": 2384,
+        "fullReturnLineCount": 24,
+        "partialReturnLineCount": 226,
+        "allowanceLineCount": 201,
+        "negativeMarginLineCount": 44,
+        "grossMarginPercent": 0.26865337126438105,
+        "returnRatePercent": 0.021235493648077926,
+        "averageSellingPriceUSD": 2.917583508581907
+      },
+      "counts": {
+        "monthly": 33,
+        "companies": 5,
+        "products": 132,
+        "categories": 7,
+        "customers": 238,
+        "salespeople": 20,
+        "plants": 10,
+        "costCenters": 30
+      }
+    },
+    {
+      "id": "D06",
+      "status": "ok",
+      "queryHash": "8267381768938c0f2236e989ca4309cefe871ed99ba82758f9f540b7a3542c6f",
+      "kpis": {
+        "netSalesUSD": 16234174.4534,
+        "netCostUSD": 11872808.7568,
+        "grossProfitUSD": 4361365.6966,
+        "netQtyKG": 5564253.57,
+        "salesQtyKG": 5684976.86,
+        "returnQtyKG": 120723.29,
+        "orderCount": 811,
+        "salesLineCount": 2384,
+        "fullReturnLineCount": 24,
+        "partialReturnLineCount": 226,
+        "allowanceLineCount": 201,
+        "negativeMarginLineCount": 44,
+        "grossMarginPercent": 0.26865337126438105,
+        "returnRatePercent": 0.021235493648077926,
+        "averageSellingPriceUSD": 2.917583508581907
+      },
+      "counts": {
+        "monthly": 33,
+        "companies": 5,
+        "products": 132,
+        "categories": 7,
+        "customers": 238,
+        "salespeople": 20,
+        "plants": 10,
+        "costCenters": 30
+      }
+    },
+    {
+      "id": "D08",
+      "status": "ok",
+      "queryHash": "ee62f73d54a8035bad15613f2efb3228d66b88464784161953e852e8565e8567",
+      "kpis": {
+        "netSalesUSD": 16234174.4534,
+        "netCostUSD": 11872808.7568,
+        "grossProfitUSD": 4361365.6966,
+        "netQtyKG": 5564253.57,
+        "salesQtyKG": 5684976.86,
+        "returnQtyKG": 120723.29,
+        "orderCount": 811,
+        "salesLineCount": 2384,
+        "fullReturnLineCount": 24,
+        "partialReturnLineCount": 226,
+        "allowanceLineCount": 201,
+        "negativeMarginLineCount": 44,
+        "grossMarginPercent": 0.26865337126438105,
+        "returnRatePercent": 0.021235493648077926,
+        "averageSellingPriceUSD": 2.917583508581907
+      },
+      "counts": {
+        "monthly": 33,
+        "companies": 5,
+        "products": 132,
+        "categories": 7,
+        "customers": 238,
+        "salespeople": 20,
+        "plants": 10,
+        "costCenters": 30
+      }
+    },
+    {
+      "id": "D11",
+      "status": "ok",
+      "queryHash": "cd224f497987dae6b7ef7b9627f07d7b60381f94e0c25e37d7ad08771424cdfe",
+      "kpis": {
+        "netSalesUSD": 16234174.4534,
+        "netCostUSD": 11872808.7568,
+        "grossProfitUSD": 4361365.6966,
+        "netQtyKG": 5564253.57,
+        "salesQtyKG": 5684976.86,
+        "returnQtyKG": 120723.29,
+        "orderCount": 811,
+        "salesLineCount": 2384,
+        "fullReturnLineCount": 24,
+        "partialReturnLineCount": 226,
+        "allowanceLineCount": 201,
+        "negativeMarginLineCount": 44,
+        "grossMarginPercent": 0.26865337126438105,
+        "returnRatePercent": 0.021235493648077926,
+        "averageSellingPriceUSD": 2.917583508581907
+      },
+      "counts": {
+        "monthly": 33,
+        "companies": 5,
+        "products": 132,
+        "categories": 7,
+        "customers": 238,
+        "salespeople": 20,
+        "plants": 10,
+        "costCenters": 30
+      }
+    },
+    {
+      "id": "D13",
+      "status": "ok",
+      "queryHash": "6e9313e550196667e53e7e94f6675aa6e2f42c57492b09998dad66306b4ea82d",
+      "kpis": {
+        "netSalesUSD": 16234174.4534,
+        "netCostUSD": 11872808.7568,
+        "grossProfitUSD": 4361365.6966,
+        "netQtyKG": 5564253.57,
+        "salesQtyKG": 5684976.86,
+        "returnQtyKG": 120723.29,
+        "orderCount": 811,
+        "salesLineCount": 2384,
+        "fullReturnLineCount": 24,
+        "partialReturnLineCount": 226,
+        "allowanceLineCount": 201,
+        "negativeMarginLineCount": 44,
+        "grossMarginPercent": 0.26865337126438105,
+        "returnRatePercent": 0.021235493648077926,
+        "averageSellingPriceUSD": 2.917583508581907
+      },
+      "counts": {
+        "monthly": 33,
+        "companies": 5,
+        "products": 132,
+        "categories": 7,
+        "customers": 238,
+        "salespeople": 20,
+        "plants": 10,
+        "costCenters": 30
+      }
+    },
+    {
+      "id": "D14",
+      "status": "ok",
+      "queryHash": "98cc489a52226e9cbf8f788ea91829982cf55c93247e1e7fc80a7d33e68cd17d",
+      "kpis": {
+        "netSalesUSD": 16234174.4534,
+        "netCostUSD": 11872808.7568,
+        "grossProfitUSD": 4361365.6966,
+        "netQtyKG": 5564253.57,
+        "salesQtyKG": 5684976.86,
+        "returnQtyKG": 120723.29,
+        "orderCount": 811,
+        "salesLineCount": 2384,
+        "fullReturnLineCount": 24,
+        "partialReturnLineCount": 226,
+        "allowanceLineCount": 201,
+        "negativeMarginLineCount": 44,
+        "grossMarginPercent": 0.26865337126438105,
+        "returnRatePercent": 0.021235493648077926,
+        "averageSellingPriceUSD": 2.917583508581907
+      },
+      "counts": {
+        "monthly": 33,
+        "companies": 5,
+        "products": 132,
+        "categories": 7,
+        "customers": 238,
+        "salespeople": 20,
+        "plants": 10,
+        "costCenters": 30
+      }
+    },
+    {
+      "id": "D15",
+      "status": "ok",
+      "queryHash": "2ed582795e65581a4b50960176ee289fa0f790329d2413bab482226efdb1e6ba",
+      "kpis": {
+        "netSalesUSD": 16234174.4534,
+        "netCostUSD": 11872808.7568,
+        "grossProfitUSD": 4361365.6966,
+        "netQtyKG": 5564253.57,
+        "salesQtyKG": 5684976.86,
+        "returnQtyKG": 120723.29,
+        "orderCount": 811,
+        "salesLineCount": 2384,
+        "fullReturnLineCount": 24,
+        "partialReturnLineCount": 226,
+        "allowanceLineCount": 201,
+        "negativeMarginLineCount": 44,
+        "grossMarginPercent": 0.26865337126438105,
+        "returnRatePercent": 0.021235493648077926,
+        "averageSellingPriceUSD": 2.917583508581907
+      },
+      "counts": {
+        "monthly": 33,
+        "companies": 5,
+        "products": 132,
+        "categories": 7,
+        "customers": 238,
+        "salespeople": 20,
+        "plants": 10,
+        "costCenters": 30
+      }
+    },
+    {
+      "id": "D16",
+      "status": "ok",
+      "queryHash": "48939ef546ccbe46d292d9407f18a23a4411965db17189d5c56979a5b7fc6312",
+      "kpis": {
+        "netSalesUSD": 16234174.4534,
+        "netCostUSD": 11872808.7568,
+        "grossProfitUSD": 4361365.6966,
+        "netQtyKG": 5564253.57,
+        "salesQtyKG": 5684976.86,
+        "returnQtyKG": 120723.29,
+        "orderCount": 811,
+        "salesLineCount": 2384,
+        "fullReturnLineCount": 24,
+        "partialReturnLineCount": 226,
+        "allowanceLineCount": 201,
+        "negativeMarginLineCount": 44,
+        "grossMarginPercent": 0.26865337126438105,
+        "returnRatePercent": 0.021235493648077926,
+        "averageSellingPriceUSD": 2.917583508581907
+      },
+      "counts": {
+        "monthly": 33,
+        "companies": 5,
+        "products": 132,
+        "categories": 7,
+        "customers": 238,
+        "salespeople": 20,
+        "plants": 10,
+        "costCenters": 30
+      }
+    },
+    {
+      "id": "D18",
+      "status": "ok",
+      "queryHash": "4b88dec849a71fac461420b53c9fe3f983a96595024705c614b7748625a18f51",
+      "kpis": {
+        "netSalesUSD": 16234174.4534,
+        "netCostUSD": 11872808.7568,
+        "grossProfitUSD": 4361365.6966,
+        "netQtyKG": 5564253.57,
+        "salesQtyKG": 5684976.86,
+        "returnQtyKG": 120723.29,
+        "orderCount": 811,
+        "salesLineCount": 2384,
+        "fullReturnLineCount": 24,
+        "partialReturnLineCount": 226,
+        "allowanceLineCount": 201,
+        "negativeMarginLineCount": 44,
+        "grossMarginPercent": 0.26865337126438105,
+        "returnRatePercent": 0.021235493648077926,
+        "averageSellingPriceUSD": 2.917583508581907
+      },
+      "counts": {
+        "monthly": 33,
+        "companies": 5,
+        "products": 132,
+        "categories": 7,
+        "customers": 238,
+        "salespeople": 20,
+        "plants": 10,
+        "costCenters": 30
+      }
+    }
+  ],
+  "cases": [
+    {
+      "name": "company",
+      "http": 200,
+      "status": "ok",
+      "filters": {
+        "month": "202609",
+        "company": "00020",
+        "product": "All",
+        "customer": "All",
+        "salesperson": "All",
+        "plant": "All",
+        "costCenter": "All"
+      },
+      "kpis": {
+        "netSalesUSD": 4728630.6434,
+        "netCostUSD": 3455683.9934,
+        "grossProfitUSD": 1272946.65,
+        "netQtyKG": 1622136.37,
+        "salesQtyKG": 1665654.35,
+        "returnQtyKG": 43517.98,
+        "orderCount": 233,
+        "salesLineCount": 684,
+        "fullReturnLineCount": 10,
+        "partialReturnLineCount": 65,
+        "allowanceLineCount": 46,
+        "negativeMarginLineCount": 11,
+        "grossMarginPercent": 0.2691998479045342,
+        "returnRatePercent": 0.026126657070237893,
+        "averageSellingPriceUSD": 2.9150635734774877
+      },
+      "analysis": {
+        "priorYearNetSalesUSD": 3736423.1231,
+        "yoyGrowth": 0.2655500963383385,
+        "ytdNetSalesUSD": 30931143.3164,
+        "rolling3NetSalesUSD": 11546530.9048,
+        "rolling12NetSalesUSD": 42253470.3165,
+        "historyStatus": "available",
+        "cr5": 0.18768258367540408,
+        "hhi": 0.024699253745027898,
+        "concentrationStatus": "available",
+        "portfolio": {
+          "revenueMedian": 31722.7142,
+          "weightedMargin": 0.2691998479045342
+        },
+        "waterfall": [
+          {
+            "key": "EBD-OEM-02",
+            "label": "虛擬BRE產品02代工",
+            "prior": 49965.3426,
+            "current": 116619.7172,
+            "delta": 66654.3746
+          },
+          {
+            "key": "BZT-06",
+            "label": "虛擬PE袋產品06",
+            "prior": 0,
+            "current": 103705.2329,
+            "delta": 103705.2329
+          },
+          {
+            "key": "EBD-03",
+            "label": "虛擬BRE產品03",
+            "prior": 43495.5075,
+            "current": 100010.3648,
+            "delta": 56514.857299999996
+          },
+          {
+            "key": "EBP-05",
+            "label": "虛擬BRE產品05",
+            "prior": 74566.7888,
+            "current": 88393.7189,
+            "delta": 13826.930100000012
+          },
+          {
+            "key": "CWH-03",
+            "label": "虛擬H產品03",
+            "prior": 963.3239,
+            "current": 86182.2464,
+            "delta": 85218.9225
+          },
+          {
+            "key": "CWH-05",
+            "label": "虛擬H產品05",
+            "prior": 51202.0157,
+            "current": 76074.7267,
+            "delta": 24872.710999999996
+          },
+          {
+            "key": "EBD-05",
+            "label": "虛擬BRE產品05",
+            "prior": 64535.2206,
+            "current": 74958.9713,
+            "delta": 10423.750700000004
+          },
+          {
+            "key": "EZB-01",
+            "label": "虛擬PEVA產品01",
+            "prior": 55906.7276,
+            "current": 68724.4138,
+            "delta": 12817.686199999996
+          },
+          {
+            "key": "EBD-01",
+            "label": "虛擬BRE產品01",
+            "prior": 20348.0917,
+            "current": 68631.2627,
+            "delta": 48283.171
+          },
+          {
+            "key": "ZZZ-03",
+            "label": "虛擬未分類測試產品03",
+            "prior": 64360.7268,
+            "current": 67979.257,
+            "delta": 3618.530200000001
+          },
+          {
+            "key": "BZT-05",
+            "label": "虛擬PE袋產品05",
+            "prior": 6187.8053,
+            "current": 66732.9481,
+            "delta": 60545.142799999994
+          },
+          {
+            "key": "BFL-05",
+            "label": "虛擬PE袋產品05",
+            "prior": 48740.4671,
+            "current": 66355.7802,
+            "delta": 17615.313099999992
+          },
+          {
+            "key": "EBP-OEM-02",
+            "label": "虛擬BRE產品02代工",
+            "prior": 31507.0347,
+            "current": 66311.6886,
+            "delta": 34804.65389999999
+          },
+          {
+            "key": "BZT-03",
+            "label": "虛擬PE袋產品03",
+            "prior": 12358.88,
+            "current": 64592.2593,
+            "delta": 52233.3793
+          },
+          {
+            "key": "BZT-01",
+            "label": "虛擬PE袋產品01",
+            "prior": 59379.7528,
+            "current": 63552.1571,
+            "delta": 4172.404299999995
+          },
+          {
+            "key": "EBD-OEM-06",
+            "label": "虛擬BRE產品06代工",
+            "prior": 6479.6803,
+            "current": 61020.6467,
+            "delta": 54540.9664
+          },
+          {
+            "key": "EBP-OEM-06",
+            "label": "虛擬BRE產品06代工",
+            "prior": 31684.8703,
+            "current": 60786.5072,
+            "delta": 29101.6369
+          },
+          {
+            "key": "BFT-04",
+            "label": "虛擬PE袋產品04",
+            "prior": 47816.5879,
+            "current": 60589.1011,
+            "delta": 12772.513200000001
+          },
+          {
+            "key": "ZZZ-05",
+            "label": "虛擬未分類測試產品05",
+            "prior": 38156.9548,
+            "current": 60221.9145,
+            "delta": 22064.9597
+          },
+          {
+            "key": "ZZZ-04",
+            "label": "虛擬未分類測試產品04",
+            "prior": 78825.5277,
+            "current": 59414.5459,
+            "delta": -19410.98180000001
+          },
+          {
+            "key": "EBQ-OEM-02",
+            "label": "虛擬BRE產品02代工",
+            "prior": 32064.1719,
+            "current": 57277.4731,
+            "delta": 25213.3012
+          },
+          {
+            "key": "END-05",
+            "label": "虛擬NBR產品05",
+            "prior": 54270.0958,
+            "current": 54508.8437,
+            "delta": 238.74789999999484
+          },
+          {
+            "key": "EBQ-01",
+            "label": "虛擬BRE產品01",
+            "prior": 39938.9001,
+            "current": 52598.1639,
+            "delta": 12659.2638
+          },
+          {
+            "key": "BZB-03",
+            "label": "虛擬PE袋產品03",
+            "prior": 36584.5052,
+            "current": 51605.5747,
+            "delta": 15021.069499999998
+          },
+          {
+            "key": "BZZ-06",
+            "label": "虛擬PE袋產品06",
+            "prior": 31717.932,
+            "current": 51495.1424,
+            "delta": 19777.210399999996
+          },
+          {
+            "key": "BZS-03",
+            "label": "虛擬PE袋產品03",
+            "prior": 21586.4518,
+            "current": 50790.7486,
+            "delta": 29204.2968
+          },
+          {
+            "key": "EBN-OEM-02",
+            "label": "虛擬BRE產品02代工",
+            "prior": 21929.7927,
+            "current": 50117.8764,
+            "delta": 28188.0837
+          },
+          {
+            "key": "EBB-05",
+            "label": "虛擬暖暖包產品05",
+            "prior": 33927.1999,
+            "current": 49376.8043,
+            "delta": 15449.604400000004
+          },
+          {
+            "key": "ZZZ-06",
+            "label": "虛擬未分類測試產品06",
+            "prior": 23589.6742,
+            "current": 48950.6068,
+            "delta": 25360.9326
+          },
+          {
+            "key": "EBN-OEM-06",
+            "label": "虛擬BRE產品06代工",
+            "prior": 45696.9946,
+            "current": 48389.3686,
+            "delta": 2692.3740000000034
+          },
+          {
+            "key": "END-OEM-04",
+            "label": "虛擬NBR產品04代工",
+            "prior": 32333.9903,
+            "current": 47085.0053,
+            "delta": 14751.014999999996
+          },
+          {
+            "key": "BZT-04",
+            "label": "虛擬PE袋產品04",
+            "prior": 23396.32,
+            "current": 46714.7074,
+            "delta": 23318.3874
+          },
+          {
+            "key": "CWH-06",
+            "label": "虛擬H產品06",
+            "prior": 38443.6443,
+            "current": 46006.0409,
+            "delta": 7562.3966
+          },
+          {
+            "key": "BZZ-04",
+            "label": "虛擬PE袋產品04",
+            "prior": 41078.9131,
+            "current": 45491.9423,
+            "delta": 4413.0292000000045
+          },
+          {
+            "key": "BFT-05",
+            "label": "虛擬PE袋產品05",
+            "prior": 15906.71,
+            "current": 44373.3009,
+            "delta": 28466.590900000003
+          },
+          {
+            "key": "CSA-02",
+            "label": "虛擬CSA產品02",
+            "prior": 29106.2176,
+            "current": 43503.6871,
+            "delta": 14397.469500000003
+          },
+          {
+            "key": "EZB-04",
+            "label": "虛擬PEVA產品04",
+            "prior": 38618.4018,
+            "current": 43060.0323,
+            "delta": 4441.630499999999
+          },
+          {
+            "key": "BZS-05",
+            "label": "虛擬PE袋產品05",
+            "prior": 24935.3499,
+            "current": 42820.4555,
+            "delta": 17885.105599999995
+          },
+          {
+            "key": "ENQ-03",
+            "label": "虛擬NBR產品03",
+            "prior": 16243.2847,
+            "current": 42213.2612,
+            "delta": 25969.9765
+          },
+          {
+            "key": "BZB-04",
+            "label": "虛擬PE袋產品04",
+            "prior": 56701.9694,
+            "current": 42128.8131,
+            "delta": -14573.156300000002
+          },
+          {
+            "key": "CSA-01",
+            "label": "虛擬CSA產品01",
+            "prior": 13401.5939,
+            "current": 41857.6801,
+            "delta": 28456.086199999998
+          },
+          {
+            "key": "EBP-03",
+            "label": "虛擬BRE產品03",
+            "prior": 27529.2766,
+            "current": 41148.9056,
+            "delta": 13619.628999999997
+          },
+          {
+            "key": "ZZZ-02",
+            "label": "虛擬未分類測試產品02",
+            "prior": 35280.3863,
+            "current": 41107.8412,
+            "delta": 5827.454900000004
+          },
+          {
+            "key": "BZZ-03",
+            "label": "虛擬PE袋產品03",
+            "prior": 31822.4118,
+            "current": 41107.6847,
+            "delta": 9285.272899999996
+          },
+          {
+            "key": "BZZ-02",
+            "label": "虛擬PE袋產品02",
+            "prior": 27514.4079,
+            "current": 40567.6406,
+            "delta": 13053.2327
+          },
+          {
+            "key": "CSA-05",
+            "label": "虛擬CSA產品05",
+            "prior": 34448.1886,
+            "current": 40183.5965,
+            "delta": 5735.407899999998
+          },
+          {
+            "key": "EBP-01",
+            "label": "虛擬BRE產品01",
+            "prior": 25804.6706,
+            "current": 38662.9599,
+            "delta": 12858.2893
+          },
+          {
+            "key": "BFT-03",
+            "label": "虛擬PE袋產品03",
+            "prior": 53950.717,
+            "current": 38086.3888,
+            "delta": -15864.328199999996
+          },
+          {
+            "key": "ENP-OEM-02",
+            "label": "虛擬NBR產品02代工",
+            "prior": 22595.3255,
+            "current": 38041.7135,
+            "delta": 15446.387999999999
+          },
+          {
+            "key": "ENQ-01",
+            "label": "虛擬NBR產品01",
+            "prior": 9542.5649,
+            "current": 37840.6584,
+            "delta": 28298.093500000003
+          },
+          {
+            "key": "ENQ-OEM-06",
+            "label": "虛擬NBR產品06代工",
+            "prior": 14105.1001,
+            "current": 37336.6803,
+            "delta": 23231.5802
+          },
+          {
+            "key": "EZB-02",
+            "label": "虛擬PEVA產品02",
+            "prior": 36145.1129,
+            "current": 37153.0435,
+            "delta": 1007.9305999999997
+          },
+          {
+            "key": "EBQ-OEM-04",
+            "label": "虛擬BRE產品04代工",
+            "prior": 41479.5542,
+            "current": 35734.9991,
+            "delta": -5744.555099999998
+          },
+          {
+            "key": "EBN-01",
+            "label": "虛擬BRE產品01",
+            "prior": 8931.4683,
+            "current": 35470.4403,
+            "delta": 26538.972
+          },
+          {
+            "key": "BFL-01",
+            "label": "虛擬PE袋產品01",
+            "prior": 26152.5979,
+            "current": 35434.4576,
+            "delta": 9281.8597
+          },
+          {
+            "key": "CWH-02",
+            "label": "虛擬H產品02",
+            "prior": 10036.24,
+            "current": 34554.1743,
+            "delta": 24517.9343
+          },
+          {
+            "key": "EBN-03",
+            "label": "虛擬BRE產品03",
+            "prior": 37148.5432,
+            "current": 34105.0792,
+            "delta": -3043.464
+          },
+          {
+            "key": "BZB-01",
+            "label": "虛擬PE袋產品01",
+            "prior": 60472.7257,
+            "current": 33767.6126,
+            "delta": -26705.113100000002
+          },
+          {
+            "key": "END-01",
+            "label": "虛擬NBR產品01",
+            "prior": 33709.5948,
+            "current": 33698.7703,
+            "delta": -10.824500000002445
+          },
+          {
+            "key": "EBB-OEM-02",
+            "label": "虛擬暖暖包產品02代工",
+            "prior": 12506.347,
+            "current": 33316.0277,
+            "delta": 20809.680699999997
+          },
+          {
+            "key": "EBB-01",
+            "label": "虛擬暖暖包產品01",
+            "prior": 27786.1209,
+            "current": 32901.478,
+            "delta": 5115.357100000001
+          },
+          {
+            "key": "BFL-06",
+            "label": "虛擬PE袋產品06",
+            "prior": 29723.2259,
+            "current": 32600.9481,
+            "delta": 2877.7222
+          },
+          {
+            "key": "EBD-OEM-04",
+            "label": "虛擬BRE產品04代工",
+            "prior": 31348.3568,
+            "current": 32507.093,
+            "delta": 1158.7361999999994
+          },
+          {
+            "key": "CWM-03",
+            "label": "虛擬M產品03",
+            "prior": 8325.4779,
+            "current": 31932.1414,
+            "delta": 23606.663500000002
+          },
+          {
+            "key": "EBP-OEM-04",
+            "label": "虛擬BRE產品04代工",
+            "prior": 60608.0439,
+            "current": 31872.3941,
+            "delta": -28735.649799999996
+          },
+          {
+            "key": "ENP-01",
+            "label": "虛擬NBR產品01",
+            "prior": 1376.7701,
+            "current": 31722.7142,
+            "delta": 30345.944099999997
+          },
+          {
+            "key": "ENP-05",
+            "label": "虛擬NBR產品05",
+            "prior": 7163.73,
+            "current": 31446.1599,
+            "delta": 24282.4299
+          },
+          {
+            "key": "ENN-OEM-06",
+            "label": "虛擬NBR產品06代工",
+            "prior": 40115.0239,
+            "current": 31395.4943,
+            "delta": -8719.529600000002
+          },
+          {
+            "key": "BFL-04",
+            "label": "虛擬PE袋產品04",
+            "prior": 17058.1547,
+            "current": 30571.629,
+            "delta": 13513.474300000002
+          },
+          {
+            "key": "EBQ-05",
+            "label": "虛擬BRE產品05",
+            "prior": 28941.2173,
+            "current": 30367.9318,
+            "delta": 1426.7144999999982
+          },
+          {
+            "key": "EBQ-OEM-06",
+            "label": "虛擬BRE產品06代工",
+            "prior": 22538.0234,
+            "current": 30017.3688,
+            "delta": 7479.345400000002
+          },
+          {
+            "key": "CWP-05",
+            "label": "虛擬P產品05",
+            "prior": 13115.842,
+            "current": 29832.5632,
+            "delta": 16716.7212
+          },
+          {
+            "key": "CSA-06",
+            "label": "虛擬CSA產品06",
+            "prior": 26948.0451,
+            "current": 28942.1009,
+            "delta": 1994.055800000002
+          },
+          {
+            "key": "ENP-OEM-06",
+            "label": "虛擬NBR產品06代工",
+            "prior": 11543.0803,
+            "current": 28356.3392,
+            "delta": 16813.2589
+          },
+          {
+            "key": "BZT-02",
+            "label": "虛擬PE袋產品02",
+            "prior": 46048.758,
+            "current": 28332.8926,
+            "delta": -17715.865400000002
+          },
+          {
+            "key": "BZZ-01",
+            "label": "虛擬PE袋產品01",
+            "prior": 35170.2237,
+            "current": 27815.9144,
+            "delta": -7354.309300000001
+          },
+          {
+            "key": "EZB-06",
+            "label": "虛擬PEVA產品06",
+            "prior": 18139.3659,
+            "current": 27280.5684,
+            "delta": 9141.2025
+          },
+          {
+            "key": "BZZ-05",
+            "label": "虛擬PE袋產品05",
+            "prior": 6429.9101,
+            "current": 27197.3317,
+            "delta": 20767.421599999998
+          },
+          {
+            "key": "ENN-05",
+            "label": "虛擬NBR產品05",
+            "prior": 9498.5046,
+            "current": 27050.0896,
+            "delta": 17551.585
+          },
+          {
+            "key": "BV1-02",
+            "label": "虛擬重包裝產品02",
+            "prior": 14554.1907,
+            "current": 26969.2103,
+            "delta": 12415.0196
+          },
+          {
+            "key": "ENN-OEM-02",
+            "label": "虛擬NBR產品02代工",
+            "prior": 20992.7576,
+            "current": 26697.8409,
+            "delta": 5705.083299999998
+          },
+          {
+            "key": "CSA-03",
+            "label": "虛擬CSA產品03",
+            "prior": 37520.5627,
+            "current": 26146.4474,
+            "delta": -11374.115300000001
+          },
+          {
+            "key": "BFL-02",
+            "label": "虛擬PE袋產品02",
+            "prior": 15923.0905,
+            "current": 26037.3767,
+            "delta": 10114.2862
+          },
+          {
+            "key": "ENP-03",
+            "label": "虛擬NBR產品03",
+            "prior": 25223.3397,
+            "current": 24783.2344,
+            "delta": -440.10529999999926
+          },
+          {
+            "key": "EBB-OEM-04",
+            "label": "虛擬暖暖包產品04代工",
+            "prior": 9208.8433,
+            "current": 23996.4586,
+            "delta": 14787.615300000001
+          },
+          {
+            "key": "ENQ-OEM-02",
+            "label": "虛擬NBR產品02代工",
+            "prior": 7385.8699,
+            "current": 23956.564,
+            "delta": 16570.6941
+          },
+          {
+            "key": "END-03",
+            "label": "虛擬NBR產品03",
+            "prior": 30810.8158,
+            "current": 23935.7198,
+            "delta": -6875.096000000001
+          },
+          {
+            "key": "BV1-06",
+            "label": "虛擬重包裝產品06",
+            "prior": 11652.6539,
+            "current": 23922.8381,
+            "delta": 12270.184200000002
+          },
+          {
+            "key": "CWP-04",
+            "label": "虛擬P產品04",
+            "prior": 16683.6318,
+            "current": 23839.0635,
+            "delta": 7155.431700000001
+          },
+          {
+            "key": "BZB-06",
+            "label": "虛擬PE袋產品06",
+            "prior": 34750.7449,
+            "current": 23486.9136,
+            "delta": -11263.831299999998
+          },
+          {
+            "key": "BZB-05",
+            "label": "虛擬PE袋產品05",
+            "prior": 62944.3574,
+            "current": 23201.2663,
+            "delta": -39743.091100000005
+          },
+          {
+            "key": "BV1-05",
+            "label": "虛擬重包裝產品05",
+            "prior": 15882.4753,
+            "current": 22412.4936,
+            "delta": 6530.018300000002
+          },
+          {
+            "key": "BZS-04",
+            "label": "虛擬PE袋產品04",
+            "prior": 53191.2035,
+            "current": 22278.8598,
+            "delta": -30912.343700000005
+          },
+          {
+            "key": "ENN-01",
+            "label": "虛擬NBR產品01",
+            "prior": 8896.9688,
+            "current": 22213.0205,
+            "delta": 13316.051699999998
+          },
+          {
+            "key": "BFT-01",
+            "label": "虛擬PE袋產品01",
+            "prior": 9540.0703,
+            "current": 22152.6296,
+            "delta": 12612.5593
+          },
+          {
+            "key": "BFL-03",
+            "label": "虛擬PE袋產品03",
+            "prior": 9947.6084,
+            "current": 21788.9471,
+            "delta": 11841.338700000002
+          },
+          {
+            "key": "ENQ-OEM-04",
+            "label": "虛擬NBR產品04代工",
+            "prior": 13131.5295,
+            "current": 21609.4916,
+            "delta": 8477.9621
+          },
+          {
+            "key": "BV1-01",
+            "label": "虛擬重包裝產品01",
+            "prior": 18659.6338,
+            "current": 20909.4342,
+            "delta": 2249.8004
+          },
+          {
+            "key": "ENQ-05",
+            "label": "虛擬NBR產品05",
+            "prior": 15850.1291,
+            "current": 20871.2102,
+            "delta": 5021.081100000001
+          },
+          {
+            "key": "ENN-OEM-04",
+            "label": "虛擬NBR產品04代工",
+            "prior": 12035.622,
+            "current": 20712.4792,
+            "delta": 8676.857200000002
+          },
+          {
+            "key": "BZB-02",
+            "label": "虛擬PE袋產品02",
+            "prior": 0,
+            "current": 20693.3324,
+            "delta": 20693.3324
+          },
+          {
+            "key": "CWM-02",
+            "label": "虛擬M產品02",
+            "prior": 5789.72,
+            "current": 20424.5175,
+            "delta": 14634.7975
+          },
+          {
+            "key": "EBB-03",
+            "label": "虛擬暖暖包產品03",
+            "prior": 32787.5461,
+            "current": 20354.2105,
+            "delta": -12433.335599999999
+          },
+          {
+            "key": "CWP-06",
+            "label": "虛擬P產品06",
+            "prior": 21982.0524,
+            "current": 20199.8851,
+            "delta": -1782.167300000001
+          },
+          {
+            "key": "BZS-01",
+            "label": "虛擬PE袋產品01",
+            "prior": 21865.749,
+            "current": 20112.8232,
+            "delta": -1752.925800000001
+          },
+          {
+            "key": "ENN-03",
+            "label": "虛擬NBR產品03",
+            "prior": 6615.4665,
+            "current": 19591.7047,
+            "delta": 12976.238199999998
+          },
+          {
+            "key": "BZS-06",
+            "label": "虛擬PE袋產品06",
+            "prior": 12638.2745,
+            "current": 18819.7545,
+            "delta": 6181.48
+          },
+          {
+            "key": "EZB-03",
+            "label": "虛擬PEVA產品03",
+            "prior": 43279.11,
+            "current": 18536.9447,
+            "delta": -24742.1653
+          },
+          {
+            "key": "CWH-01",
+            "label": "虛擬H產品01",
+            "prior": 6724.7213,
+            "current": 17861.4195,
+            "delta": 11136.698199999999
+          },
+          {
+            "key": "CWH-04",
+            "label": "虛擬H產品04",
+            "prior": 49605.007,
+            "current": 17834.7234,
+            "delta": -31770.2836
+          },
+          {
+            "key": "CWM-01",
+            "label": "虛擬M產品01",
+            "prior": 12056.5668,
+            "current": 17742.6208,
+            "delta": 5686.054
+          },
+          {
+            "key": "BFT-02",
+            "label": "虛擬PE袋產品02",
+            "prior": 22350.0388,
+            "current": 17423.0933,
+            "delta": -4926.945499999998
+          },
+          {
+            "key": "BFT-06",
+            "label": "虛擬PE袋產品06",
+            "prior": 28655.4685,
+            "current": 16778.3443,
+            "delta": -11877.124199999998
+          },
+          {
+            "key": "CSA-04",
+            "label": "虛擬CSA產品04",
+            "prior": 39811.0248,
+            "current": 16618.0482,
+            "delta": -23192.976599999998
+          },
+          {
+            "key": "BV1-04",
+            "label": "虛擬重包裝產品04",
+            "prior": 38308.4731,
+            "current": 16283.3063,
+            "delta": -22025.166800000003
+          },
+          {
+            "key": "END-OEM-02",
+            "label": "虛擬NBR產品02代工",
+            "prior": 53030.1867,
+            "current": 15904.7236,
+            "delta": -37125.4631
+          },
+          {
+            "key": "CWP-03",
+            "label": "虛擬P產品03",
+            "prior": 29573.3369,
+            "current": 15635.3438,
+            "delta": -13937.993099999998
+          },
+          {
+            "key": "EBB-OEM-06",
+            "label": "虛擬暖暖包產品06代工",
+            "prior": 31096.7595,
+            "current": 15607.547,
+            "delta": -15489.2125
+          },
+          {
+            "key": "EBN-OEM-04",
+            "label": "虛擬BRE產品04代工",
+            "prior": 50387.875,
+            "current": 15424.3264,
+            "delta": -34963.5486
+          },
+          {
+            "key": "CWP-02",
+            "label": "虛擬P產品02",
+            "prior": 60910.8584,
+            "current": 14571.1718,
+            "delta": -46339.6866
+          },
+          {
+            "key": "EZB-05",
+            "label": "虛擬PEVA產品05",
+            "prior": 29147.8791,
+            "current": 14527.17,
+            "delta": -14620.709099999998
+          },
+          {
+            "key": "CWM-04",
+            "label": "虛擬M產品04",
+            "prior": 10493.0085,
+            "current": 14239.4058,
+            "delta": 3746.3973000000005
+          },
+          {
+            "key": "BZS-02",
+            "label": "虛擬PE袋產品02",
+            "prior": 38287.514,
+            "current": 13765.0436,
+            "delta": -24522.470400000002
+          },
+          {
+            "key": "BV1-03",
+            "label": "虛擬重包裝產品03",
+            "prior": 31131.5043,
+            "current": 13284.2118,
+            "delta": -17847.292500000003
+          },
+          {
+            "key": "CWP-01",
+            "label": "虛擬P產品01",
+            "prior": 19862.9846,
+            "current": 12635.2445,
+            "delta": -7227.740099999999
+          },
+          {
+            "key": "CWM-06",
+            "label": "虛擬M產品06",
+            "prior": 8458.1168,
+            "current": 12110.8394,
+            "delta": 3652.722600000001
+          },
+          {
+            "key": "CWM-05",
+            "label": "虛擬M產品05",
+            "prior": 21685.018,
+            "current": 11618.0375,
+            "delta": -10066.9805
+          },
+          {
+            "key": "EBQ-03",
+            "label": "虛擬BRE產品03",
+            "prior": 40589.2895,
+            "current": 11474.732,
+            "delta": -29114.5575
+          },
+          {
+            "key": "ENP-OEM-04",
+            "label": "虛擬NBR產品04代工",
+            "prior": 2959.2099,
+            "current": 7849.316,
+            "delta": 4890.1061
+          },
+          {
+            "key": "END-OEM-06",
+            "label": "虛擬NBR產品06代工",
+            "prior": 38665.583,
+            "current": 6253.7294,
+            "delta": -32411.8536
+          },
+          {
+            "key": "ZZZ-01",
+            "label": "虛擬未分類測試產品01",
+            "prior": 23663.0984,
+            "current": 1848.7573,
+            "delta": -21814.341099999998
+          },
+          {
+            "key": "EBN-05",
+            "label": "虛擬BRE產品05",
+            "prior": 10219.0557,
+            "current": 0,
+            "delta": -10219.0557
+          }
+        ],
+        "observations": [
+          {
+            "code": "net_sales_usd",
+            "label": "Net sales",
+            "value": 4728630.6434,
+            "unit": "USD"
+          },
+          {
+            "code": "gross_profit_usd",
+            "label": "Gross profit",
+            "value": 1272946.65,
+            "unit": "USD"
+          },
+          {
+            "code": "gross_margin",
+            "label": "Gross margin",
+            "value": 0.2691998479045342,
+            "unit": "fraction"
+          },
+          {
+            "code": "order_count",
+            "label": "Distinct orders",
+            "value": 233,
+            "unit": "count"
+          },
+          {
+            "code": "sales_line_count",
+            "label": "Sales lines",
+            "value": 684,
+            "unit": "count"
+          },
+          {
+            "code": "full_return_line_count",
+            "label": "Full return lines",
+            "value": 10,
+            "unit": "count"
+          },
+          {
+            "code": "partial_return_line_count",
+            "label": "Partial return lines",
+            "value": 65,
+            "unit": "count"
+          },
+          {
+            "code": "allowance_line_count",
+            "label": "Allowance lines",
+            "value": 46,
+            "unit": "count"
+          },
+          {
+            "code": "negative_margin_line_count",
+            "label": "Negative margin lines",
+            "value": 11,
+            "unit": "count"
+          },
+          {
+            "code": "return_rate",
+            "label": "Return rate",
+            "value": 0.026126657070237893,
+            "unit": "fraction"
+          }
+        ]
+      }
+    },
+    {
+      "name": "early",
+      "http": 200,
+      "status": "ok",
+      "filters": {
+        "month": "202401",
+        "company": "All",
+        "product": "All",
+        "customer": "All",
+        "salesperson": "All",
+        "plant": "All",
+        "costCenter": "All"
+      },
+      "kpis": {
+        "netSalesUSD": 8499607.9607,
+        "netCostUSD": 6268175.8347,
+        "grossProfitUSD": 2231432.126,
+        "netQtyKG": 3125834.53,
+        "salesQtyKG": 3198340.88,
+        "returnQtyKG": 72506.35,
+        "orderCount": 516,
+        "salesLineCount": 1567,
+        "fullReturnLineCount": 20,
+        "partialReturnLineCount": 138,
+        "allowanceLineCount": 116,
+        "negativeMarginLineCount": 31,
+        "grossMarginPercent": 0.2625335352309857,
+        "returnRatePercent": 0.02266998819713051,
+        "averageSellingPriceUSD": 2.719148399931458
+      },
+      "analysis": {
+        "priorYearNetSalesUSD": null,
+        "yoyGrowth": null,
+        "ytdNetSalesUSD": 8499607.9607,
+        "rolling3NetSalesUSD": null,
+        "rolling12NetSalesUSD": null,
+        "historyStatus": "insufficient_history",
+        "cr5": 0.08329861547422375,
+        "hhi": 0.007382101030877053,
+        "concentrationStatus": "available",
+        "portfolio": {
+          "revenueMedian": 60780.36215,
+          "weightedMargin": 0.2625335352309857
+        },
+        "waterfall": [],
+        "observations": [
+          {
+            "code": "net_sales_usd",
+            "label": "Net sales",
+            "value": 8499607.9607,
+            "unit": "USD"
+          },
+          {
+            "code": "gross_profit_usd",
+            "label": "Gross profit",
+            "value": 2231432.126,
+            "unit": "USD"
+          },
+          {
+            "code": "gross_margin",
+            "label": "Gross margin",
+            "value": 0.2625335352309857,
+            "unit": "fraction"
+          },
+          {
+            "code": "order_count",
+            "label": "Distinct orders",
+            "value": 516,
+            "unit": "count"
+          },
+          {
+            "code": "sales_line_count",
+            "label": "Sales lines",
+            "value": 1567,
+            "unit": "count"
+          },
+          {
+            "code": "full_return_line_count",
+            "label": "Full return lines",
+            "value": 20,
+            "unit": "count"
+          },
+          {
+            "code": "partial_return_line_count",
+            "label": "Partial return lines",
+            "value": 138,
+            "unit": "count"
+          },
+          {
+            "code": "allowance_line_count",
+            "label": "Allowance lines",
+            "value": 116,
+            "unit": "count"
+          },
+          {
+            "code": "negative_margin_line_count",
+            "label": "Negative margin lines",
+            "value": 31,
+            "unit": "count"
+          },
+          {
+            "code": "return_rate",
+            "label": "Return rate",
+            "value": 0.02266998819713051,
+            "unit": "fraction"
+          }
+        ]
+      }
+    },
+    {
+      "name": "future",
+      "http": 200,
+      "status": "no_data",
+      "filters": {
+        "month": "202610",
+        "company": "All",
+        "product": "All",
+        "customer": "All",
+        "salesperson": "All",
+        "plant": "All",
+        "costCenter": "All"
+      },
+      "kpis": {
+        "netSalesUSD": null,
+        "netCostUSD": null,
+        "grossProfitUSD": null,
+        "netQtyKG": null,
+        "salesQtyKG": null,
+        "returnQtyKG": null,
+        "orderCount": null,
+        "salesLineCount": null,
+        "fullReturnLineCount": null,
+        "partialReturnLineCount": null,
+        "allowanceLineCount": null,
+        "negativeMarginLineCount": null,
+        "grossMarginPercent": null,
+        "returnRatePercent": null,
+        "averageSellingPriceUSD": null
+      },
+      "analysis": {
+        "priorYearNetSalesUSD": null,
+        "yoyGrowth": null,
+        "ytdNetSalesUSD": null,
+        "rolling3NetSalesUSD": null,
+        "rolling12NetSalesUSD": null,
+        "historyStatus": "insufficient_history",
+        "cr5": null,
+        "hhi": null,
+        "concentrationStatus": "no_data",
+        "portfolio": {
+          "revenueMedian": null,
+          "weightedMargin": null
+        },
+        "waterfall": [],
+        "observations": []
+      }
+    },
+    {
+      "name": "all",
+      "http": 200,
+      "status": "ok",
+      "filters": {
+        "month": "All",
+        "company": "All",
+        "product": "All",
+        "customer": "All",
+        "salesperson": "All",
+        "plant": "All",
+        "costCenter": "All"
+      },
+      "kpis": {
+        "netSalesUSD": 350835465.5863,
+        "netCostUSD": 258256100.7729,
+        "grossProfitUSD": 92579364.8134,
+        "netQtyKG": 124320388.09,
+        "salesQtyKG": 126819350.68,
+        "returnQtyKG": 2498962.59,
+        "orderCount": 20111,
+        "salesLineCount": 60000,
+        "fullReturnLineCount": 581,
+        "partialReturnLineCount": 5472,
+        "allowanceLineCount": 4701,
+        "negativeMarginLineCount": 1177,
+        "grossMarginPercent": 0.2638825714460927,
+        "returnRatePercent": 0.019704899738097286,
+        "averageSellingPriceUSD": 2.8220267888185613
+      },
+      "analysis": {
+        "priorYearNetSalesUSD": null,
+        "yoyGrowth": null,
+        "ytdNetSalesUSD": null,
+        "rolling3NetSalesUSD": null,
+        "rolling12NetSalesUSD": null,
+        "historyStatus": "not_applicable",
+        "cr5": 0.03612112046717448,
+        "hhi": 0.004491452883197038,
+        "concentrationStatus": "available",
+        "portfolio": {
+          "revenueMedian": 2650497.9171,
+          "weightedMargin": 0.2638825714460927
+        },
+        "waterfall": [],
+        "observations": [
+          {
+            "code": "net_sales_usd",
+            "label": "Net sales",
+            "value": 350835465.5863,
+            "unit": "USD"
+          },
+          {
+            "code": "gross_profit_usd",
+            "label": "Gross profit",
+            "value": 92579364.8134,
+            "unit": "USD"
+          },
+          {
+            "code": "gross_margin",
+            "label": "Gross margin",
+            "value": 0.2638825714460927,
+            "unit": "fraction"
+          },
+          {
+            "code": "order_count",
+            "label": "Distinct orders",
+            "value": 20111,
+            "unit": "count"
+          },
+          {
+            "code": "sales_line_count",
+            "label": "Sales lines",
+            "value": 60000,
+            "unit": "count"
+          },
+          {
+            "code": "full_return_line_count",
+            "label": "Full return lines",
+            "value": 581,
+            "unit": "count"
+          },
+          {
+            "code": "partial_return_line_count",
+            "label": "Partial return lines",
+            "value": 5472,
+            "unit": "count"
+          },
+          {
+            "code": "allowance_line_count",
+            "label": "Allowance lines",
+            "value": 4701,
+            "unit": "count"
+          },
+          {
+            "code": "negative_margin_line_count",
+            "label": "Negative margin lines",
+            "value": 1177,
+            "unit": "count"
+          },
+          {
+            "code": "return_rate",
+            "label": "Return rate",
+            "value": 0.019704899738097286,
+            "unit": "fraction"
+          }
+        ]
+      }
+    },
+    {
+      "name": "invalid",
+      "http": 400,
+      "status": "error",
+      "error": {
+        "code": "invalid_member",
+        "message": "Unknown product key."
+      }
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+[
+  {
+    "id": "D00",
+    "bodyWidth": 375,
+    "build": [
+      "/assets/index-Dc4U2ukl.js"
+    ],
+    "heading": "D00 決策首頁 (全部公司 (All))",
+    "width": 390
+  },
+  {
+    "id": "D01",
+    "bodyWidth": 375,
+    "build": [
+      "/assets/index-Dc4U2ukl.js"
+    ],
+    "heading": "D01 銷售總覽 (Executive Sales)",
+    "width": 390
+  },
+  {
+    "id": "D02",
+    "bodyWidth": 375,
+    "build": [
+      "/assets/index-Dc4U2ukl.js"
+    ],
+    "heading": "D02 銷售動能 (Sales Momentum)",
+    "width": 390
+  },
+  {
+    "id": "D04",
+    "bodyWidth": 375,
+    "build": [
+      "/assets/index-Dc4U2ukl.js"
+    ],
+    "heading": "D04 產品組合 (Product Mix)",
+    "width": 390
+  },
+  {
+    "id": "D06",
+    "bodyWidth": 375,
+    "build": [
+      "/assets/index-Dc4U2ukl.js"
+    ],
+    "heading": "D06 客戶貢獻 (Customer Contribution)",
+    "width": 390
+  },
+  {
+    "id": "D08",
+    "bodyWidth": 375,
+    "build": [
+      "/assets/index-Dc4U2ukl.js"
+    ],
+    "heading": "D08 獲利品質 (Profitability)",
+    "width": 390
+  },
+  {
+    "id": "D11",
+    "bodyWidth": 375,
+    "build": [
+      "/assets/index-Dc4U2ukl.js"
+    ],
+    "heading": "D11 客戶集中度 (Customer Concentration)",
+    "width": 390
+  },
+  {
+    "id": "D13",
+    "bodyWidth": 375,
+    "build": [
+      "/assets/index-Dc4U2ukl.js"
+    ],
+    "heading": "D13 業務員實績 (Salesperson Actuals)",
+    "width": 390
+  },
+  {
+    "id": "D14",
+    "bodyWidth": 375,
+    "build": [
+      "/assets/index-Dc4U2ukl.js"
+    ],
+    "heading": "D14 產品營收與毛利矩陣 (Product Portfolio)",
+    "width": 390
+  },
+  {
+    "id": "D15",
+    "bodyWidth": 375,
+    "build": [
+      "/assets/index-Dc4U2ukl.js"
+    ],
+    "heading": "D15 累計與滾動銷售 (Rolling Sales)",
+    "width": 390
+  },
+  {
+    "id": "D16",
+    "bodyWidth": 375,
+    "build": [
+      "/assets/index-Dc4U2ukl.js"
+    ],
+    "heading": "D16 成長貢獻 (Growth Contribution)",
+    "width": 390
+  },
+  {
+    "id": "D18",
+    "bodyWidth": 375,
+    "build": [
+      "/assets/index-Dc4U2ukl.js"
+    ],
+    "heading": "D18 銷售觀察 (Sales Observations)",
+    "width": 390
+  }
+]

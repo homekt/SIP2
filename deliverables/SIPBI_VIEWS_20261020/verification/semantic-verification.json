@@ -1,0 +1,117 @@
+{
+  "testedAt": "2026-10-20T07:43:35.290Z",
+  "base": "http://localhost:5151",
+  "checks": [
+    {
+      "page": "D00",
+      "netSalesUSD": 16234174.4534,
+      "grossProfitUSD": 4361365.6966,
+      "orders": 811,
+      "passed": true
+    },
+    {
+      "page": "D01",
+      "netSalesUSD": 16234174.4534,
+      "grossProfitUSD": 4361365.6966,
+      "orders": 811,
+      "passed": true
+    },
+    {
+      "page": "D02",
+      "netSalesUSD": 16234174.4534,
+      "grossProfitUSD": 4361365.6966,
+      "orders": 811,
+      "passed": true
+    },
+    {
+      "page": "D04",
+      "netSalesUSD": 16234174.4534,
+      "grossProfitUSD": 4361365.6966,
+      "orders": 811,
+      "passed": true
+    },
+    {
+      "page": "D06",
+      "netSalesUSD": 16234174.4534,
+      "grossProfitUSD": 4361365.6966,
+      "orders": 811,
+      "passed": true
+    },
+    {
+      "page": "D08",
+      "netSalesUSD": 16234174.4534,
+      "grossProfitUSD": 4361365.6966,
+      "orders": 811,
+      "passed": true
+    },
+    {
+      "page": "D11",
+      "netSalesUSD": 16234174.4534,
+      "grossProfitUSD": 4361365.6966,
+      "orders": 811,
+      "passed": true
+    },
+    {
+      "page": "D13",
+      "netSalesUSD": 16234174.4534,
+      "grossProfitUSD": 4361365.6966,
+      "orders": 811,
+      "passed": true
+    },
+    {
+      "page": "D14",
+      "netSalesUSD": 16234174.4534,
+      "grossProfitUSD": 4361365.6966,
+      "orders": 811,
+      "passed": true
+    },
+    {
+      "page": "D15",
+      "netSalesUSD": 16234174.4534,
+      "grossProfitUSD": 4361365.6966,
+      "orders": 811,
+      "passed": true
+    },
+    {
+      "page": "D16",
+      "netSalesUSD": 16234174.4534,
+      "grossProfitUSD": 4361365.6966,
+      "orders": 811,
+      "passed": true
+    },
+    {
+      "page": "D18",
+      "netSalesUSD": 16234174.4534,
+      "grossProfitUSD": 4361365.6966,
+      "orders": 811,
+      "passed": true
+    }
+  ],
+  "source": {
+    "status": "ok",
+    "ready": true,
+    "probe": {
+      "salesLineCount": 60000,
+      "orderCount": 20111
+    },
+    "source": {
+      "server": "localhost:25000",
+      "database": "JDE_SALES_CUBE_20261020",
+      "cube": "JDE Sales",
+      "dateRole": "Invoice Date",
+      "currency": "USD",
+      "quantityUnit": "KG",
+      "synthetic": true,
+      "coverageStart": "202401",
+      "coverageEnd": "202609",
+      "queriedAt": "2026-10-20T07:43:35.184Z"
+    }
+  },
+  "customerPopulation": 238,
+  "fullCumulativeShare": 1,
+  "cr5": 0.05745023938095411,
+  "waterfallProductCount": 132,
+  "waterfallDelta": 2498220.7443000013,
+  "earlyHistoryNull": true,
+  "futureNoData": true
+}

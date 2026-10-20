@@ -1,0 +1,10 @@
+{
+  "SPKPRDDTA.F5530Z20.csv": {
+    "sha256": "89509c1d30ab9cd26b4c255b701724e2368089404d121603ce14eadfdb19b2d9",
+    "reproduced_identically": true
+  },
+  "CGPRDDTA.F0006.csv": {
+    "sha256": "eded084abec0a01aa31d6449c0d1b7993bc898cf75ad6d8f62345bca3ef53369",
+    "reproduced_identically": true
+  }
+}

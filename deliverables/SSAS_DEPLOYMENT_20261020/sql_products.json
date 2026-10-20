@@ -1,0 +1,662 @@
+[
+  {
+    "ProductKey": "BFL-01",
+    "SalesLineCount": 420,
+    "NetSalesUSD": 1525831.5752
+  },
+  {
+    "ProductKey": "BFL-02",
+    "SalesLineCount": 480,
+    "NetSalesUSD": 1851550.8383
+  },
+  {
+    "ProductKey": "BFL-03",
+    "SalesLineCount": 435,
+    "NetSalesUSD": 1708236.1042
+  },
+  {
+    "ProductKey": "BFL-04",
+    "SalesLineCount": 431,
+    "NetSalesUSD": 1770503.7518
+  },
+  {
+    "ProductKey": "BFL-05",
+    "SalesLineCount": 447,
+    "NetSalesUSD": 1998931.4071
+  },
+  {
+    "ProductKey": "BFL-06",
+    "SalesLineCount": 451,
+    "NetSalesUSD": 2129721.1560
+  },
+  {
+    "ProductKey": "BFT-01",
+    "SalesLineCount": 444,
+    "NetSalesUSD": 1935040.1657
+  },
+  {
+    "ProductKey": "BFT-02",
+    "SalesLineCount": 467,
+    "NetSalesUSD": 2172733.3977
+  },
+  {
+    "ProductKey": "BFT-03",
+    "SalesLineCount": 451,
+    "NetSalesUSD": 2177270.6929
+  },
+  {
+    "ProductKey": "BFT-04",
+    "SalesLineCount": 490,
+    "NetSalesUSD": 2494096.3032
+  },
+  {
+    "ProductKey": "BFT-05",
+    "SalesLineCount": 481,
+    "NetSalesUSD": 2536920.3368
+  },
+  {
+    "ProductKey": "BFT-06",
+    "SalesLineCount": 444,
+    "NetSalesUSD": 2497702.5673
+  },
+  {
+    "ProductKey": "BV1-01",
+    "SalesLineCount": 465,
+    "NetSalesUSD": 1359366.3628
+  },
+  {
+    "ProductKey": "BV1-02",
+    "SalesLineCount": 448,
+    "NetSalesUSD": 1414059.9439
+  },
+  {
+    "ProductKey": "BV1-03",
+    "SalesLineCount": 464,
+    "NetSalesUSD": 1518074.7891
+  },
+  {
+    "ProductKey": "BV1-04",
+    "SalesLineCount": 457,
+    "NetSalesUSD": 1591691.0328
+  },
+  {
+    "ProductKey": "BV1-05",
+    "SalesLineCount": 484,
+    "NetSalesUSD": 1769624.6827
+  },
+  {
+    "ProductKey": "BV1-06",
+    "SalesLineCount": 493,
+    "NetSalesUSD": 1878345.3961
+  },
+  {
+    "ProductKey": "BZB-01",
+    "SalesLineCount": 477,
+    "NetSalesUSD": 3089179.7810
+  },
+  {
+    "ProductKey": "BZB-02",
+    "SalesLineCount": 444,
+    "NetSalesUSD": 3040679.4941
+  },
+  {
+    "ProductKey": "BZB-03",
+    "SalesLineCount": 451,
+    "NetSalesUSD": 3370832.7810
+  },
+  {
+    "ProductKey": "BZB-04",
+    "SalesLineCount": 436,
+    "NetSalesUSD": 3236040.0227
+  },
+  {
+    "ProductKey": "BZB-05",
+    "SalesLineCount": 434,
+    "NetSalesUSD": 3362863.3625
+  },
+  {
+    "ProductKey": "BZB-06",
+    "SalesLineCount": 457,
+    "NetSalesUSD": 3429522.6600
+  },
+  {
+    "ProductKey": "BZS-01",
+    "SalesLineCount": 489,
+    "NetSalesUSD": 2514505.9820
+  },
+  {
+    "ProductKey": "BZS-02",
+    "SalesLineCount": 466,
+    "NetSalesUSD": 2554114.0300
+  },
+  {
+    "ProductKey": "BZS-03",
+    "SalesLineCount": 440,
+    "NetSalesUSD": 2560908.8008
+  },
+  {
+    "ProductKey": "BZS-04",
+    "SalesLineCount": 490,
+    "NetSalesUSD": 2957021.3909
+  },
+  {
+    "ProductKey": "BZS-05",
+    "SalesLineCount": 472,
+    "NetSalesUSD": 2708557.0751
+  },
+  {
+    "ProductKey": "BZS-06",
+    "SalesLineCount": 451,
+    "NetSalesUSD": 2830547.4854
+  },
+  {
+    "ProductKey": "BZT-01",
+    "SalesLineCount": 436,
+    "NetSalesUSD": 3316323.2029
+  },
+  {
+    "ProductKey": "BZT-02",
+    "SalesLineCount": 440,
+    "NetSalesUSD": 3443120.5163
+  },
+  {
+    "ProductKey": "BZT-03",
+    "SalesLineCount": 452,
+    "NetSalesUSD": 3557424.0418
+  },
+  {
+    "ProductKey": "BZT-04",
+    "SalesLineCount": 464,
+    "NetSalesUSD": 3517732.1689
+  },
+  {
+    "ProductKey": "BZT-05",
+    "SalesLineCount": 460,
+    "NetSalesUSD": 3850693.1453
+  },
+  {
+    "ProductKey": "BZT-06",
+    "SalesLineCount": 455,
+    "NetSalesUSD": 3831233.7793
+  },
+  {
+    "ProductKey": "BZZ-01",
+    "SalesLineCount": 435,
+    "NetSalesUSD": 2508386.1976
+  },
+  {
+    "ProductKey": "BZZ-02",
+    "SalesLineCount": 459,
+    "NetSalesUSD": 3042846.1174
+  },
+  {
+    "ProductKey": "BZZ-03",
+    "SalesLineCount": 481,
+    "NetSalesUSD": 2916622.4441
+  },
+  {
+    "ProductKey": "BZZ-04",
+    "SalesLineCount": 485,
+    "NetSalesUSD": 3259410.5706
+  },
+  {
+    "ProductKey": "BZZ-05",
+    "SalesLineCount": 426,
+    "NetSalesUSD": 2748750.1411
+  },
+  {
+    "ProductKey": "BZZ-06",
+    "SalesLineCount": 448,
+    "NetSalesUSD": 3083328.0067
+  },
+  {
+    "ProductKey": "CSA-01",
+    "SalesLineCount": 471,
+    "NetSalesUSD": 2072583.5812
+  },
+  {
+    "ProductKey": "CSA-02",
+    "SalesLineCount": 478,
+    "NetSalesUSD": 2189732.6474
+  },
+  {
+    "ProductKey": "CSA-03",
+    "SalesLineCount": 433,
+    "NetSalesUSD": 2172704.9383
+  },
+  {
+    "ProductKey": "CSA-04",
+    "SalesLineCount": 431,
+    "NetSalesUSD": 2144202.7624
+  },
+  {
+    "ProductKey": "CSA-05",
+    "SalesLineCount": 461,
+    "NetSalesUSD": 2464243.3412
+  },
+  {
+    "ProductKey": "CSA-06",
+    "SalesLineCount": 430,
+    "NetSalesUSD": 2249024.9179
+  },
+  {
+    "ProductKey": "CWH-01",
+    "SalesLineCount": 479,
+    "NetSalesUSD": 3882968.3678
+  },
+  {
+    "ProductKey": "CWH-02",
+    "SalesLineCount": 460,
+    "NetSalesUSD": 4080211.7072
+  },
+  {
+    "ProductKey": "CWH-03",
+    "SalesLineCount": 472,
+    "NetSalesUSD": 3989001.0619
+  },
+  {
+    "ProductKey": "CWH-04",
+    "SalesLineCount": 467,
+    "NetSalesUSD": 3996443.4272
+  },
+  {
+    "ProductKey": "CWH-05",
+    "SalesLineCount": 466,
+    "NetSalesUSD": 4376370.0176
+  },
+  {
+    "ProductKey": "CWH-06",
+    "SalesLineCount": 468,
+    "NetSalesUSD": 4214596.4596
+  },
+  {
+    "ProductKey": "CWM-01",
+    "SalesLineCount": 435,
+    "NetSalesUSD": 1229605.6065
+  },
+  {
+    "ProductKey": "CWM-02",
+    "SalesLineCount": 466,
+    "NetSalesUSD": 1416081.0154
+  },
+  {
+    "ProductKey": "CWM-03",
+    "SalesLineCount": 434,
+    "NetSalesUSD": 1446588.6523
+  },
+  {
+    "ProductKey": "CWM-04",
+    "SalesLineCount": 427,
+    "NetSalesUSD": 1417607.7617
+  },
+  {
+    "ProductKey": "CWM-05",
+    "SalesLineCount": 448,
+    "NetSalesUSD": 1637717.5030
+  },
+  {
+    "ProductKey": "CWM-06",
+    "SalesLineCount": 439,
+    "NetSalesUSD": 1663065.0974
+  },
+  {
+    "ProductKey": "CWP-01",
+    "SalesLineCount": 453,
+    "NetSalesUSD": 1607510.2965
+  },
+  {
+    "ProductKey": "CWP-02",
+    "SalesLineCount": 475,
+    "NetSalesUSD": 1822679.4340
+  },
+  {
+    "ProductKey": "CWP-03",
+    "SalesLineCount": 455,
+    "NetSalesUSD": 1795069.2187
+  },
+  {
+    "ProductKey": "CWP-04",
+    "SalesLineCount": 448,
+    "NetSalesUSD": 1932501.2599
+  },
+  {
+    "ProductKey": "CWP-05",
+    "SalesLineCount": 430,
+    "NetSalesUSD": 1965477.2573
+  },
+  {
+    "ProductKey": "CWP-06",
+    "SalesLineCount": 451,
+    "NetSalesUSD": 2045614.7615
+  },
+  {
+    "ProductKey": "EBB-01",
+    "SalesLineCount": 450,
+    "NetSalesUSD": 2230992.2537
+  },
+  {
+    "ProductKey": "EBB-03",
+    "SalesLineCount": 433,
+    "NetSalesUSD": 2634542.3451
+  },
+  {
+    "ProductKey": "EBB-05",
+    "SalesLineCount": 434,
+    "NetSalesUSD": 2596134.8018
+  },
+  {
+    "ProductKey": "EBB-OEM-02",
+    "SalesLineCount": 448,
+    "NetSalesUSD": 2348526.7805
+  },
+  {
+    "ProductKey": "EBB-OEM-04",
+    "SalesLineCount": 423,
+    "NetSalesUSD": 2407171.3986
+  },
+  {
+    "ProductKey": "EBB-OEM-06",
+    "SalesLineCount": 472,
+    "NetSalesUSD": 2910962.9303
+  },
+  {
+    "ProductKey": "EBD-01",
+    "SalesLineCount": 468,
+    "NetSalesUSD": 3887399.3432
+  },
+  {
+    "ProductKey": "EBD-03",
+    "SalesLineCount": 460,
+    "NetSalesUSD": 3837618.8675
+  },
+  {
+    "ProductKey": "EBD-05",
+    "SalesLineCount": 400,
+    "NetSalesUSD": 3526249.4912
+  },
+  {
+    "ProductKey": "EBD-OEM-02",
+    "SalesLineCount": 463,
+    "NetSalesUSD": 4001376.3834
+  },
+  {
+    "ProductKey": "EBD-OEM-04",
+    "SalesLineCount": 405,
+    "NetSalesUSD": 3657231.5835
+  },
+  {
+    "ProductKey": "EBD-OEM-06",
+    "SalesLineCount": 459,
+    "NetSalesUSD": 4110715.4455
+  },
+  {
+    "ProductKey": "EBN-01",
+    "SalesLineCount": 442,
+    "NetSalesUSD": 2724690.9428
+  },
+  {
+    "ProductKey": "EBN-03",
+    "SalesLineCount": 463,
+    "NetSalesUSD": 3085909.2896
+  },
+  {
+    "ProductKey": "EBN-05",
+    "SalesLineCount": 446,
+    "NetSalesUSD": 3082822.3030
+  },
+  {
+    "ProductKey": "EBN-OEM-02",
+    "SalesLineCount": 487,
+    "NetSalesUSD": 2783347.6072
+  },
+  {
+    "ProductKey": "EBN-OEM-04",
+    "SalesLineCount": 436,
+    "NetSalesUSD": 2963230.3873
+  },
+  {
+    "ProductKey": "EBN-OEM-06",
+    "SalesLineCount": 432,
+    "NetSalesUSD": 2884751.2876
+  },
+  {
+    "ProductKey": "EBP-01",
+    "SalesLineCount": 437,
+    "NetSalesUSD": 2918754.5612
+  },
+  {
+    "ProductKey": "EBP-03",
+    "SalesLineCount": 464,
+    "NetSalesUSD": 3342678.4088
+  },
+  {
+    "ProductKey": "EBP-05",
+    "SalesLineCount": 470,
+    "NetSalesUSD": 3725738.4964
+  },
+  {
+    "ProductKey": "EBP-OEM-02",
+    "SalesLineCount": 416,
+    "NetSalesUSD": 2855883.7739
+  },
+  {
+    "ProductKey": "EBP-OEM-04",
+    "SalesLineCount": 499,
+    "NetSalesUSD": 3574646.7353
+  },
+  {
+    "ProductKey": "EBP-OEM-06",
+    "SalesLineCount": 463,
+    "NetSalesUSD": 3458316.3740
+  },
+  {
+    "ProductKey": "EBQ-01",
+    "SalesLineCount": 485,
+    "NetSalesUSD": 3647767.6899
+  },
+  {
+    "ProductKey": "EBQ-03",
+    "SalesLineCount": 457,
+    "NetSalesUSD": 3557886.3957
+  },
+  {
+    "ProductKey": "EBQ-05",
+    "SalesLineCount": 473,
+    "NetSalesUSD": 3904103.4224
+  },
+  {
+    "ProductKey": "EBQ-OEM-02",
+    "SalesLineCount": 459,
+    "NetSalesUSD": 3668072.0139
+  },
+  {
+    "ProductKey": "EBQ-OEM-04",
+    "SalesLineCount": 432,
+    "NetSalesUSD": 3499754.3362
+  },
+  {
+    "ProductKey": "EBQ-OEM-06",
+    "SalesLineCount": 420,
+    "NetSalesUSD": 3656605.7300
+  },
+  {
+    "ProductKey": "END-01",
+    "SalesLineCount": 415,
+    "NetSalesUSD": 2143193.2748
+  },
+  {
+    "ProductKey": "END-03",
+    "SalesLineCount": 457,
+    "NetSalesUSD": 2448889.5149
+  },
+  {
+    "ProductKey": "END-05",
+    "SalesLineCount": 449,
+    "NetSalesUSD": 2674867.2280
+  },
+  {
+    "ProductKey": "END-OEM-02",
+    "SalesLineCount": 429,
+    "NetSalesUSD": 2248741.8425
+  },
+  {
+    "ProductKey": "END-OEM-04",
+    "SalesLineCount": 471,
+    "NetSalesUSD": 2687277.4141
+  },
+  {
+    "ProductKey": "END-OEM-06",
+    "SalesLineCount": 501,
+    "NetSalesUSD": 3054850.3334
+  },
+  {
+    "ProductKey": "ENN-01",
+    "SalesLineCount": 439,
+    "NetSalesUSD": 1318093.3737
+  },
+  {
+    "ProductKey": "ENN-03",
+    "SalesLineCount": 450,
+    "NetSalesUSD": 1448391.4032
+  },
+  {
+    "ProductKey": "ENN-05",
+    "SalesLineCount": 440,
+    "NetSalesUSD": 1546066.4667
+  },
+  {
+    "ProductKey": "ENN-OEM-02",
+    "SalesLineCount": 441,
+    "NetSalesUSD": 1377561.6509
+  },
+  {
+    "ProductKey": "ENN-OEM-04",
+    "SalesLineCount": 431,
+    "NetSalesUSD": 1557616.8345
+  },
+  {
+    "ProductKey": "ENN-OEM-06",
+    "SalesLineCount": 495,
+    "NetSalesUSD": 1899844.7829
+  },
+  {
+    "ProductKey": "ENP-01",
+    "SalesLineCount": 461,
+    "NetSalesUSD": 1593222.9266
+  },
+  {
+    "ProductKey": "ENP-03",
+    "SalesLineCount": 450,
+    "NetSalesUSD": 1776131.4528
+  },
+  {
+    "ProductKey": "ENP-05",
+    "SalesLineCount": 453,
+    "NetSalesUSD": 1992102.9914
+  },
+  {
+    "ProductKey": "ENP-OEM-02",
+    "SalesLineCount": 447,
+    "NetSalesUSD": 1678331.0961
+  },
+  {
+    "ProductKey": "ENP-OEM-04",
+    "SalesLineCount": 449,
+    "NetSalesUSD": 1823050.6741
+  },
+  {
+    "ProductKey": "ENP-OEM-06",
+    "SalesLineCount": 452,
+    "NetSalesUSD": 2059812.0561
+  },
+  {
+    "ProductKey": "ENQ-01",
+    "SalesLineCount": 452,
+    "NetSalesUSD": 2024199.9772
+  },
+  {
+    "ProductKey": "ENQ-03",
+    "SalesLineCount": 454,
+    "NetSalesUSD": 2220128.0450
+  },
+  {
+    "ProductKey": "ENQ-05",
+    "SalesLineCount": 449,
+    "NetSalesUSD": 2324204.7782
+  },
+  {
+    "ProductKey": "ENQ-OEM-02",
+    "SalesLineCount": 453,
+    "NetSalesUSD": 2046543.8653
+  },
+  {
+    "ProductKey": "ENQ-OEM-04",
+    "SalesLineCount": 442,
+    "NetSalesUSD": 2196482.9763
+  },
+  {
+    "ProductKey": "ENQ-OEM-06",
+    "SalesLineCount": 454,
+    "NetSalesUSD": 2425985.5547
+  },
+  {
+    "ProductKey": "EZB-01",
+    "SalesLineCount": 458,
+    "NetSalesUSD": 2721434.0833
+  },
+  {
+    "ProductKey": "EZB-02",
+    "SalesLineCount": 427,
+    "NetSalesUSD": 2666453.4891
+  },
+  {
+    "ProductKey": "EZB-03",
+    "SalesLineCount": 450,
+    "NetSalesUSD": 2708541.7867
+  },
+  {
+    "ProductKey": "EZB-04",
+    "SalesLineCount": 492,
+    "NetSalesUSD": 3271933.5848
+  },
+  {
+    "ProductKey": "EZB-05",
+    "SalesLineCount": 482,
+    "NetSalesUSD": 3156423.0363
+  },
+  {
+    "ProductKey": "EZB-06",
+    "SalesLineCount": 448,
+    "NetSalesUSD": 2901155.0577
+  },
+  {
+    "ProductKey": "ZZZ-01",
+    "SalesLineCount": 506,
+    "NetSalesUSD": 3563829.1409
+  },
+  {
+    "ProductKey": "ZZZ-02",
+    "SalesLineCount": 440,
+    "NetSalesUSD": 3070973.0509
+  },
+  {
+    "ProductKey": "ZZZ-03",
+    "SalesLineCount": 454,
+    "NetSalesUSD": 3202473.5457
+  },
+  {
+    "ProductKey": "ZZZ-04",
+    "SalesLineCount": 481,
+    "NetSalesUSD": 3553740.5630
+  },
+  {
+    "ProductKey": "ZZZ-05",
+    "SalesLineCount": 497,
+    "NetSalesUSD": 3686270.4786
+  },
+  {
+    "ProductKey": "ZZZ-06",
+    "SalesLineCount": 458,
+    "NetSalesUSD": 3410821.0814
+  }
+]

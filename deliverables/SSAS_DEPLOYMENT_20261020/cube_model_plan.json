@@ -1,0 +1,11 @@
+{
+  "Endpoint": "localhost:25000",
+  "Database": "JDE_SALES_CUBE_20261020",
+  "Cube": "JDE Sales",
+  "SourceDatabase": "JDE_CUBE_SYNTHETIC_20261020",
+  "DatabaseDimensions": 8,
+  "CubeDimensionRoles": 12,
+  "MeasureGroups": 2,
+  "BaseMeasures": 19,
+  "CalculatedMeasures": 5
+}

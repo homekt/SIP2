@@ -1,0 +1,24 @@
+{
+  "testedAt": "2026-10-20T15:41:50.039Z",
+  "scope": "real CSV serializer invoked with DOM/URL substitutes; native browser saved download is not established",
+  "cases": [
+    {
+      "group": "customers",
+      "rows": 238,
+      "filename": "customers.csv",
+      "bytes": 40391
+    },
+    {
+      "group": "products",
+      "rows": 132,
+      "filename": "products.csv",
+      "bytes": 21464
+    },
+    {
+      "group": "salespeople",
+      "rows": 20,
+      "filename": "salespeople.csv",
+      "bytes": 3814
+    }
+  ]
+}

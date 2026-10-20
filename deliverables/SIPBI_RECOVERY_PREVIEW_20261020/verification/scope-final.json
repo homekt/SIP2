@@ -1,0 +1,38 @@
+{
+  "testedAt": "2026-10-20T12:46:30.687431+00:00",
+  "onlyThreeApplicationFilesChanged": [
+    "frontend/src/screens/D04ProductMix.tsx",
+    "frontend/src/screens/D11CustomerConcentration.tsx",
+    "frontend/src/screens/D15RollingSales.tsx"
+  ],
+  "originalApplicationSourceUnchanged": true,
+  "lanes": {
+    "agy": {
+      "changedApplicationFiles": [
+        "frontend/src/screens/D04ProductMix.tsx"
+      ],
+      "reportedChecks": "native filesystem only; no build/browser claimed"
+    },
+    "grok": {
+      "changedApplicationFiles": [
+        "frontend/src/screens/D11CustomerConcentration.tsx"
+      ],
+      "reportedChecks": "native filesystem only; no build/browser claimed"
+    },
+    "muse": {
+      "changedApplicationFiles": [
+        "frontend/src/screens/D15RollingSales.tsx"
+      ],
+      "reportedChecks": "native filesystem only; no build/browser claimed"
+    }
+  },
+  "csv": {
+    "rows": 132,
+    "allExportedMetricsMatchApi": true
+  },
+  "previewPort": 55152,
+  "apiPort": 55150,
+  "portBlocker": "Windows IPv4 exclusion5141..5240 prevents5150/5152 listen EACCES",
+  "liveEntrySha256": "46f39898f070c1e10dfc7666f4272e3b385385bd329a2e4757665ecc04db8547",
+  "previewEntrySha256": "7244046b7489c74368a3d88a44693afb9dd8b83b265cac610f3827b73acd599c"
+}

@@ -1,0 +1,1212 @@
+{
+  "dataset_id": "JDE_CUBE_SYNTHETIC_20261020",
+  "version": "1.0",
+  "is_synthetic": true,
+  "seed": 20261020,
+  "as_of": "2026-09-30",
+  "period_start": "2024-01-01",
+  "period_end": "2026-09-30",
+  "sales_rows": 60000,
+  "cost_center_rows": 30,
+  "source_columns": {
+    "F5530Z20": 63,
+    "F0006": 3
+  },
+  "companies": [
+    {
+      "CompanyKey": "00020",
+      "CompanyName": "虛擬台灣公司",
+      "LocalCurrency": "TWD"
+    },
+    {
+      "CompanyKey": "00027",
+      "CompanyName": "虛擬昆山公司",
+      "LocalCurrency": "CNY"
+    },
+    {
+      "CompanyKey": "00026",
+      "CompanyName": "虛擬檳城公司",
+      "LocalCurrency": "MYR"
+    },
+    {
+      "CompanyKey": "00029",
+      "CompanyName": "虛擬塗佈公司",
+      "LocalCurrency": "TWD"
+    },
+    {
+      "CompanyKey": "00121",
+      "CompanyName": "虛擬印尼公司",
+      "LocalCurrency": "IDR"
+    }
+  ],
+  "product_count": 132,
+  "customer_count": 250,
+  "plant_count": 10,
+  "date_encoding": "CYYDDD: (year-1900)*1000 + day_of_year; synthetic convention only",
+  "fx_direction": "SPCRR = local currency units per 1 transaction currency unit",
+  "fx_rates_are": "synthetic, not market exchange rates",
+  "quantity_unit": "KG for all rows by deliberate fixture simplification",
+  "grain": "One closed order line including cumulative returns/allowances; no separate return event date.",
+  "monthly_reporting_fx": [
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202401,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.67317679",
+      "USDPerEUR": "1.08810453"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202401,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "7.26140029",
+      "USDPerEUR": "1.08810453"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202401,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.61622880",
+      "USDPerEUR": "1.08810453"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202401,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.39455800",
+      "USDPerEUR": "1.08810453"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202401,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "15421.22491151",
+      "USDPerEUR": "1.08810453"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202402,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.72743794",
+      "USDPerEUR": "1.07375780"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202402,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "7.12504880",
+      "USDPerEUR": "1.07375780"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202402,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.51296771",
+      "USDPerEUR": "1.07375780"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202402,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.23286058",
+      "USDPerEUR": "1.07375780"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202402,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "15689.63087821",
+      "USDPerEUR": "1.07375780"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202403,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.11289601",
+      "USDPerEUR": "1.06515011"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202403,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "6.96566756",
+      "USDPerEUR": "1.06515011"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202403,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.48972371",
+      "USDPerEUR": "1.06515011"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202403,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.77646760",
+      "USDPerEUR": "1.06515011"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202403,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "16059.50970649",
+      "USDPerEUR": "1.06515011"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202404,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.39455800",
+      "USDPerEUR": "1.07019535"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202404,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "6.92979094",
+      "USDPerEUR": "1.07019535"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202404,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.56786722",
+      "USDPerEUR": "1.07019535"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202404,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.52558928",
+      "USDPerEUR": "1.07019535"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202404,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "16190.79650742",
+      "USDPerEUR": "1.07019535"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202405,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.23286058",
+      "USDPerEUR": "1.08425493"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202405,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "7.05040375",
+      "USDPerEUR": "1.08425493"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202405,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.67555346",
+      "USDPerEUR": "1.08425493"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202405,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.79148660",
+      "USDPerEUR": "1.08425493"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202405,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "15962.78680167",
+      "USDPerEUR": "1.08425493"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202406,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.77646760",
+      "USDPerEUR": "1.09440255"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202406,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "7.21661512",
+      "USDPerEUR": "1.09440255"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202406,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.71377620",
+      "USDPerEUR": "1.09440255"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202406,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.32969479",
+      "USDPerEUR": "1.09440255"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202406,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "15585.11166120",
+      "USDPerEUR": "1.09440255"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202407,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.52558928",
+      "USDPerEUR": "1.09130853"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202407,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "7.27561109",
+      "USDPerEUR": "1.09130853"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202407,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.64739363",
+      "USDPerEUR": "1.09130853"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202407,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.56478311",
+      "USDPerEUR": "1.09130853"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202407,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "15405.00386841",
+      "USDPerEUR": "1.09130853"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202408,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.79148660",
+      "USDPerEUR": "1.07781750"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202408,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "7.17315103",
+      "USDPerEUR": "1.07781750"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202408,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.53743757",
+      "USDPerEUR": "1.07781750"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202408,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.20000783",
+      "USDPerEUR": "1.07781750"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202408,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "15588.05369739",
+      "USDPerEUR": "1.07781750"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202409,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.32969479",
+      "USDPerEUR": "1.06633305"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202409,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "7.00343625",
+      "USDPerEUR": "1.06633305"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202409,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.48500113",
+      "USDPerEUR": "1.06633305"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202409,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.57074167",
+      "USDPerEUR": "1.06633305"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202409,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "15965.96597955",
+      "USDPerEUR": "1.06633305"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202410,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.56478311",
+      "USDPerEUR": "1.06741393"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202410,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "6.92250174",
+      "USDPerEUR": "1.06741393"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202410,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.53829411",
+      "USDPerEUR": "1.06741393"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202410,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.33613363",
+      "USDPerEUR": "1.06741393"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202410,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "16191.28990550",
+      "USDPerEUR": "1.06741393"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202411,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.20000783",
+      "USDPerEUR": "1.08006639"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202411,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "7.00475831",
+      "USDPerEUR": "1.08006639"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202411,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.64831921",
+      "USDPerEUR": "1.08006639"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202411,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.79248588",
+      "USDPerEUR": "1.08006639"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202411,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "16056.86369686",
+      "USDPerEUR": "1.08006639"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202412,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.57074167",
+      "USDPerEUR": "1.09265781"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202412,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "7.17457965",
+      "USDPerEUR": "1.09265781"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202412,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.71391985",
+      "USDPerEUR": "1.09265781"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202412,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.52023027",
+      "USDPerEUR": "1.09265781"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202412,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "15686.27818992",
+      "USDPerEUR": "1.09265781"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202501,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.33613363",
+      "USDPerEUR": "1.09361170"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202501,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "7.27583281",
+      "USDPerEUR": "1.09361170"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202501,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.67478310",
+      "USDPerEUR": "1.09361170"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202501,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.76967735",
+      "USDPerEUR": "1.09361170"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202501,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "15420.24799071",
+      "USDPerEUR": "1.09361170"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202502,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.79248588",
+      "USDPerEUR": "1.08205106"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202502,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "7.21542609",
+      "USDPerEUR": "1.08205106"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202502,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.56689112",
+      "USDPerEUR": "1.08205106"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202502,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.23088201",
+      "USDPerEUR": "1.08205106"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202502,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "15503.36003753",
+      "USDPerEUR": "1.08205106"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202503,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.52023027",
+      "USDPerEUR": "1.06860468"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202503,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "7.04889716",
+      "USDPerEUR": "1.06860468"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202503,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.48943929",
+      "USDPerEUR": "1.06860468"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202503,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.39921020",
+      "USDPerEUR": "1.06860468"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202503,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "15859.20149782",
+      "USDPerEUR": "1.06860468"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202504,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.76967735",
+      "USDPerEUR": "1.06563511"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202504,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "6.92935195",
+      "USDPerEUR": "1.06563511"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202504,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.51363647",
+      "USDPerEUR": "1.06563511"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202504,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.11990177",
+      "USDPerEUR": "1.06563511"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202504,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "16160.61337404",
+      "USDPerEUR": "1.06563511"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202505,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.23088201",
+      "USDPerEUR": "1.07587255"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202505,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "6.96669976",
+      "USDPerEUR": "1.07587255"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202505,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.61723588",
+      "USDPerEUR": "1.07587255"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202505,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.73035620",
+      "USDPerEUR": "1.07587255"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202505,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "16130.47897722",
+      "USDPerEUR": "1.07587255"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202506,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.39921020",
+      "USDPerEUR": "1.08990475"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202506,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "7.12660320",
+      "USDPerEUR": "1.08990475"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202506,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.70498870",
+      "USDPerEUR": "1.08990475"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202506,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.66932451",
+      "USDPerEUR": "1.08990475"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202506,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "15796.50373283",
+      "USDPerEUR": "1.08990475"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202507,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.11990177",
+      "USDPerEUR": "1.09483057"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202507,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "7.26204778",
+      "USDPerEUR": "1.09483057"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202507,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.69621540",
+      "USDPerEUR": "1.09483057"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202507,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.99291895",
+      "USDPerEUR": "1.09483057"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202507,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "15465.74294035",
+      "USDPerEUR": "1.09483057"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202508,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.73035620",
+      "USDPerEUR": "1.08612123"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202508,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "7.24850638",
+      "USDPerEUR": "1.08612123"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202508,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.59898210",
+      "USDPerEUR": "1.08612123"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202508,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.32302368",
+      "USDPerEUR": "1.08612123"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202508,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "15442.29654701",
+      "USDPerEUR": "1.08612123"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202509,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.66932451",
+      "USDPerEUR": "1.07178406"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202509,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "7.09842889",
+      "USDPerEUR": "1.07178406"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202509,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.50268465",
+      "USDPerEUR": "1.07178406"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202509,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.27553731",
+      "USDPerEUR": "1.07178406"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202509,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "15747.72105871",
+      "USDPerEUR": "1.07178406"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202510,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.99291895",
+      "USDPerEUR": "1.06500059"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202510,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "6.94979588",
+      "USDPerEUR": "1.06500059"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202510,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.49585849",
+      "USDPerEUR": "1.06500059"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202510,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.89411860",
+      "USDPerEUR": "1.06500059"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202510,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "16101.21058794",
+      "USDPerEUR": "1.06500059"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202511,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.32302368",
+      "USDPerEUR": "1.07200750"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202511,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "6.93925984",
+      "USDPerEUR": "1.07200750"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202511,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.58477955",
+      "USDPerEUR": "1.07200750"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202511,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.61004676",
+      "USDPerEUR": "1.07200750"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202511,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "16177.76849172",
+      "USDPerEUR": "1.07200750"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202512,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.27553731",
+      "USDPerEUR": "1.08636269"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202512,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "7.07650756",
+      "USDPerEUR": "1.08636269"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202512,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.68769422",
+      "USDPerEUR": "1.08636269"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202512,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.76510074",
+      "USDPerEUR": "1.08636269"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202512,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "15907.00778638",
+      "USDPerEUR": "1.08636269"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202601,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.89411860",
+      "USDPerEUR": "1.09486804"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202601,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "7.23535412",
+      "USDPerEUR": "1.09486804"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202601,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.70998323",
+      "USDPerEUR": "1.09486804"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202601,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.21672463",
+      "USDPerEUR": "1.09486804"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202601,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "15537.86461574",
+      "USDPerEUR": "1.09486804"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202602,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.61004676",
+      "USDPerEUR": "1.08970379"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202602,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "7.26975673",
+      "USDPerEUR": "1.08970379"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202602,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.63115417",
+      "USDPerEUR": "1.08970379"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202602,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.46909289",
+      "USDPerEUR": "1.08970379"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202602,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "15409.72750848",
+      "USDPerEUR": "1.08970379"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202603,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.76510074",
+      "USDPerEUR": "1.07561792"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202603,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "7.14808578",
+      "USDPerEUR": "1.07561792"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202603,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.52368210",
+      "USDPerEUR": "1.07561792"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202603,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.20957470",
+      "USDPerEUR": "1.07561792"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202603,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "15640.40513010",
+      "USDPerEUR": "1.07561792"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202604,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.21672463",
+      "USDPerEUR": "1.06556091"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202604,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "6.98220499",
+      "USDPerEUR": "1.06556091"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202604,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.48637636",
+      "USDPerEUR": "1.06556091"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202604,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.67676988",
+      "USDPerEUR": "1.06556091"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202604,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "16017.81353909",
+      "USDPerEUR": "1.06556091"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202605,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.46909289",
+      "USDPerEUR": "1.06877914"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202605,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "6.92462439",
+      "USDPerEUR": "1.06877914"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202605,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.55353567",
+      "USDPerEUR": "1.06877914"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202605,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.44114134",
+      "USDPerEUR": "1.06877914"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202605,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "16194.96518474",
+      "USDPerEUR": "1.06877914"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202606,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.20957470",
+      "USDPerEUR": "1.08231377"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202606,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "7.02828332",
+      "USDPerEUR": "1.08231377"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202606,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.66341407",
+      "USDPerEUR": "1.08231377"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202606,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.79992949",
+      "USDPerEUR": "1.08231377"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202606,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "16008.98766102",
+      "USDPerEUR": "1.08231377"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202607,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.67676988",
+      "USDPerEUR": "1.09372114"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202607,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "7.19787824",
+      "USDPerEUR": "1.09372114"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202607,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.71498986",
+      "USDPerEUR": "1.09372114"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202607,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.42326615",
+      "USDPerEUR": "1.09372114"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202607,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "15630.86784555",
+      "USDPerEUR": "1.09372114"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202608,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.44114134",
+      "USDPerEUR": "1.09251335"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202608,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "7.27748436",
+      "USDPerEUR": "1.09251335"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202608,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.66084451",
+      "USDPerEUR": "1.09251335"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202608,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.65745386",
+      "USDPerEUR": "1.09251335"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202608,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "15408.24735289",
+      "USDPerEUR": "1.09251335"
+    },
+    {
+      "CompanyKey": "00020",
+      "MonthKey": 202609,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "32.79992949",
+      "USDPerEUR": "1.07980085"
+    },
+    {
+      "CompanyKey": "00027",
+      "MonthKey": 202609,
+      "LocalCurrency": "CNY",
+      "LocalPerUSD": "7.19391218",
+      "USDPerEUR": "1.07980085"
+    },
+    {
+      "CompanyKey": "00026",
+      "MonthKey": 202609,
+      "LocalCurrency": "MYR",
+      "LocalPerUSD": "4.55075899",
+      "USDPerEUR": "1.07980085"
+    },
+    {
+      "CompanyKey": "00029",
+      "MonthKey": 202609,
+      "LocalCurrency": "TWD",
+      "LocalPerUSD": "31.20657692",
+      "USDPerEUR": "1.07980085"
+    },
+    {
+      "CompanyKey": "00121",
+      "MonthKey": 202609,
+      "LocalCurrency": "IDR",
+      "LocalPerUSD": "15545.80243732",
+      "USDPerEUR": "1.07980085"
+    }
+  ],
+  "source_sql_sha256": "3d11bb175b3a97407af68ce157bebba1bf3d437788a5733a17357e35c8361a90",
+  "live_database_modified": false,
+  "ssas_deployed_or_processed": false,
+  "source_queries_1_2_sha256": "d97305f134aeaf955316a6d6dc1f3d244f05d2e4f8913c30109308e54e8b7aae",
+  "source_scope": "Only queries 1 and 2; source_sql_sha256 is the original input file hash."
+}

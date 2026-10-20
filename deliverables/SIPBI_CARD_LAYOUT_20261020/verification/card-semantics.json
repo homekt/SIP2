@@ -1,0 +1,110 @@
+{
+  "testedAt": "2026-10-20T23:21:01.396Z",
+  "scope": "actual TSX function options and callbacks with substituted hooks; browser verification is separate",
+  "checks": [
+    {
+      "name": "D00DecisionHome: real TSX renders guards, KPIs, charts and evidence",
+      "pass": true
+    },
+    {
+      "name": "D01ExecutiveOverview: real TSX renders guards, KPIs, charts and evidence",
+      "pass": true
+    },
+    {
+      "name": "D02SalesMomentum: real TSX renders guards, KPIs, charts and evidence",
+      "pass": true
+    },
+    {
+      "name": "D04ProductMix: real TSX renders guards, KPIs, charts and evidence",
+      "pass": true
+    },
+    {
+      "name": "D06CustomerContribution: real TSX renders guards, KPIs, charts and evidence",
+      "pass": true
+    },
+    {
+      "name": "D08ProfitabilityQuality: real TSX renders guards, KPIs, charts and evidence",
+      "pass": true
+    },
+    {
+      "name": "D11CustomerConcentration: real TSX renders guards, KPIs, charts and evidence",
+      "pass": true
+    },
+    {
+      "name": "D13SalespersonPerformance: real TSX renders guards, KPIs, charts and evidence",
+      "pass": true
+    },
+    {
+      "name": "D14ProductPortfolio: real TSX renders guards, KPIs, charts and evidence",
+      "pass": true
+    },
+    {
+      "name": "D15RollingSales: real TSX renders guards, KPIs, charts and evidence",
+      "pass": true
+    },
+    {
+      "name": "D16GrowthDeclineContribution: real TSX renders guards, KPIs, charts and evidence",
+      "pass": true
+    },
+    {
+      "name": "D18ExceptionMonitor: real TSX renders guards, KPIs, charts and evidence",
+      "pass": true
+    },
+    {
+      "name": "KPI: real monthly mini trends stop at focus, preserve nulls and have <=12 points",
+      "pass": true
+    },
+    {
+      "name": "D01: blue sales bars and amber GM line have separate color-matched axes",
+      "pass": true
+    },
+    {
+      "name": "D04: flat category treemap reconciles selected revenue without invented hierarchy",
+      "pass": true
+    },
+    {
+      "name": "D06CustomerContribution: complete scatter population with stable-key drill and no fabricated regression",
+      "pass": true
+    },
+    {
+      "name": "D13SalespersonPerformance: complete scatter population with stable-key drill and no fabricated regression",
+      "pass": true
+    },
+    {
+      "name": "D08: cost plus gross profit is the sales composition, orders never occupy a percentage axis",
+      "pass": true
+    },
+    {
+      "name": "D11: full population denominator, All mode and signed fallback remain correct",
+      "pass": true
+    },
+    {
+      "name": "D14: exact statistical reference, all valid products, no quartered market claims",
+      "pass": true
+    },
+    {
+      "name": "D15: one main workspace, strict R3/R12 and independent annual YTD traces",
+      "pass": true
+    },
+    {
+      "name": "D16: top contributions + Other reconcile, and connectors join actual running totals",
+      "pass": true
+    },
+    {
+      "name": "D18: 12x4 independent cells use actual counts, not summed severity",
+      "pass": true
+    },
+    {
+      "name": "D02: same-month prior-year alignment and first-year gaps are exact",
+      "pass": true
+    },
+    {
+      "name": "D04: optional donut uses Top4 plus exact Other, and keeps the entire population denominator",
+      "pass": true
+    },
+    {
+      "name": "Negative and null edge cases: signed axes stay visible, no partial composition, no future mini trends",
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "testedAt": "2026-10-20T12:46:30.098Z",
+  "scope": "actual TSX functions with hook substitutes; not browser proof",
+  "checks": [
+    {
+      "name": "D04: category composition reconciles selected net sales",
+      "pass": true
+    },
+    {
+      "name": "D04: stable category colors and correctly separated product USD / GM axes",
+      "pass": true
+    },
+    {
+      "name": "D04: invalid composition -10 does not silently become a donut",
+      "pass": true
+    },
+    {
+      "name": "D04: invalid composition null does not silently become a donut",
+      "pass": true
+    },
+    {
+      "name": "D04: invalid composition 0 does not silently become a donut",
+      "pass": true
+    },
+    {
+      "name": "D11: Top20 Pareto denominator is all selected customers; signed populations disable curve",
+      "pass": true
+    },
+    {
+      "name": "D15: one workspace, full timeline, strict rolling sums and no cross-year YTD connections",
+      "pass": true
+    }
+  ]
+}

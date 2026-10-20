@@ -1,0 +1,21 @@
+{
+  "data/CGPRDDTA.F0006.csv": "eded084abec0a01aa31d6449c0d1b7993bc898cf75ad6d8f62345bca3ef53369",
+  "data/SPKPRDDTA.F5530Z20.csv": "89509c1d30ab9cd26b4c255b701724e2368089404d121603ce14eadfdb19b2d9",
+  "expected_cube_totals.json": "9cce7dd0a1784ceb93d34388706bc07f5f851f7749e50caef96b38f77400a1dc",
+  "manifest.json": "ad21bd2355c351d064ac2be4ef80a5e72252534fa67c08e0d73c374dea648069",
+  "README_使用說明.md": "1fa681beafce7f3887d1f2d01235368f5a5f7f931c4480e559d0235072f32266",
+  "reproducibility_report.json": "9b5c9e427cf75e9f2b7fbde56f677a1cd27e2141597079dc0d11269b95e8727a",
+  "schema_contract.json": "fc6645c58bc9ea9babe5bd1e1c22d7a2d6fa68e075cd98778010725384d479df",
+  "scripts/complete_cube_package.py": "a69ffbb1c9e1a4bfa2e2d39f0b879a335dd1ded9108822c2890aea35d0585da4",
+  "scripts/generate_cube_test_data.py": "23a0060d9e08ecc24e4bfbfa10f8d0370f763cd4d28f18e08f44ce326e6d4ffe",
+  "scripts/validate_cube_test_data.py": "96dcc96839fe582fc46a6715d14adcef7cc9702afbe0fc7e18c364639c04a703",
+  "source_dictionary.md": "52ce098f4d3022b4195ace043cfab485680c724ea5e4159921188c4a8ea20a3d",
+  "source_queries_1_2.txt": "d97305f134aeaf955316a6d6dc1f3d244f05d2e4f8913c30109308e54e8b7aae",
+  "sql/00_create_test_database.sql": "bd0e888b85f3f400eb4b65fe609141b595973a1cf01d5fc1ff4e4f25b65136d6",
+  "sql/01_create_tables.sql": "4599ff63c2ddfdb1ebe4004b46c590b70c3fa1ab6e4307f859ff32b869daa97d",
+  "sql/02_load_csv.sql": "0752f015fb9afeaf27406070df3fd18b2df5f81e85b4309e58ea97ecacb580d4",
+  "sql/03_cube_views.sql": "8c65e5472ab60595a0c8736bc017a8d2456bb38adacbe370b48982e791e305a3",
+  "sql/04_verify_import.sql": "e031787a24e9720b17e8e6c682883b2c191d6ff2beaa4583dfc214db36f6c021",
+  "sql/optional_original_oracle_metadata.sql": "40514a4f37a2dfd7739d4e3cf0065beb8877cab34e3ddeefc1cf8892b36f7c39",
+  "validation_report.json": "6827a892840c327f4e678a9a7f71c484b34b598a284ad936871d122c5783d2a7"
+}

@@ -1,0 +1,132 @@
+﻿SELECT SPKCOO 公司別, SPMCU 廠別, SPDCTO 訂單類型, SPDOCO 訂單號碼, SPLNID/1000 訂單項次, SPDOCO||'_'||SPLNID/1000 訂單_項次,SPURRF 合同號碼, SPAC01 業代代碼, SPDL01 業代名稱, SPLITM 料號, SPITM 短料號, SPGLC 總帳級別, SPLOTN 批號,
+
+SPSOQS/100 銷售量, SPAEXP/100 本幣銷售金額, SPFEA/100 外幣銷售金額, SPECST/100 銷售成本,SPUNCS/10000 標準單位成本, SPSOQS2/100 銷退量, SPAEXPE1/100 本幣銷退金額, SPFEAT/100 外幣銷退金額, SPECSTC/100 銷退成本,
+
+SPAA/100 本幣折讓金額, SPAA1/100 外幣折讓金額, SPAA2/100 淨銷售量, SPUOM 單位, SPAMT1/100 本幣淨銷售金額, SPAMT2/100 外幣淨銷售金額, SPAMT3/100 淨銷售成本,
+
+SPEV01 是否保稅, SPMCU1 成本中心, SPDL02 主營業務收入, SPDL03 主營業務成本, SPCRCD 幣別, SPCRR 匯率, SPSHPN SA號碼, SPAN8 客戶編號,
+
+SPALPH 客戶名稱, SPDSC1 品名, SPDSC2 說明2, SPSRP1 料號類碼1, SPDL04 料號類碼1說明, SPSRP2 料號類碼2, SPDL05 料號類碼2說明, SPSRP3 料號類碼3, SPDL06 料號類碼3說明,
+
+case when SPSRP2 = 'BV' then '重包裝'
+
+when SPSRP2 in( 'BZ','BF') then 'PE袋'
+
+when  SPSRP2 like 'C%' then '缠绕膜'
+
+when SPSRP2 = 'EZ' then 'PEVA'
+
+when SPSRP2 in('EB','EN') and splitm not like '%OEM%' then '压花膜'
+
+when SPSRP2 in('EB','EN') and splitm  like '%OEM%' then 'PE代工'
+
+else ' '  end 大類說明,
+
+spsrp3 料號類別3,
+
+case when SPSRP3 like 'BV%' then '重包裝'
+
+when SPSRP3  in ('BFL','BFT','BZS','BZZ','BZB','BZT') then 'PE袋'
+
+when SPSRP3 like 'CWH' then 'H' 
+
+when SPSRP3 like 'CWM' then 'M'
+
+when SPSRP3 like 'CWP' then 'P'
+
+when SPSRP3 like 'CSA' then 'CSA'
+
+when SPSRP3 like 'EBB' then '暖暖包'
+
+when SPSRP3 in('EBN','EBP','EBQ','EBD') and splitm not like '%OEM%' then 'BRE'
+
+when SPSRP3 in('EBN','EBP','EBQ','EBD') and splitm  like '%OEM%' then 'BRE代工' 
+
+when SPSRP3 in('ENN','ENP','ENQ','END') and splitm not like '%OEM%' then 'NBR'
+
+when SPSRP3 in('ENN','ENP','ENQ','END') and splitm  like '%OEM%' then 'NBR代工'
+
+when SPSRP3 in('EZB') then  'PEVA '
+
+else '  ' end  中類說明,
+
+SPDOC 憑證單號, get_date(SPTRDJ) 開立日期, get_date(SPADDJ) 實際出貨日, get_date(SPIVD) 發票日期, get_date(SPDGL) 總帳日期 ,SPAAN01/100 IV製造差,SPAAN02/100 人工差 ,SPAAN03/100 制費差,SPAAN04/100 折舊差,SPAAN05/100 購價差
+
+,SPAAN06/100 庫存凍結,SPAAN07/100 廠區製程
+
+,SPAAN08/100 主營業稅金額,SPAAN09/100 庫存跌價,SPAAN10/100 共同購價差,SPAAN11/100 共同差異庫存凍結,SPAAN12/100 共同差異廠區製程損益 ,SPAAN13/100 共同IV製造差異
+
+from spkprddta.F5530Z20
+
+ 
+
+ 
+
+SELECT SPKCOO 公司別, SPMCU 廠別, SPDCTO 訂單類型, SPDOCO 訂單號碼, SPLNID/1000 訂單項次, SPDCTO ||'_'||SPDOCO ||'_'|| SPLNID/1000 訂單_項次,SPURRF 合同號碼, SPAC01 業代代碼, SPDL01 業代名稱, SPLITM 料號, SPITM 短料號, SPGLC 總帳級別, SPLOTN 批號,
+
+SPSOQS/100 銷售量, SPAEXP/100 本幣銷售金額, SPFEA/100 外幣銷售金額, SPECST/100 銷售成本, SPSOQS2/100 銷退量, SPAEXPE1/100 本幣銷退金額, SPFEAT/100 外幣銷退金額, SPECSTC/100 銷退成本, SPUNCS/10000 標準單位成本,
+
+SPAA/100 本幣折讓金額, SPAA1/100 外幣折讓金額, SPAA2/100 淨銷售量, SPUOM 單位, SPAMT1/100 本幣淨銷售金額, SPAMT2/100 外幣淨銷售金額, SPAMT3/100 淨銷售成本,
+
+SPEV01 是否保稅, SPMCU1 成本中心,mcdl01 成本中心說明 , SPDL02 主營業務收入, SPDL03 主營業務成本, SPCRCD 幣別, SPCRR 匯率, SPSHPN SA號碼, SPAN8 客戶編號,
+
+SPALPH 客戶名稱, SPDSC1 品名, SPDSC2 說明2, SPSRP1 料號類碼1, SPDL04 料號類碼1說明, SPSRP2 料號類碼2, SPDL05 料號類碼2說明, SPSRP3 料號類碼3, SPDL06 料號類碼3說明,
+
+case when SPSRP2 = 'BV' then '重包裝'
+
+when SPSRP2 in( 'BZ','BF') then 'PE袋'
+
+when  SPSRP2 like 'C%' then '缠绕膜'
+
+when SPSRP2 = 'EZ' then 'PEVA'
+
+when SPSRP2 in('EB','EN') and splitm not like '%OEM%' then '压花膜'
+
+when SPSRP2 in('EB','EN') and splitm  like '%OEM%' then 'PE代工'
+
+else ' '  end 大類說明,
+
+spsrp3 料號類別3,
+
+case when SPSRP3 like 'BV%' then '重包裝'
+
+when SPSRP3  in ('BFL','BFT','BZS','BZZ','BZB','BZT') then 'PE袋'
+
+when SPSRP3 like 'CWH' then 'H' 
+
+when SPSRP3 like 'CWM' then 'M'
+
+when SPSRP3 like 'CWP' then 'P'
+
+when SPSRP3 like 'CSA' then 'CSA'
+
+when SPSRP3 like 'EBB' then '暖暖包'
+
+when SPSRP3 in('EBN','EBP','EBQ','EBD') and splitm not like '%OEM%' then 'BRE'
+
+when SPSRP3 in('EBN','EBP','EBQ','EBD') and splitm  like '%OEM%' then 'BRE代工' 
+
+when SPSRP3 in('ENN','ENP','ENQ','END') and splitm not like '%OEM%' then 'NBR'
+
+when SPSRP3 in('ENN','ENP','ENQ','END') and splitm  like '%OEM%' then 'NBR代工'
+
+when SPSRP3 in('EZB') then  'PEVA '
+
+else '  ' end  中類說明,
+
+SPDOC 憑證單號, get_date(SPTRDJ) 開立日期, get_date(SPADDJ) 實際出貨日, get_date(SPIVD) 發票日期, get_date(SPDGL) 總帳日期 ,SPAAN01/100 IV製造差,SPAAN02/100 人工差 ,SPAAN03/100 制費差,SPAAN04/100 折舊差,SPAAN05/100 購價差
+
+,SPAAN06/100 庫存凍結,SPAAN07/100 廠區製程
+
+,SPAAN08/100 主營業稅金額,SPAAN09/100 庫存跌價,SPAAN11/100 共同差異庫存凍結,SPAAN12/100 共同差異廠區製程損益,SPAAN13/100 共同IV製造差異,SPAAN10/100 共同購價差
+
+from spkprddta.F5530Z20,CGPRDDTA.F0006
+
+where spkcoo=mcco and spmcu1=mcmcu
+
+ 
+
+ 
+
+ 
+

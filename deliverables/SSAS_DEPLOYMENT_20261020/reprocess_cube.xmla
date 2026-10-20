@@ -1,0 +1,6 @@
+<Process xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <Object>
+    <DatabaseID>JDE_SALES_CUBE_20261020</DatabaseID>
+  </Object>
+  <Type>ProcessFull</Type>
+</Process>

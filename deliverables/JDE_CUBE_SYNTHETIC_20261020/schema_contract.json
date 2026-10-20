@@ -1,0 +1,480 @@
+{
+  "status": "SYNTHETIC_TEST_CONTRACT_NOT_PRODUCTION_DDL",
+  "tables": {
+    "SPKPRDDTA.F5530Z20": {
+      "columns": [
+        {
+          "name": "SPKCOO",
+          "sql_type": "char(5)",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPMCU",
+          "sql_type": "varchar(12)",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPDCTO",
+          "sql_type": "varchar(2)",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPDOCO",
+          "sql_type": "int",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPLNID",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 1000,
+          "date_encoding": null
+        },
+        {
+          "name": "SPURRF",
+          "sql_type": "varchar(30)",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPAC01",
+          "sql_type": "varchar(10)",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPDL01",
+          "sql_type": "nvarchar(60)",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPLITM",
+          "sql_type": "varchar(30)",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPITM",
+          "sql_type": "int",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPGLC",
+          "sql_type": "varchar(8)",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPLOTN",
+          "sql_type": "varchar(30)",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPSOQS",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 100,
+          "date_encoding": null
+        },
+        {
+          "name": "SPAEXP",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 100,
+          "date_encoding": null
+        },
+        {
+          "name": "SPFEA",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 100,
+          "date_encoding": null
+        },
+        {
+          "name": "SPECST",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 100,
+          "date_encoding": null
+        },
+        {
+          "name": "SPUNCS",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 10000,
+          "date_encoding": null
+        },
+        {
+          "name": "SPSOQS2",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 100,
+          "date_encoding": null
+        },
+        {
+          "name": "SPAEXPE1",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 100,
+          "date_encoding": null
+        },
+        {
+          "name": "SPFEAT",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 100,
+          "date_encoding": null
+        },
+        {
+          "name": "SPECSTC",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 100,
+          "date_encoding": null
+        },
+        {
+          "name": "SPAA",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 100,
+          "date_encoding": null
+        },
+        {
+          "name": "SPAA1",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 100,
+          "date_encoding": null
+        },
+        {
+          "name": "SPAA2",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 100,
+          "date_encoding": null
+        },
+        {
+          "name": "SPUOM",
+          "sql_type": "varchar(3)",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPAMT1",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 100,
+          "date_encoding": null
+        },
+        {
+          "name": "SPAMT2",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 100,
+          "date_encoding": null
+        },
+        {
+          "name": "SPAMT3",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 100,
+          "date_encoding": null
+        },
+        {
+          "name": "SPEV01",
+          "sql_type": "char(1)",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPMCU1",
+          "sql_type": "varchar(12)",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPDL02",
+          "sql_type": "varchar(20)",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPDL03",
+          "sql_type": "varchar(20)",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPCRCD",
+          "sql_type": "char(3)",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPCRR",
+          "sql_type": "decimal(19,8)",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPSHPN",
+          "sql_type": "int",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPAN8",
+          "sql_type": "int",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPALPH",
+          "sql_type": "nvarchar(100)",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPDSC1",
+          "sql_type": "nvarchar(100)",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPDSC2",
+          "sql_type": "nvarchar(100)",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPSRP1",
+          "sql_type": "varchar(3)",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPDL04",
+          "sql_type": "nvarchar(80)",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPSRP2",
+          "sql_type": "varchar(3)",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPDL05",
+          "sql_type": "nvarchar(80)",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPSRP3",
+          "sql_type": "varchar(3)",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPDL06",
+          "sql_type": "nvarchar(80)",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPDOC",
+          "sql_type": "int",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": null
+        },
+        {
+          "name": "SPTRDJ",
+          "sql_type": "int",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": "CYYDDD (synthetic assumption)"
+        },
+        {
+          "name": "SPADDJ",
+          "sql_type": "int",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": "CYYDDD (synthetic assumption)"
+        },
+        {
+          "name": "SPIVD",
+          "sql_type": "int",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": "CYYDDD (synthetic assumption)"
+        },
+        {
+          "name": "SPDGL",
+          "sql_type": "int",
+          "nullable": false,
+          "business_scale": 1,
+          "date_encoding": "CYYDDD (synthetic assumption)"
+        },
+        {
+          "name": "SPAAN01",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 100,
+          "date_encoding": null
+        },
+        {
+          "name": "SPAAN02",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 100,
+          "date_encoding": null
+        },
+        {
+          "name": "SPAAN03",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 100,
+          "date_encoding": null
+        },
+        {
+          "name": "SPAAN04",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 100,
+          "date_encoding": null
+        },
+        {
+          "name": "SPAAN05",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 100,
+          "date_encoding": null
+        },
+        {
+          "name": "SPAAN06",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 100,
+          "date_encoding": null
+        },
+        {
+          "name": "SPAAN07",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 100,
+          "date_encoding": null
+        },
+        {
+          "name": "SPAAN08",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 100,
+          "date_encoding": null
+        },
+        {
+          "name": "SPAAN09",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 100,
+          "date_encoding": null
+        },
+        {
+          "name": "SPAAN10",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 100,
+          "date_encoding": null
+        },
+        {
+          "name": "SPAAN11",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 100,
+          "date_encoding": null
+        },
+        {
+          "name": "SPAAN12",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 100,
+          "date_encoding": null
+        },
+        {
+          "name": "SPAAN13",
+          "sql_type": "bigint",
+          "nullable": false,
+          "business_scale": 100,
+          "date_encoding": null
+        }
+      ],
+      "primary_key": [
+        "SPKCOO",
+        "SPDCTO",
+        "SPDOCO",
+        "SPLNID"
+      ],
+      "grain": "One closed sales order line; cumulative returns and allowances on the same line."
+    },
+    "CGPRDDTA.F0006": {
+      "columns": [
+        {
+          "name": "MCCO",
+          "sql_type": "char(5)",
+          "nullable": false
+        },
+        {
+          "name": "MCMCU",
+          "sql_type": "varchar(12)",
+          "nullable": false
+        },
+        {
+          "name": "MCDL01",
+          "sql_type": "nvarchar(100)",
+          "nullable": false
+        }
+      ],
+      "primary_key": [
+        "MCCO",
+        "MCMCU"
+      ]
+    }
+  }
+}

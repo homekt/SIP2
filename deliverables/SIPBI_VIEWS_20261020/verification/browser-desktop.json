@@ -1,0 +1,149 @@
+[
+  {
+    "id": "D00",
+    "charts": 2,
+    "heading": [
+      "D00 決策首頁 (全部公司 (All))",
+      "月度淨銷售額與毛利額走勢 (USD)",
+      "各營運公司淨銷售額與毛利額排行 (全母體 5 家, USD)",
+      "銷售決策看板目錄 (點擊直達)"
+    ],
+    "invalid": false,
+    "loading": false,
+    "overflow": false,
+    "rows": 33,
+    "sales": true
+  },
+  {
+    "id": "D01",
+    "charts": 3,
+    "heading": [
+      "D01 銷售總覽 (Executive Sales)"
+    ],
+    "invalid": false,
+    "loading": false,
+    "overflow": false,
+    "rows": 5,
+    "sales": true
+  },
+  {
+    "id": "D02",
+    "charts": 3,
+    "heading": [
+      "D02 銷售動能 (Sales Momentum)"
+    ],
+    "invalid": false,
+    "loading": false,
+    "overflow": false,
+    "rows": 5,
+    "sales": true
+  },
+  {
+    "id": "D04",
+    "charts": 2,
+    "heading": [
+      "D04 產品組合 (Product Mix)"
+    ],
+    "invalid": false,
+    "loading": false,
+    "overflow": false,
+    "rows": 132,
+    "sales": true
+  },
+  {
+    "id": "D06",
+    "charts": 1,
+    "heading": [
+      "D06 客戶貢獻 (Customer Contribution)"
+    ],
+    "invalid": false,
+    "loading": false,
+    "overflow": false,
+    "rows": 238,
+    "sales": true
+  },
+  {
+    "id": "D08",
+    "charts": 2,
+    "heading": [
+      "D08 獲利品質 (Profitability)"
+    ],
+    "invalid": false,
+    "loading": false,
+    "overflow": false,
+    "rows": 132,
+    "sales": true
+  },
+  {
+    "id": "D11",
+    "charts": 2,
+    "heading": [
+      "D11 客戶集中度 (Customer Concentration)"
+    ],
+    "invalid": false,
+    "loading": false,
+    "overflow": false,
+    "rows": 238,
+    "sales": true
+  },
+  {
+    "id": "D13",
+    "charts": 1,
+    "heading": [
+      "D13 業務員實績 (Salesperson Actuals)"
+    ],
+    "invalid": false,
+    "loading": false,
+    "overflow": false,
+    "rows": 20,
+    "sales": true
+  },
+  {
+    "id": "D14",
+    "charts": 1,
+    "heading": [
+      "D14 產品營收與毛利矩陣 (Product Portfolio)"
+    ],
+    "invalid": false,
+    "loading": false,
+    "overflow": false,
+    "rows": 132,
+    "sales": true
+  },
+  {
+    "id": "D15",
+    "charts": 4,
+    "heading": [
+      "D15 累計與滾動銷售 (Rolling Sales)"
+    ],
+    "invalid": false,
+    "loading": false,
+    "overflow": false,
+    "rows": 33,
+    "sales": true
+  },
+  {
+    "id": "D16",
+    "charts": 1,
+    "heading": [
+      "D16 成長貢獻 (Growth Contribution)"
+    ],
+    "invalid": false,
+    "loading": false,
+    "overflow": false,
+    "rows": 132,
+    "sales": true
+  },
+  {
+    "id": "D18",
+    "charts": 1,
+    "heading": [
+      "D18 銷售觀察 (Sales Observations)"
+    ],
+    "invalid": false,
+    "loading": false,
+    "overflow": false,
+    "rows": 238,
+    "sales": true
+  }
+]

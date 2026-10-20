@@ -1,0 +1,50 @@
+{
+  "generatedAt": "2026-10-20T15:40:04.721647+00:00",
+  "changedApplicationFiles": [
+    "frontend/src/index.css",
+    "frontend/src/screens/D00DecisionHome.tsx",
+    "frontend/src/screens/D01ExecutiveOverview.tsx",
+    "frontend/src/screens/D02SalesMomentum.tsx",
+    "frontend/src/screens/D04ProductMix.tsx",
+    "frontend/src/screens/D06CustomerContribution.tsx",
+    "frontend/src/screens/D08ProfitabilityQuality.tsx",
+    "frontend/src/screens/D11CustomerConcentration.tsx",
+    "frontend/src/screens/D13SalespersonPerformance.tsx",
+    "frontend/src/screens/D14ProductPortfolio.tsx",
+    "frontend/src/screens/D15RollingSales.tsx",
+    "frontend/src/screens/D16GrowthDeclineContribution.tsx",
+    "frontend/src/screens/D18ExceptionMonitor.tsx",
+    "frontend/src/components/charts/EChartsContainer.tsx",
+    "frontend/src/components/charts/KpiCard.tsx",
+    "frontend/src/components/common/SlicerBar.tsx"
+  ],
+  "originalSourceAndEntryUnchanged": true,
+  "baseline": "latest three-page recovery candidate",
+  "backendApiTypesRoutesDependenciesUnchanged": true,
+  "installedEntrySha256": "46f39898f070c1e10dfc7666f4272e3b385385bd329a2e4757665ecc04db8547",
+  "candidateEntrySha256": "94842661aae130e94a23b537401b0c82c76b7ea9c48c758e09b9be2c36f4e8f5",
+  "previewPort": 55154,
+  "apiPort": 55150,
+  "sourceSha256": {
+    "frontend/src/index.css": "dc059cc79b5f120350fd84bef6309a55bb1fc31191267f130c98b4cf272ab5b1",
+    "frontend/src/screens/D00DecisionHome.tsx": "ad0bc6801386f1e517f612c9544328e9217fb40783ad30ff0d69cc261979e7d6",
+    "frontend/src/screens/D01ExecutiveOverview.tsx": "3417b4616b4672d892c2edc75728b4a206dfa0d0522b836d94431d4b9a574b1a",
+    "frontend/src/screens/D02SalesMomentum.tsx": "ad2b07b79096a5aa111864682afcaca0f35a8cdce36f1540065a4f5c27d9ae83",
+    "frontend/src/screens/D04ProductMix.tsx": "dccbe598c39f8c6dd6a4593f993052a3cb2a365669cb86ccb91bff8ae3dd6ebd",
+    "frontend/src/screens/D06CustomerContribution.tsx": "a69dbd4f869d2f708be4d33450b7c58c78d0b3ea84fcfd95aa920defac1739ca",
+    "frontend/src/screens/D08ProfitabilityQuality.tsx": "c44fcd9fa2e612d24d0285a472cc6cab06be72cfa30174965c9d607b8953833e",
+    "frontend/src/screens/D11CustomerConcentration.tsx": "d87715e0e42480e0264cf0da0485e7796af280256dfb104dfcda97ffff561a0d",
+    "frontend/src/screens/D13SalespersonPerformance.tsx": "aae17517ce8caa748fa5c319c5c202c0b2edafccd4f12b34180bb35a7a54de29",
+    "frontend/src/screens/D14ProductPortfolio.tsx": "9b92a6839b18f56fc0395dfebe0094b7046f62de82fe1ddb100010aab9bb2928",
+    "frontend/src/screens/D15RollingSales.tsx": "903a3b8751c355fc02bb286bd8bcc7238e6ea021fa3fc86da931a49c1f749cd2",
+    "frontend/src/screens/D16GrowthDeclineContribution.tsx": "40ae31b1ab9e7de2cb9f38479eb782bdd0ccff872a05b088645514318537cdc7",
+    "frontend/src/screens/D18ExceptionMonitor.tsx": "05228642360551565610bff4a74f8b9ad271bc5061ac059b7791bcee557ebe28",
+    "frontend/src/components/charts/EChartsContainer.tsx": "62577630249f29aaf5fb348768a7b940ded5b953cbd12ba2062fe35302d8e084",
+    "frontend/src/components/charts/KpiCard.tsx": "3ec9f812a6e430c091298bec2f338f94a16f0a98d256bfce0fe23e3158b39b62",
+    "frontend/src/components/common/SlicerBar.tsx": "d542f40830a3016c77b0e5ba11a43c6043900b331b814de79a27ea28d765474e"
+  },
+  "buildFiles": {
+    "index-CsCTqdSd.css": "ef19021e42ab5fa8c5ef8ddaa2f433907fe8d34c1739f808e393bf8e7d9b99a3",
+    "index-Dc4U2ukl.js": "bc75057618aa343da78770e33654ca647197cca2ede6be02d4c4a52103a547e7"
+  }
+}

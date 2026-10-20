@@ -1,0 +1,9 @@
+{
+  "Server": "localhost",
+  "Database": "JDE_CUBE_SYNTHETIC_20261020",
+  "CompletedScripts": [
+    "04_verify_import.sql"
+  ],
+  "LastCompleted": "04_verify_import.sql",
+  "Scope": "SQL import only; SSAS is separate"
+}

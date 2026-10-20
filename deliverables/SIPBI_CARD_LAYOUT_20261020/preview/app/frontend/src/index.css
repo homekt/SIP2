@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Clean Modern BI Theme — Calm Dense Analytical Workspace */
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --color-sales: #2563eb;
+  --color-gp: #d97706;
+  --color-gp-dark: #fbbf24;
+  --color-decline: #be123c;
+  --color-decline-dark: #fb7185;
+  --color-secondary: #64748b;
+  --color-attention: #b45309;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: #f8fafc;
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+.dark body {
+  background-color: #020617;
+  color: #f8fafc;
+}
+
+/* Tabular numeric alignment */
+.tabular-nums,
+.font-mono {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Shared analytical workspace & chart panel conventions */
+.sales-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.chart-panel {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  padding: 1rem 1.125rem;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.dark .chart-panel {
+  background-color: #0f172a;
+  border-color: #1e293b;
+}
+
+.chart-panel-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.625rem;
+}
+
+.chart-panel-title {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.dark .chart-panel-title {
+  color: #f1f5f9;
+}
+
+.chart-panel-subtitle {
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  color: #64748b;
+  margin: 0.125rem 0 0 0;
+}
+
+.dark .chart-panel-subtitle {
+  color: #94a3b8;
+}
+
+/* Scoped analytical table enhancements */
+.sales-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sales-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.sales-table th {
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+
+.sales-table td.num,
+.sales-table th.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Accessible keyboard focus states */
+.focus-ring:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+select:focus-visible,
+input:focus-visible {
+  outline: 2px solid #4f46e5;
+  outline-offset: 2px;
+}
+
+.dark .focus-ring:focus-visible,
+.dark button:focus-visible,
+.dark [role="button"]:focus-visible,
+.dark select:focus-visible,
+.dark input:focus-visible {
+  outline-color: #818cf8;
+}
+
+/* Card Layout reference: calm surfaces, clear metric hierarchy, readable labels. */
+.kpi-card { box-shadow: 0 1px 2px rgb(15 23 42 / 3%); }
+.kpi-value { font-size: clamp(1.75rem, 2.1vw, 2rem); line-height: 1.2; overflow-wrap: anywhere; }
+.kpi-sparkline figure { line-height: 1; }
+.chart-panel { box-shadow: 0 1px 3px rgb(15 23 42 / 3%); }
+.sales-dashboard > .grid { min-width: 0; }
+.sales-dashboard h2 { letter-spacing: -0.025em; }
+details.sales-extra-filters > summary { list-style-position: inside; }
+details.sales-extra-filters[open] > summary { margin-bottom: 0.75rem; }
+@media (max-width: 639px) {
+  .kpi-value { font-size: 1.75rem; }
+  .sales-dashboard { gap: 1rem; }
+  .chart-panel { padding: 1rem; }
+}

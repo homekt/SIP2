@@ -1,0 +1,62 @@
+{
+  "Endpoint": "localhost:25000",
+  "Database": "JDE_SALES_CUBE_20261020",
+  "State": "Processed",
+  "Dimensions": [
+    {
+      "ID": "Company",
+      "State": "Processed"
+    },
+    {
+      "ID": "Plant",
+      "State": "Processed"
+    },
+    {
+      "ID": "CostCenter",
+      "State": "Processed"
+    },
+    {
+      "ID": "Customer",
+      "State": "Processed"
+    },
+    {
+      "ID": "Salesperson",
+      "State": "Processed"
+    },
+    {
+      "ID": "Currency",
+      "State": "Processed"
+    },
+    {
+      "ID": "Product",
+      "State": "Processed"
+    },
+    {
+      "ID": "Date",
+      "State": "Processed"
+    }
+  ],
+  "Cubes": [
+    {
+      "Name": "JDE Sales",
+      "State": "Processed",
+      "Partitions": [
+        {
+          "Group": "Sales",
+          "Name": "All Sales",
+          "State": "Processed"
+        },
+        {
+          "Group": "Distinct Orders",
+          "Name": "All Orders",
+          "State": "Processed"
+        }
+      ]
+    }
+  ],
+  "ExistingDatabaseNames": [
+    "Synthetic Sales BI",
+    "SI_Powered_BI",
+    "JDE_SALES_CUBE_20261020"
+  ]
+}

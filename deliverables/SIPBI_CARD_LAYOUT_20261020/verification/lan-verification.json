@@ -1,0 +1,34 @@
+{
+  "url": "http://192.168.1.108:55154/",
+  "browserEvidence": "evidence/lan-browser.json",
+  "listeners": [
+    {
+      "LocalAddress": "0.0.0.0",
+      "LocalPort": 55154
+    },
+    {
+      "LocalAddress": "127.0.0.1",
+      "LocalPort": 55150
+    }
+  ],
+  "rule": {
+    "name": "SIPBI-Card-55154-Private-LocalSubnet",
+    "program": "C:\\Users\\user\\AppData\\Local\\nvm\\v24.13.0\\node.exe",
+    "profile": "Private",
+    "direction": "Inbound",
+    "localPort": "55154",
+    "interface": "Wi-Fi",
+    "enabled": "True",
+    "action": "Allow",
+    "remoteAddress": "LocalSubnet"
+  },
+  "testedFromAnotherPhysicalComputer": true,
+  "networkCategory": "Private",
+  "health": {
+    "status": "ok",
+    "scope": "process",
+    "service": "sipbi-sales"
+  },
+  "verifiedAt": "2026-10-20T23:20:03.499598+00:00",
+  "remoteVerificationEvidence": "User confirmed: 可以開啟，看到看板"
+}

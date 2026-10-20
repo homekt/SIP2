@@ -1,0 +1,13 @@
+**/node_modules/
+**/__pycache__/
+**/*.tsbuildinfo
+**/runtime/
+**/.env
+**/.env.*
+!**/.env.example
+*.zip
+*.etl
+*.log
+*.err
+**/preview-state.json
+**/api-state.json

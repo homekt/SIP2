@@ -1,0 +1,417 @@
+{
+  "dataset_id": "JDE_CUBE_SYNTHETIC_20261020",
+  "status": "PASS",
+  "checks_passed": 64,
+  "checks_total": 64,
+  "scope": "Exported CSV validation plus SQLite constraints/joins; SQL Server and SSAS not executed.",
+  "company_rows": {
+    "00020": 17810,
+    "00026": 10652,
+    "00027": 14861,
+    "00029": 7035,
+    "00121": 9642
+  },
+  "scenarios": {
+    "no_return": 53947,
+    "different_local_foreign_amounts": 26569,
+    "oem": 12179,
+    "different_lifecycle_dates": 59982,
+    "classification_else": 2836,
+    "allowance": 4701,
+    "partial_return": 5472,
+    "negative_margin": 1177,
+    "full_return": 581,
+    "zero_net_sales": 581
+  },
+  "order_count": 20111,
+  "checks": [
+    {
+      "check": "cost_center_columns",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "cost_center_row_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "cost_center_key_unique",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "sales_63_columns",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "sales_column_order",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "sales_row_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "unexpected_null",
+      "passed": true,
+      "detail": {
+        "failed_rows": 0
+      }
+    },
+    {
+      "check": "physical_type",
+      "passed": true,
+      "detail": {
+        "failed_rows": 0
+      }
+    },
+    {
+      "check": "int_range",
+      "passed": true,
+      "detail": {
+        "failed_rows": 0
+      }
+    },
+    {
+      "check": "bigint_range",
+      "passed": true,
+      "detail": {
+        "failed_rows": 0
+      }
+    },
+    {
+      "check": "text_length",
+      "passed": true,
+      "detail": {
+        "failed_rows": 0
+      }
+    },
+    {
+      "check": "order_header_consistency",
+      "passed": true,
+      "detail": {
+        "failed_rows": 0
+      }
+    },
+    {
+      "check": "reconcile_SPAA2",
+      "passed": true,
+      "detail": {
+        "failed_rows": 0
+      }
+    },
+    {
+      "check": "reconcile_SPAMT1",
+      "passed": true,
+      "detail": {
+        "failed_rows": 0
+      }
+    },
+    {
+      "check": "reconcile_SPAMT2",
+      "passed": true,
+      "detail": {
+        "failed_rows": 0
+      }
+    },
+    {
+      "check": "reconcile_SPAMT3",
+      "passed": true,
+      "detail": {
+        "failed_rows": 0
+      }
+    },
+    {
+      "check": "return_quantity_bounds",
+      "passed": true,
+      "detail": {
+        "failed_rows": 0
+      }
+    },
+    {
+      "check": "fx_SPAEXP",
+      "passed": true,
+      "detail": {
+        "failed_rows": 0
+      }
+    },
+    {
+      "check": "fx_SPAEXPE1",
+      "passed": true,
+      "detail": {
+        "failed_rows": 0
+      }
+    },
+    {
+      "check": "fx_SPAA",
+      "passed": true,
+      "detail": {
+        "failed_rows": 0
+      }
+    },
+    {
+      "check": "fx_net_rounding",
+      "passed": true,
+      "detail": {
+        "failed_rows": 0
+      }
+    },
+    {
+      "check": "standard_cost_extension",
+      "passed": true,
+      "detail": {
+        "failed_rows": 0
+      }
+    },
+    {
+      "check": "return_cost_extension",
+      "passed": true,
+      "detail": {
+        "failed_rows": 0
+      }
+    },
+    {
+      "check": "date_order",
+      "passed": true,
+      "detail": {
+        "failed_rows": 0
+      }
+    },
+    {
+      "check": "date_coverage_bounds",
+      "passed": true,
+      "detail": {
+        "failed_rows": 0
+      }
+    },
+    {
+      "check": "date_decode",
+      "passed": true,
+      "detail": {
+        "failed_rows": 0
+      }
+    },
+    {
+      "check": "positive_exchange_rate",
+      "passed": true,
+      "detail": {
+        "failed_rows": 0
+      }
+    },
+    {
+      "check": "negative_net_values",
+      "passed": true,
+      "detail": {
+        "failed_rows": 0
+      }
+    },
+    {
+      "check": "quantity_unit",
+      "passed": true,
+      "detail": {
+        "failed_rows": 0
+      }
+    },
+    {
+      "check": "bonded_flag",
+      "passed": true,
+      "detail": {
+        "failed_rows": 0
+      }
+    },
+    {
+      "check": "sqlite_primary_and_foreign_keys",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "inner_join_preserves_row_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "sqlite_net_amount_reconciliation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "company_coverage",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "month_coverage",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "company_month_coverage",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all_products_present",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all_customers_present",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all_plants_present",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all_centers_used",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "all_salespeople_present",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "multiple_currencies",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "scenario_no_return",
+      "passed": true,
+      "detail": {
+        "rows": 53947
+      }
+    },
+    {
+      "check": "scenario_full_return",
+      "passed": true,
+      "detail": {
+        "rows": 581
+      }
+    },
+    {
+      "check": "scenario_partial_return",
+      "passed": true,
+      "detail": {
+        "rows": 5472
+      }
+    },
+    {
+      "check": "scenario_allowance",
+      "passed": true,
+      "detail": {
+        "rows": 4701
+      }
+    },
+    {
+      "check": "scenario_negative_margin",
+      "passed": true,
+      "detail": {
+        "rows": 1177
+      }
+    },
+    {
+      "check": "scenario_zero_net_sales",
+      "passed": true,
+      "detail": {
+        "rows": 581
+      }
+    },
+    {
+      "check": "scenario_different_local_foreign_amounts",
+      "passed": true,
+      "detail": {
+        "rows": 26569
+      }
+    },
+    {
+      "check": "scenario_classification_else",
+      "passed": true,
+      "detail": {
+        "rows": 2836
+      }
+    },
+    {
+      "check": "scenario_oem",
+      "passed": true,
+      "detail": {
+        "rows": 12179
+      }
+    },
+    {
+      "check": "scenario_different_lifecycle_dates",
+      "passed": true,
+      "detail": {
+        "rows": 59982
+      }
+    },
+    {
+      "check": "monthly_independent_aggregate",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "dimension_product_attributes_consistent",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "dimension_customer_attributes_consistent",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "dimension_salesperson_attributes_consistent",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "synthetic_marker_all_rows",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "order_line_scaling",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reject_probe_bad_net",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reject_probe_excess_returns",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reject_probe_invalid_date",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reject_probe_duplicate_primary_key",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reject_probe_orphan_cost_center",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "file_source_field_coverage",
+      "passed": true,
+      "detail": null
+    }
+  ]
+}

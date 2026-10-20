@@ -1,0 +1,42 @@
+{
+  "recordedAt": "2026-10-20T16:12:06.433682+00:00",
+  "diagnosis": "Windows Firewall allow rule used the nvm junction path; observed application identity used its canonical target. Incoming remote connections matched Query User Default block.",
+  "remoteAddress": "192.168.1.104",
+  "localAddress": "192.168.1.108",
+  "port": 55154,
+  "observedDropCount": 45,
+  "dropFilterIds": [
+    "21175371"
+  ],
+  "observedAppIds": [
+    "\\device\\harddiskvolume2\\users\\user\\appdata\\local\\nvm\\v24.13.0\\node.exe"
+  ],
+  "repairedPermitFilters": [
+    {
+      "filterId": "21176837",
+      "action": "FWP_ACTION_PERMIT",
+      "appIds": [
+        "\\device\\harddiskvolume2\\users\\user\\appdata\\local\\nvm\\v24.13.0\\node.exe"
+      ]
+    },
+    {
+      "filterId": "21176836",
+      "action": "FWP_ACTION_PERMIT",
+      "appIds": [
+        "\\device\\harddiskvolume2\\users\\user\\appdata\\local\\nvm\\v24.13.0\\node.exe"
+      ]
+    }
+  ],
+  "allRepairedPermitAppIdsMatchObserved": true,
+  "physicalRemoteRetest": {
+    "result": "pass",
+    "evidence": "User confirmed another computer or phone can open the URL and see the dashboard",
+    "reportedAt": "2026-10-20T23:20:03.491402+00:00"
+  },
+  "evidence": [
+    "pre-repair-event-summary.json",
+    "lan-firewall-path-repair.json",
+    "lan-verification.json"
+  ],
+  "rawDiagnostics": "Raw packet capture and host-wide WFP exports retained locally, excluded from public repository."
+}

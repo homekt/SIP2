@@ -1,0 +1,794 @@
+[
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BFL-01",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品01",
+    "[Measures].[Sales Line Count]": 420,
+    "[Measures].[Net Sales USD]": 1525831.5752
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BFL-02",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品02",
+    "[Measures].[Sales Line Count]": 480,
+    "[Measures].[Net Sales USD]": 1851550.8383
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BFL-03",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品03",
+    "[Measures].[Sales Line Count]": 435,
+    "[Measures].[Net Sales USD]": 1708236.1042
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BFL-04",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品04",
+    "[Measures].[Sales Line Count]": 431,
+    "[Measures].[Net Sales USD]": 1770503.7518
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BFL-05",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品05",
+    "[Measures].[Sales Line Count]": 447,
+    "[Measures].[Net Sales USD]": 1998931.4071
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BFL-06",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品06",
+    "[Measures].[Sales Line Count]": 451,
+    "[Measures].[Net Sales USD]": 2129721.156
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BFT-01",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品01",
+    "[Measures].[Sales Line Count]": 444,
+    "[Measures].[Net Sales USD]": 1935040.1657
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BFT-02",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品02",
+    "[Measures].[Sales Line Count]": 467,
+    "[Measures].[Net Sales USD]": 2172733.3977
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BFT-03",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品03",
+    "[Measures].[Sales Line Count]": 451,
+    "[Measures].[Net Sales USD]": 2177270.6929
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BFT-04",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品04",
+    "[Measures].[Sales Line Count]": 490,
+    "[Measures].[Net Sales USD]": 2494096.3032
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BFT-05",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品05",
+    "[Measures].[Sales Line Count]": 481,
+    "[Measures].[Net Sales USD]": 2536920.3368
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BFT-06",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品06",
+    "[Measures].[Sales Line Count]": 444,
+    "[Measures].[Net Sales USD]": 2497702.5673
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BV1-01",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬重包裝產品01",
+    "[Measures].[Sales Line Count]": 465,
+    "[Measures].[Net Sales USD]": 1359366.3628
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BV1-02",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬重包裝產品02",
+    "[Measures].[Sales Line Count]": 448,
+    "[Measures].[Net Sales USD]": 1414059.9439
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BV1-03",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬重包裝產品03",
+    "[Measures].[Sales Line Count]": 464,
+    "[Measures].[Net Sales USD]": 1518074.7891
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BV1-04",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬重包裝產品04",
+    "[Measures].[Sales Line Count]": 457,
+    "[Measures].[Net Sales USD]": 1591691.0328
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BV1-05",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬重包裝產品05",
+    "[Measures].[Sales Line Count]": 484,
+    "[Measures].[Net Sales USD]": 1769624.6827
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BV1-06",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬重包裝產品06",
+    "[Measures].[Sales Line Count]": 493,
+    "[Measures].[Net Sales USD]": 1878345.3961
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BZB-01",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品01",
+    "[Measures].[Sales Line Count]": 477,
+    "[Measures].[Net Sales USD]": 3089179.781
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BZB-02",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品02",
+    "[Measures].[Sales Line Count]": 444,
+    "[Measures].[Net Sales USD]": 3040679.4941
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BZB-03",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品03",
+    "[Measures].[Sales Line Count]": 451,
+    "[Measures].[Net Sales USD]": 3370832.781
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BZB-04",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品04",
+    "[Measures].[Sales Line Count]": 436,
+    "[Measures].[Net Sales USD]": 3236040.0227
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BZB-05",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品05",
+    "[Measures].[Sales Line Count]": 434,
+    "[Measures].[Net Sales USD]": 3362863.3625
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BZB-06",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品06",
+    "[Measures].[Sales Line Count]": 457,
+    "[Measures].[Net Sales USD]": 3429522.66
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BZS-01",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品01",
+    "[Measures].[Sales Line Count]": 489,
+    "[Measures].[Net Sales USD]": 2514505.982
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BZS-02",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品02",
+    "[Measures].[Sales Line Count]": 466,
+    "[Measures].[Net Sales USD]": 2554114.03
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BZS-03",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品03",
+    "[Measures].[Sales Line Count]": 440,
+    "[Measures].[Net Sales USD]": 2560908.8008
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BZS-04",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品04",
+    "[Measures].[Sales Line Count]": 490,
+    "[Measures].[Net Sales USD]": 2957021.3909
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BZS-05",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品05",
+    "[Measures].[Sales Line Count]": 472,
+    "[Measures].[Net Sales USD]": 2708557.0751
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BZS-06",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品06",
+    "[Measures].[Sales Line Count]": 451,
+    "[Measures].[Net Sales USD]": 2830547.4854
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BZT-01",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品01",
+    "[Measures].[Sales Line Count]": 436,
+    "[Measures].[Net Sales USD]": 3316323.2029
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BZT-02",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品02",
+    "[Measures].[Sales Line Count]": 440,
+    "[Measures].[Net Sales USD]": 3443120.5163
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BZT-03",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品03",
+    "[Measures].[Sales Line Count]": 452,
+    "[Measures].[Net Sales USD]": 3557424.0418
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BZT-04",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品04",
+    "[Measures].[Sales Line Count]": 464,
+    "[Measures].[Net Sales USD]": 3517732.1689
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BZT-05",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品05",
+    "[Measures].[Sales Line Count]": 460,
+    "[Measures].[Net Sales USD]": 3850693.1453
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BZT-06",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品06",
+    "[Measures].[Sales Line Count]": 455,
+    "[Measures].[Net Sales USD]": 3831233.7793
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BZZ-01",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品01",
+    "[Measures].[Sales Line Count]": 435,
+    "[Measures].[Net Sales USD]": 2508386.1976
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BZZ-02",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品02",
+    "[Measures].[Sales Line Count]": 459,
+    "[Measures].[Net Sales USD]": 3042846.1174
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BZZ-03",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品03",
+    "[Measures].[Sales Line Count]": 481,
+    "[Measures].[Net Sales USD]": 2916622.4441
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BZZ-04",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品04",
+    "[Measures].[Sales Line Count]": 485,
+    "[Measures].[Net Sales USD]": 3259410.5706
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BZZ-05",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品05",
+    "[Measures].[Sales Line Count]": 426,
+    "[Measures].[Net Sales USD]": 2748750.1411
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "BZZ-06",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PE袋產品06",
+    "[Measures].[Sales Line Count]": 448,
+    "[Measures].[Net Sales USD]": 3083328.0067
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "CSA-01",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬CSA產品01",
+    "[Measures].[Sales Line Count]": 471,
+    "[Measures].[Net Sales USD]": 2072583.5812
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "CSA-02",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬CSA產品02",
+    "[Measures].[Sales Line Count]": 478,
+    "[Measures].[Net Sales USD]": 2189732.6474
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "CSA-03",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬CSA產品03",
+    "[Measures].[Sales Line Count]": 433,
+    "[Measures].[Net Sales USD]": 2172704.9383
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "CSA-04",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬CSA產品04",
+    "[Measures].[Sales Line Count]": 431,
+    "[Measures].[Net Sales USD]": 2144202.7624
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "CSA-05",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬CSA產品05",
+    "[Measures].[Sales Line Count]": 461,
+    "[Measures].[Net Sales USD]": 2464243.3412
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "CSA-06",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬CSA產品06",
+    "[Measures].[Sales Line Count]": 430,
+    "[Measures].[Net Sales USD]": 2249024.9179
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "CWH-01",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬H產品01",
+    "[Measures].[Sales Line Count]": 479,
+    "[Measures].[Net Sales USD]": 3882968.3678
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "CWH-02",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬H產品02",
+    "[Measures].[Sales Line Count]": 460,
+    "[Measures].[Net Sales USD]": 4080211.7072
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "CWH-03",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬H產品03",
+    "[Measures].[Sales Line Count]": 472,
+    "[Measures].[Net Sales USD]": 3989001.0619
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "CWH-04",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬H產品04",
+    "[Measures].[Sales Line Count]": 467,
+    "[Measures].[Net Sales USD]": 3996443.4272
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "CWH-05",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬H產品05",
+    "[Measures].[Sales Line Count]": 466,
+    "[Measures].[Net Sales USD]": 4376370.0176
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "CWH-06",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬H產品06",
+    "[Measures].[Sales Line Count]": 468,
+    "[Measures].[Net Sales USD]": 4214596.4596
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "CWM-01",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬M產品01",
+    "[Measures].[Sales Line Count]": 435,
+    "[Measures].[Net Sales USD]": 1229605.6065
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "CWM-02",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬M產品02",
+    "[Measures].[Sales Line Count]": 466,
+    "[Measures].[Net Sales USD]": 1416081.0154
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "CWM-03",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬M產品03",
+    "[Measures].[Sales Line Count]": 434,
+    "[Measures].[Net Sales USD]": 1446588.6523
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "CWM-04",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬M產品04",
+    "[Measures].[Sales Line Count]": 427,
+    "[Measures].[Net Sales USD]": 1417607.7617
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "CWM-05",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬M產品05",
+    "[Measures].[Sales Line Count]": 448,
+    "[Measures].[Net Sales USD]": 1637717.503
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "CWM-06",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬M產品06",
+    "[Measures].[Sales Line Count]": 439,
+    "[Measures].[Net Sales USD]": 1663065.0974
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "CWP-01",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬P產品01",
+    "[Measures].[Sales Line Count]": 453,
+    "[Measures].[Net Sales USD]": 1607510.2965
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "CWP-02",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬P產品02",
+    "[Measures].[Sales Line Count]": 475,
+    "[Measures].[Net Sales USD]": 1822679.434
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "CWP-03",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬P產品03",
+    "[Measures].[Sales Line Count]": 455,
+    "[Measures].[Net Sales USD]": 1795069.2187
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "CWP-04",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬P產品04",
+    "[Measures].[Sales Line Count]": 448,
+    "[Measures].[Net Sales USD]": 1932501.2599
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "CWP-05",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬P產品05",
+    "[Measures].[Sales Line Count]": 430,
+    "[Measures].[Net Sales USD]": 1965477.2573
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "CWP-06",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬P產品06",
+    "[Measures].[Sales Line Count]": 451,
+    "[Measures].[Net Sales USD]": 2045614.7615
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBB-01",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬暖暖包產品01",
+    "[Measures].[Sales Line Count]": 450,
+    "[Measures].[Net Sales USD]": 2230992.2537
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBB-03",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬暖暖包產品03",
+    "[Measures].[Sales Line Count]": 433,
+    "[Measures].[Net Sales USD]": 2634542.3451
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBB-05",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬暖暖包產品05",
+    "[Measures].[Sales Line Count]": 434,
+    "[Measures].[Net Sales USD]": 2596134.8018
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBB-OEM-02",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬暖暖包產品02代工",
+    "[Measures].[Sales Line Count]": 448,
+    "[Measures].[Net Sales USD]": 2348526.7805
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBB-OEM-04",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬暖暖包產品04代工",
+    "[Measures].[Sales Line Count]": 423,
+    "[Measures].[Net Sales USD]": 2407171.3986
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBB-OEM-06",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬暖暖包產品06代工",
+    "[Measures].[Sales Line Count]": 472,
+    "[Measures].[Net Sales USD]": 2910962.9303
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBD-01",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬BRE產品01",
+    "[Measures].[Sales Line Count]": 468,
+    "[Measures].[Net Sales USD]": 3887399.3432
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBD-03",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬BRE產品03",
+    "[Measures].[Sales Line Count]": 460,
+    "[Measures].[Net Sales USD]": 3837618.8675
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBD-05",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬BRE產品05",
+    "[Measures].[Sales Line Count]": 400,
+    "[Measures].[Net Sales USD]": 3526249.4912
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBD-OEM-02",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬BRE產品02代工",
+    "[Measures].[Sales Line Count]": 463,
+    "[Measures].[Net Sales USD]": 4001376.3834
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBD-OEM-04",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬BRE產品04代工",
+    "[Measures].[Sales Line Count]": 405,
+    "[Measures].[Net Sales USD]": 3657231.5835
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBD-OEM-06",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬BRE產品06代工",
+    "[Measures].[Sales Line Count]": 459,
+    "[Measures].[Net Sales USD]": 4110715.4455
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBN-01",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬BRE產品01",
+    "[Measures].[Sales Line Count]": 442,
+    "[Measures].[Net Sales USD]": 2724690.9428
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBN-03",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬BRE產品03",
+    "[Measures].[Sales Line Count]": 463,
+    "[Measures].[Net Sales USD]": 3085909.2896
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBN-05",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬BRE產品05",
+    "[Measures].[Sales Line Count]": 446,
+    "[Measures].[Net Sales USD]": 3082822.303
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBN-OEM-02",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬BRE產品02代工",
+    "[Measures].[Sales Line Count]": 487,
+    "[Measures].[Net Sales USD]": 2783347.6072
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBN-OEM-04",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬BRE產品04代工",
+    "[Measures].[Sales Line Count]": 436,
+    "[Measures].[Net Sales USD]": 2963230.3873
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBN-OEM-06",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬BRE產品06代工",
+    "[Measures].[Sales Line Count]": 432,
+    "[Measures].[Net Sales USD]": 2884751.2876
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBP-01",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬BRE產品01",
+    "[Measures].[Sales Line Count]": 437,
+    "[Measures].[Net Sales USD]": 2918754.5612
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBP-03",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬BRE產品03",
+    "[Measures].[Sales Line Count]": 464,
+    "[Measures].[Net Sales USD]": 3342678.4088
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBP-05",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬BRE產品05",
+    "[Measures].[Sales Line Count]": 470,
+    "[Measures].[Net Sales USD]": 3725738.4964
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBP-OEM-02",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬BRE產品02代工",
+    "[Measures].[Sales Line Count]": 416,
+    "[Measures].[Net Sales USD]": 2855883.7739
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBP-OEM-04",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬BRE產品04代工",
+    "[Measures].[Sales Line Count]": 499,
+    "[Measures].[Net Sales USD]": 3574646.7353
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBP-OEM-06",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬BRE產品06代工",
+    "[Measures].[Sales Line Count]": 463,
+    "[Measures].[Net Sales USD]": 3458316.374
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBQ-01",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬BRE產品01",
+    "[Measures].[Sales Line Count]": 485,
+    "[Measures].[Net Sales USD]": 3647767.6899
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBQ-03",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬BRE產品03",
+    "[Measures].[Sales Line Count]": 457,
+    "[Measures].[Net Sales USD]": 3557886.3957
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBQ-05",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬BRE產品05",
+    "[Measures].[Sales Line Count]": 473,
+    "[Measures].[Net Sales USD]": 3904103.4224
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBQ-OEM-02",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬BRE產品02代工",
+    "[Measures].[Sales Line Count]": 459,
+    "[Measures].[Net Sales USD]": 3668072.0139
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBQ-OEM-04",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬BRE產品04代工",
+    "[Measures].[Sales Line Count]": 432,
+    "[Measures].[Net Sales USD]": 3499754.3362
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EBQ-OEM-06",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬BRE產品06代工",
+    "[Measures].[Sales Line Count]": 420,
+    "[Measures].[Net Sales USD]": 3656605.73
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "END-01",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬NBR產品01",
+    "[Measures].[Sales Line Count]": 415,
+    "[Measures].[Net Sales USD]": 2143193.2748
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "END-03",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬NBR產品03",
+    "[Measures].[Sales Line Count]": 457,
+    "[Measures].[Net Sales USD]": 2448889.5149
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "END-05",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬NBR產品05",
+    "[Measures].[Sales Line Count]": 449,
+    "[Measures].[Net Sales USD]": 2674867.228
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "END-OEM-02",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬NBR產品02代工",
+    "[Measures].[Sales Line Count]": 429,
+    "[Measures].[Net Sales USD]": 2248741.8425
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "END-OEM-04",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬NBR產品04代工",
+    "[Measures].[Sales Line Count]": 471,
+    "[Measures].[Net Sales USD]": 2687277.4141
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "END-OEM-06",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬NBR產品06代工",
+    "[Measures].[Sales Line Count]": 501,
+    "[Measures].[Net Sales USD]": 3054850.3334
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "ENN-01",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬NBR產品01",
+    "[Measures].[Sales Line Count]": 439,
+    "[Measures].[Net Sales USD]": 1318093.3737
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "ENN-03",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬NBR產品03",
+    "[Measures].[Sales Line Count]": 450,
+    "[Measures].[Net Sales USD]": 1448391.4032
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "ENN-05",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬NBR產品05",
+    "[Measures].[Sales Line Count]": 440,
+    "[Measures].[Net Sales USD]": 1546066.4667
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "ENN-OEM-02",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬NBR產品02代工",
+    "[Measures].[Sales Line Count]": 441,
+    "[Measures].[Net Sales USD]": 1377561.6509
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "ENN-OEM-04",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬NBR產品04代工",
+    "[Measures].[Sales Line Count]": 431,
+    "[Measures].[Net Sales USD]": 1557616.8345
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "ENN-OEM-06",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬NBR產品06代工",
+    "[Measures].[Sales Line Count]": 495,
+    "[Measures].[Net Sales USD]": 1899844.7829
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "ENP-01",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬NBR產品01",
+    "[Measures].[Sales Line Count]": 461,
+    "[Measures].[Net Sales USD]": 1593222.9266
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "ENP-03",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬NBR產品03",
+    "[Measures].[Sales Line Count]": 450,
+    "[Measures].[Net Sales USD]": 1776131.4528
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "ENP-05",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬NBR產品05",
+    "[Measures].[Sales Line Count]": 453,
+    "[Measures].[Net Sales USD]": 1992102.9914
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "ENP-OEM-02",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬NBR產品02代工",
+    "[Measures].[Sales Line Count]": 447,
+    "[Measures].[Net Sales USD]": 1678331.0961
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "ENP-OEM-04",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬NBR產品04代工",
+    "[Measures].[Sales Line Count]": 449,
+    "[Measures].[Net Sales USD]": 1823050.6741
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "ENP-OEM-06",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬NBR產品06代工",
+    "[Measures].[Sales Line Count]": 452,
+    "[Measures].[Net Sales USD]": 2059812.0561
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "ENQ-01",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬NBR產品01",
+    "[Measures].[Sales Line Count]": 452,
+    "[Measures].[Net Sales USD]": 2024199.9772
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "ENQ-03",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬NBR產品03",
+    "[Measures].[Sales Line Count]": 454,
+    "[Measures].[Net Sales USD]": 2220128.045
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "ENQ-05",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬NBR產品05",
+    "[Measures].[Sales Line Count]": 449,
+    "[Measures].[Net Sales USD]": 2324204.7782
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "ENQ-OEM-02",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬NBR產品02代工",
+    "[Measures].[Sales Line Count]": 453,
+    "[Measures].[Net Sales USD]": 2046543.8653
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "ENQ-OEM-04",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬NBR產品04代工",
+    "[Measures].[Sales Line Count]": 442,
+    "[Measures].[Net Sales USD]": 2196482.9763
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "ENQ-OEM-06",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬NBR產品06代工",
+    "[Measures].[Sales Line Count]": 454,
+    "[Measures].[Net Sales USD]": 2425985.5547
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EZB-01",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PEVA產品01",
+    "[Measures].[Sales Line Count]": 458,
+    "[Measures].[Net Sales USD]": 2721434.0833
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EZB-02",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PEVA產品02",
+    "[Measures].[Sales Line Count]": 427,
+    "[Measures].[Net Sales USD]": 2666453.4891
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EZB-03",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PEVA產品03",
+    "[Measures].[Sales Line Count]": 450,
+    "[Measures].[Net Sales USD]": 2708541.7867
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EZB-04",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PEVA產品04",
+    "[Measures].[Sales Line Count]": 492,
+    "[Measures].[Net Sales USD]": 3271933.5848
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EZB-05",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PEVA產品05",
+    "[Measures].[Sales Line Count]": 482,
+    "[Measures].[Net Sales USD]": 3156423.0363
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "EZB-06",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬PEVA產品06",
+    "[Measures].[Sales Line Count]": 448,
+    "[Measures].[Net Sales USD]": 2901155.0577
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "ZZZ-01",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬未分類測試產品01",
+    "[Measures].[Sales Line Count]": 506,
+    "[Measures].[Net Sales USD]": 3563829.1409
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "ZZZ-02",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬未分類測試產品02",
+    "[Measures].[Sales Line Count]": 440,
+    "[Measures].[Net Sales USD]": 3070973.0509
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "ZZZ-03",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬未分類測試產品03",
+    "[Measures].[Sales Line Count]": 454,
+    "[Measures].[Net Sales USD]": 3202473.5457
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "ZZZ-04",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬未分類測試產品04",
+    "[Measures].[Sales Line Count]": 481,
+    "[Measures].[Net Sales USD]": 3553740.563
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "ZZZ-05",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬未分類測試產品05",
+    "[Measures].[Sales Line Count]": 497,
+    "[Measures].[Net Sales USD]": 3686270.4786
+  },
+  {
+    "[Product].[Product].[Product].[MEMBER_KEY]": "ZZZ-06",
+    "[Product].[Product].[Product].[MEMBER_CAPTION]": "虛擬未分類測試產品06",
+    "[Measures].[Sales Line Count]": 458,
+    "[Measures].[Net Sales USD]": 3410821.0814
+  }
+]

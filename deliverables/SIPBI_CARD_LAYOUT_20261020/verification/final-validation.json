@@ -1,0 +1,30 @@
+{
+  "verifiedAt": "2026-10-20T15:46:47.472812+00:00",
+  "finalBuild": "index-Dc4U2ukl.js",
+  "desktopPages": [
+    "D00",
+    "D01",
+    "D02",
+    "D04",
+    "D06",
+    "D08",
+    "D11",
+    "D13",
+    "D14",
+    "D15",
+    "D16",
+    "D18"
+  ],
+  "desktopViewport": "1440x1000",
+  "mobileViewport": "390x844",
+  "mobileZeroPageOverflow": true,
+  "semanticChecksPassed": 26,
+  "liveApiPages": 12,
+  "galleryCards": 12,
+  "galleryModeAndZoomTested": true,
+  "stopStartScriptTested": true,
+  "nativeCsvDownloadFileRetrieved": false,
+  "sourceAndBuildCopiesMatchWork": true,
+  "screenshotsAreActualBrowserCaptures": true,
+  "errorConsoleObserved": []
+}

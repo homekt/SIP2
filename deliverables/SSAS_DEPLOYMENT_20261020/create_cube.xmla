@@ -1,0 +1,2103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Create xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ObjectDefinition>
+    <Database xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500">
+      <ID>JDE_SALES_CUBE_20261020</ID>
+      <Name>JDE_SALES_CUBE_20261020</Name>
+      <ddl200:CompatibilityLevel>1100</ddl200:CompatibilityLevel>
+      <Description>Synthetic sales test dataset. Two source tables, 60000 lines, 2024-01 through 2026-09.</Description>
+      <Language>1028</Language>
+      <Dimensions>
+        <Dimension>
+          <ID>Company</ID>
+          <Name>Company</Name>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>SalesDSV</DataSourceViewID>
+          </Source>
+          <Attributes>
+            <Attribute>
+              <ID>Key</ID>
+              <Name>Company</Name>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>5</DataSize>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimCompany</TableID>
+                    <ColumnID>CompanyKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>6</DataSize>
+                <NullProcessing>Error</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>DimCompany</TableID>
+                  <ColumnID>CompanyName</ColumnID>
+                </Source>
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>CompanyCode</AttributeID>
+                  <Name>Company Code</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <ID>CompanyCode</ID>
+              <Name>Company Code</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>5</DataSize>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimCompany</TableID>
+                    <ColumnID>CompanyKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>5</DataSize>
+                <NullProcessing>Error</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>DimCompany</TableID>
+                  <ColumnID>CompanyKey</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension>
+          <ID>Plant</ID>
+          <Name>Plant</Name>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>SalesDSV</DataSourceViewID>
+          </Source>
+          <Attributes>
+            <Attribute>
+              <ID>Key</ID>
+              <Name>Plant</Name>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>18</DataSize>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimPlant</TableID>
+                    <ColumnID>PlantKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>17</DataSize>
+                <NullProcessing>Error</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>DimPlant</TableID>
+                  <ColumnID>PlantName</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension>
+          <ID>CostCenter</ID>
+          <Name>Cost Center</Name>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>SalesDSV</DataSourceViewID>
+          </Source>
+          <Attributes>
+            <Attribute>
+              <ID>Key</ID>
+              <Name>Cost Center</Name>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>18</DataSize>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimCostCenter</TableID>
+                    <ColumnID>CostCenterKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>100</DataSize>
+                <NullProcessing>Error</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>DimCostCenter</TableID>
+                  <ColumnID>CostCenterName</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension>
+          <ID>Customer</ID>
+          <Name>Customer</Name>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>SalesDSV</DataSourceViewID>
+          </Source>
+          <Attributes>
+            <Attribute>
+              <ID>Key</ID>
+              <Name>Customer</Name>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>18</DataSize>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimCustomer</TableID>
+                    <ColumnID>CustomerKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>100</DataSize>
+                <NullProcessing>Error</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>DimCustomer</TableID>
+                  <ColumnID>CustomerName</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension>
+          <ID>Salesperson</ID>
+          <Name>Salesperson</Name>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>SalesDSV</DataSourceViewID>
+          </Source>
+          <Attributes>
+            <Attribute>
+              <ID>Key</ID>
+              <Name>Salesperson</Name>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>10</DataSize>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimSalesperson</TableID>
+                    <ColumnID>SalespersonKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>60</DataSize>
+                <NullProcessing>Error</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>DimSalesperson</TableID>
+                  <ColumnID>SalespersonName</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension>
+          <ID>Currency</ID>
+          <Name>Currency</Name>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>SalesDSV</DataSourceViewID>
+          </Source>
+          <Attributes>
+            <Attribute>
+              <ID>Key</ID>
+              <Name>Currency</Name>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>3</DataSize>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimCurrency</TableID>
+                    <ColumnID>CurrencyKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>3</DataSize>
+                <NullProcessing>Error</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>DimCurrency</TableID>
+                  <ColumnID>CurrencyKey</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension>
+          <ID>Product</ID>
+          <Name>Product</Name>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>SalesDSV</DataSourceViewID>
+          </Source>
+          <Attributes>
+            <Attribute>
+              <ID>Key</ID>
+              <Name>Product</Name>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>30</DataSize>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimProduct</TableID>
+                    <ColumnID>ProductKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>100</DataSize>
+                <NullProcessing>Error</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>DimProduct</TableID>
+                  <ColumnID>ProductName</ColumnID>
+                </Source>
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>Middle</AttributeID>
+                  <Name>Middle Category</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <ID>Middle</ID>
+              <Name>Middle Category</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>10</DataSize>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimProduct</TableID>
+                    <ColumnID>MiddleKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>5</DataSize>
+                <NullProcessing>Error</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>DimProduct</TableID>
+                  <ColumnID>MiddleLabel</ColumnID>
+                </Source>
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>Major</AttributeID>
+                  <Name>Major Category</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <ID>Major</ID>
+              <Name>Major Category</Name>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>WChar</DataType>
+                  <DataSize>4</DataSize>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimProduct</TableID>
+                    <ColumnID>MajorLabel</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>4</DataSize>
+                <NullProcessing>Error</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>DimProduct</TableID>
+                  <ColumnID>MajorLabel</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+          </Attributes>
+          <Hierarchies>
+            <Hierarchy>
+              <ID>ProductCategories</ID>
+              <Name>Product Categories</Name>
+              <Levels>
+                <Level>
+                  <ID>Major</ID>
+                  <Name>Major Category</Name>
+                  <SourceAttributeID>Major</SourceAttributeID>
+                </Level>
+                <Level>
+                  <ID>Middle</ID>
+                  <Name>Middle Category</Name>
+                  <SourceAttributeID>Middle</SourceAttributeID>
+                </Level>
+                <Level>
+                  <ID>Product</ID>
+                  <Name>Product</Name>
+                  <SourceAttributeID>Key</SourceAttributeID>
+                </Level>
+              </Levels>
+            </Hierarchy>
+          </Hierarchies>
+        </Dimension>
+        <Dimension>
+          <ID>Date</ID>
+          <Name>Date</Name>
+          <Source xsi:type="DataSourceViewBinding">
+            <DataSourceViewID>SalesDSV</DataSourceViewID>
+          </Source>
+          <Type>Time</Type>
+          <Attributes>
+            <Attribute>
+              <ID>Key</ID>
+              <Name>Date</Name>
+              <Type>Date</Type>
+              <Usage>Key</Usage>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimDate</TableID>
+                    <ColumnID>DateKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>10</DataSize>
+                <NullProcessing>Error</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>DimDate</TableID>
+                  <ColumnID>DateCaption</ColumnID>
+                </Source>
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>Month</AttributeID>
+                  <Name>Month</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <ID>Month</ID>
+              <Name>Month</Name>
+              <Type>Months</Type>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimDate</TableID>
+                    <ColumnID>MonthKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>7</DataSize>
+                <NullProcessing>Error</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>DimDate</TableID>
+                  <ColumnID>YearMonth</ColumnID>
+                </Source>
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>Quarter</AttributeID>
+                  <Name>Quarter</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <ID>Quarter</ID>
+              <Name>Quarter</Name>
+              <Type>Quarters</Type>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimDate</TableID>
+                    <ColumnID>YearQuarterKey</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>13</DataSize>
+                <NullProcessing>Error</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>DimDate</TableID>
+                  <ColumnID>QuarterCaption</ColumnID>
+                </Source>
+              </NameColumn>
+              <AttributeRelationships>
+                <AttributeRelationship>
+                  <AttributeID>Year</AttributeID>
+                  <Name>Year</Name>
+                </AttributeRelationship>
+              </AttributeRelationships>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+            <Attribute>
+              <ID>Year</ID>
+              <Name>Year</Name>
+              <Type>Years</Type>
+              <KeyColumns>
+                <KeyColumn>
+                  <DataType>Integer</DataType>
+                  <NullProcessing>Error</NullProcessing>
+                  <Source xsi:type="ColumnBinding">
+                    <TableID>DimDate</TableID>
+                    <ColumnID>CalendarYear</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <NameColumn>
+                <DataType>WChar</DataType>
+                <DataSize>4</DataSize>
+                <NullProcessing>Error</NullProcessing>
+                <Source xsi:type="ColumnBinding">
+                  <TableID>DimDate</TableID>
+                  <ColumnID>YearCaption</ColumnID>
+                </Source>
+              </NameColumn>
+              <OrderBy>Key</OrderBy>
+            </Attribute>
+          </Attributes>
+          <Hierarchies>
+            <Hierarchy>
+              <ID>Calendar</ID>
+              <Name>Calendar</Name>
+              <Levels>
+                <Level>
+                  <ID>Year</ID>
+                  <Name>Year</Name>
+                  <SourceAttributeID>Year</SourceAttributeID>
+                </Level>
+                <Level>
+                  <ID>Quarter</ID>
+                  <Name>Quarter</Name>
+                  <SourceAttributeID>Quarter</SourceAttributeID>
+                </Level>
+                <Level>
+                  <ID>Month</ID>
+                  <Name>Month</Name>
+                  <SourceAttributeID>Month</SourceAttributeID>
+                </Level>
+                <Level>
+                  <ID>Key</ID>
+                  <Name>Date</Name>
+                  <SourceAttributeID>Key</SourceAttributeID>
+                </Level>
+              </Levels>
+            </Hierarchy>
+          </Hierarchies>
+        </Dimension>
+      </Dimensions>
+      <Cubes>
+        <Cube>
+          <ID>Sales</ID>
+          <Name>JDE Sales</Name>
+          <Dimensions>
+            <Dimension>
+              <ID>Company</ID>
+              <Name>Company</Name>
+              <DimensionID>Company</DimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Key</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>CompanyCode</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <ID>Plant</ID>
+              <Name>Plant</Name>
+              <DimensionID>Plant</DimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Key</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <ID>CostCenter</ID>
+              <Name>Cost Center</Name>
+              <DimensionID>CostCenter</DimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Key</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <ID>Customer</ID>
+              <Name>Customer</Name>
+              <DimensionID>Customer</DimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Key</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <ID>Product</ID>
+              <Name>Product</Name>
+              <DimensionID>Product</DimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Key</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Middle</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Major</AttributeID>
+                </Attribute>
+              </Attributes>
+              <Hierarchies>
+                <Hierarchy>
+                  <HierarchyID>ProductCategories</HierarchyID>
+                </Hierarchy>
+              </Hierarchies>
+            </Dimension>
+            <Dimension>
+              <ID>Salesperson</ID>
+              <Name>Salesperson</Name>
+              <DimensionID>Salesperson</DimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Key</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <ID>TransactionCurrency</ID>
+              <Name>Transaction Currency</Name>
+              <DimensionID>Currency</DimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Key</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <ID>LocalCurrency</ID>
+              <Name>Local Currency</Name>
+              <DimensionID>Currency</DimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Key</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <ID>InvoiceDate</ID>
+              <Name>Invoice Date</Name>
+              <DimensionID>Date</DimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Key</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Month</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Quarter</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Year</AttributeID>
+                </Attribute>
+              </Attributes>
+              <Hierarchies>
+                <Hierarchy>
+                  <HierarchyID>Calendar</HierarchyID>
+                </Hierarchy>
+              </Hierarchies>
+            </Dimension>
+            <Dimension>
+              <ID>OrderDate</ID>
+              <Name>Order Date</Name>
+              <DimensionID>Date</DimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Key</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Month</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Quarter</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Year</AttributeID>
+                </Attribute>
+              </Attributes>
+              <Hierarchies>
+                <Hierarchy>
+                  <HierarchyID>Calendar</HierarchyID>
+                </Hierarchy>
+              </Hierarchies>
+            </Dimension>
+            <Dimension>
+              <ID>ShipDate</ID>
+              <Name>Ship Date</Name>
+              <DimensionID>Date</DimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Key</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Month</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Quarter</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Year</AttributeID>
+                </Attribute>
+              </Attributes>
+              <Hierarchies>
+                <Hierarchy>
+                  <HierarchyID>Calendar</HierarchyID>
+                </Hierarchy>
+              </Hierarchies>
+            </Dimension>
+            <Dimension>
+              <ID>GLDate</ID>
+              <Name>GL Date</Name>
+              <DimensionID>Date</DimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Key</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Month</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Quarter</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Year</AttributeID>
+                </Attribute>
+              </Attributes>
+              <Hierarchies>
+                <Hierarchy>
+                  <HierarchyID>Calendar</HierarchyID>
+                </Hierarchy>
+              </Hierarchies>
+            </Dimension>
+          </Dimensions>
+          <DefaultMeasure>[Measures].[Net Sales USD]</DefaultMeasure>
+          <MeasureGroups>
+            <MeasureGroup>
+              <ID>Sales</ID>
+              <Name>Sales</Name>
+              <Measures>
+                <Measure>
+                  <ID>NetSalesUSD</ID>
+                  <Name>Net Sales USD</Name>
+                  <DataType>Currency</DataType>
+                  <Source>
+                    <DataType>Currency</DataType>
+                    <NullProcessing>Error</NullProcessing>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>FactSales</TableID>
+                      <ColumnID>NetSalesUSD</ColumnID>
+                    </Source>
+                  </Source>
+                  <DisplayFolder>Financial USD</DisplayFolder>
+                  <FormatString>#,##0.00</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>NetCostUSD</ID>
+                  <Name>Net Cost USD</Name>
+                  <DataType>Currency</DataType>
+                  <Source>
+                    <DataType>Currency</DataType>
+                    <NullProcessing>Error</NullProcessing>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>FactSales</TableID>
+                      <ColumnID>NetCostUSD</ColumnID>
+                    </Source>
+                  </Source>
+                  <DisplayFolder>Financial USD</DisplayFolder>
+                  <FormatString>#,##0.00</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>GrossProfitUSD</ID>
+                  <Name>Gross Profit USD</Name>
+                  <DataType>Currency</DataType>
+                  <Source>
+                    <DataType>Currency</DataType>
+                    <NullProcessing>Error</NullProcessing>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>FactSales</TableID>
+                      <ColumnID>GrossProfitUSD</ColumnID>
+                    </Source>
+                  </Source>
+                  <DisplayFolder>Financial USD</DisplayFolder>
+                  <FormatString>#,##0.00</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>GrossSalesUSD</ID>
+                  <Name>Gross Sales USD</Name>
+                  <DataType>Currency</DataType>
+                  <Source>
+                    <DataType>Currency</DataType>
+                    <NullProcessing>Error</NullProcessing>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>FactSales</TableID>
+                      <ColumnID>GrossSalesUSD</ColumnID>
+                    </Source>
+                  </Source>
+                  <DisplayFolder>Financial USD</DisplayFolder>
+                  <FormatString>#,##0.00</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>ReturnsUSD</ID>
+                  <Name>Returns USD</Name>
+                  <DataType>Currency</DataType>
+                  <Source>
+                    <DataType>Currency</DataType>
+                    <NullProcessing>Error</NullProcessing>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>FactSales</TableID>
+                      <ColumnID>ReturnsUSD</ColumnID>
+                    </Source>
+                  </Source>
+                  <DisplayFolder>Financial USD</DisplayFolder>
+                  <FormatString>#,##0.00</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>AllowanceUSD</ID>
+                  <Name>Allowance USD</Name>
+                  <DataType>Currency</DataType>
+                  <Source>
+                    <DataType>Currency</DataType>
+                    <NullProcessing>Error</NullProcessing>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>FactSales</TableID>
+                      <ColumnID>AllowanceUSD</ColumnID>
+                    </Source>
+                  </Source>
+                  <DisplayFolder>Financial USD</DisplayFolder>
+                  <FormatString>#,##0.00</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>SalesQtyKG</ID>
+                  <Name>Sales Quantity KG</Name>
+                  <DataType>Currency</DataType>
+                  <Source>
+                    <DataType>Currency</DataType>
+                    <NullProcessing>Error</NullProcessing>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>FactSales</TableID>
+                      <ColumnID>SalesQtyKG</ColumnID>
+                    </Source>
+                  </Source>
+                  <DisplayFolder>Quantity KG</DisplayFolder>
+                  <FormatString>#,##0.00</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>ReturnQtyKG</ID>
+                  <Name>Return Quantity KG</Name>
+                  <DataType>Currency</DataType>
+                  <Source>
+                    <DataType>Currency</DataType>
+                    <NullProcessing>Error</NullProcessing>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>FactSales</TableID>
+                      <ColumnID>ReturnQtyKG</ColumnID>
+                    </Source>
+                  </Source>
+                  <DisplayFolder>Quantity KG</DisplayFolder>
+                  <FormatString>#,##0.00</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>NetQtyKG</ID>
+                  <Name>Net Quantity KG</Name>
+                  <DataType>Currency</DataType>
+                  <Source>
+                    <DataType>Currency</DataType>
+                    <NullProcessing>Error</NullProcessing>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>FactSales</TableID>
+                      <ColumnID>NetQtyKG</ColumnID>
+                    </Source>
+                  </Source>
+                  <DisplayFolder>Quantity KG</DisplayFolder>
+                  <FormatString>#,##0.00</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>SalesLineCount</ID>
+                  <Name>Sales Line Count</Name>
+                  <DataType>Integer</DataType>
+                  <Source>
+                    <DataType>Integer</DataType>
+                    <NullProcessing>Error</NullProcessing>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>FactSales</TableID>
+                      <ColumnID>SalesLineCount</ColumnID>
+                    </Source>
+                  </Source>
+                  <DisplayFolder>Test scenarios</DisplayFolder>
+                  <FormatString>#,##0</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>FullReturnLineCount</ID>
+                  <Name>Full Return Line Count</Name>
+                  <DataType>Integer</DataType>
+                  <Source>
+                    <DataType>Integer</DataType>
+                    <NullProcessing>Error</NullProcessing>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>FactSales</TableID>
+                      <ColumnID>FullReturnLineCount</ColumnID>
+                    </Source>
+                  </Source>
+                  <DisplayFolder>Test scenarios</DisplayFolder>
+                  <FormatString>#,##0</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>PartialReturnLineCount</ID>
+                  <Name>Partial Return Line Count</Name>
+                  <DataType>Integer</DataType>
+                  <Source>
+                    <DataType>Integer</DataType>
+                    <NullProcessing>Error</NullProcessing>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>FactSales</TableID>
+                      <ColumnID>PartialReturnLineCount</ColumnID>
+                    </Source>
+                  </Source>
+                  <DisplayFolder>Test scenarios</DisplayFolder>
+                  <FormatString>#,##0</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>AllowanceLineCount</ID>
+                  <Name>Allowance Line Count</Name>
+                  <DataType>Integer</DataType>
+                  <Source>
+                    <DataType>Integer</DataType>
+                    <NullProcessing>Error</NullProcessing>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>FactSales</TableID>
+                      <ColumnID>AllowanceLineCount</ColumnID>
+                    </Source>
+                  </Source>
+                  <DisplayFolder>Test scenarios</DisplayFolder>
+                  <FormatString>#,##0</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>NegativeMarginLineCount</ID>
+                  <Name>Negative Margin Line Count</Name>
+                  <DataType>Integer</DataType>
+                  <Source>
+                    <DataType>Integer</DataType>
+                    <NullProcessing>Error</NullProcessing>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>FactSales</TableID>
+                      <ColumnID>NegativeMarginLineCount</ColumnID>
+                    </Source>
+                  </Source>
+                  <DisplayFolder>Test scenarios</DisplayFolder>
+                  <FormatString>#,##0</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>NetSalesLocal</ID>
+                  <Name>Net Sales Local Raw</Name>
+                  <DataType>Currency</DataType>
+                  <Source>
+                    <DataType>Currency</DataType>
+                    <NullProcessing>Error</NullProcessing>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>FactSales</TableID>
+                      <ColumnID>NetSalesLocal</ColumnID>
+                    </Source>
+                  </Source>
+                  <Visible>false</Visible>
+                  <DisplayFolder>Internal currency totals</DisplayFolder>
+                  <FormatString>#,##0.00</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>NetCostLocal</ID>
+                  <Name>Net Cost Local Raw</Name>
+                  <DataType>Currency</DataType>
+                  <Source>
+                    <DataType>Currency</DataType>
+                    <NullProcessing>Error</NullProcessing>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>FactSales</TableID>
+                      <ColumnID>NetCostLocal</ColumnID>
+                    </Source>
+                  </Source>
+                  <Visible>false</Visible>
+                  <DisplayFolder>Internal currency totals</DisplayFolder>
+                  <FormatString>#,##0.00</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>GrossProfitLocal</ID>
+                  <Name>Gross Profit Local Raw</Name>
+                  <DataType>Currency</DataType>
+                  <Source>
+                    <DataType>Currency</DataType>
+                    <NullProcessing>Error</NullProcessing>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>FactSales</TableID>
+                      <ColumnID>GrossProfitLocal</ColumnID>
+                    </Source>
+                  </Source>
+                  <Visible>false</Visible>
+                  <DisplayFolder>Internal currency totals</DisplayFolder>
+                  <FormatString>#,##0.00</FormatString>
+                </Measure>
+                <Measure>
+                  <ID>NetSalesTransaction</ID>
+                  <Name>Net Sales Transaction Raw</Name>
+                  <DataType>Currency</DataType>
+                  <Source>
+                    <DataType>Currency</DataType>
+                    <NullProcessing>Error</NullProcessing>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>FactSales</TableID>
+                      <ColumnID>NetSalesTransaction</ColumnID>
+                    </Source>
+                  </Source>
+                  <Visible>false</Visible>
+                  <DisplayFolder>Internal currency totals</DisplayFolder>
+                  <FormatString>#,##0.00</FormatString>
+                </Measure>
+              </Measures>
+              <StorageMode>Molap</StorageMode>
+              <ProcessingMode>Regular</ProcessingMode>
+              <Dimensions>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>Company</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Key</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>5</DataSize>
+                          <NullProcessing>Error</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>FactSales</TableID>
+                            <ColumnID>CompanyKey</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>Plant</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Key</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>18</DataSize>
+                          <NullProcessing>Error</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>FactSales</TableID>
+                            <ColumnID>PlantKey</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>CostCenter</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Key</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>18</DataSize>
+                          <NullProcessing>Error</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>FactSales</TableID>
+                            <ColumnID>CostCenterKey</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>Customer</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Key</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>18</DataSize>
+                          <NullProcessing>Error</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>FactSales</TableID>
+                            <ColumnID>CustomerKey</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>Product</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Key</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>30</DataSize>
+                          <NullProcessing>Error</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>FactSales</TableID>
+                            <ColumnID>ProductKey</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>Salesperson</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Key</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>10</DataSize>
+                          <NullProcessing>Error</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>FactSales</TableID>
+                            <ColumnID>SalespersonKey</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>TransactionCurrency</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Key</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>3</DataSize>
+                          <NullProcessing>Error</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>FactSales</TableID>
+                            <ColumnID>TransactionCurrencyKey</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>LocalCurrency</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Key</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>3</DataSize>
+                          <NullProcessing>Error</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>FactSales</TableID>
+                            <ColumnID>LocalCurrencyKey</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>InvoiceDate</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Key</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <NullProcessing>Error</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>FactSales</TableID>
+                            <ColumnID>InvoiceDateKey</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>OrderDate</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Key</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <NullProcessing>Error</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>FactSales</TableID>
+                            <ColumnID>OrderDateKey</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>ShipDate</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Key</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <NullProcessing>Error</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>FactSales</TableID>
+                            <ColumnID>ShipDateKey</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>GLDate</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Key</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <NullProcessing>Error</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>FactSales</TableID>
+                            <ColumnID>GLDateKey</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+              </Dimensions>
+              <Partitions>
+                <Partition>
+                  <ID>AllSales</ID>
+                  <Name>All Sales</Name>
+                  <Source xsi:type="QueryBinding">
+                    <DataSourceID>SyntheticSQL</DataSourceID>
+                    <QueryDefinition>SELECT * FROM bi.FactSalesCube</QueryDefinition>
+                  </Source>
+                  <StorageMode>Molap</StorageMode>
+                  <ProcessingMode>Regular</ProcessingMode>
+                </Partition>
+              </Partitions>
+            </MeasureGroup>
+            <MeasureGroup>
+              <ID>DistinctOrders</ID>
+              <Name>Distinct Orders</Name>
+              <Measures>
+                <Measure>
+                  <ID>OrderCount</ID>
+                  <Name>Order Count</Name>
+                  <AggregateFunction>DistinctCount</AggregateFunction>
+                  <Source>
+                    <DataType>Integer</DataType>
+                    <NullProcessing>Error</NullProcessing>
+                    <Source xsi:type="ColumnBinding">
+                      <TableID>FactSales</TableID>
+                      <ColumnID>OrderSurrogate</ColumnID>
+                    </Source>
+                  </Source>
+                  <FormatString>#,##0</FormatString>
+                </Measure>
+              </Measures>
+              <StorageMode>Molap</StorageMode>
+              <ProcessingMode>Regular</ProcessingMode>
+              <Dimensions>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>Company</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Key</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>5</DataSize>
+                          <NullProcessing>Error</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>FactSales</TableID>
+                            <ColumnID>CompanyKey</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>Plant</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Key</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>18</DataSize>
+                          <NullProcessing>Error</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>FactSales</TableID>
+                            <ColumnID>PlantKey</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>CostCenter</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Key</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>18</DataSize>
+                          <NullProcessing>Error</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>FactSales</TableID>
+                            <ColumnID>CostCenterKey</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>Customer</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Key</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>18</DataSize>
+                          <NullProcessing>Error</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>FactSales</TableID>
+                            <ColumnID>CustomerKey</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>Product</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Key</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>30</DataSize>
+                          <NullProcessing>Error</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>FactSales</TableID>
+                            <ColumnID>ProductKey</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>Salesperson</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Key</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>10</DataSize>
+                          <NullProcessing>Error</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>FactSales</TableID>
+                            <ColumnID>SalespersonKey</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>TransactionCurrency</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Key</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>3</DataSize>
+                          <NullProcessing>Error</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>FactSales</TableID>
+                            <ColumnID>TransactionCurrencyKey</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>LocalCurrency</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Key</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>WChar</DataType>
+                          <DataSize>3</DataSize>
+                          <NullProcessing>Error</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>FactSales</TableID>
+                            <ColumnID>LocalCurrencyKey</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>InvoiceDate</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Key</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <NullProcessing>Error</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>FactSales</TableID>
+                            <ColumnID>InvoiceDateKey</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>OrderDate</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Key</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <NullProcessing>Error</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>FactSales</TableID>
+                            <ColumnID>OrderDateKey</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>ShipDate</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Key</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <NullProcessing>Error</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>FactSales</TableID>
+                            <ColumnID>ShipDateKey</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension xsi:type="RegularMeasureGroupDimension">
+                  <CubeDimensionID>GLDate</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Key</AttributeID>
+                      <KeyColumns>
+                        <KeyColumn>
+                          <DataType>Integer</DataType>
+                          <NullProcessing>Error</NullProcessing>
+                          <Source xsi:type="ColumnBinding">
+                            <TableID>FactSales</TableID>
+                            <ColumnID>GLDateKey</ColumnID>
+                          </Source>
+                        </KeyColumn>
+                      </KeyColumns>
+                      <Type>Granularity</Type>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+              </Dimensions>
+              <Partitions>
+                <Partition>
+                  <ID>AllOrders</ID>
+                  <Name>All Orders</Name>
+                  <Source xsi:type="QueryBinding">
+                    <DataSourceID>SyntheticSQL</DataSourceID>
+                    <QueryDefinition>SELECT * FROM bi.FactSalesCube</QueryDefinition>
+                  </Source>
+                  <StorageMode>Molap</StorageMode>
+                  <ProcessingMode>Regular</ProcessingMode>
+                </Partition>
+              </Partitions>
+            </MeasureGroup>
+          </MeasureGroups>
+          <Source>
+            <DataSourceViewID>SalesDSV</DataSourceViewID>
+          </Source>
+          <MdxScripts>
+            <MdxScript>
+              <ID>Calculations</ID>
+              <Name>Calculations</Name>
+              <Commands>
+                <Command>
+                  <Text>CALCULATE;
+CREATE MEMBER CURRENTCUBE.[Measures].[Gross Margin Percent] AS
+ IIF([Measures].[Net Sales USD]=0,NULL,[Measures].[Gross Profit USD]/[Measures].[Net Sales USD]),FORMAT_STRING='0.00%',VISIBLE=1;
+CREATE MEMBER CURRENTCUBE.[Measures].[Return Rate Percent] AS
+ IIF([Measures].[Sales Quantity KG]=0,NULL,[Measures].[Return Quantity KG]/[Measures].[Sales Quantity KG]),FORMAT_STRING='0.00%',VISIBLE=1;
+CREATE MEMBER CURRENTCUBE.[Measures].[Average Selling Price USD per KG] AS
+ IIF([Measures].[Net Quantity KG]=0,NULL,[Measures].[Net Sales USD]/[Measures].[Net Quantity KG]),FORMAT_STRING='#,##0.0000',VISIBLE=1;
+CREATE MEMBER CURRENTCUBE.[Measures].[Net Sales Local] AS
+ IIF(COUNT(NONEMPTY(EXISTING [Local Currency].[Currency].[Currency].MEMBERS,[Measures].[Sales Line Count]))=1,[Measures].[Net Sales Local Raw],NULL),FORMAT_STRING='#,##0.00',VISIBLE=1;
+CREATE MEMBER CURRENTCUBE.[Measures].[Gross Profit Local] AS
+ IIF(COUNT(NONEMPTY(EXISTING [Local Currency].[Currency].[Currency].MEMBERS,[Measures].[Sales Line Count]))=1,[Measures].[Gross Profit Local Raw],NULL),FORMAT_STRING='#,##0.00',VISIBLE=1;</Text>
+                </Command>
+              </Commands>
+            </MdxScript>
+          </MdxScripts>
+        </Cube>
+      </Cubes>
+      <DataSources>
+        <DataSource xsi:type="RelationalDataSource">
+          <ID>SyntheticSQL</ID>
+          <Name>Synthetic SQL Server</Name>
+          <ConnectionString>Provider=MSOLEDBSQL19;Data Source=localhost;Initial Catalog=JDE_CUBE_SYNTHETIC_20261020;Integrated Security=SSPI;Use Encryption for Data=Mandatory;Trust Server Certificate=true;</ConnectionString>
+          <ImpersonationInfo>
+            <ImpersonationMode>ImpersonateServiceAccount</ImpersonationMode>
+          </ImpersonationInfo>
+          <Timeout>PT0S</Timeout>
+        </DataSource>
+      </DataSources>
+      <DataSourceViews>
+        <DataSourceView>
+          <ID>SalesDSV</ID>
+          <Name>Sales source views</Name>
+          <DataSourceID>SyntheticSQL</DataSourceID>
+          <Schema>
+            <xs:schema id="SalesDSV" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+              <xs:element name="SalesDSV" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+                <xs:complexType>
+                  <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="FactSales" msprop:DbSchemaName="bi" msprop:FriendlyName="FactSales" msprop:DbTableName="FactSalesCube">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="OrderLineKey">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="46" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="OrderKey">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="21" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="CompanyKey">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="5" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="PlantKey">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="18" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="CostCenterKey">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="18" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="CustomerKey">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="18" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="ProductKey">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="30" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="SalespersonKey">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="10" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="OrderType">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="2" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="OrderNumber" type="xs:int" />
+                          <xs:element name="OrderLineNumber" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="ContractNumber">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="30" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="LotNumber">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="30" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="VoucherNumber" type="xs:int" />
+                          <xs:element name="BondedFlag">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="1" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="QuantityUnit">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="3" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="TransactionCurrencyKey">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="3" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="LocalCurrencyKey">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="3" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="LocalPerTransactionCurrency" type="xs:decimal" />
+                          <xs:element name="SyntheticLocalPerUSD" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="OrderDate" type="xs:dateTime" minOccurs="0" />
+                          <xs:element name="ShipDate" type="xs:dateTime" minOccurs="0" />
+                          <xs:element name="InvoiceDate" type="xs:dateTime" minOccurs="0" />
+                          <xs:element name="GLDate" type="xs:dateTime" minOccurs="0" />
+                          <xs:element name="OrderDateKey" type="xs:int" minOccurs="0" />
+                          <xs:element name="ShipDateKey" type="xs:int" minOccurs="0" />
+                          <xs:element name="InvoiceDateKey" type="xs:int" minOccurs="0" />
+                          <xs:element name="GLDateKey" type="xs:int" minOccurs="0" />
+                          <xs:element name="InvoiceMonthKey" type="xs:int" minOccurs="0" />
+                          <xs:element name="SalesQtyKG" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="ReturnQtyKG" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="NetQtyKG" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="GrossSalesLocal" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="ReturnsLocal" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="AllowanceLocal" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="NetSalesLocal" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="GrossSalesTransaction" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="ReturnsTransaction" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="AllowanceTransaction" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="NetSalesTransaction" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="SalesCostLocal" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="ReturnCostLocal" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="NetCostLocal" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="StandardUnitCostLocal" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="NetSalesUSD" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="NetCostUSD" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="GrossSalesUSD" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="ReturnsUSD" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="AllowanceUSD" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="IVManufacturingVarianceLocal" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="LaborVarianceLocal" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="OverheadVarianceLocal" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="DepreciationVarianceLocal" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="PurchasePriceVarianceLocal" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="InventoryFreezeLocal" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="PlantProcessLocal" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="SyntheticTaxLocal" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="InventoryWriteDownLocal" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="SharedPurchaseVarianceLocal" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="SharedFreezeVarianceLocal" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="SharedProcessVarianceLocal" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="SharedIVManufacturingVarianceLocal" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="FullReturnLineCount" type="xs:int" minOccurs="0" />
+                          <xs:element name="PartialReturnLineCount" type="xs:int" minOccurs="0" />
+                          <xs:element name="AllowanceLineCount" type="xs:int" minOccurs="0" />
+                          <xs:element name="NegativeMarginLineCount" type="xs:int" minOccurs="0" />
+                          <xs:element name="SalesLineCount" type="xs:int" minOccurs="0" />
+                          <xs:element name="IsSynthetic" type="xs:boolean" minOccurs="0" />
+                          <xs:element name="CostCenterName">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="100" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="GrossProfitLocal" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="GrossProfitUSD" type="xs:decimal" minOccurs="0" />
+                          <xs:element name="OrderSurrogate" type="xs:int" minOccurs="0" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="DimCompany" msprop:DbSchemaName="bi" msprop:FriendlyName="DimCompany" msprop:DbTableName="DimCompany">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="CompanyKey">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="5" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="CompanyName">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="6" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="LocalCurrency">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="3" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="DimPlant" msprop:DbSchemaName="bi" msprop:FriendlyName="DimPlant" msprop:DbTableName="DimPlant">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="PlantKey">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="18" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="CompanyKey">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="5" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="PlantCode">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="12" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="PlantName">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="17" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="DimCostCenter" msprop:DbSchemaName="bi" msprop:FriendlyName="DimCostCenter" msprop:DbTableName="DimCostCenter">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="CostCenterKey">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="18" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="CompanyKey">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="5" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="CostCenterCode">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="12" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="CostCenterName">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="100" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="DimCustomer" msprop:DbSchemaName="bi" msprop:FriendlyName="DimCustomer" msprop:DbTableName="DimCustomer">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="CustomerKey">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="18" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="CompanyKey">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="5" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="CustomerCode" type="xs:int" />
+                          <xs:element name="CustomerName">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="100" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="DimProduct" msprop:DbSchemaName="bi" msprop:FriendlyName="DimProduct" msprop:DbTableName="DimProductCube">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="ProductKey">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="30" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="ShortItemNumber" type="xs:int" />
+                          <xs:element name="ProductName">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="100" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="Category1Code">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="3" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="Category1Name">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="80" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="Category2Code">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="3" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="Category2Name">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="80" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="Category3Code">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="3" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="Category3Name">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="80" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="MajorCategory">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="4" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="MiddleCategory">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="5" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="MajorLabel" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="4" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="MiddleLabel" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="5" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="MiddleKey">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="10" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="DimSalesperson" msprop:DbSchemaName="bi" msprop:FriendlyName="DimSalesperson" msprop:DbTableName="DimSalesperson">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="SalespersonKey">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="10" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="CompanyKey">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="5" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="SalespersonName">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="60" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="DimCurrency" msprop:DbSchemaName="bi" msprop:FriendlyName="DimCurrency" msprop:DbTableName="DimCurrency">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="CurrencyKey">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="3" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="DimDate" msprop:DbSchemaName="bi" msprop:FriendlyName="DimDate" msprop:DbTableName="DimDateCube">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="DateKey" type="xs:int" />
+                          <xs:element name="FullDate" type="xs:dateTime" minOccurs="0" />
+                          <xs:element name="CalendarYear" type="xs:int" minOccurs="0" />
+                          <xs:element name="CalendarQuarter" type="xs:int" minOccurs="0" />
+                          <xs:element name="YearQuarterKey" type="xs:int" minOccurs="0" />
+                          <xs:element name="MonthNumber" type="xs:int" minOccurs="0" />
+                          <xs:element name="MonthKey" type="xs:int" minOccurs="0" />
+                          <xs:element name="YearMonth" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="7" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="DayOfMonth" type="xs:int" minOccurs="0" />
+                          <xs:element name="DateCaption" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="10" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="YearCaption" minOccurs="0">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="4" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <xs:element name="QuarterCaption">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:maxLength value="13" />
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:choice>
+                </xs:complexType>
+                <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//FactSales" />
+                  <xs:field xpath="OrderLineKey" />
+                </xs:unique>
+                <xs:unique name="DimCompany_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//DimCompany" />
+                  <xs:field xpath="CompanyKey" />
+                </xs:unique>
+                <xs:unique name="DimPlant_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//DimPlant" />
+                  <xs:field xpath="PlantKey" />
+                </xs:unique>
+                <xs:unique name="DimCostCenter_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//DimCostCenter" />
+                  <xs:field xpath="CostCenterKey" />
+                </xs:unique>
+                <xs:unique name="DimCustomer_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//DimCustomer" />
+                  <xs:field xpath="CustomerKey" />
+                </xs:unique>
+                <xs:unique name="DimProduct_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//DimProduct" />
+                  <xs:field xpath="ProductKey" />
+                </xs:unique>
+                <xs:unique name="DimSalesperson_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//DimSalesperson" />
+                  <xs:field xpath="SalespersonKey" />
+                </xs:unique>
+                <xs:unique name="DimCurrency_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//DimCurrency" />
+                  <xs:field xpath="CurrencyKey" />
+                </xs:unique>
+                <xs:unique name="DimDate_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+                  <xs:selector xpath=".//DimDate" />
+                  <xs:field xpath="DateKey" />
+                </xs:unique>
+              </xs:element>
+            </xs:schema>
+            <SalesDSV xmlns="" />
+          </Schema>
+        </DataSourceView>
+      </DataSourceViews>
+    </Database>
+  </ObjectDefinition>
+</Create>

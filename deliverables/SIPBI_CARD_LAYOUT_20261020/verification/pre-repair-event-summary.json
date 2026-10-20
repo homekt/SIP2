@@ -1,0 +1,15 @@
+{
+  "source": "WFP event export inspected before repair; extracted from diagnostic tool output. Windows event buffer no longer retained these entries after repair.",
+  "inspectedAt": "2026-10-20T16:08:09Z",
+  "remoteAddress": "192.168.1.104",
+  "localAddress": "192.168.1.108",
+  "localPort": 55154,
+  "observedDropCount": 45,
+  "filterId": "21175371",
+  "filterOrigin": "Query User Default",
+  "firstInspectedEventTime": "2026-10-20T16:05:15.903Z",
+  "observedAppId": "\\device\\harddiskvolume2\\users\\user\\appdata\\local\\nvm\\v24.13.0\\node.exe",
+  "previousPermitAppId": "\\device\\harddiskvolume2\\nvm4w\\nodejs\\node.exe",
+  "arrivalInterfaceLuid": "19985273102270464",
+  "permitInterfaceLuid": "19985273102270464"
+}

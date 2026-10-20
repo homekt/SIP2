@@ -1,0 +1,1 @@
+SELECT {[Measures].[Sales Line Count],[Measures].[Net Sales USD]} ON 0,NONEMPTY([Product].[Product].[Product].MEMBERS,[Measures].[Sales Line Count]) DIMENSION PROPERTIES MEMBER_KEY,MEMBER_CAPTION ON 1 FROM [JDE Sales]

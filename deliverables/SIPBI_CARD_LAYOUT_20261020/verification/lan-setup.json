@@ -1,0 +1,13 @@
+{
+  "url": "http://192.168.1.108:55154/",
+  "remoteAddress": "LocalSubnet",
+  "port": 55154,
+  "firewallRule": "SIPBI-Card-55154-Private-LocalSubnet",
+  "interfaceIndex": 17,
+  "networkCategory": "Private",
+  "status": "ok",
+  "program": "C:\\Users\\user\\AppData\\Local\\nvm\\v24.13.0\\node.exe",
+  "interface": "Wi-Fi",
+  "verifiedAt": "2026-10-20T16:11:11.3831239Z",
+  "address": "192.168.1.108"
+}

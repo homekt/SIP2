@@ -1,0 +1,28 @@
+{
+  "deployedAt": "2026-10-20T08:11:45.332046+00:00",
+  "path": "C:\\Users\\user\\Documents\\SIPBI-App",
+  "files": {
+    "frontend/src/index.css": "28436c479328474f323d44354a928e697a1e976d6ce15ffae20df1011011f3e2",
+    "frontend/src/screens/D00DecisionHome.tsx": "764038cf7ca7886cd53e9bcd9aad291e8fcd5725e2e2ee7f2477d89cb6a2f418",
+    "frontend/src/screens/D01ExecutiveOverview.tsx": "ccab2baefdb0c3fd7f172b59644bbecdd7fc87e3ce1fe6772bddede3950891b8",
+    "frontend/src/screens/D02SalesMomentum.tsx": "8ded6994ad28c6eea54d8fb721312da272e54393d7a66df3c26ebc57fcb08514",
+    "frontend/src/screens/D04ProductMix.tsx": "6897cb540723b8c56f4442c03243f314391376aff134fbe85d2b1e5aee88d760",
+    "frontend/src/screens/D06CustomerContribution.tsx": "e0ed6f97082ec8ff77fcb4426825c78b95f2d0988b3d06329c6aa7b651ce4da6",
+    "frontend/src/screens/D08ProfitabilityQuality.tsx": "58510d0d90892d2fce43418dd39459ec178aed476043b7e2d24ec1b09b27c4c5",
+    "frontend/src/screens/D11CustomerConcentration.tsx": "c1daa053f7ab2cb0063b2d9efd716806c8e793ab052606238de73008f17ba11b",
+    "frontend/src/screens/D13SalespersonPerformance.tsx": "3928510c8707233bc064b51888af60ccd3ab8b7bb79c2e0e3de511c3e5e00d62",
+    "frontend/src/screens/D14ProductPortfolio.tsx": "2df9212ef3e3be9610a97f03f4789f5a2b997c03924761d61448bc270c622f42",
+    "frontend/src/screens/D15RollingSales.tsx": "652fad11f5d2f9f93e3451e4d6a9cdbffe08b80d96a4cdfcfd2c440cf928fee1",
+    "frontend/src/screens/D16GrowthDeclineContribution.tsx": "bf06bf515f5541922bbd47fbe5517875677972728f1849a7d72df5f6a19a9c37",
+    "frontend/src/screens/D18ExceptionMonitor.tsx": "d02ff6d0ac070352d2bbf69317ea7fc663cfeb1d9328d21eefb5fb81c20d3eff",
+    "frontend/src/components/ai/AiInsightCard.tsx": "6b78b01f884a1f817e0ff5e208e162a512d3dfca64f4e33674d6ab86cf411d3a",
+    "frontend/src/components/charts/EChartsContainer.tsx": "c6b1fd1ce51d202de0c3766de022325c4c302535dabd08f6d82ea7470de8e823",
+    "frontend/src/components/charts/KpiCard.tsx": "c5d9388ff2eb81f49a1ec3ae17fe1251b46415646418afdaf8750b1715b2b62f",
+    "frontend/src/components/common/Header.tsx": "6033ebe7dfddfc66d3970d6ea36807efcd2f65fcc72cf27ef9ba87f376fa1e74",
+    "frontend/src/components/common/SlicerBar.tsx": "2ffa94cbd76ed3d5bbf1496753678e6b1d93d839b3b80ea86bcd9b771cc6b97f"
+  },
+  "entrySha256": "46f39898f070c1e10dfc7666f4272e3b385385bd329a2e4757665ecc04db8547",
+  "preflightSourceHashesMatched": true,
+  "backendRestarted": false,
+  "sqlOrSsasModified": false
+}

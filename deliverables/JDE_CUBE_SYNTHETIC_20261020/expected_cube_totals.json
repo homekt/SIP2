@@ -1,0 +1,1652 @@
+[
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202401,
+    "Rows": 449,
+    "NetSalesLocalRaw": 8129616524,
+    "NetCostLocalRaw": 5970559092,
+    "NetQtyRaw": 90832140,
+    "NetSalesUSD": "2488162.2558",
+    "NetCostUSD": "1827357.9973"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202402,
+    "Rows": 372,
+    "NetSalesLocalRaw": 5655336722,
+    "NetCostLocalRaw": 4180576270,
+    "NetQtyRaw": 63784855,
+    "NetSalesUSD": "1728010.8298",
+    "NetCostUSD": "1277391.8571"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202403,
+    "Rows": 430,
+    "NetSalesLocalRaw": 7413211884,
+    "NetCostLocalRaw": 5473132097,
+    "NetQtyRaw": 84610031,
+    "NetSalesUSD": "2308484.3806",
+    "NetCostUSD": "1704340.8654"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202404,
+    "Rows": 568,
+    "NetSalesLocalRaw": 10040178828,
+    "NetCostLocalRaw": 7412093576,
+    "NetQtyRaw": 115369471,
+    "NetSalesUSD": "3198063.4442",
+    "NetCostUSD": "2360948.5366"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202405,
+    "Rows": 455,
+    "NetSalesLocalRaw": 7836943525,
+    "NetCostLocalRaw": 5796853603,
+    "NetQtyRaw": 93081268,
+    "NetSalesUSD": "2509198.1270",
+    "NetCostUSD": "1856011.1031"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202406,
+    "Rows": 493,
+    "NetSalesLocalRaw": 8656166977,
+    "NetCostLocalRaw": 6389558140,
+    "NetQtyRaw": 94825826,
+    "NetSalesUSD": "2724080.9399",
+    "NetCostUSD": "2010783.0171"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202407,
+    "Rows": 498,
+    "NetSalesLocalRaw": 8952814912,
+    "NetCostLocalRaw": 6648294473,
+    "NetQtyRaw": 103194598,
+    "NetSalesUSD": "2752545.0307",
+    "NetCostUSD": "2044019.6832"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202408,
+    "Rows": 461,
+    "NetSalesLocalRaw": 8179503062,
+    "NetCostLocalRaw": 6047831939,
+    "NetQtyRaw": 91144255,
+    "NetSalesUSD": "2494398.3671",
+    "NetCostUSD": "1844329.9065"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202409,
+    "Rows": 644,
+    "NetSalesLocalRaw": 13604854885,
+    "NetCostLocalRaw": 10084888065,
+    "NetQtyRaw": 155603192,
+    "NetSalesUSD": "4208160.6334",
+    "NetCostUSD": "3119388.5773"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202410,
+    "Rows": 622,
+    "NetSalesLocalRaw": 12895836827,
+    "NetCostLocalRaw": 9570194170,
+    "NetQtyRaw": 147777324,
+    "NetSalesUSD": "4085514.1571",
+    "NetCostUSD": "3031921.4096"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202411,
+    "Rows": 631,
+    "NetSalesLocalRaw": 13134701073,
+    "NetCostLocalRaw": 9781217770,
+    "NetQtyRaw": 153158288,
+    "NetSalesUSD": "4209839.0303",
+    "NetCostUSD": "3135004.9088"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202412,
+    "Rows": 451,
+    "NetSalesLocalRaw": 8378737628,
+    "NetCostLocalRaw": 6204744471,
+    "NetQtyRaw": 95097718,
+    "NetSalesUSD": "2653956.5384",
+    "NetCostUSD": "1965346.4395"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202501,
+    "Rows": 576,
+    "NetSalesLocalRaw": 10351253809,
+    "NetCostLocalRaw": 7713774657,
+    "NetQtyRaw": 115126751,
+    "NetSalesUSD": "3201141.4619",
+    "NetCostUSD": "2385496.9018"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202502,
+    "Rows": 499,
+    "NetSalesLocalRaw": 7868688951,
+    "NetCostLocalRaw": 5813074084,
+    "NetQtyRaw": 86094386,
+    "NetSalesUSD": "2399540.2424",
+    "NetCostUSD": "1772684.7870"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202503,
+    "Rows": 528,
+    "NetSalesLocalRaw": 9556272760,
+    "NetCostLocalRaw": 7017116219,
+    "NetQtyRaw": 103391428,
+    "NetSalesUSD": "2938562.4530",
+    "NetCostUSD": "2157769.5353"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202504,
+    "Rows": 527,
+    "NetSalesLocalRaw": 9692207628,
+    "NetCostLocalRaw": 7141476332,
+    "NetQtyRaw": 107179451,
+    "NetSalesUSD": "3050773.0756",
+    "NetCostUSD": "2247890.7330"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202505,
+    "Rows": 553,
+    "NetSalesLocalRaw": 9522747880,
+    "NetCostLocalRaw": 7006774524,
+    "NetQtyRaw": 107739975,
+    "NetSalesUSD": "3049144.7133",
+    "NetCostUSD": "2243540.3901"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202506,
+    "Rows": 509,
+    "NetSalesLocalRaw": 9129251857,
+    "NetCostLocalRaw": 6714343229,
+    "NetQtyRaw": 102448018,
+    "NetSalesUSD": "2907478.1817",
+    "NetCostUSD": "2138379.6556"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202507,
+    "Rows": 484,
+    "NetSalesLocalRaw": 9033617603,
+    "NetCostLocalRaw": 6676941064,
+    "NetQtyRaw": 99462015,
+    "NetSalesUSD": "2812467.3816",
+    "NetCostUSD": "2078755.1315"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202508,
+    "Rows": 514,
+    "NetSalesLocalRaw": 9488505406,
+    "NetCostLocalRaw": 6966728707,
+    "NetQtyRaw": 100646901,
+    "NetSalesUSD": "2898992.4053",
+    "NetCostUSD": "2128522.1176"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202509,
+    "Rows": 587,
+    "NetSalesLocalRaw": 12206641952,
+    "NetCostLocalRaw": 8975964078,
+    "NetQtyRaw": 134484856,
+    "NetSalesUSD": "3736423.1231",
+    "NetCostUSD": "2747520.5607"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202510,
+    "Rows": 597,
+    "NetSalesLocalRaw": 12689879886,
+    "NetCostLocalRaw": 9334539746,
+    "NetQtyRaw": 141503042,
+    "NetSalesUSD": "3966465.1756",
+    "NetCostUSD": "2917689.3064"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202511,
+    "Rows": 627,
+    "NetSalesLocalRaw": 13629320593,
+    "NetCostLocalRaw": 10026400902,
+    "NetQtyRaw": 152777770,
+    "NetSalesUSD": "4351214.8554",
+    "NetCostUSD": "3200968.3997"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202512,
+    "Rows": 565,
+    "NetSalesLocalRaw": 9397194835,
+    "NetCostLocalRaw": 6917390386,
+    "NetQtyRaw": 106838825,
+    "NetSalesUSD": "3004646.9691",
+    "NetCostUSD": "2211757.4895"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202601,
+    "Rows": 527,
+    "NetSalesLocalRaw": 9726112420,
+    "NetCostLocalRaw": 7156256490,
+    "NetQtyRaw": 105635526,
+    "NetSalesUSD": "3049500.2987",
+    "NetCostUSD": "2243754.2748"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202602,
+    "Rows": 445,
+    "NetSalesLocalRaw": 7223613570,
+    "NetCostLocalRaw": 5257360149,
+    "NetQtyRaw": 75022513,
+    "NetSalesUSD": "2215149.7135",
+    "NetCostUSD": "1612190.3136"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202603,
+    "Rows": 598,
+    "NetSalesLocalRaw": 11644832063,
+    "NetCostLocalRaw": 8543564640,
+    "NetQtyRaw": 120580274,
+    "NetSalesUSD": "3554035.1783",
+    "NetCostUSD": "2607519.7221"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202604,
+    "Rows": 580,
+    "NetSalesLocalRaw": 10885388056,
+    "NetCostLocalRaw": 7996851243,
+    "NetQtyRaw": 115226499,
+    "NetSalesUSD": "3378800.3537",
+    "NetCostUSD": "2482204.9212"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202605,
+    "Rows": 562,
+    "NetSalesLocalRaw": 10466205211,
+    "NetCostLocalRaw": 7705440525,
+    "NetQtyRaw": 113768830,
+    "NetSalesUSD": "3325868.0963",
+    "NetCostUSD": "2448574.0820"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202606,
+    "Rows": 636,
+    "NetSalesLocalRaw": 12050824401,
+    "NetCostLocalRaw": 8769764544,
+    "NetQtyRaw": 132788764,
+    "NetSalesUSD": "3861258.7711",
+    "NetCostUSD": "2809959.6453"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202607,
+    "Rows": 596,
+    "NetSalesLocalRaw": 11469910336,
+    "NetCostLocalRaw": 8390402706,
+    "NetQtyRaw": 125327200,
+    "NetSalesUSD": "3620921.6968",
+    "NetCostUSD": "2648755.7727"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202608,
+    "Rows": 542,
+    "NetSalesLocalRaw": 10371363346,
+    "NetCostLocalRaw": 7620928579,
+    "NetQtyRaw": 108628005,
+    "NetSalesUSD": "3196978.5646",
+    "NetCostUSD": "2349155.5057"
+  },
+  {
+    "CompanyKey": "00020",
+    "MonthKey": 202609,
+    "Rows": 684,
+    "NetSalesLocalRaw": 15509875167,
+    "NetCostLocalRaw": 11334619131,
+    "NetQtyRaw": 162213637,
+    "NetSalesUSD": "4728630.6434",
+    "NetCostUSD": "3455683.9934"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202401,
+    "Rows": 370,
+    "NetSalesLocalRaw": 904200279,
+    "NetCostLocalRaw": 670368809,
+    "NetQtyRaw": 73153087,
+    "NetSalesUSD": "1958742.3372",
+    "NetCostUSD": "1452200.1355"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202402,
+    "Rows": 212,
+    "NetSalesLocalRaw": 441004071,
+    "NetCostLocalRaw": 322770235,
+    "NetQtyRaw": 35757552,
+    "NetSalesUSD": "977193.0568",
+    "NetCostUSD": "715206.1700"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202403,
+    "Rows": 308,
+    "NetSalesLocalRaw": 773499791,
+    "NetCostLocalRaw": 570111301,
+    "NetQtyRaw": 61877904,
+    "NetSalesUSD": "1722822.6982",
+    "NetCostUSD": "1269813.7740"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202404,
+    "Rows": 317,
+    "NetSalesLocalRaw": 802844312,
+    "NetCostLocalRaw": 591429635,
+    "NetQtyRaw": 63268869,
+    "NetSalesUSD": "1757591.1772",
+    "NetCostUSD": "1294761.0040"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202405,
+    "Rows": 289,
+    "NetSalesLocalRaw": 771445171,
+    "NetCostLocalRaw": 571696215,
+    "NetQtyRaw": 60267061,
+    "NetSalesUSD": "1649954.7656",
+    "NetCostUSD": "1222734.8484"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202406,
+    "Rows": 255,
+    "NetSalesLocalRaw": 630791744,
+    "NetCostLocalRaw": 464727648,
+    "NetQtyRaw": 49995252,
+    "NetSalesUSD": "1338187.7228",
+    "NetCostUSD": "985892.4745"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202407,
+    "Rows": 277,
+    "NetSalesLocalRaw": 723568767,
+    "NetCostLocalRaw": 534584142,
+    "NetQtyRaw": 57153016,
+    "NetSalesUSD": "1556934.5416",
+    "NetCostUSD": "1150288.0639"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202408,
+    "Rows": 278,
+    "NetSalesLocalRaw": 708163201,
+    "NetCostLocalRaw": 522359894,
+    "NetQtyRaw": 55869008,
+    "NetSalesUSD": "1560711.7235",
+    "NetCostUSD": "1151222.2169"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202409,
+    "Rows": 321,
+    "NetSalesLocalRaw": 852253487,
+    "NetCostLocalRaw": 633170109,
+    "NetQtyRaw": 70258914,
+    "NetSalesUSD": "1900230.2617",
+    "NetCostUSD": "1411750.1660"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202410,
+    "Rows": 328,
+    "NetSalesLocalRaw": 1000840030,
+    "NetCostLocalRaw": 742464294,
+    "NetQtyRaw": 79581154,
+    "NetSalesUSD": "2205322.1006",
+    "NetCostUSD": "1635998.6288"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202411,
+    "Rows": 376,
+    "NetSalesLocalRaw": 1100289377,
+    "NetCostLocalRaw": 816132217,
+    "NetQtyRaw": 87039099,
+    "NetSalesUSD": "2367069.3146",
+    "NetCostUSD": "1755757.6836"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202412,
+    "Rows": 228,
+    "NetSalesLocalRaw": 596355976,
+    "NetCostLocalRaw": 443607928,
+    "NetQtyRaw": 46174761,
+    "NetSalesUSD": "1265095.7062",
+    "NetCostUSD": "941059.5471"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202501,
+    "Rows": 329,
+    "NetSalesLocalRaw": 819677280,
+    "NetCostLocalRaw": 605119274,
+    "NetQtyRaw": 64646154,
+    "NetSalesUSD": "1753401.7363",
+    "NetCostUSD": "1294432.8348"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202502,
+    "Rows": 229,
+    "NetSalesLocalRaw": 457219300,
+    "NetCostLocalRaw": 339820672,
+    "NetQtyRaw": 37225529,
+    "NetSalesUSD": "1001160.9383",
+    "NetCostUSD": "744096.2854"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202503,
+    "Rows": 332,
+    "NetSalesLocalRaw": 817298469,
+    "NetCostLocalRaw": 596013194,
+    "NetQtyRaw": 62932481,
+    "NetSalesUSD": "1820491.1937",
+    "NetCostUSD": "1327589.3832"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202504,
+    "Rows": 274,
+    "NetSalesLocalRaw": 716175576,
+    "NetCostLocalRaw": 523924308,
+    "NetQtyRaw": 53723207,
+    "NetSalesUSD": "1586693.0813",
+    "NetCostUSD": "1160758.7621"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202505,
+    "Rows": 305,
+    "NetSalesLocalRaw": 803620800,
+    "NetCostLocalRaw": 589637449,
+    "NetQtyRaw": 59704694,
+    "NetSalesUSD": "1740480.2810",
+    "NetCostUSD": "1277035.5779"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202506,
+    "Rows": 288,
+    "NetSalesLocalRaw": 753123574,
+    "NetCostLocalRaw": 550000123,
+    "NetQtyRaw": 57333777,
+    "NetSalesUSD": "1600691.5680",
+    "NetCostUSD": "1168972.2504"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202507,
+    "Rows": 264,
+    "NetSalesLocalRaw": 728951421,
+    "NetCostLocalRaw": 533358951,
+    "NetQtyRaw": 54736620,
+    "NetSalesUSD": "1552210.3627",
+    "NetCostUSD": "1135720.7997"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202508,
+    "Rows": 347,
+    "NetSalesLocalRaw": 931999557,
+    "NetCostLocalRaw": 689609166,
+    "NetQtyRaw": 72207647,
+    "NetSalesUSD": "2026534.4305",
+    "NetCostUSD": "1499482.1702"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202509,
+    "Rows": 307,
+    "NetSalesLocalRaw": 967657811,
+    "NetCostLocalRaw": 707710145,
+    "NetQtyRaw": 75051826,
+    "NetSalesUSD": "2149068.5803",
+    "NetCostUSD": "1571751.5216"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202510,
+    "Rows": 361,
+    "NetSalesLocalRaw": 1034850647,
+    "NetCostLocalRaw": 762679335,
+    "NetQtyRaw": 81766169,
+    "NetSalesUSD": "2301786.5198",
+    "NetCostUSD": "1696404.2277"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202511,
+    "Rows": 419,
+    "NetSalesLocalRaw": 1306669753,
+    "NetCostLocalRaw": 968067689,
+    "NetQtyRaw": 100756754,
+    "NetSalesUSD": "2850016.5358",
+    "NetCostUSD": "2111481.4329"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202512,
+    "Rows": 268,
+    "NetSalesLocalRaw": 754288770,
+    "NetCostLocalRaw": 557141835,
+    "NetQtyRaw": 57593944,
+    "NetSalesUSD": "1609082.7057",
+    "NetCostUSD": "1188520.0030"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202601,
+    "Rows": 306,
+    "NetSalesLocalRaw": 871909276,
+    "NetCostLocalRaw": 637232146,
+    "NetQtyRaw": 61343510,
+    "NetSalesUSD": "1851194.0148",
+    "NetCostUSD": "1352939.3101"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202602,
+    "Rows": 300,
+    "NetSalesLocalRaw": 686851034,
+    "NetCostLocalRaw": 508243756,
+    "NetQtyRaw": 53018231,
+    "NetSalesUSD": "1483109.8444",
+    "NetCostUSD": "1097445.1237"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202603,
+    "Rows": 327,
+    "NetSalesLocalRaw": 839752940,
+    "NetCostLocalRaw": 613925925,
+    "NetQtyRaw": 64427573,
+    "NetSalesUSD": "1856348.2618",
+    "NetCostUSD": "1357137.6391"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202604,
+    "Rows": 411,
+    "NetSalesLocalRaw": 1054177735,
+    "NetCostLocalRaw": 776858510,
+    "NetQtyRaw": 82706700,
+    "NetSalesUSD": "2349730.9424",
+    "NetCostUSD": "1731594.6057"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202605,
+    "Rows": 390,
+    "NetSalesLocalRaw": 1048579873,
+    "NetCostLocalRaw": 768418260,
+    "NetQtyRaw": 77514148,
+    "NetSalesUSD": "2302781.7264",
+    "NetCostUSD": "1687520.0200"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202606,
+    "Rows": 366,
+    "NetSalesLocalRaw": 984710023,
+    "NetCostLocalRaw": 721575542,
+    "NetQtyRaw": 72110953,
+    "NetSalesUSD": "2111564.6348",
+    "NetCostUSD": "1547311.7569"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202607,
+    "Rows": 358,
+    "NetSalesLocalRaw": 920854828,
+    "NetCostLocalRaw": 674761842,
+    "NetQtyRaw": 68312643,
+    "NetSalesUSD": "1953036.7088",
+    "NetCostUSD": "1431099.2431"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202608,
+    "Rows": 401,
+    "NetSalesLocalRaw": 1074767299,
+    "NetCostLocalRaw": 785557222,
+    "NetQtyRaw": 80718607,
+    "NetSalesUSD": "2305949.6977",
+    "NetCostUSD": "1685439.6670"
+  },
+  {
+    "CompanyKey": "00026",
+    "MonthKey": 202609,
+    "Rows": 511,
+    "NetSalesLocalRaw": 1580322117,
+    "NetCostLocalRaw": 1151435212,
+    "NetQtyRaw": 119198930,
+    "NetSalesUSD": "3472656.1458",
+    "NetCostUSD": "2530204.7737"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202401,
+    "Rows": 385,
+    "NetSalesLocalRaw": 1530449838,
+    "NetCostLocalRaw": 1132291370,
+    "NetQtyRaw": 77413884,
+    "NetSalesUSD": "2107651.1087",
+    "NetCostUSD": "1559329.2264"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202402,
+    "Rows": 269,
+    "NetSalesLocalRaw": 899485370,
+    "NetCostLocalRaw": 664302143,
+    "NetQtyRaw": 45901828,
+    "NetSalesUSD": "1262426.9611",
+    "NetCostUSD": "932347.4989"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202403,
+    "Rows": 383,
+    "NetSalesLocalRaw": 1475949111,
+    "NetCostLocalRaw": 1093315198,
+    "NetQtyRaw": 78027766,
+    "NetSalesUSD": "2118891.1168",
+    "NetCostUSD": "1569577.0553"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202404,
+    "Rows": 379,
+    "NetSalesLocalRaw": 1428544787,
+    "NetCostLocalRaw": 1059269391,
+    "NetQtyRaw": 76642807,
+    "NetSalesUSD": "2061454.3772",
+    "NetCostUSD": "1528573.3723"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202405,
+    "Rows": 426,
+    "NetSalesLocalRaw": 1542750920,
+    "NetCostLocalRaw": 1134443442,
+    "NetQtyRaw": 80895515,
+    "NetSalesUSD": "2188173.8622",
+    "NetCostUSD": "1609047.4831"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202406,
+    "Rows": 338,
+    "NetSalesLocalRaw": 1401436644,
+    "NetCostLocalRaw": 1033322983,
+    "NetQtyRaw": 71430779,
+    "NetSalesUSD": "1941958.4128",
+    "NetCostUSD": "1431866.5552"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202407,
+    "Rows": 437,
+    "NetSalesLocalRaw": 1774734264,
+    "NetCostLocalRaw": 1315824006,
+    "NetQtyRaw": 90030437,
+    "NetSalesUSD": "2439292.3722",
+    "NetCostUSD": "1808540.8758"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202408,
+    "Rows": 392,
+    "NetSalesLocalRaw": 1486900378,
+    "NetCostLocalRaw": 1102199465,
+    "NetQtyRaw": 76593593,
+    "NetSalesUSD": "2072869.1926",
+    "NetCostUSD": "1536562.4679"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202409,
+    "Rows": 419,
+    "NetSalesLocalRaw": 1921250073,
+    "NetCostLocalRaw": 1412024348,
+    "NetQtyRaw": 100092006,
+    "NetSalesUSD": "2743296.2969",
+    "NetCostUSD": "2016187.9085"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202410,
+    "Rows": 543,
+    "NetSalesLocalRaw": 2418901219,
+    "NetCostLocalRaw": 1776521219,
+    "NetQtyRaw": 128759156,
+    "NetSalesUSD": "3494258.7364",
+    "NetCostUSD": "2566299.4183"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202411,
+    "Rows": 432,
+    "NetSalesLocalRaw": 1973553576,
+    "NetCostLocalRaw": 1462907407,
+    "NetQtyRaw": 103716721,
+    "NetSalesUSD": "2817447.0674",
+    "NetCostUSD": "2088448.0835"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202412,
+    "Rows": 413,
+    "NetSalesLocalRaw": 1650649106,
+    "NetCostLocalRaw": 1217550054,
+    "NetQtyRaw": 83492562,
+    "NetSalesUSD": "2300691.0325",
+    "NetCostUSD": "1697033.2943"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202501,
+    "Rows": 480,
+    "NetSalesLocalRaw": 2046776158,
+    "NetCostLocalRaw": 1494890053,
+    "NetQtyRaw": 98560023,
+    "NetSalesUSD": "2813115.9845",
+    "NetCostUSD": "2054596.4870"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202502,
+    "Rows": 363,
+    "NetSalesLocalRaw": 1271072501,
+    "NetCostLocalRaw": 941670354,
+    "NetQtyRaw": 61701947,
+    "NetSalesUSD": "1761604.2146",
+    "NetCostUSD": "1305079.3423"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202503,
+    "Rows": 398,
+    "NetSalesLocalRaw": 1584993401,
+    "NetCostLocalRaw": 1158742379,
+    "NetQtyRaw": 78725809,
+    "NetSalesUSD": "2248569.3376",
+    "NetCostUSD": "1643863.3634"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202504,
+    "Rows": 541,
+    "NetSalesLocalRaw": 2195264922,
+    "NetCostLocalRaw": 1621504299,
+    "NetQtyRaw": 113582062,
+    "NetSalesUSD": "3168066.7065",
+    "NetCostUSD": "2340051.8704"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202505,
+    "Rows": 465,
+    "NetSalesLocalRaw": 1751161933,
+    "NetCostLocalRaw": 1289520442,
+    "NetQtyRaw": 89149599,
+    "NetSalesUSD": "2513617.6287",
+    "NetCostUSD": "1850977.4887"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202506,
+    "Rows": 464,
+    "NetSalesLocalRaw": 1824736409,
+    "NetCostLocalRaw": 1339288717,
+    "NetQtyRaw": 92860278,
+    "NetSalesUSD": "2560457.4262",
+    "NetCostUSD": "1879280.6045"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202507,
+    "Rows": 456,
+    "NetSalesLocalRaw": 1935417905,
+    "NetCostLocalRaw": 1426889033,
+    "NetQtyRaw": 91460509,
+    "NetSalesUSD": "2665113.1525",
+    "NetCostUSD": "1964857.6771"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202508,
+    "Rows": 434,
+    "NetSalesLocalRaw": 1655300917,
+    "NetCostLocalRaw": 1220887168,
+    "NetQtyRaw": 80954791,
+    "NetSalesUSD": "2283644.1477",
+    "NetCostUSD": "1684329.3015"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202509,
+    "Rows": 544,
+    "NetSalesLocalRaw": 2560327777,
+    "NetCostLocalRaw": 1885724160,
+    "NetQtyRaw": 128659923,
+    "NetSalesUSD": "3606893.6047",
+    "NetCostUSD": "2656537.3689"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202510,
+    "Rows": 629,
+    "NetSalesLocalRaw": 3014806430,
+    "NetCostLocalRaw": 2214813295,
+    "NetQtyRaw": 151280067,
+    "NetSalesUSD": "4337978.3835",
+    "NetCostUSD": "3186875.3178"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202511,
+    "Rows": 552,
+    "NetSalesLocalRaw": 2576077422,
+    "NetCostLocalRaw": 1898398202,
+    "NetQtyRaw": 134276747,
+    "NetSalesUSD": "3712323.0457",
+    "NetCostUSD": "2735735.8658"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202512,
+    "Rows": 459,
+    "NetSalesLocalRaw": 1801477348,
+    "NetCostLocalRaw": 1324698548,
+    "NetQtyRaw": 89741270,
+    "NetSalesUSD": "2545715.2880",
+    "NetCostUSD": "1871966.5554"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202601,
+    "Rows": 477,
+    "NetSalesLocalRaw": 2041266073,
+    "NetCostLocalRaw": 1500898402,
+    "NetQtyRaw": 95339699,
+    "NetSalesUSD": "2821238.6549",
+    "NetCostUSD": "2074395.2225"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202602,
+    "Rows": 354,
+    "NetSalesLocalRaw": 1369192797,
+    "NetCostLocalRaw": 1004635439,
+    "NetQtyRaw": 63573546,
+    "NetSalesUSD": "1883409.3745",
+    "NetCostUSD": "1381938.1809"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202603,
+    "Rows": 468,
+    "NetSalesLocalRaw": 1894896510,
+    "NetCostLocalRaw": 1384745017,
+    "NetQtyRaw": 88294472,
+    "NetSalesUSD": "2650914.6214",
+    "NetCostUSD": "1937224.9572"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202604,
+    "Rows": 530,
+    "NetSalesLocalRaw": 2123753293,
+    "NetCostLocalRaw": 1552030083,
+    "NetQtyRaw": 104242278,
+    "NetSalesUSD": "3041665.6305",
+    "NetCostUSD": "2222836.6042"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202605,
+    "Rows": 512,
+    "NetSalesLocalRaw": 2058929673,
+    "NetCostLocalRaw": 1501464815,
+    "NetQtyRaw": 102834822,
+    "NetSalesUSD": "2973344.9174",
+    "NetCostUSD": "2168297.8464"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202606,
+    "Rows": 403,
+    "NetSalesLocalRaw": 1596161418,
+    "NetCostLocalRaw": 1168275131,
+    "NetQtyRaw": 78593569,
+    "NetSalesUSD": "2271054.4588",
+    "NetCostUSD": "1662248.2007"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202607,
+    "Rows": 488,
+    "NetSalesLocalRaw": 2025755949,
+    "NetCostLocalRaw": 1488801770,
+    "NetQtyRaw": 96233569,
+    "NetSalesUSD": "2814379.2955",
+    "NetCostUSD": "2068389.7667"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202608,
+    "Rows": 512,
+    "NetSalesLocalRaw": 2107667752,
+    "NetCostLocalRaw": 1543801779,
+    "NetQtyRaw": 100860198,
+    "NetSalesUSD": "2896148.7898",
+    "NetCostUSD": "2121339.8782"
+  },
+  {
+    "CompanyKey": "00027",
+    "MonthKey": 202609,
+    "Rows": 516,
+    "NetSalesLocalRaw": 2567039932,
+    "NetCostLocalRaw": 1884562788,
+    "NetQtyRaw": 122684316,
+    "NetSalesUSD": "3568350.3882",
+    "NetCostUSD": "2619663.3221"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202401,
+    "Rows": 156,
+    "NetSalesLocalRaw": 2437851248,
+    "NetCostLocalRaw": 1780382922,
+    "NetQtyRaw": 29115226,
+    "NetSalesUSD": "776520.3285",
+    "NetCostUSD": "567099.2159"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202402,
+    "Rows": 117,
+    "NetSalesLocalRaw": 1805953837,
+    "NetCostLocalRaw": 1335452064,
+    "NetQtyRaw": 21208273,
+    "NetSalesUSD": "578222.3609",
+    "NetCostUSD": "427579.1713"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202403,
+    "Rows": 206,
+    "NetSalesLocalRaw": 3610275527,
+    "NetCostLocalRaw": 2666399516,
+    "NetQtyRaw": 42407456,
+    "NetSalesUSD": "1136147.5333",
+    "NetCostUSD": "839111.3670"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202404,
+    "Rows": 153,
+    "NetSalesLocalRaw": 2878002953,
+    "NetCostLocalRaw": 2122111361,
+    "NetQtyRaw": 32301660,
+    "NetSalesUSD": "884842.6784",
+    "NetCostUSD": "652443.6321"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202405,
+    "Rows": 162,
+    "NetSalesLocalRaw": 3224861772,
+    "NetCostLocalRaw": 2359874712,
+    "NetQtyRaw": 36284071,
+    "NetSalesUSD": "983444.8220",
+    "NetCostUSD": "719660.7893"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202406,
+    "Rows": 224,
+    "NetSalesLocalRaw": 4063069171,
+    "NetCostLocalRaw": 3003736911,
+    "NetQtyRaw": 45414927,
+    "NetSalesUSD": "1256760.7574",
+    "NetCostUSD": "929095.3508"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202407,
+    "Rows": 218,
+    "NetSalesLocalRaw": 3956447653,
+    "NetCostLocalRaw": 2925986798,
+    "NetQtyRaw": 45167361,
+    "NetSalesUSD": "1253437.3003",
+    "NetCostUSD": "926978.2682"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202408,
+    "Rows": 196,
+    "NetSalesLocalRaw": 3438961307,
+    "NetCostLocalRaw": 2575366176,
+    "NetQtyRaw": 39195120,
+    "NetSalesUSD": "1102230.9114",
+    "NetCostUSD": "825437.6698"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202409,
+    "Rows": 235,
+    "NetSalesLocalRaw": 4666118945,
+    "NetCostLocalRaw": 3434161274,
+    "NetQtyRaw": 53381223,
+    "NetSalesUSD": "1477988.3837",
+    "NetCostUSD": "1087767.0564"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202410,
+    "Rows": 162,
+    "NetSalesLocalRaw": 3383926001,
+    "NetCostLocalRaw": 2525365858,
+    "NetQtyRaw": 38824000,
+    "NetSalesUSD": "1046484.4191",
+    "NetCostUSD": "780973.3489"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202411,
+    "Rows": 256,
+    "NetSalesLocalRaw": 5542630284,
+    "NetCostLocalRaw": 4076284323,
+    "NetQtyRaw": 60109794,
+    "NetSalesUSD": "1690213.5152",
+    "NetCostUSD": "1243054.3817"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202412,
+    "Rows": 229,
+    "NetSalesLocalRaw": 3963160896,
+    "NetCostLocalRaw": 2935600052,
+    "NetQtyRaw": 45827907,
+    "NetSalesUSD": "1218675.5332",
+    "NetCostUSD": "902699.6506"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202501,
+    "Rows": 204,
+    "NetSalesLocalRaw": 3562965243,
+    "NetCostLocalRaw": 2616579414,
+    "NetQtyRaw": 40965615,
+    "NetSalesUSD": "1121498.7186",
+    "NetCostUSD": "823609.0614"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202502,
+    "Rows": 227,
+    "NetSalesLocalRaw": 3569078094,
+    "NetCostLocalRaw": 2618627569,
+    "NetQtyRaw": 40897227,
+    "NetSalesUSD": "1142804.1305",
+    "NetCostUSD": "838473.7800"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202503,
+    "Rows": 189,
+    "NetSalesLocalRaw": 3347715994,
+    "NetCostLocalRaw": 2451603414,
+    "NetQtyRaw": 37022101,
+    "NetSalesUSD": "1066178.4076",
+    "NetCostUSD": "780785.0580"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202504,
+    "Rows": 179,
+    "NetSalesLocalRaw": 3366061983,
+    "NetCostLocalRaw": 2481232617,
+    "NetQtyRaw": 36268855,
+    "NetSalesUSD": "1047967.7074",
+    "NetCostUSD": "772490.7240"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202505,
+    "Rows": 225,
+    "NetSalesLocalRaw": 4339564468,
+    "NetCostLocalRaw": 3194075203,
+    "NetQtyRaw": 46965103,
+    "NetSalesUSD": "1325853.1141",
+    "NetCostUSD": "975875.4785"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202506,
+    "Rows": 216,
+    "NetSalesLocalRaw": 3867559891,
+    "NetCostLocalRaw": 2831524586,
+    "NetQtyRaw": 42520182,
+    "NetSalesUSD": "1183850.5847",
+    "NetCostUSD": "866722.7212"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202507,
+    "Rows": 217,
+    "NetSalesLocalRaw": 3637924871,
+    "NetCostLocalRaw": 2684969073,
+    "NetQtyRaw": 40855041,
+    "NetSalesUSD": "1137103.1442",
+    "NetCostUSD": "839238.5441"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202508,
+    "Rows": 173,
+    "NetSalesLocalRaw": 3070574838,
+    "NetCostLocalRaw": 2271298570,
+    "NetQtyRaw": 34926601,
+    "NetSalesUSD": "980293.2396",
+    "NetCostUSD": "725121.1101"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202509,
+    "Rows": 233,
+    "NetSalesLocalRaw": 4599824378,
+    "NetCostLocalRaw": 3362251590,
+    "NetQtyRaw": 52439981,
+    "NetSalesUSD": "1470741.9201",
+    "NetCostUSD": "1075041.9907"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202510,
+    "Rows": 239,
+    "NetSalesLocalRaw": 4943139706,
+    "NetCostLocalRaw": 3634884144,
+    "NetQtyRaw": 55223191,
+    "NetSalesUSD": "1549859.3233",
+    "NetCostUSD": "1139672.2358"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202511,
+    "Rows": 257,
+    "NetSalesLocalRaw": 5576188625,
+    "NetCostLocalRaw": 4087002568,
+    "NetQtyRaw": 58148771,
+    "NetSalesUSD": "1709960.3280",
+    "NetCostUSD": "1253295.5255"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202512,
+    "Rows": 252,
+    "NetSalesLocalRaw": 4971971595,
+    "NetCostLocalRaw": 3622774785,
+    "NetQtyRaw": 52326765,
+    "NetSalesUSD": "1517459.5778",
+    "NetCostUSD": "1105680.9544"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202601,
+    "Rows": 196,
+    "NetSalesLocalRaw": 3753402558,
+    "NetCostLocalRaw": 2724715654,
+    "NetQtyRaw": 39071649,
+    "NetSalesUSD": "1165047.8441",
+    "NetCostUSD": "845745.7068"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202602,
+    "Rows": 196,
+    "NetSalesLocalRaw": 3020457882,
+    "NetCostLocalRaw": 2205869974,
+    "NetQtyRaw": 33296213,
+    "NetSalesUSD": "959817.2699",
+    "NetCostUSD": "700963.9527"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202603,
+    "Rows": 209,
+    "NetSalesLocalRaw": 3784256770,
+    "NetCostLocalRaw": 2779123088,
+    "NetQtyRaw": 41344636,
+    "NetSalesUSD": "1212530.7072",
+    "NetCostUSD": "890471.3107"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202604,
+    "Rows": 289,
+    "NetSalesLocalRaw": 5404994518,
+    "NetCostLocalRaw": 3941962531,
+    "NetQtyRaw": 56146997,
+    "NetSalesUSD": "1706295.9815",
+    "NetCostUSD": "1244433.2373"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202605,
+    "Rows": 218,
+    "NetSalesLocalRaw": 4396951593,
+    "NetCostLocalRaw": 3234719335,
+    "NetQtyRaw": 46183953,
+    "NetSalesUSD": "1355362.7939",
+    "NetCostUSD": "997104.0478"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202606,
+    "Rows": 261,
+    "NetSalesLocalRaw": 5169062523,
+    "NetCostLocalRaw": 3786411456,
+    "NetQtyRaw": 53724391,
+    "NetSalesUSD": "1575937.0836",
+    "NetCostUSD": "1154396.2185"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202607,
+    "Rows": 219,
+    "NetSalesLocalRaw": 4738496911,
+    "NetCostLocalRaw": 3467080423,
+    "NetQtyRaw": 48478496,
+    "NetSalesUSD": "1461449.5926",
+    "NetCostUSD": "1069318.6816"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202608,
+    "Rows": 220,
+    "NetSalesLocalRaw": 4112221028,
+    "NetCostLocalRaw": 3027314641,
+    "NetQtyRaw": 43073858,
+    "NetSalesUSD": "1298974.0246",
+    "NetCostUSD": "956272.3059"
+  },
+  {
+    "CompanyKey": "00029",
+    "MonthKey": 202609,
+    "Rows": 302,
+    "NetSalesLocalRaw": 6383172151,
+    "NetCostLocalRaw": 4653408408,
+    "NetQtyRaw": 70717244,
+    "NetSalesUSD": "2045457.3301",
+    "NetCostUSD": "1491162.7190"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202401,
+    "Rows": 207,
+    "NetSalesLocalRaw": 1802019371327,
+    "NetCostLocalRaw": 1329601448927,
+    "NetQtyRaw": 42069116,
+    "NetSalesUSD": "1168531.9305",
+    "NetCostUSD": "862189.2596"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202402,
+    "Rows": 226,
+    "NetSalesLocalRaw": 1681684239788,
+    "NetCostLocalRaw": 1240529037967,
+    "NetQtyRaw": 39844756,
+    "NetSalesUSD": "1071844.3617",
+    "NetCostUSD": "790668.0836"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202403,
+    "Rows": 250,
+    "NetSalesLocalRaw": 2049517286707,
+    "NetCostLocalRaw": 1543383302968,
+    "NetQtyRaw": 48544594,
+    "NetSalesUSD": "1276201.6555",
+    "NetCostUSD": "961040.1138"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202404,
+    "Rows": 276,
+    "NetSalesLocalRaw": 2550938277496,
+    "NetCostLocalRaw": 1883748701978,
+    "NetQtyRaw": 56940036,
+    "NetSalesUSD": "1575548.3533",
+    "NetCostUSD": "1163468.8268"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202405,
+    "Rows": 254,
+    "NetSalesLocalRaw": 2217055810612,
+    "NetCostLocalRaw": 1658178480271,
+    "NetQtyRaw": 51566699,
+    "NetSalesUSD": "1388890.1970",
+    "NetCostUSD": "1038777.5658"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202406,
+    "Rows": 200,
+    "NetSalesLocalRaw": 1509185833177,
+    "NetCostLocalRaw": 1112206052000,
+    "NetQtyRaw": 36705039,
+    "NetSalesUSD": "968350.9923",
+    "NetCostUSD": "713633.6758"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202407,
+    "Rows": 246,
+    "NetSalesLocalRaw": 2277915641799,
+    "NetCostLocalRaw": 1686330395675,
+    "NetQtyRaw": 53310763,
+    "NetSalesUSD": "1478685.5372",
+    "NetCostUSD": "1094664.0525"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202408,
+    "Rows": 220,
+    "NetSalesLocalRaw": 1813812422801,
+    "NetCostLocalRaw": 1333821969390,
+    "NetQtyRaw": 42822775,
+    "NetSalesUSD": "1163591.3362",
+    "NetCostUSD": "855669.3443"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202409,
+    "Rows": 279,
+    "NetSalesLocalRaw": 2605388544159,
+    "NetCostLocalRaw": 1935022990175,
+    "NetQtyRaw": 61845681,
+    "NetSalesUSD": "1631838.9675",
+    "NetCostUSD": "1211967.3762"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202410,
+    "Rows": 312,
+    "NetSalesLocalRaw": 3177570077788,
+    "NetCostLocalRaw": 2335466711697,
+    "NetQtyRaw": 75182561,
+    "NetSalesUSD": "1962518.1791",
+    "NetCostUSD": "1442421.6503"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202411,
+    "Rows": 299,
+    "NetSalesLocalRaw": 3220066221326,
+    "NetCostLocalRaw": 2379082267518,
+    "NetQtyRaw": 73110397,
+    "NetSalesUSD": "2005414.1847",
+    "NetCostUSD": "1481660.6236"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202412,
+    "Rows": 227,
+    "NetSalesLocalRaw": 2000671898306,
+    "NetCostLocalRaw": 1480003829894,
+    "NetQtyRaw": 44441313,
+    "NetSalesUSD": "1275428.0355",
+    "NetCostUSD": "943502.2192"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202501,
+    "Rows": 321,
+    "NetSalesLocalRaw": 2730937189420,
+    "NetCostLocalRaw": 2018480713573,
+    "NetQtyRaw": 60637998,
+    "NetSalesUSD": "1771007.3086",
+    "NetCostUSD": "1308980.7087"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202502,
+    "Rows": 242,
+    "NetSalesLocalRaw": 1729700622823,
+    "NetCostLocalRaw": 1278815751982,
+    "NetQtyRaw": 40142314,
+    "NetSalesUSD": "1115694.0294",
+    "NetCostUSD": "824863.6086"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202503,
+    "Rows": 255,
+    "NetSalesLocalRaw": 2335976632609,
+    "NetCostLocalRaw": 1707189224591,
+    "NetQtyRaw": 51723852,
+    "NetSalesUSD": "1472947.1923",
+    "NetCostUSD": "1076466.0661"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202504,
+    "Rows": 311,
+    "NetSalesLocalRaw": 2769438528207,
+    "NetCostLocalRaw": 2044221808700,
+    "NetQtyRaw": 60248432,
+    "NetSalesUSD": "1713696.4196",
+    "NetCostUSD": "1264940.7302"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202505,
+    "Rows": 344,
+    "NetSalesLocalRaw": 2985914188325,
+    "NetCostLocalRaw": 2200550582374,
+    "NetQtyRaw": 67235798,
+    "NetSalesUSD": "1851100.7591",
+    "NetCostUSD": "1364218.9951"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202506,
+    "Rows": 322,
+    "NetSalesLocalRaw": 2961136931623,
+    "NetCostLocalRaw": 2177010355704,
+    "NetQtyRaw": 66852458,
+    "NetSalesUSD": "1874552.1044",
+    "NetCostUSD": "1378159.6185"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202507,
+    "Rows": 304,
+    "NetSalesLocalRaw": 2657141119850,
+    "NetCostLocalRaw": 1945997010037,
+    "NetQtyRaw": 63397356,
+    "NetSalesUSD": "1718081.7825",
+    "NetCostUSD": "1258262.8706"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202508,
+    "Rows": 267,
+    "NetSalesLocalRaw": 2352852231998,
+    "NetCostLocalRaw": 1736284510938,
+    "NetQtyRaw": 53708560,
+    "NetSalesUSD": "1523641.3996",
+    "NetCostUSD": "1124369.3612"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202509,
+    "Rows": 400,
+    "NetSalesLocalRaw": 4366569797044,
+    "NetCostLocalRaw": 3216243731917,
+    "NetQtyRaw": 95221072,
+    "NetSalesUSD": "2772826.4809",
+    "NetCostUSD": "2042355.0307"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202510,
+    "Rows": 352,
+    "NetSalesLocalRaw": 3970280513283,
+    "NetCostLocalRaw": 2927294288554,
+    "NetQtyRaw": 86386927,
+    "NetSalesUSD": "2465827.3312",
+    "NetCostUSD": "1818058.5075"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202511,
+    "Rows": 323,
+    "NetSalesLocalRaw": 3560829537623,
+    "NetCostLocalRaw": 2612207083048,
+    "NetQtyRaw": 76031905,
+    "NetSalesUSD": "2201063.4780",
+    "NetCostUSD": "1614689.3706"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202512,
+    "Rows": 339,
+    "NetSalesLocalRaw": 2893312403873,
+    "NetCostLocalRaw": 2124312447327,
+    "NetQtyRaw": 67018678,
+    "NetSalesUSD": "1818891.6744",
+    "NetCostUSD": "1335456.9721"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202601,
+    "Rows": 252,
+    "NetSalesLocalRaw": 2512013702763,
+    "NetCostLocalRaw": 1833028385812,
+    "NetQtyRaw": 54236336,
+    "NetSalesUSD": "1616704.5889",
+    "NetCostUSD": "1179717.0529"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202602,
+    "Rows": 296,
+    "NetSalesLocalRaw": 2235827720971,
+    "NetCostLocalRaw": 1641730228144,
+    "NetQtyRaw": 49550382,
+    "NetSalesUSD": "1450919.6998",
+    "NetCostUSD": "1065385.6321"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202603,
+    "Rows": 360,
+    "NetSalesLocalRaw": 3232475351010,
+    "NetCostLocalRaw": 2360628336976,
+    "NetQtyRaw": 72286632,
+    "NetSalesUSD": "2066746.5607",
+    "NetCostUSD": "1509314.0596"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202604,
+    "Rows": 298,
+    "NetSalesLocalRaw": 2717638376177,
+    "NetCostLocalRaw": 1995954179714,
+    "NetQtyRaw": 61097738,
+    "NetSalesUSD": "1696635.0426",
+    "NetCostUSD": "1246084.0388"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202605,
+    "Rows": 336,
+    "NetSalesLocalRaw": 3128882998312,
+    "NetCostLocalRaw": 2312816804702,
+    "NetQtyRaw": 65422689,
+    "NetSalesUSD": "1932009.7095",
+    "NetCostUSD": "1428108.5373"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202606,
+    "Rows": 292,
+    "NetSalesLocalRaw": 2835702052617,
+    "NetCostLocalRaw": 2114432033720,
+    "NetQtyRaw": 61690875,
+    "NetSalesUSD": "1771318.7825",
+    "NetCostUSD": "1320778.1017"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202607,
+    "Rows": 361,
+    "NetSalesLocalRaw": 3411792483844,
+    "NetCostLocalRaw": 2503382008823,
+    "NetQtyRaw": 72226662,
+    "NetSalesUSD": "2182727.4839",
+    "NetCostUSD": "1601563.0316"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202608,
+    "Rows": 300,
+    "NetSalesLocalRaw": 2714117659543,
+    "NetCostLocalRaw": 1983439537926,
+    "NetQtyRaw": 59697343,
+    "NetSalesUSD": "1761470.7222",
+    "NetCostUSD": "1287258.3703"
+  },
+  {
+    "CompanyKey": "00121",
+    "MonthKey": 202609,
+    "Rows": 371,
+    "NetSalesLocalRaw": 3760653891806,
+    "NetCostLocalRaw": 2761080565688,
+    "NetQtyRaw": 81611230,
+    "NetSalesUSD": "2419079.9459",
+    "NetCostUSD": "1776093.9486"
+  }
+]

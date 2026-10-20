@@ -1,0 +1,1 @@
+SELECT {[Measures].[Sales Line Count],[Measures].[Order Count],[Measures].[Net Sales USD],[Measures].[Net Cost USD],[Measures].[Net Quantity KG],[Measures].[Net Sales Local]} ON 0, NONEMPTY(CROSSJOIN([Company].[Company].[Company].MEMBERS,[Invoice Date].[Month].[Month].MEMBERS),[Measures].[Sales Line Count]) DIMENSION PROPERTIES MEMBER_KEY,MEMBER_CAPTION ON 1 FROM [JDE Sales]

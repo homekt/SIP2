@@ -1,0 +1,25 @@
+{
+  "changedPaths": [
+    "frontend/src/index.css",
+    "frontend/src/screens/D00DecisionHome.tsx",
+    "frontend/src/screens/D01ExecutiveOverview.tsx",
+    "frontend/src/screens/D02SalesMomentum.tsx",
+    "frontend/src/screens/D04ProductMix.tsx",
+    "frontend/src/screens/D06CustomerContribution.tsx",
+    "frontend/src/screens/D08ProfitabilityQuality.tsx",
+    "frontend/src/screens/D11CustomerConcentration.tsx",
+    "frontend/src/screens/D13SalespersonPerformance.tsx",
+    "frontend/src/screens/D14ProductPortfolio.tsx",
+    "frontend/src/screens/D15RollingSales.tsx",
+    "frontend/src/screens/D16GrowthDeclineContribution.tsx",
+    "frontend/src/screens/D18ExceptionMonitor.tsx",
+    "frontend/src/components/ai/AiInsightCard.tsx",
+    "frontend/src/components/charts/EChartsContainer.tsx",
+    "frontend/src/components/charts/KpiCard.tsx",
+    "frontend/src/components/common/Header.tsx",
+    "frontend/src/components/common/SlicerBar.tsx"
+  ],
+  "changedPathCount": 18,
+  "allChangesFrontendOnly": true,
+  "backendTypesServicesContextMathBuildConfigUnchanged": true
+}

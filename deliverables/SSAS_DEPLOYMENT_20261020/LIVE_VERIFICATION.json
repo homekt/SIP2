@@ -1,0 +1,334 @@
+{
+  "status": "PASS",
+  "checks_passed": 42,
+  "checks_total": 42,
+  "sql_server": "localhost",
+  "sql_database": "JDE_CUBE_SYNTHETIC_20261020",
+  "ssas_endpoint": "localhost:25000",
+  "ssas_database": "JDE_SALES_CUBE_20261020",
+  "cube": "JDE Sales",
+  "mode": "Multidimensional",
+  "sales_lines": 60000,
+  "cost_centers": 30,
+  "distinct_orders": 20111,
+  "company_month_groups_compared": 165,
+  "product_groups_compared": 132,
+  "live_import": true,
+  "live_ssas_process": true,
+  "live_mdx_verified": true,
+  "source_is_synthetic": true,
+  "totals": {
+    "SalesLineCount": 60000,
+    "OrderCount": 20111,
+    "NetSalesUSD": "350835465.5863",
+    "NetCostUSD": "258256100.7729",
+    "GrossProfitUSD": "92579364.8134",
+    "SalesQtyKG": "126819350.68",
+    "ReturnQtyKG": "2498962.59",
+    "NetQtyKG": "124320388.09",
+    "FullReturnLineCount": 581,
+    "PartialReturnLineCount": 5472,
+    "AllowanceLineCount": 4701,
+    "NegativeMarginLineCount": 1177
+  },
+  "checks": [
+    {
+      "check": "165_expected_company_months",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "SQL_expected_group_keys",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "MDX_expected_group_keys",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "CSV_controls_to_SQL_Rows",
+      "passed": true,
+      "detail": {
+        "compared_groups": 165,
+        "mismatches": []
+      }
+    },
+    {
+      "check": "CSV_controls_to_SQL_NetSalesLocalRaw",
+      "passed": true,
+      "detail": {
+        "compared_groups": 165,
+        "mismatches": []
+      }
+    },
+    {
+      "check": "CSV_controls_to_SQL_NetCostLocalRaw",
+      "passed": true,
+      "detail": {
+        "compared_groups": 165,
+        "mismatches": []
+      }
+    },
+    {
+      "check": "CSV_controls_to_SQL_NetQtyRaw",
+      "passed": true,
+      "detail": {
+        "compared_groups": 165,
+        "mismatches": []
+      }
+    },
+    {
+      "check": "CSV_controls_to_SQL_NetSalesUSD",
+      "passed": true,
+      "detail": {
+        "compared_groups": 165,
+        "mismatches": []
+      }
+    },
+    {
+      "check": "CSV_controls_to_SQL_NetCostUSD",
+      "passed": true,
+      "detail": {
+        "compared_groups": 165,
+        "mismatches": []
+      }
+    },
+    {
+      "check": "SQL_to_MDX_month_Rows",
+      "passed": true,
+      "detail": {
+        "compared_groups": 165,
+        "mismatches": []
+      }
+    },
+    {
+      "check": "SQL_to_MDX_month_OrderCount",
+      "passed": true,
+      "detail": {
+        "compared_groups": 165,
+        "mismatches": []
+      }
+    },
+    {
+      "check": "SQL_to_MDX_month_NetSalesUSD",
+      "passed": true,
+      "detail": {
+        "compared_groups": 165,
+        "mismatches": []
+      }
+    },
+    {
+      "check": "SQL_to_MDX_month_NetCostUSD",
+      "passed": true,
+      "detail": {
+        "compared_groups": 165,
+        "mismatches": []
+      }
+    },
+    {
+      "check": "SQL_to_MDX_month_quantity",
+      "passed": true,
+      "detail": {
+        "compared_groups": 165
+      }
+    },
+    {
+      "check": "SQL_to_MDX_month_local_currency",
+      "passed": true,
+      "detail": {
+        "compared_groups": 165
+      }
+    },
+    {
+      "check": "grand_total_SalesLineCount",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "grand_total_OrderCount",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "grand_total_NetSalesUSD",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "grand_total_NetCostUSD",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "grand_total_GrossProfitUSD",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "grand_total_SalesQtyKG",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "grand_total_ReturnQtyKG",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "grand_total_NetQtyKG",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "grand_total_FullReturnLineCount",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "grand_total_PartialReturnLineCount",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "grand_total_AllowanceLineCount",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "grand_total_NegativeMarginLineCount",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "grand_total_60000_lines",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "grand_total_20111_distinct_orders",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "gross_margin_ratio",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "return_rate_ratio",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "mixed_local_currency_total_is_blank",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "single_currency_TWD_total",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "empty_month_amounts_and_ratios_blank",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "132_product_keys",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "product_line_counts",
+      "passed": true,
+      "detail": {
+        "compared_products": 132
+      }
+    },
+    {
+      "check": "product_net_sales",
+      "passed": true,
+      "detail": {
+        "compared_products": 132
+      }
+    },
+    {
+      "check": "all_database_dimensions_processed",
+      "passed": true,
+      "detail": [
+        {
+          "ID": "Company",
+          "State": "Processed"
+        },
+        {
+          "ID": "Plant",
+          "State": "Processed"
+        },
+        {
+          "ID": "CostCenter",
+          "State": "Processed"
+        },
+        {
+          "ID": "Customer",
+          "State": "Processed"
+        },
+        {
+          "ID": "Salesperson",
+          "State": "Processed"
+        },
+        {
+          "ID": "Currency",
+          "State": "Processed"
+        },
+        {
+          "ID": "Product",
+          "State": "Processed"
+        },
+        {
+          "ID": "Date",
+          "State": "Processed"
+        }
+      ]
+    },
+    {
+      "check": "cube_processed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "both_measure_groups_processed",
+      "passed": true,
+      "detail": [
+        {
+          "Group": "Sales",
+          "Name": "All Sales",
+          "State": "Processed"
+        },
+        {
+          "Group": "Distinct Orders",
+          "Name": "All Orders",
+          "State": "Processed"
+        }
+      ]
+    },
+    {
+      "check": "preexisting_SSAS_databases_still_present",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "source_and_dimension_counts",
+      "passed": true,
+      "detail": {
+        "SalesRows": 60000,
+        "CostCenters": 30,
+        "Products": 132,
+        "Customers": 250,
+        "Dates": 1096
+      }
+    }
+  ]
+}

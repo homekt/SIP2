@@ -1,0 +1,7 @@
+{
+  "time": "2026-10-20T16:11:08.5160455Z",
+  "rule": "SIPBI-Card-55154-Private-LocalSubnet",
+  "reason": "Observed WFP application identity differs from the nvm junction path",
+  "newProgram": "C:\\Users\\user\\AppData\\Local\\nvm\\v24.13.0\\node.exe",
+  "previousProgram": "C:\\nvm4w\\nodejs\\node.exe"
+}

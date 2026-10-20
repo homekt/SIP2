@@ -1,0 +1,30 @@
+[
+  {
+    "id": "D04",
+    "bodyWidth": 1425,
+    "dark": true,
+    "heading": "D04 Product Mix",
+    "width": 1440
+  },
+  {
+    "id": "D08",
+    "bodyWidth": 1425,
+    "dark": true,
+    "heading": "D08 Profitability Quality",
+    "width": 1440
+  },
+  {
+    "id": "D13",
+    "bodyWidth": 1425,
+    "dark": true,
+    "heading": "D13 Salesperson Actuals",
+    "width": 1440
+  },
+  {
+    "id": "D18",
+    "bodyWidth": 1425,
+    "dark": true,
+    "heading": "D18 Sales Observations",
+    "width": 1440
+  }
+]

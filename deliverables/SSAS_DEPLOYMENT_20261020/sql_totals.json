@@ -1,0 +1,16 @@
+[
+  {
+    "SalesLineCount": 60000,
+    "OrderCount": 20111,
+    "NetSalesUSD": 350835465.5863,
+    "NetCostUSD": 258256100.7729,
+    "GrossProfitUSD": 92579364.8134,
+    "SalesQtyKG": 126819350.68,
+    "ReturnQtyKG": 2498962.59,
+    "NetQtyKG": 124320388.09,
+    "FullReturnLineCount": 581,
+    "PartialReturnLineCount": 5472,
+    "AllowanceLineCount": 4701,
+    "NegativeMarginLineCount": 1177
+  }
+]

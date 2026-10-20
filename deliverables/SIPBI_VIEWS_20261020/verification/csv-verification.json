@@ -1,0 +1,12 @@
+{
+  "rows": 132,
+  "allRowsComparedToSql": true,
+  "deltaSum": 2498220.7443,
+  "columns": [
+    "ProductKey",
+    "Label",
+    "PriorYearUSD",
+    "CurrentUSD",
+    "DeltaUSD"
+  ]
+}

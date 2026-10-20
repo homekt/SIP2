@@ -1,0 +1,34 @@
+{
+  "agy": {
+    "changed": [
+      "src/screens/D00DecisionHome.tsx",
+      "src/screens/D01ExecutiveOverview.tsx",
+      "src/screens/D02SalesMomentum.tsx",
+      "src/screens/D04ProductMix.tsx"
+    ],
+    "sha256": {
+      "D00DecisionHome": "ef9c22cc557a99393e340bc748881aff590cc63ff5a48c32e14a1d9727826c2a",
+      "D01ExecutiveOverview": "01f8485b44263191a87dbaeadda9fa5c04d7a6efb2bdbc0e27c2813455e0d28b",
+      "D02SalesMomentum": "7673204c2c0f4114d1a79c28edd32e8b4e5a2a005ad3ab00100d7ed3dd58a4c6",
+      "D04ProductMix": "8125bfde45a84a4796b1ef5f004ac01b58dbd360ae4563320c8d0049b388ea31"
+    },
+    "reportedBuildRun": false,
+    "reportedBrowserRun": false
+  },
+  "muse": {
+    "changed": [
+      "src/screens/D06CustomerContribution.tsx",
+      "src/screens/D08ProfitabilityQuality.tsx",
+      "src/screens/D13SalespersonPerformance.tsx",
+      "src/screens/D15RollingSales.tsx"
+    ],
+    "sha256": {
+      "D06CustomerContribution": "b6650752e0d6428c040fbffd3f0824df1c66676212197498921058780f540b56",
+      "D08ProfitabilityQuality": "7b99ae2bc95b93d4636e1a12557fbdf32e5753d2161bf91036ae0bd2116d13b7",
+      "D13SalespersonPerformance": "b2eee5d9d917be8a6c943a4f412181d03b5b9aa67f668faae4b775f6305efac1",
+      "D15RollingSales": "8cb2a7bc1b19595440a86384b920213593bd0e7afba040def364b7bf78fd205f"
+    },
+    "reportedBuildRun": false,
+    "reportedBrowserRun": false
+  }
+}

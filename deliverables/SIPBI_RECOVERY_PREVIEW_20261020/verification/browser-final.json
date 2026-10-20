@@ -1,0 +1,76 @@
+{
+  "testedAt": "2026-10-20T12:44:29.885Z",
+  "base": "http://localhost:55152",
+  "observations": [
+    {
+      "page": "D11",
+      "check": "desktop Top20 + All238 full distribution, one Pareto, correct denominator visible",
+      "passed": true
+    },
+    {
+      "page": "D11",
+      "check": "Pareto bar click opens customer 00020|100048 drilldown",
+      "passed": true
+    },
+    {
+      "page": "D15",
+      "check": "mode 近 3 月",
+      "passed": true
+    },
+    {
+      "page": "D15",
+      "check": "mode 近 12 月",
+      "passed": true
+    },
+    {
+      "page": "D15",
+      "check": "mode 年累計",
+      "passed": true
+    },
+    {
+      "page": "D15",
+      "check": "actual first monthly bar changes filter to 202401; incomplete windows remain unavailable",
+      "passed": true
+    },
+    {
+      "page": "D15",
+      "check": "390px: title wraps, local horizontal chart scroll, no body overflow",
+      "passed": true
+    },
+    {
+      "page": "D04",
+      "check": "390px: ring/total/7-category legend stack without body overflow",
+      "passed": true
+    },
+    {
+      "page": "D04",
+      "check": "English/dark controls and ring legend render, 390px no body overflow",
+      "passed": true
+    },
+    {
+      "page": "D11",
+      "check": "390px English/dark all238 Pareto wraps titles and has no body overflow",
+      "passed": true
+    },
+    {
+      "page": "D11",
+      "check": "company00020 selection updates population from238 to50; selected option confirmed",
+      "passed": true
+    },
+    {
+      "page": "D11",
+      "check": "future202610 no-data response",
+      "details": [
+        "所選發票月份或維度切片範圍內無銷售資料 (no_data)"
+      ],
+      "canvasCount": 0,
+      "passed": true
+    },
+    {
+      "page": "D04",
+      "check": "final desktop2charts: category donut + USD bars/GM diamonds; readable units and labels",
+      "passed": true
+    }
+  ],
+  "consoleErrors": []
+}

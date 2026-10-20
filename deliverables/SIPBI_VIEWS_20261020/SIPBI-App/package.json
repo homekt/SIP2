@@ -1,0 +1,11 @@
+{
+  "name": "sipbi-sales",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/sales-server.mjs",
+    "build": "npm --prefix frontend run build",
+    "test": "node --test tests/ai-analysis.test.mjs tests/sales-*.test.mjs"
+  }
+}

@@ -1,0 +1,110 @@
+[
+  {
+    "id": "D00",
+    "charts": 2,
+    "headerOutside": 0,
+    "heading": "D00 決策首頁 (全部公司 (All))",
+    "loading": false,
+    "viewport": 375,
+    "width": 375
+  },
+  {
+    "id": "D01",
+    "charts": 3,
+    "headerOutside": 0,
+    "heading": "D01 銷售總覽 (Executive Sales)",
+    "loading": false,
+    "viewport": 375,
+    "width": 375
+  },
+  {
+    "id": "D02",
+    "charts": 3,
+    "headerOutside": 0,
+    "heading": "D02 銷售動能 (Sales Momentum)",
+    "loading": false,
+    "viewport": 375,
+    "width": 375
+  },
+  {
+    "id": "D04",
+    "charts": 2,
+    "headerOutside": 0,
+    "heading": "D04 產品組合 (Product Mix)",
+    "loading": false,
+    "viewport": 375,
+    "width": 375
+  },
+  {
+    "id": "D06",
+    "charts": 1,
+    "headerOutside": 0,
+    "heading": "D06 客戶貢獻 (Customer Contribution)",
+    "loading": false,
+    "viewport": 375,
+    "width": 375
+  },
+  {
+    "id": "D08",
+    "charts": 2,
+    "headerOutside": 0,
+    "heading": "D08 獲利品質 (Profitability)",
+    "loading": false,
+    "viewport": 375,
+    "width": 375
+  },
+  {
+    "id": "D11",
+    "charts": 2,
+    "headerOutside": 0,
+    "heading": "D11 客戶集中度 (Customer Concentration)",
+    "loading": false,
+    "viewport": 375,
+    "width": 375
+  },
+  {
+    "id": "D13",
+    "charts": 1,
+    "headerOutside": 0,
+    "heading": "D13 業務員實績 (Salesperson Actuals)",
+    "loading": false,
+    "viewport": 375,
+    "width": 375
+  },
+  {
+    "id": "D14",
+    "charts": 1,
+    "headerOutside": 0,
+    "heading": "D14 產品營收與毛利矩陣 (Product Portfolio)",
+    "loading": false,
+    "viewport": 375,
+    "width": 375
+  },
+  {
+    "id": "D15",
+    "charts": 4,
+    "headerOutside": 0,
+    "heading": "D15 累計與滾動銷售 (Rolling Sales)",
+    "loading": false,
+    "viewport": 375,
+    "width": 375
+  },
+  {
+    "id": "D16",
+    "charts": 1,
+    "headerOutside": 0,
+    "heading": "D16 成長貢獻 (Growth Contribution)",
+    "loading": false,
+    "viewport": 375,
+    "width": 375
+  },
+  {
+    "id": "D18",
+    "charts": 1,
+    "headerOutside": 0,
+    "heading": "D18 銷售觀察 (Sales Observations)",
+    "loading": false,
+    "viewport": 375,
+    "width": 375
+  }
+]
