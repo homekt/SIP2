@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {enrichMonthly,waterfallSteps,computeDrilldownSummary} from '../frontend/src/utils/salesMath.ts';
+import {enrichMonthly,waterfallSteps,computeDrilldownSummary,computeGmAxisBounds} from '../frontend/src/utils/salesMath.ts';
 test('R3/R12 and YTD preserve history shortage and reset at January',()=>{
  const rows=Array.from({length:14},(_,i)=>({key:String(2024+Math.floor(i/12))+String(i%12+1).padStart(2,'0'),netSalesUSD:i+1}));
  const series=enrichMonthly(rows);assert.equal(series[0].r3Val,null);assert.equal(series[10].r12Val,null);assert.equal(series[11].r12Val,78);assert.equal(series[13].r12Val,102);assert.equal(series[12].ytdVal,13);assert.equal(series[13].ytdVal,27);
@@ -33,4 +33,15 @@ test('computeDrilldownSummary computes weighted ratios and never sums distinct o
  // Distinct orderCount across rows is non-additive and must remain null in row-sum summary
  assert.equal(summary.orderCount,null);
  assert.equal(computeDrilldownSummary([]),null);
+});
+test('computeGmAxisBounds focuses narrow positive GM% band with breathing room and preserves negative bounds',()=>{
+ // Narrow band 25.8%..26.8% should focus around ~22..30 instead of 0..30
+ const b1=computeGmAxisBounds({min:25.8,max:26.8});
+ assert.ok(b1.min>=20 && b1.min<=24, `expected focused min in 20..24, got ${b1.min}`);
+ assert.ok(b1.max>=28 && b1.max<=31, `expected focused max in 28..31, got ${b1.max}`);
+ assert.ok(b1.max-b1.min>=5 && b1.max-b1.min<=10);
+ // Negative margin slice must never clip below bound.min
+ const bNeg=computeGmAxisBounds({min:-4.2,max:18.5});
+ assert.ok(bNeg.min<=-5);
+ assert.ok(bNeg.max>=20);
 });

@@ -7,6 +7,7 @@ import { EChartsContainer } from '../components/charts/EChartsContainer';
 import { AiInsightCard } from '../components/ai/AiInsightCard';
 import { useApp } from '../context/AppContext';
 import { getFilterSummaryLabels } from '../utils/slicerData';
+import { computeGmAxisBounds } from '../utils/salesMath';
 import {
   exportSalesRowsCsv,
   fmtCount,
@@ -190,13 +191,16 @@ export const D01ExecutiveOverview: React.FC<Props> = ({ slicer }) => {
       {
         type: 'value',
         name: 'GM %',
+        scale: true,
+        min: (bound: { min: number; max: number }) => computeGmAxisBounds(bound).min,
+        max: (bound: { min: number; max: number }) => computeGmAxisBounds(bound).max,
         position: 'right',
         nameTextStyle: { color: gmLineColor, fontSize: 12, fontWeight: 'bold' },
         axisLine: { show: true, lineStyle: { color: gmLineColor } },
         axisLabel: {
           color: gmLineColor,
           fontSize: 12,
-          formatter: (v: number) => `${v.toFixed(0)}%`,
+          formatter: (v: number) => (Number.isInteger(v) ? `${v.toFixed(0)}%` : `${v.toFixed(1)}%`),
         },
         splitLine: { show: false },
       },
@@ -402,7 +406,7 @@ export const D01ExecutiveOverview: React.FC<Props> = ({ slicer }) => {
                       </h3>
                       <p className="text-xs text-slate-500 dark:text-slate-400">
                         {isZh
-                          ? '左軸淨銷售額（藍色柱狀，0 基線）· 右軸加權毛利率（琥珀色折線）· 點擊月份下鑽產品明細'
+                          ? '左軸淨銷售額（藍色柱狀，0 基線）· 右軸加權毛利率（琥珀色折線，動態焦點區間）· 點擊月份下鑽產品明細'
                           : 'Left axis: Net Sales (blue bars, 0-baseline); Right axis: Weighted GM% (amber line); Click month to drill'}
                       </p>
                     </div>

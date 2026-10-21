@@ -7,6 +7,7 @@ import { EChartsContainer } from '../components/charts/EChartsContainer';
 import { AiInsightCard } from '../components/ai/AiInsightCard';
 import { useApp } from '../context/AppContext';
 import { getFilterSummaryLabels } from '../utils/slicerData';
+import { computeGmAxisBounds } from '../utils/salesMath';
 import {
   exportSalesRowsCsv,
   fmtCount,
@@ -133,9 +134,11 @@ export const D08ProfitabilityQuality: React.FC<Props> = ({ slicer }) => {
       {
         type: 'value' as const,
         name: 'GM%',
+        scale: true,
+        min: (bound: { min: number; max: number }) => computeGmAxisBounds(bound).min,
+        max: (bound: { min: number; max: number }) => computeGmAxisBounds(bound).max,
         nameTextStyle: { color: marginAmber, fontSize: 12 },
-        min: (bound: { min: number }) => Math.min(0, Number.isFinite(bound.min) ? bound.min : 0),
-        axisLabel: { color: marginAmber, fontSize: 12, formatter: (v: number) => `${v}%` },
+        axisLabel: { color: marginAmber, fontSize: 12, formatter: (v: number) => (Number.isInteger(v) ? `${v.toFixed(0)}%` : `${v.toFixed(1)}%`) },
         axisLine: { show: true, lineStyle: { color: marginAmber, width: 1.25 } },
         splitLine: { show: false },
       },

@@ -70,3 +70,22 @@ export function computeDrilldownSummary(rows: SalesRow[]): DrilldownSummary | nu
     orderCount: null,
   };
 }
+export function computeGmAxisBounds(bound: { min: number; max: number }): { min: number; max: number } {
+  if (!bound || !Number.isFinite(bound.min) || !Number.isFinite(bound.max)) {
+    return { min: 0, max: 30 };
+  }
+  const rawMin = Math.min(bound.min, bound.max);
+  const rawMax = Math.max(bound.min, bound.max);
+  const span = Math.max(rawMax - rawMin, 0);
+  const padLow = Math.max(2.5, span * 0.25);
+  const padHigh = Math.max(2.0, span * 0.25);
+  let min = Math.floor((rawMin - padLow) / 2) * 2;
+  let max = Math.ceil((rawMax + padHigh) / 2) * 2;
+  if (rawMin >= 0 && min < 0) {
+    min = 0;
+  }
+  if (max - min < 6) {
+    max = min + 6;
+  }
+  return { min, max };
+}
