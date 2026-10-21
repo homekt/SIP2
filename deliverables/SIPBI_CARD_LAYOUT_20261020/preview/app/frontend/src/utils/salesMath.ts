@@ -89,3 +89,24 @@ export function computeGmAxisBounds(bound: { min: number; max: number }): { min:
   }
   return { min, max };
 }
+export function computeParetoPercentAxis(
+  windowMaxPct: number,
+  view: 'top20' | 'all'
+): { min: number; max: number; interval: number; showPareto80Line: boolean } {
+  if (view === 'all' || !Number.isFinite(windowMaxPct) || !(windowMaxPct > 0) || windowMaxPct >= 65) {
+    return { min: 0, max: 100, interval: 20, showPareto80Line: true };
+  }
+  if (windowMaxPct <= 10) {
+    return { min: 0, max: 12, interval: 3, showPareto80Line: false };
+  }
+  if (windowMaxPct <= 22) {
+    return { min: 0, max: 25, interval: 5, showPareto80Line: false };
+  }
+  if (windowMaxPct <= 36) {
+    return { min: 0, max: 40, interval: 10, showPareto80Line: false };
+  }
+  if (windowMaxPct <= 54) {
+    return { min: 0, max: 60, interval: 15, showPareto80Line: false };
+  }
+  return { min: 0, max: 80, interval: 20, showPareto80Line: true };
+}

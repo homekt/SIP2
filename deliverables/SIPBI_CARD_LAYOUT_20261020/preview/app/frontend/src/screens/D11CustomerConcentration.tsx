@@ -7,6 +7,7 @@ import { EChartsContainer } from '../components/charts/EChartsContainer';
 import { AiInsightCard } from '../components/ai/AiInsightCard';
 import { useApp } from '../context/AppContext';
 import { getFilterSummaryLabels } from '../utils/slicerData';
+import { computeParetoPercentAxis } from '../utils/salesMath';
 import {
   DASH,
   exportSalesRowsCsv,
@@ -249,9 +250,18 @@ export const D11CustomerConcentration: React.FC<Props> = ({ slicer }) => {
         : isZh
           ? `全部 ${model.ranked.length} 家。滑桿只移動視窗。`
           : `All ${model.ranked.length} customers. The slider only moves the window.`;
+    const windowMaxPct = shown.reduce(
+      (maxVal, item) => (item.cumShare != null ? Math.max(maxVal, item.cumShare * 100) : maxVal),
+      0
+    );
+    const paretoAxisCfg = computeParetoPercentAxis(windowMaxPct, view);
     const denomNote = isZh
-      ? '累積佔比的分母是全部所選客戶，此視窗終點不必是 100%。'
-      : 'Cumulative share uses all selected customers. This window need not end at 100%.';
+      ? paretoAxisCfg.max < 100
+        ? `累積佔比分母為全體客戶（前 ${shown.length} 名合計 ${windowMaxPct.toFixed(1)}%，右軸自動縮放至 0%–${paretoAxisCfg.max}%；切換「全部客戶」可檢視 80% 參考線）。`
+        : '累積佔比的分母是全部所選客戶，此視窗終點不必是 100%。'
+      : paretoAxisCfg.max < 100
+        ? `Cumulative share uses all customers (Top ${shown.length} = ${windowMaxPct.toFixed(1)}%, right axis scaled to 0%–${paretoAxisCfg.max}%; switch to All customers for 80% line).`
+        : 'Cumulative share uses all selected customers. This window need not end at 100%.';
     const subtitle = model.sharesOk
       ? `${summaryLabels.monthLabel} · USD · ${windowNote} ${denomNote}`
       : `${summaryLabels.monthLabel} · USD · ${reasonText(model.denial || 'status', analysis?.concentrationStatus, isZh)}`;
@@ -276,9 +286,9 @@ export const D11CustomerConcentration: React.FC<Props> = ({ slicer }) => {
     const percentAxis = {
       type: 'value' as const,
       name: '%',
-      min: 0,
-      max: 100,
-      interval: 20,
+      min: paretoAxisCfg.min,
+      max: paretoAxisCfg.max,
+      interval: paretoAxisCfg.interval,
       nameTextStyle: { color: lineColor, fontSize: 12 },
       axisLabel: {
         color: lineColor,
@@ -414,27 +424,34 @@ export const D11CustomerConcentration: React.FC<Props> = ({ slicer }) => {
                   value: item.cumShare == null ? null : item.cumShare * 100,
                   customerKey: item.row.key,
                 })),
-                markLine: {
-                  silent: true,
-                  symbol: 'none',
-                  lineStyle: {
-                    type: 'dashed',
-                    color: isDark ? '#fb7185' : '#e11d48',
-                    width: 1.5,
-                  },
-                  data: [
-                    {
-                      yAxis: 80,
-                      label: {
-                        show: true,
-                        position: 'end',
-                        formatter: isZh ? '80% 參考線' : '80% Pareto Reference',
-                        fontSize: 11,
+                markLine: paretoAxisCfg.showPareto80Line
+                  ? {
+                      silent: true,
+                      symbol: 'none',
+                      lineStyle: {
+                        type: 'dashed',
                         color: isDark ? '#fb7185' : '#e11d48',
+                        width: 1.5,
                       },
-                    },
-                  ],
-                },
+                      data: [
+                        {
+                          yAxis: 80,
+                          label: {
+                            show: true,
+                            position: 'insideEndTop',
+                            distance: 6,
+                            formatter: isZh ? '80% 參考線' : '80% Pareto Reference',
+                            fontSize: 11,
+                            fontWeight: 'bold',
+                            color: isDark ? '#fb7185' : '#e11d48',
+                            backgroundColor: isDark ? 'rgba(15, 23, 42, 0.85)' : 'rgba(255, 255, 255, 0.9)',
+                            padding: [2, 6],
+                            borderRadius: 4,
+                          },
+                        },
+                      ],
+                    }
+                  : undefined,
               },
             ]
           : []),

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {enrichMonthly,waterfallSteps,computeDrilldownSummary,computeGmAxisBounds} from '../frontend/src/utils/salesMath.ts';
+import {enrichMonthly,waterfallSteps,computeDrilldownSummary,computeGmAxisBounds,computeParetoPercentAxis} from '../frontend/src/utils/salesMath.ts';
 test('R3/R12 and YTD preserve history shortage and reset at January',()=>{
  const rows=Array.from({length:14},(_,i)=>({key:String(2024+Math.floor(i/12))+String(i%12+1).padStart(2,'0'),netSalesUSD:i+1}));
  const series=enrichMonthly(rows);assert.equal(series[0].r3Val,null);assert.equal(series[10].r12Val,null);assert.equal(series[11].r12Val,78);assert.equal(series[13].r12Val,102);assert.equal(series[12].ytdVal,13);assert.equal(series[13].ytdVal,27);
@@ -44,4 +44,13 @@ test('computeGmAxisBounds focuses narrow positive GM% band with breathing room a
  const bNeg=computeGmAxisBounds({min:-4.2,max:18.5});
  assert.ok(bNeg.min<=-5);
  assert.ok(bNeg.max>=20);
+});
+
+test("computeParetoPercentAxis scales Top-20 cumulative share window and toggles 80% line appropriately",()=>{
+  const top20Low = computeParetoPercentAxis(19.5, "top20");
+  assert.deepEqual(top20Low, { min: 0, max: 25, interval: 5, showPareto80Line: false });
+  const top20High = computeParetoPercentAxis(72.0, "top20");
+  assert.deepEqual(top20High, { min: 0, max: 100, interval: 20, showPareto80Line: true });
+  const allCustomers = computeParetoPercentAxis(100, "all");
+  assert.deepEqual(allCustomers, { min: 0, max: 100, interval: 20, showPareto80Line: true });
 });
