@@ -1,6 +1,7 @@
 import React, {useEffect,useState} from 'react';
 import { CubeEvidence } from '../../types/cube';
 import { useApp } from '../../context/AppContext';
+import { EvidenceInspectorModal } from '../modals/EvidenceInspectorModal';
 
 export interface DashboardItem {
   id: string;
@@ -201,6 +202,7 @@ export const Header: React.FC<HeaderProps> = ({ evidence, activeTab, onTabChange
   } = useApp();
   const isZh = lang === 'zh-TW';
   const [sourceProbe,setSourceProbe] = useState<{ready:boolean|null;at:string}>({ready:null,at:''});
+  const [inspectorOpen, setInspectorOpen] = useState(false);
   useEffect(()=>{
     let active=true;let controller:AbortController|null=null;
     const check=async()=>{
@@ -332,11 +334,24 @@ export const Header: React.FC<HeaderProps> = ({ evidence, activeTab, onTabChange
               </span>
             </button>
 
-            <div className="text-right hidden xl:block pl-2 border-l border-slate-200 dark:border-slate-800">
+            <button
+              onClick={() => setInspectorOpen(true)}
+              className="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 border border-emerald-200 dark:border-emerald-800 flex items-center space-x-1 transition-colors cursor-pointer"
+              title={isZh ? '開啟 SSAS 語意目錄與三層式證據檢視器 (WP15 / WP16)' : 'Open SSAS Metadata & 3-Tier Evidence Inspector (WP15 / WP16)'}
+            >
+              <span>🛡️</span>
+              <span className="hidden sm:inline">{isZh ? '證據與目錄' : 'Evidence'}</span>
+            </button>
+
+            <div
+              onClick={() => setInspectorOpen(true)}
+              className="text-right hidden xl:block pl-2 border-l border-slate-200 dark:border-slate-800 cursor-pointer hover:opacity-80 transition-opacity"
+              title={isZh ? '點擊檢視完整 Query Hash 與 10 條算術誠實性規則' : 'Click to inspect full Query Hash & 10 arithmetic honesty rules'}
+            >
               <div className="text-2xs text-slate-400 font-mono">
                 {evidence?.modelHash ? (
                   <>
-                    Query: <span className="text-slate-600 dark:text-slate-300">{evidence.modelHash.slice(0, 10)}</span>
+                    Query: <span className="text-indigo-600 dark:text-indigo-400 underline">{evidence.modelHash.slice(0, 10)}</span>
                   </>
                 ) : (
                   <>
@@ -352,6 +367,11 @@ export const Header: React.FC<HeaderProps> = ({ evidence, activeTab, onTabChange
           </div>
         </div>
       </div>
+      <EvidenceInspectorModal
+        isOpen={inspectorOpen}
+        onClose={() => setInspectorOpen(false)}
+        sourceProbe={sourceProbe}
+      />
     </header>
   );
 };

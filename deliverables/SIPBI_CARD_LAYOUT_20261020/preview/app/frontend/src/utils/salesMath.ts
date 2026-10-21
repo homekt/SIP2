@@ -26,3 +26,47 @@ export function waterfallSteps(prior:number|null,current:number|null,items:Contr
   steps.push({key:'__current',label:'Current',kind:'total',from:0,to:current,delta:current});
   return steps;
 }
+export interface DrilldownSummary {
+  netSalesUSD: number;
+  grossProfitUSD: number;
+  grossMarginPercent: number | null;
+  netQtyKG: number;
+  salesQtyKG: number;
+  returnQtyKG: number;
+  averageSellingPriceUSD: number | null;
+  returnRatePercent: number | null;
+  salesLineCount: number;
+  orderCount: null;
+}
+export function computeDrilldownSummary(rows: SalesRow[]): DrilldownSummary | null {
+  if (!rows || rows.length === 0) return null;
+  let netSalesUSD = 0;
+  let grossProfitUSD = 0;
+  let netQtyKG = 0;
+  let salesQtyKG = 0;
+  let returnQtyKG = 0;
+  let salesLineCount = 0;
+  for (const r of rows) {
+    netSalesUSD += r.netSalesUSD ?? 0;
+    grossProfitUSD += r.grossProfitUSD ?? 0;
+    netQtyKG += r.netQtyKG ?? 0;
+    salesQtyKG += r.salesQtyKG ?? 0;
+    returnQtyKG += r.returnQtyKG ?? 0;
+    salesLineCount += r.salesLineCount ?? 0;
+  }
+  const grossMarginPercent = netSalesUSD !== 0 ? grossProfitUSD / netSalesUSD : null;
+  const averageSellingPriceUSD = netQtyKG !== 0 ? netSalesUSD / netQtyKG : null;
+  const returnRatePercent = salesQtyKG !== 0 ? returnQtyKG / salesQtyKG : null;
+  return {
+    netSalesUSD,
+    grossProfitUSD,
+    grossMarginPercent,
+    netQtyKG,
+    salesQtyKG,
+    returnQtyKG,
+    averageSellingPriceUSD,
+    returnRatePercent,
+    salesLineCount,
+    orderCount: null,
+  };
+}

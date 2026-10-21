@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useApp, DASHBOARD_TITLES, AUTHORIZED_SALES_TABS } from '../../context/AppContext';
-import { Evidence, SalesRow } from '../../types/sales';
+import { Evidence, Filters, SalesRow } from '../../types/sales';
 import { DrilldownGroupBy, fetchSalesDrilldown } from '../../services/salesApi';
+import { computeDrilldownSummary } from '../../utils/salesMath';
 import {
   downloadCsv,
   exportSalesRowsCsv,
@@ -12,19 +13,19 @@ import {
   fmtUSD,
 } from '../../utils/salesFormat';
 
-const DRILL_DIMENSIONS: { key: DrilldownGroupBy; zh: string; en: string }[] = [
-  { key: 'product', zh: '產品 (Product)', en: 'Product' },
+const DRILL_DIMENSIONS: { key: DrilldownGroupBy; zh: string; en: string; filterKey?: keyof Filters }[] = [
+  { key: 'product', zh: '產品 (Product)', en: 'Product', filterKey: 'product' },
   { key: 'category', zh: '產品類別 (Category)', en: 'Category' },
-  { key: 'customer', zh: '客戶 (Customer)', en: 'Customer' },
-  { key: 'company', zh: '營運公司 (Company)', en: 'Company' },
-  { key: 'salesperson', zh: '業務員 (Salesperson)', en: 'Salesperson' },
-  { key: 'plant', zh: '廠區 (Plant)', en: 'Plant' },
-  { key: 'costCenter', zh: '成本中心 (Cost Center)', en: 'Cost Center' },
-  { key: 'month', zh: '發票月份 (Month)', en: 'Invoice Month' },
+  { key: 'customer', zh: '客戶 (Customer)', en: 'Customer', filterKey: 'customer' },
+  { key: 'company', zh: '營運公司 (Company)', en: 'Company', filterKey: 'company' },
+  { key: 'salesperson', zh: '業務員 (Salesperson)', en: 'Salesperson', filterKey: 'salesperson' },
+  { key: 'plant', zh: '廠區 (Plant)', en: 'Plant', filterKey: 'plant' },
+  { key: 'costCenter', zh: '成本中心 (Cost Center)', en: 'Cost Center', filterKey: 'costCenter' },
+  { key: 'month', zh: '發票月份 (Month)', en: 'Invoice Month', filterKey: 'month' },
 ];
 
 export const DrillDownModal: React.FC = () => {
-  const { drillDownModal, closeDrillDown, navigate, filters, lang, aiEnabled } = useApp();
+  const { drillDownModal, closeDrillDown, navigate, filters, setFilters, lang, aiEnabled } = useApp();
   const [searchTerm, setSearchTerm] = useState('');
   const [copied, setCopied] = useState(false);
   const [activeDim, setActiveDim] = useState<DrilldownGroupBy>('product');
@@ -40,6 +41,7 @@ export const DrillDownModal: React.FC = () => {
       setLiveRows(null);
       setLiveEvidence(null);
       setLiveError(null);
+      setSearchTerm('');
       return;
     }
 
@@ -102,6 +104,21 @@ export const DrillDownModal: React.FC = () => {
       });
   };
 
+  const filteredSalesRows = useMemo(
+    () =>
+      (liveRows || []).filter(
+        (r) =>
+          r.key.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          r.label.toLowerCase().includes(searchTerm.toLowerCase())
+      ),
+    [liveRows, searchTerm]
+  );
+
+  const drillSummary = useMemo(
+    () => computeDrilldownSummary(filteredSalesRows),
+    [filteredSalesRows]
+  );
+
   if (!drillDownModal) return null;
 
   const {
@@ -115,6 +132,20 @@ export const DrillDownModal: React.FC = () => {
     suggestedDrillThrough,
   } = drillDownModal;
 
+  const activeDimMeta = DRILL_DIMENSIONS.find((d) => d.key === activeDim);
+  const canApplyFilter = Boolean(activeDimMeta?.filterKey);
+
+  const handleApplyMemberFilter = (memberKey: string) => {
+    if (!activeDimMeta?.filterKey) return;
+    const fk = activeDimMeta.filterKey;
+    setFilters((prev) => ({
+      ...prev,
+      ...(drillDownModal.filterOverrides || {}),
+      [fk]: memberKey,
+    }));
+    closeDrillDown();
+  };
+
   const isTargetAllowed = (tab?: string) => {
     if (!tab) return false;
     if (tab === 'D07') return aiEnabled;
@@ -126,12 +157,6 @@ export const DrillDownModal: React.FC = () => {
   );
 
   const hasSalesRows = Boolean(liveRows && liveRows.length > 0);
-
-  const filteredSalesRows = (liveRows || []).filter(
-    (r) =>
-      r.key.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      r.label.toLowerCase().includes(searchTerm.toLowerCase())
-  );
 
   const filteredLegacyRows = (rows || []).filter(
     (r) =>
@@ -175,7 +200,9 @@ export const DrillDownModal: React.FC = () => {
               (r) =>
                 `${r.key} (${r.label}) | Net Sales: ${fmtUSD(r.netSalesUSD)} | GP: ${fmtUSD(
                   r.grossProfitUSD
-                )} (${fmtPercent(r.grossMarginPercent)}) | Qty: ${fmtKG(r.netQtyKG)}`
+                )} (${fmtPercent(r.grossMarginPercent)}) | Qty: ${fmtKG(r.netQtyKG)} | Orders: ${fmtCount(
+                  r.orderCount
+                )}`
             )
             .join('\n')
         : rows
@@ -198,7 +225,7 @@ export const DrillDownModal: React.FC = () => {
       onClick={closeDrillDown}
     >
       <div
-        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl w-full max-w-5xl max-h-[90vh] flex flex-col overflow-hidden transition-all text-slate-800 dark:text-slate-100"
+        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl w-full max-w-6xl max-h-[90vh] flex flex-col overflow-hidden transition-all text-slate-800 dark:text-slate-100"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
@@ -206,7 +233,7 @@ export const DrillDownModal: React.FC = () => {
           <div>
             <div className="flex items-center space-x-2">
               <span className="px-2 py-0.5 rounded text-2xs font-extrabold bg-indigo-100 dark:bg-indigo-900/60 text-indigo-700 dark:text-indigo-300 font-mono">
-                {sourceDashboard} ➔ SSAS DRILL-DOWN
+                {sourceDashboard} ➔ SSAS DRILL-DOWN (O04 / O07)
               </span>
               <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
                 {title}
@@ -323,7 +350,7 @@ export const DrillDownModal: React.FC = () => {
                 placeholder={isZh ? '搜尋維度代碼或名稱...' : 'Search member key or label...'}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-8 pr-3 py-1.5 text-xs rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:outline-hidden focus:border-indigo-500"
+                className="w-full pl-8 pr-7 py-1.5 text-xs rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:outline-hidden focus:border-indigo-500"
               />
               <svg
                 className="w-4 h-4 text-slate-400 absolute left-2.5 top-2"
@@ -338,6 +365,16 @@ export const DrillDownModal: React.FC = () => {
                   d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                 />
               </svg>
+              {searchTerm && (
+                <button
+                  type="button"
+                  onClick={() => setSearchTerm('')}
+                  className="absolute right-2 top-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-xs font-bold cursor-pointer"
+                  aria-label="Clear search"
+                >
+                  ×
+                </button>
+              )}
             </div>
 
             <div className="flex items-center space-x-2">
@@ -383,7 +420,7 @@ export const DrillDownModal: React.FC = () => {
                         {isZh ? '毛利額 (USD)' : 'Gross Profit (USD)'}
                       </th>
                       <th className="px-3 py-2.5 text-right font-semibold text-slate-600 dark:text-slate-300">
-                        {isZh ? '毛利率' : 'GM %'}
+                        {isZh ? '加權毛利率' : 'GM %'}
                       </th>
                       <th className="px-3 py-2.5 text-right font-semibold text-slate-600 dark:text-slate-300">
                         {isZh ? '淨銷量 (KG)' : 'Net Qty (KG)'}
@@ -394,15 +431,28 @@ export const DrillDownModal: React.FC = () => {
                       <th className="px-3 py-2.5 text-right font-semibold text-slate-600 dark:text-slate-300">
                         {isZh ? '退貨率' : 'Return %'}
                       </th>
+                      <th
+                        className="px-3 py-2.5 text-right font-semibold text-slate-600 dark:text-slate-300"
+                        title={
+                          isZh
+                            ? 'SSAS DISTINCTCOUNT 不重複訂單數（跨維度成員不可直接相加）'
+                            : 'SSAS DISTINCTCOUNT orders (non-additive across members)'
+                        }
+                      >
+                        {isZh ? '不重複訂單*' : 'Orders*'}
+                      </th>
                       <th className="px-3 py-2.5 text-right font-semibold text-slate-600 dark:text-slate-300">
                         {isZh ? '明細行數' : 'Lines'}
+                      </th>
+                      <th className="px-3 py-2.5 text-center font-semibold text-slate-600 dark:text-slate-300">
+                        {isZh ? '連動 (O02)' : 'Filter (O02)'}
                       </th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono">
                     {filteredSalesRows.length === 0 ? (
                       <tr>
-                        <td colSpan={8} className="px-4 py-8 text-center text-slate-400 font-sans">
+                        <td colSpan={10} className="px-4 py-8 text-center text-slate-400 font-sans">
                           {isZh ? '未找到符合條件的下鑽數據' : 'No records match search criteria'}
                         </td>
                       </tr>
@@ -419,10 +469,22 @@ export const DrillDownModal: React.FC = () => {
                           <td className="px-3 py-2 text-right font-bold text-slate-800 dark:text-slate-200">
                             {fmtUSD(r.netSalesUSD)}
                           </td>
-                          <td className="px-3 py-2 text-right text-slate-700 dark:text-slate-300">
+                          <td
+                            className={`px-3 py-2 text-right ${
+                              (r.grossProfitUSD ?? 0) < 0
+                                ? 'text-rose-600 dark:text-rose-400 font-bold'
+                                : 'text-slate-700 dark:text-slate-300'
+                            }`}
+                          >
                             {fmtUSD(r.grossProfitUSD)}
                           </td>
-                          <td className="px-3 py-2 text-right font-semibold text-indigo-600 dark:text-indigo-400">
+                          <td
+                            className={`px-3 py-2 text-right font-semibold ${
+                              (r.grossMarginPercent ?? 0) < 0
+                                ? 'text-rose-600 dark:text-rose-400'
+                                : 'text-indigo-600 dark:text-indigo-400'
+                            }`}
+                          >
                             {fmtPercent(r.grossMarginPercent)}
                           </td>
                           <td className="px-3 py-2 text-right text-slate-700 dark:text-slate-300">
@@ -434,13 +496,88 @@ export const DrillDownModal: React.FC = () => {
                           <td className="px-3 py-2 text-right text-slate-700 dark:text-slate-300">
                             {fmtPercent(r.returnRatePercent)}
                           </td>
+                          <td className="px-3 py-2 text-right text-slate-700 dark:text-slate-300">
+                            {fmtCount(r.orderCount)}
+                          </td>
                           <td className="px-3 py-2 text-right text-slate-600 dark:text-slate-400">
                             {fmtCount(r.salesLineCount)}
+                          </td>
+                          <td className="px-3 py-2 text-center font-sans">
+                            {canApplyFilter ? (
+                              <button
+                                type="button"
+                                onClick={() => handleApplyMemberFilter(r.key)}
+                                className="px-2 py-0.5 rounded text-2xs font-semibold bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-600 hover:text-white border border-indigo-200 dark:border-indigo-800 transition-colors cursor-pointer"
+                                title={
+                                  isZh
+                                    ? `將 ${r.label} 套用至全域切片器 (O02)`
+                                    : `Apply ${r.label} to global slicer (O02)`
+                                }
+                              >
+                                {isZh ? '套用篩選' : 'Apply'}
+                              </button>
+                            ) : (
+                              <span className="text-2xs text-slate-400">{isZh ? '群組彙總' : 'Group'}</span>
+                            )}
                           </td>
                         </tr>
                       ))
                     )}
                   </tbody>
+                  {drillSummary && (
+                    <tfoot className="bg-slate-100/90 dark:bg-slate-800/90 sticky bottom-0 z-10 font-mono border-t-2 border-slate-300 dark:border-slate-700">
+                      <tr>
+                        <td className="px-3 py-2.5 text-left font-sans font-bold text-slate-900 dark:text-white">
+                          {isZh
+                            ? `加權合計對帳 (${filteredSalesRows.length} 項)`
+                            : `Weighted Total (${filteredSalesRows.length} rows)`}
+                        </td>
+                        <td className="px-3 py-2.5 text-right font-bold text-slate-900 dark:text-white">
+                          {fmtUSD(drillSummary.netSalesUSD)}
+                        </td>
+                        <td className="px-3 py-2.5 text-right font-bold text-slate-900 dark:text-white">
+                          {fmtUSD(drillSummary.grossProfitUSD)}
+                        </td>
+                        <td
+                          className="px-3 py-2.5 text-right font-bold text-indigo-700 dark:text-indigo-300"
+                          title={isZh ? 'SUM(毛利額) / SUM(淨銷售額)' : 'SUM(Gross Profit) / SUM(Net Sales)'}
+                        >
+                          {fmtPercent(drillSummary.grossMarginPercent)}
+                        </td>
+                        <td className="px-3 py-2.5 text-right font-bold text-slate-800 dark:text-slate-200">
+                          {fmtKG(drillSummary.netQtyKG)}
+                        </td>
+                        <td
+                          className="px-3 py-2.5 text-right font-semibold text-slate-700 dark:text-slate-300"
+                          title={isZh ? 'SUM(淨銷售額) / SUM(淨銷量)' : 'SUM(Net Sales) / SUM(Net Qty)'}
+                        >
+                          {fmtPriceUSD(drillSummary.averageSellingPriceUSD)}
+                        </td>
+                        <td
+                          className="px-3 py-2.5 text-right font-semibold text-slate-700 dark:text-slate-300"
+                          title={isZh ? 'SUM(退貨量) / SUM(銷售量)' : 'SUM(Return Qty) / SUM(Sales Qty)'}
+                        >
+                          {fmtPercent(drillSummary.returnRatePercent)}
+                        </td>
+                        <td
+                          className="px-3 py-2.5 text-right font-sans"
+                          title={
+                            isZh
+                              ? '不重複訂單數 (DISTINCTCOUNT) 具非加總性，跨成員列不可直接相加'
+                              : 'Distinct order count (DISTINCTCOUNT) is non-additive across member rows'
+                          }
+                        >
+                          <span className="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-amber-100 dark:bg-amber-950/70 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-800">
+                            {isZh ? '非加總' : 'Non-add.'}
+                          </span>
+                        </td>
+                        <td className="px-3 py-2.5 text-right font-bold text-slate-800 dark:text-slate-200">
+                          {fmtCount(drillSummary.salesLineCount)}
+                        </td>
+                        <td className="px-3 py-2.5 text-center font-sans text-2xs text-slate-500">—</td>
+                      </tr>
+                    </tfoot>
+                  )}
                 </table>
               ) : (
                 <table className="min-w-full divide-y divide-slate-200 dark:divide-slate-800 text-xs">
@@ -521,12 +658,12 @@ export const DrillDownModal: React.FC = () => {
         </div>
 
         {/* Footer */}
-        <div className="px-6 py-3 border-t border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-800/40 flex items-center justify-between text-2xs text-slate-500">
+        <div className="px-6 py-3 border-t border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-800/40 flex flex-wrap items-center justify-between gap-2 text-2xs text-slate-500">
           <span>
             {hasSalesRows
               ? isZh
-                ? `已顯示 ${filteredSalesRows.length} 筆 SSAS 維度彙總記錄 · USD / KG · Invoice Date`
-                : `Showing ${filteredSalesRows.length} SSAS aggregated dimension records · USD / KG`
+                ? `已顯示 ${filteredSalesRows.length} 筆 SSAS 維度彙總記錄 · *不重複訂單數具非加總性 (Non-additive) · 比率皆為加權計算`
+                : `Showing ${filteredSalesRows.length} SSAS aggregated dimension records · *Orders are non-additive DISTINCTCOUNT · Weighted ratios`
               : isZh
               ? `已顯示 ${filteredLegacyRows.length} 筆記錄`
               : `Showing ${filteredLegacyRows.length} records`}

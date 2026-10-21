@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {enrichMonthly,waterfallSteps} from '../frontend/src/utils/salesMath.ts';
+import {enrichMonthly,waterfallSteps,computeDrilldownSummary} from '../frontend/src/utils/salesMath.ts';
 test('R3/R12 and YTD preserve history shortage and reset at January',()=>{
  const rows=Array.from({length:14},(_,i)=>({key:String(2024+Math.floor(i/12))+String(i%12+1).padStart(2,'0'),netSalesUSD:i+1}));
  const series=enrichMonthly(rows);assert.equal(series[0].r3Val,null);assert.equal(series[10].r12Val,null);assert.equal(series[11].r12Val,78);assert.equal(series[13].r12Val,102);assert.equal(series[12].ytdVal,13);assert.equal(series[13].ytdVal,27);
@@ -13,4 +13,24 @@ test('bridge includes every product through Others and ties start to end',()=>{
  assert.equal(steps.length,15);assert.equal(steps[0].to,100);assert.equal(steps.at(-1).to,current);assert.equal(steps.filter(x=>x.kind!=='total').reduce((s,r)=>s+r.delta,0),current-100);
  const middle=steps.slice(1,-1);for(let i=1;i<middle.length;i++)assert.equal(middle[i].from,middle[i-1].to);assert.equal(middle.at(-1).to,current);
  assert.deepEqual(waterfallSteps(null,current,items),[]);
+});
+test('computeDrilldownSummary computes weighted ratios and never sums distinct orderCount',()=>{
+ const rows=[
+  {key:'C1',label:'Cust 1',netSalesUSD:1000,grossProfitUSD:100,grossMarginPercent:0.10,netQtyKG:100,salesQtyKG:100,returnQtyKG:10,returnRatePercent:0.10,averageSellingPriceUSD:10,orderCount:5,salesLineCount:12},
+  {key:'C2',label:'Cust 2',netSalesUSD:3000,grossProfitUSD:900,grossMarginPercent:0.30,netQtyKG:150,salesQtyKG:200,returnQtyKG:20,returnRatePercent:0.10,averageSellingPriceUSD:20,orderCount:8,salesLineCount:18},
+ ];
+ const summary=computeDrilldownSummary(rows);
+ assert.equal(summary.netSalesUSD,4000);
+ assert.equal(summary.grossProfitUSD,1000);
+ // Weighted GM% must be 1000 / 4000 = 0.25 (NOT unweighted average (0.10+0.30)/2 = 0.20)
+ assert.equal(summary.grossMarginPercent,0.25);
+ assert.equal(summary.netQtyKG,250);
+ // Weighted ASP must be 4000 / 250 = 16 (NOT unweighted average (10+20)/2 = 15)
+ assert.equal(summary.averageSellingPriceUSD,16);
+ // Weighted Return % must be 30 / 300 = 0.10
+ assert.equal(summary.returnRatePercent,0.10);
+ assert.equal(summary.salesLineCount,30);
+ // Distinct orderCount across rows is non-additive and must remain null in row-sum summary
+ assert.equal(summary.orderCount,null);
+ assert.equal(computeDrilldownSummary([]),null);
 });
