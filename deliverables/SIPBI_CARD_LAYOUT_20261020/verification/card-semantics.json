@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-10-20T23:21:01.396Z",
+  "testedAt": "2026-10-21T02:39:05.420Z",
   "scope": "actual TSX function options and callbacks with substituted hooks; browser verification is separate",
   "checks": [
     {

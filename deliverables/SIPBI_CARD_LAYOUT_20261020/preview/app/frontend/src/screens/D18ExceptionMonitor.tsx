@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Filters } from '../types/sales';
 import { useSalesDashboard } from '../services/salesApi';
 import { StateGuard } from '../components/common/StateGuard';
@@ -43,6 +43,14 @@ export const D18ExceptionMonitor: React.FC<Props> = ({ slicer }) => {
   const observations = data?.analysis?.observations || [];
   const products = data?.datasets?.products || [];
   const customers = data?.datasets?.customers || [];
+  const [customerSearch, setCustomerSearch] = useState('');
+
+  const filteredCustomers = customers.filter(
+    (c) =>
+      !customerSearch.trim() ||
+      c.key.toLowerCase().includes(customerSearch.trim().toLowerCase()) ||
+      c.label.toLowerCase().includes(customerSearch.trim().toLowerCase())
+  );
 
   // Severity ordering uses ONE documented actual measure: negative-margin line count.
   // The four observation categories may overlap (one line can carry several flags),
@@ -352,9 +360,20 @@ export const D18ExceptionMonitor: React.FC<Props> = ({ slicer }) => {
 
             {/* Customer & Product Observation Breakdown Table */}
             <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-5 shadow-xs">
-              <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-3">
-                {isZh ? '各客戶退貨、折讓與負毛利明細行數統計表' : 'Customer Return, Allowance & Negative Margin Line Counts'}
-              </h3>
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+                <h3 className="text-sm font-bold text-slate-900 dark:text-white">
+                  {isZh ? '各客戶退貨、折讓與負毛利明細行數統計表' : 'Customer Return, Allowance & Negative Margin Line Counts'}
+                </h3>
+                <div className="flex items-center space-x-2">
+                  <input
+                    type="text"
+                    value={customerSearch}
+                    onChange={(e) => setCustomerSearch(e.target.value)}
+                    placeholder={isZh ? '🔍 搜尋客戶名稱或代碼...' : '🔍 Search customer...'}
+                    className="text-xs px-2.5 py-1.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-1 focus:ring-indigo-500 w-48 sm:w-60"
+                  />
+                </div>
+              </div>
               <div className="overflow-x-auto">
                 <table className="min-w-full divide-y divide-slate-200 dark:divide-slate-800 text-xs">
                   <thead className="bg-slate-50 dark:bg-slate-800/70">
@@ -386,7 +405,7 @@ export const D18ExceptionMonitor: React.FC<Props> = ({ slicer }) => {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono">
-                    {customers.map((c) => (
+                    {filteredCustomers.map((c) => (
                       <tr
                         key={c.key}
                         onClick={() =>
@@ -412,8 +431,14 @@ export const D18ExceptionMonitor: React.FC<Props> = ({ slicer }) => {
                         <td className="px-3 py-2 text-right">{fmtCount(c.fullReturnLineCount)}</td>
                         <td className="px-3 py-2 text-right">{fmtCount(c.partialReturnLineCount)}</td>
                         <td className="px-3 py-2 text-right">{fmtCount(c.allowanceLineCount)}</td>
-                        <td className="px-3 py-2 text-right text-rose-600 dark:text-rose-400 font-semibold">
-                          {fmtCount(c.negativeMarginLineCount)}
+                        <td className="px-3 py-2 text-right">
+                          {c.negativeMarginLineCount && c.negativeMarginLineCount > 0 ? (
+                            <span className="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-bold bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400 border border-rose-200 dark:border-rose-900">
+                              ⚠ {fmtCount(c.negativeMarginLineCount)}
+                            </span>
+                          ) : (
+                            <span className="text-slate-400">0</span>
+                          )}
                         </td>
                       </tr>
                     ))}

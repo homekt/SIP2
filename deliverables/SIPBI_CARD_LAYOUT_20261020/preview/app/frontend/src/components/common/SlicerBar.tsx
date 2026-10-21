@@ -218,36 +218,114 @@ export const SlicerBar: React.FC<SlicerBarProps> = ({ slicer, onChange }) => {
           <span className="font-semibold text-slate-600 dark:text-slate-300">
             {isZh ? '目前切片：' : 'Active Slicers:'}
           </span>
-          <span className="px-2 py-0.5 rounded bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 font-mono">
-            {summary.monthLabel}
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 font-mono">
+            <span>{summary.monthLabel}</span>
+            {slicer.month !== DEFAULT_FILTERS.month && (
+              <button
+                type="button"
+                onClick={() => updateFilter('month', DEFAULT_FILTERS.month)}
+                className="hover:text-rose-600 dark:hover:text-rose-400 font-bold ml-0.5 text-xs cursor-pointer leading-none"
+                title={isZh ? '還原預設月份' : 'Restore default month'}
+                aria-label={isZh ? '還原預設月份' : 'Restore default month'}
+              >
+                ×
+              </button>
+            )}
           </span>
-          <span className="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
-            {summary.companyLabel}
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+            <span>{summary.companyLabel}</span>
+            {slicer.company !== 'All' && (
+              <button
+                type="button"
+                onClick={() => updateFilter('company', 'All')}
+                className="hover:text-rose-600 dark:hover:text-rose-400 font-bold ml-0.5 text-xs cursor-pointer leading-none"
+                title={isZh ? '清除公司篩選' : 'Clear company filter'}
+                aria-label={isZh ? '清除公司篩選' : 'Clear company filter'}
+              >
+                ×
+              </button>
+            )}
           </span>
           {slicer.product !== 'All' && (
-            <span className="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
-              {summary.productLabel}
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+              <span>{summary.productLabel}</span>
+              <button
+                type="button"
+                onClick={() => updateFilter('product', 'All')}
+                className="hover:text-rose-600 dark:hover:text-rose-400 font-bold ml-0.5 text-xs cursor-pointer leading-none"
+                title={isZh ? '清除產品篩選' : 'Clear product filter'}
+                aria-label={isZh ? '清除產品篩選' : 'Clear product filter'}
+              >
+                ×
+              </button>
             </span>
           )}
           {slicer.customer !== 'All' && (
-            <span className="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
-              {summary.customerLabel}
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+              <span>{summary.customerLabel}</span>
+              <button
+                type="button"
+                onClick={() => updateFilter('customer', 'All')}
+                className="hover:text-rose-600 dark:hover:text-rose-400 font-bold ml-0.5 text-xs cursor-pointer leading-none"
+                title={isZh ? '清除客戶篩選' : 'Clear customer filter'}
+                aria-label={isZh ? '清除客戶篩選' : 'Clear customer filter'}
+              >
+                ×
+              </button>
             </span>
           )}
           {slicer.salesperson !== 'All' && (
-            <span className="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
-              {summary.salespersonLabel}
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+              <span>{summary.salespersonLabel}</span>
+              <button
+                type="button"
+                onClick={() => updateFilter('salesperson', 'All')}
+                className="hover:text-rose-600 dark:hover:text-rose-400 font-bold ml-0.5 text-xs cursor-pointer leading-none"
+                title={isZh ? '清除業務員篩選' : 'Clear salesperson filter'}
+                aria-label={isZh ? '清除業務員篩選' : 'Clear salesperson filter'}
+              >
+                ×
+              </button>
             </span>
           )}
           {slicer.plant !== 'All' && (
-            <span className="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
-              {summary.plantLabel}
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+              <span>{summary.plantLabel}</span>
+              <button
+                type="button"
+                onClick={() => updateFilter('plant', 'All')}
+                className="hover:text-rose-600 dark:hover:text-rose-400 font-bold ml-0.5 text-xs cursor-pointer leading-none"
+                title={isZh ? '清除廠區篩選' : 'Clear plant filter'}
+                aria-label={isZh ? '清除廠區篩選' : 'Clear plant filter'}
+              >
+                ×
+              </button>
             </span>
           )}
           {slicer.costCenter !== 'All' && (
-            <span className="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
-              {summary.costCenterLabel}
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+              <span>{summary.costCenterLabel}</span>
+              <button
+                type="button"
+                onClick={() => updateFilter('costCenter', 'All')}
+                className="hover:text-rose-600 dark:hover:text-rose-400 font-bold ml-0.5 text-xs cursor-pointer leading-none"
+                title={isZh ? '清除成本中心篩選' : 'Clear cost center filter'}
+                aria-label={isZh ? '清除成本中心篩選' : 'Clear cost center filter'}
+              >
+                ×
+              </button>
             </span>
+          )}
+          {isModified && (
+            <button
+              type="button"
+              onClick={resetFilters}
+              className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/50 dark:hover:bg-rose-900/60 text-rose-700 dark:text-rose-300 font-semibold border border-rose-200 dark:border-rose-800 transition-colors cursor-pointer text-2xs"
+              title={isZh ? '一鍵重設所有篩選至預設狀態' : 'Reset all filters to default'}
+            >
+              <span>↺</span>
+              <span>{isZh ? '一鍵重設' : 'Reset All'}</span>
+            </button>
           )}
         </div>
 

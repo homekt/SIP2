@@ -414,6 +414,27 @@ export const D11CustomerConcentration: React.FC<Props> = ({ slicer }) => {
                   value: item.cumShare == null ? null : item.cumShare * 100,
                   customerKey: item.row.key,
                 })),
+                markLine: {
+                  silent: true,
+                  symbol: 'none',
+                  lineStyle: {
+                    type: 'dashed',
+                    color: isDark ? '#fb7185' : '#e11d48',
+                    width: 1.5,
+                  },
+                  data: [
+                    {
+                      yAxis: 80,
+                      label: {
+                        show: true,
+                        position: 'end',
+                        formatter: isZh ? '80% 參考線' : '80% Pareto Reference',
+                        fontSize: 11,
+                        color: isDark ? '#fb7185' : '#e11d48',
+                      },
+                    },
+                  ],
+                },
               },
             ]
           : []),
