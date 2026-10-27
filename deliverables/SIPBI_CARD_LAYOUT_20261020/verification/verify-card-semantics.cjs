@@ -6,7 +6,7 @@ const ts=require(path.join(appRoot,'frontend/node_modules/typescript'));
 const base=path.join(appRoot,'frontend/src');
 const live=JSON.parse(fs.readFileSync(path.join(__dirname,'live-data-final.json'),'utf8'));
 const checks=[];
-function renderer(name,data=structuredClone(live),phase='ok'){
+function renderer(name,data=structuredClone(live),phase='ok',context={}){
  let state=[],cursor=0; const calls=[];
  const React={createElement:(type,props,...children)=>({type,props:{...props,children}}),useMemo:f=>f(),useCallback:f=>f,useEffect:()=>{},useRef:init=>{const i=cursor++;if(!(i in state))state[i]={current:init};return state[i];},useState:init=>{const i=cursor++;if(!(i in state))state[i]=typeof init==='function'?init():init;return[state[i],v=>{state[i]=typeof v==='function'?v(state[i]):v}];}};
  const cache={};
@@ -15,7 +15,7 @@ function renderer(name,data=structuredClone(live),phase='ok'){
  const req=id=>{
   if(id==='react')return React;
   if(id.includes('/services/salesApi'))return{useSalesDashboard:()=>({phase,data,error:null,reload:()=>{}})};
-  if(id.includes('/context/AppContext'))return{useApp:()=>({theme:'light',lang:'zh-TW',metadata:null,setLastDashboardContext:()=>{},navigate:(...a)=>calls.push(['navigate',...a]),openDrillDown:(...a)=>calls.push(['drill',...a])})};
+  if(id.includes('/context/AppContext'))return{useApp:()=>({theme:'light',lang:'zh-TW',metadata:null,setLastDashboardContext:()=>{},navigate:(...a)=>calls.push(['navigate',...a]),openDrillDown:(...a)=>calls.push(['drill',...a]),...context})};
   if(id.endsWith('/common/Header'))return load(path.join(base,'components/common/Header.tsx'));
   if(id.includes('/components/')){const key=path.basename(id);return{[key]:key};}
   if(id.startsWith('.')){let f=path.resolve(path.dirname(file),id);f=fs.existsSync(f+'.ts')?f+'.ts':f+'.tsx';return load(f);}
@@ -48,6 +48,12 @@ for(const name of pages)test(name+': real TSX renders guards, KPIs, charts and e
   assert.equal(nodes(tree).find(n=>n.type==='StateGuard').props.state,expected);
  }
 });
+test('D00: independent operations overview mounts only after explicit enablement',()=>{
+ const hasOverview=t=>nodes(t).some(n=>typeof n.type==='function'&&n.type.name==='OperationsOverview');
+ assert.equal(hasOverview(renderer('D00DecisionHome').render()),false);
+ assert.equal(hasOverview(renderer('D00DecisionHome',structuredClone(live),'ok',{operationsEnabled:true}).render()),true);
+});
+
 test('KPI: real monthly mini trends stop at focus, preserve nulls and have <=12 points',()=>{
  for(const name of ['D00DecisionHome','D01ExecutiveOverview','D02SalesMomentum']){
   const r=renderer(name);r.filters.month='202503';const t=r.render();

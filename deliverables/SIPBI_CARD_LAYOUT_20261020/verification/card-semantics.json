@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-10-27T04:55:04.397Z",
+  "testedAt": "2026-10-27T04:58:39.891Z",
   "scope": "actual TSX function options and callbacks with substituted hooks; browser verification is separate",
   "checks": [
     {
@@ -48,6 +48,10 @@
     },
     {
       "name": "D18ExceptionMonitor: real TSX renders guards, KPIs, charts and evidence",
+      "pass": true
+    },
+    {
+      "name": "D00: independent operations overview mounts only after explicit enablement",
       "pass": true
     },
     {

@@ -11,6 +11,7 @@ Imported 51 non-build files from the AI worktree, containing all 37 composition 
 Candidate-only integration changes:
 
 - Independent operations code remains available for future work but is disabled by default. Both API and navigation require `SIPBI_ENABLE_OPERATIONS=1`; live verification did not enable it or query its cube.
+- The homepage operations overview also mounts only when operations are explicitly enabled; the regression was observed failing before this correction.
 - The existing PowerShell plan test uses `fileURLToPath`, fixing an encoded-space pathname failure under the candidate's workspace path. Product query code is unchanged by that repair.
 - Built preview assets accompany this candidate. Main and its existing preview service were not modified.
 
@@ -18,7 +19,7 @@ Candidate-only integration changes:
 
 - Automated suite: **106 passed, 0 failed, 1 skipped**. The skipped test requires a different operations cube and was intentionally not enabled. Mocked unit/HTTP contract tests are not live source evidence.
 - TypeScript and Vite build passed (647 modules). Existing large-bundle warning remains.
-- Actual-TSX chart semantics: **26/26 passed** after adapting the D01 and D06/D13 assertions to the integrated contracts. The verifier retains full-population, null, signed-axis, weighted-ratio and waterfall-reconciliation checks.
+- Actual-TSX chart semantics: **27/27 passed** after adapting the D01 and D06/D13 assertions to the integrated contracts. The verifier retains full-population, null, signed-axis, weighted-ratio and waterfall-reconciliation checks.
 - Real `localhost:25000 / JDE_SALES_CUBE_20261020 / JDE Sales` probe: 60,000 sales lines and 20,111 distinct orders.
 - All twelve September API dashboards agree with independently executed MDX: net sales 16,234,174.4534 USD; gross profit 4,361,365.6966 USD; net quantity 5,564,253.57 KG; 811 distinct orders. Weighted margin is computed from aggregate numerator/denominator.
 - Real company/month filtering, first-year comparison gaps, future no-data, D16 full-population reconciliation, server-owned selected-product explanations, stale snapshot rejection and missing-product rejection passed. No API interception or fabricated live responses were used.
@@ -30,7 +31,7 @@ Reproducible source checks and live receipts: `deliverables/SIPBI_CARD_LAYOUT_20
 
 ## Verifier migration and remaining acceptance
 
-The initial legacy-verifier run failed after 13 checks because D01 required the old combined dual-axis chart. The checker now requires two separate, aligned monthly USD and margin panels, exact source values, independent color-matched axes and null gaps. D06/D13 checks now require click-to-highlight with zero drill calls, followed by an explicit action using the stable key; D06 also checks positive-quantity bubble eligibility. The complete adapted verifier then passed all 26 checks. These are authored-TSX tests with substituted hooks, separate from the live browser checks.
+The initial legacy-verifier run failed after 13 checks because D01 required the old combined dual-axis chart. The checker now requires two separate, aligned monthly USD and margin panels, exact source values, independent color-matched axes and null gaps. D06/D13 checks now require click-to-highlight with zero drill calls, followed by an explicit action using the stable key; D06 also checks positive-quantity bubble eligibility. The complete adapted verifier then passed all 27 checks, including a default-disabled homepage mount regression. These are authored-TSX tests with substituted hooks, separate from the live browser checks.
 
 Cloud AI, other-cube runtime, full responsive coverage, formal independent verification and Human Acceptance were not performed. The preview uses empty optional-AI/operations configuration. No credentials, database deployment/import/process, firewall or permission changes were made. The withdrawn `wp05-golden-demo-path-r1` implementation and verification were not used.
 
