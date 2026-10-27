@@ -1,0 +1,446 @@
+{
+  "base": "388ea05c89c0da8abcf05c7d1183d67f6d0990d7",
+  "sourceHead": "6570ad0b917c379e7618d6eeb24a49e8cf202b75",
+  "files": [
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/App.tsx",
+      "sha256": "84C7841F28517117EDE7436A40B80D3E3AD44852AEA2CE73A49D6A08FC9DDCE8"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/components/common/Header.tsx",
+      "sha256": "449BA7C7C8DC409503E8B6001B2E3D14DF4514C676A6EF748FF8C1EE05DBEE97"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/components/layout/Sidebar.tsx",
+      "sha256": "6C33115713346B61308A3F4EF020D88FD883B5206A23ABDBB9CFD3DA7037690B"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/context/AppContext.tsx",
+      "sha256": "7BCC94B954A4A8DCA0EA57D9FD120B50CEB5C2CDB8863E5B8643A97C290B1B01"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/screens/D00DecisionHome.tsx",
+      "sha256": "79641EE002BE666D5AB03A24CC093BA2150362A91C9AC1FCE79D45D3B4829B99"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/screens/D01ExecutiveOverview.tsx",
+      "sha256": "871B5B04FB0F668073DF4A86553F65B2454D40DE440F4D4D819BAC56319B7123"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/screens/D02SalesMomentum.tsx",
+      "sha256": "2D2AB883AF6AE8A530F8968302C817D2323A4F3DF7C156194F7B30C972ACAA15"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/screens/D04ProductMix.tsx",
+      "sha256": "F2B3583852C9D883410774E3488189F3D800CE9C4BB6635607D2067B9D771770"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/screens/D06CustomerContribution.tsx",
+      "sha256": "8538E9C9534B6802880659C7595AEECF0EDB30421DA981DAD937B4D93DDD17EC"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/screens/D07AiAnalysisWorkspace.tsx",
+      "sha256": "5960BC2CC73D57C15AEF8B93914F133276690D96B01A602A2D5F193CA81C7465"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/screens/D08ProfitabilityQuality.tsx",
+      "sha256": "FCFD98742E6E9D20A6CC1C508ECF0B8BC3DAFB7B0214DDA06013DFC5E0A13F85"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/screens/D11CustomerConcentration.tsx",
+      "sha256": "92C4DED7907BA4B73AEC8FCB2874309C6CBF210CDA97B64799EE4459973E8F0F"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/screens/D13SalespersonPerformance.tsx",
+      "sha256": "A2EA0C327B1B47F854D67F0A48122A506082E516AA390FC863991DB951A3CE73"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/screens/D14ProductPortfolio.tsx",
+      "sha256": "67302614A49D4E02E98391164E943AB28AFD08CDC113C684A551195EDA4C8265"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/screens/D15RollingSales.tsx",
+      "sha256": "25344B759FB29C328F9FF96C26FA74791ACE5287FBEB4C6B0D593A286ACF8C74"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/screens/D16GrowthDeclineContribution.tsx",
+      "sha256": "386B1C26A8DF430FD58D9E57984522523A18ED65C031D6E0CA5E79A27320C226"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/screens/D18ExceptionMonitor.tsx",
+      "sha256": "02EC400A9035CC58D9B564CB28F47B335589BEB7A88DC5DF2CCDF297D9F18713"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/screens/SalesAiWorkspace.tsx",
+      "sha256": "10D3CE0380C046B7933A5D83452DBA021CCD904FDDC61209BBAEA8D17D78EB68"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/types/sales.ts",
+      "sha256": "E6180144296CC65C172330A5FDB7345B7A5452ABAE8CE87C531B1A62B9F6EE62"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/package.json",
+      "sha256": "D2991C16CD6839CA252BA0F9A516E7495B2765EFA32CD3EE28430D77C3425795"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/scripts/ai-analysis.mjs",
+      "sha256": "802BE46190473A596E12D31A7F35FC90502D589C49EE0A28D2A6ADDD43440547"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/scripts/sales-server.mjs",
+      "sha256": "493DC43798E5D1F398399CC20916DC5595E3986DF2FFFE57B625EA2C223BFFCD"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/tests/ai-analysis.test.mjs",
+      "sha256": "BAF4292E02A9236ECE96EBDC259AEC1FD995D4C50416974D98DD0ABD28CF342E"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/tests/sales-controller-server.test.mjs",
+      "sha256": "D824E76735E9B9D999DA38B10CDC5D8D0AD33251763A45DA998BDF488F2CF618"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/OPERATIONS_RESULT.md",
+      "sha256": "E15C87529B87D18C50D432BD59D620A441D2899DD8BC0A579C9A915219A644C5"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/components/ai/VerifiedAnalysisPanel.tsx",
+      "sha256": "E3493A1D92EAB50F936B122167552BD56C29C33BF5654EBD78F0F43C988559F1"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/components/ai/analysisContext.ts",
+      "sha256": "396576033F05831886F7B10CDC4972B0057F5DEDEE4A2FE5041F20CF55184582"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/composition/ComparisonHistory.tsx",
+      "sha256": "8870F74E1C8DF44AFC94F5EC7C596D905BA3D6685AD81866020CC3D5D84FACEE"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/composition/OperationsOverview.tsx",
+      "sha256": "C787947CB8F46918A1C259F68D86FF46835A450C7BEB1A4B3875B93A20E46C5B"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/composition/comparisonMath.ts",
+      "sha256": "72596D04047822C54D0A21F650A100595D4341D6CD3C66C6CDFA3EB4FEC68030"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/composition/productMath.ts",
+      "sha256": "7398F7204FA5E022E3302C23C65A26317FEF5359B016DF59571B6E1C7C0B96D8"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/composition/productViews.tsx",
+      "sha256": "52E22715BC856A079CF7C288831245008D2CA0280824A096D743E1B3A536E00E"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/screens/OperationsDashboard.tsx",
+      "sha256": "5986AEAC69F3C906609608244ABF184FA1F58D1542223053026C5B375E2A6488"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/services/operationsApi.ts",
+      "sha256": "44D368604A0146713F2AA5182CFF7C157A746C34340B41C0C1D9B84F9457118C"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/types/operations.ts",
+      "sha256": "36C92B68BCD986D5C1E669C8967FDCE14CA803D1460099E9C24C4DD58431AAA1"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/scripts/analysis-facts.mjs",
+      "sha256": "7984DD16635370981B68ABF984BDE21BD8B4D6AF92F69B44907B877D103990E0"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/scripts/operations-domain.mjs",
+      "sha256": "29FC150E59A7DEADC65695931F110040947BBECB4448389BF81F650C8A7BB931"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/scripts/operations-http.mjs",
+      "sha256": "D2D53AF01421AB09C0CCB4A5B65443FB751FE1615175E8AD4DDC95BC9B728926"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/scripts/operations-query.ps1",
+      "sha256": "C43B21DA8C8D0B52440BA11173C792AE31FD1E925BBF84ACBECE97EFE873C7D1"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/tests/analysis-frontend.test.mjs",
+      "sha256": "72BC41684A728558B614E761B752B068E5C389FD57DC661946ED41281264B966"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/tests/fixtures/analysis-source.mjs",
+      "sha256": "3338848769731EBA67D45B2D31663E52323D0A0B206FD4E91553A73CCF6C8E84"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/tests/operations-domain.test.mjs",
+      "sha256": "2407B4AAC637E2FDA07B121598B03420F30D2FE078B673DA34A6435EF979ED93"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/tests/operations-http.test.mjs",
+      "sha256": "911306BAF22B86792BA68F3A8A5406E087DC7393B225F738E6C47128B5494916"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/tests/operations-live.test.mjs",
+      "sha256": "61C392FBE92AEE61E7C2EE90A72717334671FB917E5EA271A856BB6B215677BE"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/tests/sales-ai-facts.test.mjs",
+      "sha256": "6B124CD3586E8371DE7CCB38AB7B3616D28671E3D0FA3BBA1E9C4A11E8A515DD"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/tests/sales-ai-http.test.mjs",
+      "sha256": "5F4C0DA96171677D27D9BED2108ABB5604D57DD09C8AD163DF9D3BCC577C5586"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/tests/sales-ai-model-boundary.test.mjs",
+      "sha256": "D638E9C57850BD435B5C0BF49327D795A957AAB9F72F04025D495C8F62D0D8CF"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/tests/sales-composition.test.mjs",
+      "sha256": "C6585097CA5246A7FD5D47A6E23F4D76346A340C1D857C3DFA70422E35994C79"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/tests/sales-operations-integration.test.mjs",
+      "sha256": "34F952F2862A1697D15BB6811CEAD628573D6109597BAA13EF3D66B4C23DAF34"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/tests/sales-product-composition.test.mjs",
+      "sha256": "759217CEE7BF9C2849DD4E44B0BC36B62C169759BA106B267827E354CEB89EA4"
+    },
+    {
+      "lane": "sipbi-ai",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/tests/sales-view-selection.test.mjs",
+      "sha256": "0EB3644031C72BC37060574F118A6DF88AD2B09E17ADC36D80114079199E161B"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/App.tsx",
+      "sha256": "84C7841F28517117EDE7436A40B80D3E3AD44852AEA2CE73A49D6A08FC9DDCE8"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/components/common/Header.tsx",
+      "sha256": "449BA7C7C8DC409503E8B6001B2E3D14DF4514C676A6EF748FF8C1EE05DBEE97"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/components/layout/Sidebar.tsx",
+      "sha256": "6C33115713346B61308A3F4EF020D88FD883B5206A23ABDBB9CFD3DA7037690B"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/context/AppContext.tsx",
+      "sha256": "7BCC94B954A4A8DCA0EA57D9FD120B50CEB5C2CDB8863E5B8643A97C290B1B01"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/screens/D00DecisionHome.tsx",
+      "sha256": "79641EE002BE666D5AB03A24CC093BA2150362A91C9AC1FCE79D45D3B4829B99"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/screens/D01ExecutiveOverview.tsx",
+      "sha256": "871B5B04FB0F668073DF4A86553F65B2454D40DE440F4D4D819BAC56319B7123"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/screens/D02SalesMomentum.tsx",
+      "sha256": "2D2AB883AF6AE8A530F8968302C817D2323A4F3DF7C156194F7B30C972ACAA15"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/screens/D04ProductMix.tsx",
+      "sha256": "F2B3583852C9D883410774E3488189F3D800CE9C4BB6635607D2067B9D771770"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/screens/D06CustomerContribution.tsx",
+      "sha256": "8538E9C9534B6802880659C7595AEECF0EDB30421DA981DAD937B4D93DDD17EC"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/screens/D08ProfitabilityQuality.tsx",
+      "sha256": "FE70038B1FC9A132296C70CD85981555713B7DFDF92EEACB8A5DA1DF8AC6515D"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/screens/D11CustomerConcentration.tsx",
+      "sha256": "92C4DED7907BA4B73AEC8FCB2874309C6CBF210CDA97B64799EE4459973E8F0F"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/screens/D13SalespersonPerformance.tsx",
+      "sha256": "A2EA0C327B1B47F854D67F0A48122A506082E516AA390FC863991DB951A3CE73"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/screens/D14ProductPortfolio.tsx",
+      "sha256": "7B9F5189E9707816861B20F7F6CFE0393E278CC3280B1746D32E8C1BF9AF9C96"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/screens/D15RollingSales.tsx",
+      "sha256": "25344B759FB29C328F9FF96C26FA74791ACE5287FBEB4C6B0D593A286ACF8C74"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/screens/D16GrowthDeclineContribution.tsx",
+      "sha256": "076448E5A48DC35AACAABEC18B3C591FA03B1CBB680181BC9210D12009764AC1"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/screens/D18ExceptionMonitor.tsx",
+      "sha256": "02EC400A9035CC58D9B564CB28F47B335589BEB7A88DC5DF2CCDF297D9F18713"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/package.json",
+      "sha256": "91CC243B9DA659A74733E449AC247F17FCACAFF3940FBC64E448533D2A7C8A2D"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/scripts/sales-server.mjs",
+      "sha256": "9596ACB739B765D318B230FBE55103E5F734546F862C16F5298249F61E820D4A"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/OPERATIONS_RESULT.md",
+      "sha256": "E15C87529B87D18C50D432BD59D620A441D2899DD8BC0A579C9A915219A644C5"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/composition/ComparisonHistory.tsx",
+      "sha256": "8870F74E1C8DF44AFC94F5EC7C596D905BA3D6685AD81866020CC3D5D84FACEE"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/composition/OperationsOverview.tsx",
+      "sha256": "C787947CB8F46918A1C259F68D86FF46835A450C7BEB1A4B3875B93A20E46C5B"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/composition/comparisonMath.ts",
+      "sha256": "72596D04047822C54D0A21F650A100595D4341D6CD3C66C6CDFA3EB4FEC68030"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/composition/productMath.ts",
+      "sha256": "7398F7204FA5E022E3302C23C65A26317FEF5359B016DF59571B6E1C7C0B96D8"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/composition/productViews.tsx",
+      "sha256": "6132212B8DA438F2BEE7530F38C569A90D86E4BD347C5011194528235134F46E"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/screens/OperationsDashboard.tsx",
+      "sha256": "5986AEAC69F3C906609608244ABF184FA1F58D1542223053026C5B375E2A6488"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/services/operationsApi.ts",
+      "sha256": "44D368604A0146713F2AA5182CFF7C157A746C34340B41C0C1D9B84F9457118C"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/frontend/src/types/operations.ts",
+      "sha256": "36C92B68BCD986D5C1E669C8967FDCE14CA803D1460099E9C24C4DD58431AAA1"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/scripts/operations-domain.mjs",
+      "sha256": "29FC150E59A7DEADC65695931F110040947BBECB4448389BF81F650C8A7BB931"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/scripts/operations-http.mjs",
+      "sha256": "D2D53AF01421AB09C0CCB4A5B65443FB751FE1615175E8AD4DDC95BC9B728926"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/scripts/operations-query.ps1",
+      "sha256": "C43B21DA8C8D0B52440BA11173C792AE31FD1E925BBF84ACBECE97EFE873C7D1"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/tests/operations-domain.test.mjs",
+      "sha256": "2407B4AAC637E2FDA07B121598B03420F30D2FE078B673DA34A6435EF979ED93"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/tests/operations-http.test.mjs",
+      "sha256": "911306BAF22B86792BA68F3A8A5406E087DC7393B225F738E6C47128B5494916"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/tests/operations-live.test.mjs",
+      "sha256": "61C392FBE92AEE61E7C2EE90A72717334671FB917E5EA271A856BB6B215677BE"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/tests/sales-composition.test.mjs",
+      "sha256": "C6585097CA5246A7FD5D47A6E23F4D76346A340C1D857C3DFA70422E35994C79"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/tests/sales-operations-integration.test.mjs",
+      "sha256": "34F952F2862A1697D15BB6811CEAD628573D6109597BAA13EF3D66B4C23DAF34"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/tests/sales-product-composition.test.mjs",
+      "sha256": "759217CEE7BF9C2849DD4E44B0BC36B62C169759BA106B267827E354CEB89EA4"
+    },
+    {
+      "lane": "sipbi-composition",
+      "path": "deliverables/SIPBI_CARD_LAYOUT_20261020/preview/app/tests/sales-view-selection.test.mjs",
+      "sha256": "0EB3644031C72BC37060574F118A6DF88AD2B09E17ADC36D80114079199E161B"
+    }
+  ]
+}

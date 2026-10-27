@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { ComparisonHistory } from '../composition/ComparisonHistory';
 import { Filters } from '../types/sales';
 import { useSalesDashboard } from '../services/salesApi';
 import { StateGuard } from '../components/common/StateGuard';
@@ -85,6 +86,22 @@ export const D13SalespersonPerformance: React.FC<Props> = ({ slicer }) => {
   const topRep = salespeople[0];
   const repCount = salespeople.length;
 
+  // Local selection by stable key: highlight first, drill only on explicit action.
+  const [selectedKey, setSelectedKey] = useState<string | null>(null);
+  useEffect(() => {
+    setSelectedKey(null);
+  }, [slicer.month, slicer.company, slicer.product, slicer.customer, slicer.salesperson, slicer.plant, slicer.costCenter]);
+  const selectedRep = selectedKey ? salespeople.find((row) => row.key === selectedKey) ?? null : null;
+
+  // Primary comparison: current revenue + GP side by side (Top 15 bars, full list in table + CSV).
+  const topReps = [...salespeople]
+    .sort((a, b) => {
+      const av = typeof a.netSalesUSD === 'number' && Number.isFinite(a.netSalesUSD) ? a.netSalesUSD : -Infinity;
+      const bv = typeof b.netSalesUSD === 'number' && Number.isFinite(b.netSalesUSD) ? b.netSalesUSD : -Infinity;
+      return bv - av || a.key.localeCompare(b.key);
+    })
+    .slice(0, 15);
+
   // Matrix population: both axes must be present. Null rows stay in table + CSV only.
   const matrixRows = salespeople.filter(
     (row) => row.netSalesUSD != null && row.grossMarginPercent != null
@@ -123,6 +140,117 @@ export const D13SalespersonPerformance: React.FC<Props> = ({ slicer }) => {
     });
   };
 
+  const teal = isDark ? '#2dd4bf' : '#0d9488';
+  const barLabelColor = isDark ? '#cbd5e1' : '#334155';
+  const repBarOption = {
+    title: {
+      text: isZh
+        ? `業務員當期營收與毛利額對照 Top 15（共享 USD 尺度）`
+        : `Rep revenue vs gross profit Top 15 (shared USD scale)`,
+      subtext: isZh
+        ? `依淨銷售額排序；藍=淨銷售額，深青=毛利額，零為基準。點選只高亮不篩選；全體 ${repCount} 位見明細與 CSV。無配額、無目標。`
+        : `Ordered by net sales; blue = net sales, teal = gross profit, zero baseline. Click highlights only; all ${repCount} reps in table and CSV. No quota or target.`,
+      subtextStyle: { fontSize: 11, color: mutedColor },
+      textStyle: { fontSize: 14, fontWeight: 'bold', color: barLabelColor },
+    },
+    tooltip: {
+      trigger: 'axis' as const,
+      axisPointer: { type: 'shadow' as const },
+      confine: true,
+      textStyle: { fontSize: 12 },
+      extraCssText: 'max-width:380px;white-space:normal;',
+      formatter: (params: unknown) => {
+        const list = Array.isArray(params) ? (params as Array<{ dataIndex?: unknown }>) : [];
+        const first = list[0];
+        const row = first && typeof first.dataIndex === 'number' ? topReps[first.dataIndex] : undefined;
+        if (!row) return '';
+        return `<div style="font-size:12px;line-height:1.45">
+          <div><b>${escapeHtml(row.label || DASH)}</b></div>
+          <div style="font-family:ui-monospace,monospace">${escapeHtml(row.key)}</div>
+          <div>${escapeHtml(salesName)}: ${exactUSD(row.netSalesUSD)}</div>
+          <div>${escapeHtml(gpName)}: ${exactUSD(row.grossProfitUSD)}</div>
+          <div>${isZh ? '毛利率' : 'GM %'}: ${exactPct(row.grossMarginPercent)}</div>
+          <div>${isZh ? '訂單數' : 'Orders'}: ${fmtCount(row.orderCount)} / ${fmtCount(row.salesLineCount)} ${isZh ? '行' : 'lines'}</div>
+          <div>${isZh ? '點選只高亮，再用橫幅下鑽客戶' : 'Click highlights; drill into customers from the banner'}</div>
+        </div>`;
+      },
+    },
+    legend: {
+      type: 'scroll' as const,
+      top: 0,
+      textStyle: { color: barLabelColor, fontSize: 12 },
+    },
+    grid: { left: 8, right: 64, top: 56, bottom: 8, containLabel: true },
+    xAxis: {
+      type: 'value' as const,
+      min: (bound: { min: number }) => Math.min(0, Number.isFinite(bound.min) ? bound.min : 0),
+      max: (bound: { max: number }) => Math.max(0, Number.isFinite(bound.max) ? bound.max : 0),
+      axisLabel: { color: mutedColor, fontSize: 12, formatter: (value: number) => axisUSD(value) },
+      axisLine: { show: true, onZero: true, lineStyle: { color: refSlate, width: 1.25 } },
+      axisTick: { show: false },
+      splitLine: { lineStyle: { color: splitColor } },
+    },
+    yAxis: {
+      type: 'category' as const,
+      inverse: true,
+      data: topReps.map((row) => (row.label.trim() ? row.label : row.key)),
+      axisLabel: { color: barLabelColor, fontSize: 12, width: 150, overflow: 'truncate' as const, margin: 8 },
+      axisTick: { show: false },
+      axisLine: { show: false },
+    },
+    series: [
+      {
+        name: salesName,
+        type: 'bar' as const,
+        cursor: 'pointer',
+        barMaxWidth: 14,
+        label: {
+          show: true,
+          position: 'right' as const,
+          fontSize: 11,
+          color: mutedColor,
+          formatter: (p: { value?: unknown }) => {
+            const v = p && typeof p.value === 'object' && p.value !== null
+              ? (p.value as { value?: unknown }).value
+              : p?.value;
+            return typeof v === 'number' && Number.isFinite(v) ? axisUSD(v) : DASH;
+          },
+        },
+        data: topReps.map((row) => ({
+          value: row.netSalesUSD,
+          itemStyle:
+            selectedKey !== null && row.key === selectedKey
+              ? { color: '#4f46e5', borderRadius: [0, 3, 3, 0] }
+              : { color: salesBlue, opacity: selectedKey === null ? 0.9 : 0.35, borderRadius: [0, 3, 3, 0] },
+        })),
+      },
+      {
+        name: gpName,
+        type: 'bar' as const,
+        cursor: 'pointer',
+        barMaxWidth: 14,
+        label: {
+          show: true,
+          position: 'right' as const,
+          fontSize: 11,
+          color: mutedColor,
+          formatter: (p: { value?: unknown }) => {
+            const v = p && typeof p.value === 'object' && p.value !== null
+              ? (p.value as { value?: unknown }).value
+              : p?.value;
+            return typeof v === 'number' && Number.isFinite(v) ? axisUSD(v) : DASH;
+          },
+        },
+        data: topReps.map((row) => ({
+          value: row.grossProfitUSD,
+          itemStyle:
+            selectedKey !== null && row.key === selectedKey
+              ? { color: '#4f46e5', borderRadius: [0, 3, 3, 0] }
+              : { color: teal, opacity: selectedKey === null ? 0.9 : 0.35, borderRadius: [0, 3, 3, 0] },
+        })),
+      },
+    ],
+  };
   const matrixOption = {
     tooltip: {
       trigger: 'item' as const,
@@ -174,11 +302,17 @@ export const D13SalespersonPerformance: React.FC<Props> = ({ slicer }) => {
         type: 'scatter' as const,
         cursor: 'pointer',
         symbolSize: 11,
-        data: matrixRows.map((row) => [
-          row.netSalesUSD,
-          (row.grossMarginPercent as number) * 100,
-        ]),
-        itemStyle: { color: salesBlue, opacity: 0.85 },
+        data: matrixRows.map((row) => ({
+          value: [
+            row.netSalesUSD,
+            (row.grossMarginPercent as number) * 100,
+          ],
+          itemStyle:
+            selectedKey !== null && row.key === selectedKey
+              ? { color: '#4f46e5', opacity: 1, borderColor: '#312e81', borderWidth: 1.5 }
+              : { color: salesBlue, opacity: selectedKey === null ? 0.85 : 0.35 },
+        })),
+        // point colors are set per datum above to reflect local selection
         markLine:
           meanGmPct === null
             ? undefined
@@ -273,6 +407,28 @@ export const D13SalespersonPerformance: React.FC<Props> = ({ slicer }) => {
             </div>
 
             <div className="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xs">
+              {topReps.length === 0 ? (
+                <p className="py-10 text-xs text-slate-500 dark:text-slate-400">
+                  {isZh ? '此切片沒有業務員列。' : 'No salesperson rows in this slice.'}
+                </p>
+              ) : (
+                <EChartsContainer
+                  option={repBarOption}
+                  height={`${Math.max(300, 110 + topReps.length * 36)}px`}
+                  onEvents={{
+                    click: (params: { dataIndex?: unknown }) => {
+                      const idx = typeof params?.dataIndex === 'number' ? params.dataIndex : -1;
+                      const row = idx >= 0 ? topReps[idx] : undefined;
+                      if (!row) return;
+                      setSelectedKey((prev) => (prev === row.key ? null : row.key));
+                    },
+                  }}
+                />
+              )}
+            </div>
+
+            <div className="grid grid-cols-1 xl:grid-cols-12 gap-4">
+              <div className="xl:col-span-7 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xs">
               <h3 className="text-sm font-semibold text-slate-900 dark:text-white">
                 {isZh
                   ? `業務員績效矩陣（x 營收 USD，y 毛利率 %，共 ${matrixRows.length} 位）`
@@ -280,8 +436,8 @@ export const D13SalespersonPerformance: React.FC<Props> = ({ slicer }) => {
               </h3>
               <p className="mt-1 text-xs leading-5 text-slate-500 dark:text-slate-400">
                 {isZh
-                  ? `每點一位業務員；越右營收越高，越上毛利率越高，毛利率軸依資料範圍顯示。點擊下鑽客戶。缺值未繪 ${absentCount} 位，完整資料見明細與 CSV。`
-                  : `One point per rep. Revenue increases to the right; margin increases upward on a data-range axis. Click to drill into customers. ${absentCount} null-valued reps excluded; full data in table and CSV.`}
+                  ? `每點一位業務員；越右營收越高，越上毛利率越高，毛利率軸依資料範圍顯示。點選只高亮，再用右側摘要下鑽客戶。缺值未繪 ${absentCount} 位，完整資料見明細與 CSV。`
+                  : `One point per rep. Revenue increases to the right; margin increases upward on a data-range axis. Click highlights only; drill from the side summary. ${absentCount} null-valued reps excluded; full data in table and CSV.`}
               </p>
               {matrixRows.length === 0 ? (
                 <p className="py-10 text-xs text-slate-500 dark:text-slate-400">
@@ -296,19 +452,86 @@ export const D13SalespersonPerformance: React.FC<Props> = ({ slicer }) => {
                       const row =
                         typeof params?.dataIndex === 'number' ? matrixRows[params.dataIndex] : undefined;
                       if (!row) return;
-                      openRepDrill(row);
+                      setSelectedKey((prev) => (prev === row.key ? null : row.key));
                     },
                   }}
                 />
               )}
             </div>
 
+              <div className="xl:col-span-5 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xs">
+                <h3 className="text-sm font-semibold text-slate-900 dark:text-white break-words">
+                  {isZh ? '選中業務員摘要（同一穩定鍵同步）' : 'Selected salesperson (synced by stable key)'}
+                </h3>
+                {selectedRep ? (
+                  <div className="mt-2 space-y-1.5 text-xs tabular-nums">
+                    <div className="font-bold text-indigo-600 dark:text-indigo-400 text-sm break-words">
+                      {selectedRep.label}
+                    </div>
+                    <div className="font-mono text-[11px] text-slate-400">{selectedRep.key}</div>
+                    <div className="flex justify-between gap-2">
+                      <span className="text-slate-500 dark:text-slate-400">{isZh ? '淨銷售額 (USD)' : 'Net sales (USD)'}</span>
+                      <span className="font-bold">{fmtUSD(selectedRep.netSalesUSD)}</span>
+                    </div>
+                    <div className="flex justify-between gap-2">
+                      <span className="text-slate-500 dark:text-slate-400">{isZh ? '毛利額 (USD)' : 'Gross profit (USD)'}</span>
+                      <span className="font-semibold">{fmtUSD(selectedRep.grossProfitUSD)}</span>
+                    </div>
+                    <div className="flex justify-between gap-2">
+                      <span className="text-slate-500 dark:text-slate-400">{isZh ? '毛利率' : 'GM %'}</span>
+                      <span className="font-semibold">{fmtPercent(selectedRep.grossMarginPercent)}</span>
+                    </div>
+                    <div className="flex justify-between gap-2">
+                      <span className="text-slate-500 dark:text-slate-400">{isZh ? '淨銷量 (KG)' : 'Net qty (KG)'}</span>
+                      <span>{fmtKG(selectedRep.netQtyKG)}</span>
+                    </div>
+                    <div className="flex justify-between gap-2">
+                      <span className="text-slate-500 dark:text-slate-400">{isZh ? '平均單價' : 'ASP'}</span>
+                      <span>{fmtPriceUSD(selectedRep.averageSellingPriceUSD)}</span>
+                    </div>
+                    <div className="flex justify-between gap-2">
+                      <span className="text-slate-500 dark:text-slate-400">{isZh ? '退貨率' : 'Return %'}</span>
+                      <span>{fmtPercent(selectedRep.returnRatePercent)}</span>
+                    </div>
+                    <div className="flex justify-between gap-2">
+                      <span className="text-slate-500 dark:text-slate-400">{isZh ? '訂單數 / 行數' : 'Orders / Lines'}</span>
+                      <span>{fmtCount(selectedRep.orderCount)} / {fmtCount(selectedRep.salesLineCount)}</span>
+                    </div>
+                    <div className="flex flex-wrap items-center gap-2 pt-2">
+                      <button
+                        type="button"
+                        onClick={() => openRepDrill(selectedRep)}
+                        className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white border border-indigo-600 cursor-pointer"
+                      >
+                        {isZh ? '下鑽該業務員客戶 ➔' : 'Drill into customers ➔'}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setSelectedKey(null)}
+                        className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 border border-slate-300 dark:border-slate-700 cursor-pointer"
+                      >
+                        {isZh ? '清除選擇' : 'Reset selection'}
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <p className="mt-2 text-xs leading-5 text-slate-500 dark:text-slate-400">
+                    {isZh
+                      ? '點長條、散佈點或下表明細列，只高亮同一業務員（不篩選母體）；此處顯示精確摘要並可下鑽其客戶。'
+                      : 'Click a bar, scatter point, or table row to highlight one salesperson (no filtering); its exact summary and drill appear here.'}
+                  </p>
+                )}
+              </div>
+            </div>
+
+            <ComparisonHistory slicer={slicer} dimension="salesperson" maxMembers={4} showRanks />
+
             <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-5 shadow-xs">
               <details open>
                 <summary className="text-sm font-bold text-slate-900 dark:text-white cursor-pointer">
                   {isZh
-                    ? `業務員實績明細（全體 ${repCount} 位，點列下鑽客戶）`
-                    : `Salesperson actuals (all ${repCount}; click a row to drill)`}
+                    ? `業務員實績明細（全體 ${repCount} 位，點列只高亮、用摘要下鑽）`
+                    : `Salesperson actuals (all ${repCount}; click highlights, drill from summary)`}
                 </summary>
                 <div className="overflow-x-auto mt-3">
                   <table className="min-w-full divide-y divide-slate-200 dark:divide-slate-800 text-xs tabular-nums">
@@ -345,8 +568,8 @@ export const D13SalespersonPerformance: React.FC<Props> = ({ slicer }) => {
                       {salespeople.map((row, index) => (
                         <tr
                           key={row.key}
-                          onClick={() => openRepDrill(row)}
-                          className="hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer transition-colors"
+                          onClick={() => setSelectedKey((prev) => (prev === row.key ? null : row.key))}
+                          className={`cursor-pointer transition-colors ${row.key === selectedKey ? 'bg-indigo-50 dark:bg-indigo-950/50 hover:bg-indigo-100 dark:hover:bg-indigo-950/70' : 'hover:bg-slate-50 dark:hover:bg-slate-800/50'}`}
                         >
                           <td className="px-3 py-2 text-slate-400">{index + 1}</td>
                           <td className="px-3 py-2 font-sans">
@@ -397,8 +620,8 @@ export const D13SalespersonPerformance: React.FC<Props> = ({ slicer }) => {
                         : '.'
                     }`,
                 interpretation: isZh
-                  ? '矩陣只描述規模與品質位置不做迴歸或排名推論；虛線為整體加權毛利率統計參照非目標。點擊任一業務員可下鑽其客戶與產品組合。'
-                  : 'The matrix describes scale and quality positions only, with no regression or ranking claim; the dashed line is a statistical reference, not a target. Click any salesperson to drill into their customer and product mix.',
+                  ? '長條只比較當期營收與毛利額，矩陣只描述規模與品質位置，不做迴歸、排名或生產力推論；虛線為整體加權毛利率統計參照非目標。點選只高亮，再用摘要下鑽其客戶。'
+                  : 'Bars compare current revenue against gross profit only; the matrix describes scale and quality positions with no regression, ranking, or productivity claim; the dashed line is a statistical reference, not a target. Clicking highlights; drill from the summary.',
                 claimType: 'OBSERVATION',
                 coverage: `${summaryLabels.monthLabel} · ${summaryLabels.companyLabel}`,
                 confidence: 'SSAS Direct',

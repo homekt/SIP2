@@ -1,3 +1,5 @@
+import { stampDashboardSnapshot, buildFactEnvelope, defaultSelection, renderSelection } from './analysis-facts.mjs';
+import { handleOperationsRequest } from './operations-http.mjs';
 /**
  * Sales BI HTTP server. Static files and /api on one origin. No wildcard CORS.
  * Cube work goes through scripts/sales-query.ps1 via execFile -File.
@@ -237,6 +239,7 @@ function sanitizeOutbound(body) {
 }
 
 export function createSalesServer(options = {}) {
+  const operationsEnabled = (options.env || process.env).SIPBI_ENABLE_OPERATIONS === '1';
   const config = options.sourceConfig || sourceConfigFrom(options.env || process.env, options);
   const distDir = options.distDir || path.join(rootDir, 'frontend', 'dist');
   const rawQuery = options.query || createPowerShellQuery({
@@ -327,25 +330,25 @@ export function createSalesServer(options = {}) {
     }
     const requestId = randomUUID();
     if (!memberCheck.monthInCube) {
-      sendJson(res, 200, buildNoData({
+      sendJson(res, 200, stampDashboardSnapshot(buildNoData({
         pageId,
         filters,
         requestId,
         source: sourceEnvelope(config, catalog.queriedAt || currentIso(options.now))
-      }));
+      })));
       return;
     }
     const request = bundleRequest(filters, config);
     const raw = await loadBundle(request);
     const queriedAt = raw.queriedAt || currentIso(options.now);
-    sendJson(res, 200, buildDashboard({
+    sendJson(res, 200, stampDashboardSnapshot(buildDashboard({
       pageId,
       filters,
       requestId,
       raw,
       catalog,
       source: sourceEnvelope(config, queriedAt)
-    }));
+    })));
   }
 
   async function respondDrilldown(res, groupBy, filters, catalog) {
@@ -393,6 +396,13 @@ export function createSalesServer(options = {}) {
 
   async function handle(req, res) {
     const url = new URL(req.url || '/', 'http://127.0.0.1');
+    if (url.pathname.startsWith('/api/operations/')) {
+      if (!operationsEnabled) {
+        sendJson(res, 404, errorBody('operations_disabled', 'Independent operations source is not enabled.'));
+        return;
+      }
+      if (await handleOperationsRequest(req, res, { url, runQuery: options.operationsRunQuery })) return;
+    }
     if (req.method === 'OPTIONS') {
       res.writeHead(204, { Allow: 'GET, POST, OPTIONS', 'X-Content-Type-Options': 'nosniff' });
       res.end();
@@ -440,6 +450,7 @@ export function createSalesServer(options = {}) {
         months: catalog.months,
         members: catalog.members,
         pages: pagesFor(ai.enabled),
+        operations: { enabled: operationsEnabled },
         ai: ai.enabled ? { enabled: true } : { enabled: false, reason: ai.reason || 'disabled' }
       });
       return;
@@ -482,7 +493,8 @@ export function createSalesServer(options = {}) {
       return;
     }
 
-    if (url.pathname === '/api/analysis') {
+    if (url.pathname === '/api/analysis' || url.pathname === '/api/analysis/brief') {
+      const isBrief = url.pathname.endsWith('/brief');
       if (req.method !== 'POST') {
         sendJson(res, 405, errorBody('method_not_allowed', 'Method not allowed.'));
         return;
@@ -491,7 +503,7 @@ export function createSalesServer(options = {}) {
         sendJson(res, 403, errorBody('origin_not_allowed', 'Cross-origin analysis is not allowed.'));
         return;
       }
-      if (!(await aiStatus()).enabled) {
+      if (!isBrief && !(await aiStatus()).enabled) {
         sendJson(res, 503, errorBody('ai_disabled', 'AI analysis is not configured.'));
         return;
       }
@@ -510,6 +522,10 @@ export function createSalesServer(options = {}) {
       if (Object.keys(payload).some(key => !['question','context'].includes(key)) || payload.question.trim().length === 0 || payload.question.length > 2000) {
         sendJson(res, 400, errorBody('invalid_body', 'Invalid analysis request.'));
         return;
+      }
+      const selection = Object.fromEntries(['panelId','productKey','locale','expectedSnapshotId'].filter(key => payload.context[key] !== undefined).map(key => [key,payload.context[key]]));
+      if ((selection.panelId !== undefined && typeof selection.panelId !== 'string') || (selection.productKey != null && (typeof selection.productKey !== 'string' || !selection.productKey.length || selection.productKey.length > 160)) || (selection.locale !== undefined && !['en','zh-TW'].includes(selection.locale)) || (selection.expectedSnapshotId !== undefined && (typeof selection.expectedSnapshotId !== 'string' || !/^[a-f0-9]{64}$/.test(selection.expectedSnapshotId)))) {
+        sendJson(res,400,errorBody('invalid_body','Invalid analysis selection.')); return;
       }
       const contextFilters = payload.context.filters;
       if (!contextFilters || typeof contextFilters !== 'object') {
@@ -560,11 +576,21 @@ export function createSalesServer(options = {}) {
           source: sourceEnvelope(config, raw.queriedAt || currentIso(options.now))
         });
       }
+      dashboard = stampDashboardSnapshot(dashboard);
+      if (selection.expectedSnapshotId && selection.expectedSnapshotId !== dashboard.evidence.snapshotId) {
+        sendJson(res,409,errorBody('analysis_snapshot_changed','The displayed source snapshot changed; reload before requesting an explanation.')); return;
+      }
+      let envelope;
+      try { envelope = buildFactEnvelope(dashboard,selection); }
+      catch(error) { sendJson(res,error.statusCode || 422,errorBody(error.code || 'invalid_analysis_context',error.message)); return; }
+      if(isBrief) {
+        sendJson(res,200,{status:'ok',engine:'deterministic',analysis:renderSelection(envelope,defaultSelection(envelope))}); return;
+      }
       const mod = await aiModule();
       let result;
       try {
         result = await mod.handleAnalysis({
-          body: { question: payload.question, context: dashboard },
+          body: { question: payload.question, context: {...dashboard,...selection} },
           ip: req.socket && req.socket.remoteAddress ? req.socket.remoteAddress : '',
           env: options.env || process.env,
           fetchImpl: options.fetchImpl || globalThis.fetch,

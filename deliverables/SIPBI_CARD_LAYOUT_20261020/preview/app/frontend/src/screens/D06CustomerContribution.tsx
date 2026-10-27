@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Filters } from '../types/sales';
 import { useSalesDashboard } from '../services/salesApi';
 import { StateGuard } from '../components/common/StateGuard';
@@ -84,10 +84,40 @@ export const D06CustomerContribution: React.FC<Props> = ({ slicer }) => {
   const customers = data?.datasets?.customers || [];
   const topCustomer = customers[0];
 
-  // Scatter population: both axes must be present. Null-GM rows stay out of
-  // the plot and are disclosed in the caption; they remain in table + CSV.
-  const scatterRows = customers.filter((row) => row.netSalesUSD != null && row.grossMarginPercent != null);
+  // Local selection by stable key: highlight first, drill only on explicit action.
+  const [selectedKey, setSelectedKey] = useState<string | null>(null);
+  useEffect(() => {
+    setSelectedKey(null);
+  }, [slicer.month, slicer.company, slicer.product, slicer.customer, slicer.salesperson, slicer.plant, slicer.costCenter]);
+  const selectedRow = selectedKey ? customers.find((row) => row.key === selectedKey) ?? null : null;
+
+  // All three visual variables must be valid. Invalid quantity never receives
+  // an invented bubble area; excluded rows remain explicit below and in CSV.
+  const finite = (value: number | null | undefined): value is number => typeof value === 'number' && Number.isFinite(value);
+  const plottable = (row: (typeof customers)[number]) => finite(row.netSalesUSD) && finite(row.grossMarginPercent) && finite(row.netQtyKG) && row.netQtyKG > 0;
+  const scatterRows = customers.filter(plottable);
+  const excludedRows = customers.filter(row => !plottable(row));
   const absentCount = customers.length - scatterRows.length;
+
+  // Bubble AREA is strictly proportional to positive net quantity, without a
+  // minimum diameter that would overstate smaller customers.
+  const qtyMax = useMemo(
+    () =>
+      scatterRows.reduce<number>(
+        (m, row) =>
+          typeof row.netQtyKG === 'number' && Number.isFinite(row.netQtyKG) && row.netQtyKG > 0
+            ? Math.max(m, row.netQtyKG)
+            : m,
+        0
+      ),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [customers]
+  );
+  const bubbleK = qtyMax > 0 ? 28 / Math.sqrt(qtyMax) : 0;
+  const sizeForQty = (qty: number | null | undefined): number => {
+    if (!finite(qty) || qty <= 0 || bubbleK <= 0) return 0;
+    return bubbleK * Math.sqrt(qty);
+  };
 
   // Compact absolute-GP view only (Top 10 dots, not a second full ranking).
   const topGpRows = [...customers]
@@ -129,7 +159,19 @@ export const D06CustomerContribution: React.FC<Props> = ({ slicer }) => {
     });
   };
 
+  const scatterTitle = isZh
+    ? `客戶規模 × 毛利品質氣泡（x 淨銷售額 USD，y 毛利率 %，共 ${scatterRows.length} 家）`
+    : `Customer scale x margin bubble (x net sales USD, y GM %, ${scatterRows.length} customers)`;
+  const scatterSubtext = isZh
+    ? `每點一家客戶；氣泡面積正比於正淨銷量 KG（直徑 k·√qty，最大 28px，無最小尺寸補值）。越右營收越高，越上毛利率越高。三變數無效者 ${absentCount} 家列於例外表；點選只高亮，完整母體 ${customers.length} 家保留於明細與 CSV。`
+    : `One bubble per customer; area is proportional to positive net qty KG (diameter k*sqrt(qty), max 28px, no minimum floor). ${absentCount} customers with invalid axes or quantity are listed as exceptions. Click highlights only; all ${customers.length} customers remain in table and CSV.`;
   const scatterOption = {
+    title: {
+      text: scatterTitle,
+      subtext: scatterSubtext,
+      subtextStyle: { fontSize: 11, color: mutedColor },
+      textStyle: { fontSize: 14, fontWeight: 'bold', color: labelColor },
+    },
     tooltip: {
       trigger: 'item' as const,
       confine: true,
@@ -144,9 +186,10 @@ export const D06CustomerContribution: React.FC<Props> = ({ slicer }) => {
           <div>${escapeHtml(salesName)}: ${exactUSD(row.netSalesUSD)}</div>
           <div>${escapeHtml(gpName)}: ${exactUSD(row.grossProfitUSD)}</div>
           <div>${isZh ? '毛利率' : 'GM %'}: ${exactPct(row.grossMarginPercent)}</div>
+          <div>${isZh ? '淨銷量' : 'Net qty'}: ${exactKG(row.netQtyKG)}</div>
           <div>${isZh ? '退貨量' : 'Return qty'}: ${exactKG(row.returnQtyKG)}</div>
           <div>${isZh ? '退貨率' : 'Return rate'}: ${exactPct(row.returnRatePercent)}</div>
-          <div>${isZh ? '點擊下鑽該客戶的產品組合' : 'Click to drill into this customer'}</div>
+          <div>${isZh ? '點選只高亮，再按「下鑽」才看產品組合' : 'Click highlights; use Drill to see products'}</div>
         </div>`;
       },
     },
@@ -175,15 +218,22 @@ export const D06CustomerContribution: React.FC<Props> = ({ slicer }) => {
     },
     series: [
       {
-        name: isZh ? '客戶（等尺寸圓點，不代表第三變數）' : 'Customers (fixed-size points)',
+        name: isZh ? '客戶氣泡（面積=淨銷量 KG）' : 'Customers (area = net qty KG)',
         type: 'scatter' as const,
         cursor: 'pointer',
-        symbolSize: 9,
-        data: scatterRows.map((row) => [
-          row.netSalesUSD,
-          (row.grossMarginPercent as number) * 100,
-        ]),
-        itemStyle: { color: salesBlue, opacity: 0.85 },
+        symbolSize: (value: unknown) => sizeForQty(Array.isArray(value) ? (value[2] as number | null) : null),
+        data: scatterRows.map((row) => ({
+          value: [
+            row.netSalesUSD,
+            (row.grossMarginPercent as number) * 100,
+            row.netQtyKG,
+          ],
+          customerKey: row.key,
+          itemStyle:
+            selectedKey !== null && row.key === selectedKey
+              ? { color: '#4f46e5', opacity: 1, borderColor: '#312e81', borderWidth: 1.5 }
+              : { color: salesBlue, opacity: selectedKey === null ? 0.8 : 0.35 },
+        })),
         markLine: {
           silent: true,
           symbol: 'none',
@@ -194,9 +244,18 @@ export const D06CustomerContribution: React.FC<Props> = ({ slicer }) => {
       },
     ],
   };
-
   // Compact absolute-GP dots: Top 10 only, full ranking stays in table + CSV.
+  const gpDotTitle = isZh ? '毛利額 Top 10 緊湊點圖（絕對毛利集中度）' : 'Top 10 gross profit dots (absolute GP concentration)';
+  const gpDotSubtext = isZh
+    ? '依毛利額排序前 10 家；零為基準，負值在左。點選只高亮不篩選，完整客戶資料見明細與 CSV。'
+    : 'Top 10 by gross profit only (dots, not ranking bars); the full order stays in the table and CSV. Zero is the baseline; negatives sit left. Click highlights only.';
   const gpDotOption = {
+    title: {
+      text: gpDotTitle,
+      subtext: gpDotSubtext,
+      subtextStyle: { fontSize: 11, color: mutedColor },
+      textStyle: { fontSize: 14, fontWeight: 'bold', color: labelColor },
+    },
     tooltip: {
       trigger: 'item' as const,
       confine: true,
@@ -238,8 +297,14 @@ export const D06CustomerContribution: React.FC<Props> = ({ slicer }) => {
         type: 'scatter' as const,
         cursor: 'pointer',
         symbolSize: 10,
-        data: topGpRows.map((row, index) => [row.grossProfitUSD, index]),
-        itemStyle: { color: salesBlue, opacity: 0.9 },
+        data: topGpRows.map((row, index) => ({
+          value: [row.grossProfitUSD, index],
+          customerKey: row.key,
+          itemStyle:
+            selectedKey !== null && row.key === selectedKey
+              ? { color: '#4f46e5', opacity: 1, borderColor: '#312e81', borderWidth: 1.5 }
+              : { color: salesBlue, opacity: selectedKey === null ? 0.9 : 0.35 },
+        })),
         markLine: {
           silent: true,
           symbol: 'none',
@@ -260,8 +325,8 @@ export const D06CustomerContribution: React.FC<Props> = ({ slicer }) => {
           </h2>
           <p className="text-xs text-slate-500 dark:text-slate-400">
             {isZh
-              ? '哪些客戶兼具規模與毛利品質。散佈看位置，點圖看絕對毛利集中，明細看全部。'
-              : 'Which customers combine scale with margin quality. Scatter for position, dots for GP concentration, table for all.'}
+              ? '哪些客戶兼具規模與毛利品質。氣泡看位置與量，點圖看絕對毛利集中，明細看全部。'
+              : 'Which customers combine scale with margin quality. Bubbles for position and volume, dots for GP concentration, table for all.'}
           </p>
         </div>
         <div className="flex items-center space-x-2">
@@ -323,66 +388,83 @@ export const D06CustomerContribution: React.FC<Props> = ({ slicer }) => {
               />
             </div>
 
-            <div className="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xs">
-              <h3 className="text-sm font-semibold text-slate-900 dark:text-white">
-                {isZh
-                  ? `客戶規模 × 毛利品質散佈（x 淨銷售額 USD，y 毛利率 %，共 ${scatterRows.length} 家）`
-                  : `Customer scale × margin scatter (x net sales USD, y GM %, ${scatterRows.length} customers)`}
-              </h3>
-              <p className="mt-1 text-xs leading-5 text-slate-500 dark:text-slate-400">
-                {isZh
-                  ? `每點一家客戶；越右營收越高，越上毛利率越高。毛利率軸依資料範圍顯示。缺值未繪 ${absentCount} 家；點擊下鑽產品，完整資料見明細與 CSV。`
-                  : `One point per customer. Revenue increases rightward; margin increases upward on a data-range axis. ${absentCount} null-valued customers excluded. Click to drill into products; full data in table and CSV.`}
-              </p>
-              {scatterRows.length === 0 ? (
-                <p className="py-10 text-xs text-slate-500 dark:text-slate-400">
-                  {isZh ? '此切片沒有可繪製的客戶列。' : 'No plottable customer rows in this slice.'}
-                </p>
-              ) : (
+            {selectedRow && (
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 rounded-xl border border-indigo-300 dark:border-indigo-700 bg-indigo-50/70 dark:bg-indigo-950/40 px-4 py-3">
+                <div className="text-xs text-slate-700 dark:text-slate-200">
+                  {isZh ? '已選客戶（僅高亮，未篩選）' : 'Selected customer (highlighted, not filtered)'}:{' '}
+                  <span className="font-bold text-indigo-700 dark:text-indigo-300">{selectedRow.label}</span>
+                  <span className="ml-2 font-mono text-[11px] text-slate-500 dark:text-slate-400">{selectedRow.key}</span>
+                  <span className="ml-2 font-mono">
+                    {fmtUSD(selectedRow.netSalesUSD)} · {fmtUSD(selectedRow.grossProfitUSD)} · {fmtPercent(selectedRow.grossMarginPercent)}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 sm:ml-auto">
+                  <button
+                    type="button"
+                    onClick={() => openCustomerDrill(selectedRow)}
+                    className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white border border-indigo-600 cursor-pointer"
+                  >
+                    {isZh ? '下鑽該客戶產品 ➔' : 'Drill into products ➔'}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedKey(null)}
+                    className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 border border-slate-300 dark:border-slate-700 cursor-pointer"
+                  >
+                    {isZh ? '清除選擇' : 'Reset selection'}
+                  </button>
+                </div>
+              </div>
+            )}
+
+            <div className="grid grid-cols-1 xl:grid-cols-12 gap-4">
+              <div className="xl:col-span-7 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xs">
+                {scatterRows.length === 0 ? (
+                  <p className="py-10 text-xs text-slate-500 dark:text-slate-400">
+                    {isZh ? '此切片沒有可繪製的客戶列。' : 'No plottable customer rows in this slice.'}
+                  </p>
+                ) : (
+                  <EChartsContainer
+                    option={scatterOption}
+                    height="400px"
+                    onEvents={{
+                      click: (params: { dataIndex?: unknown }) => {
+                        const row =
+                          typeof params?.dataIndex === 'number' ? scatterRows[params.dataIndex] : undefined;
+                        if (!row) return;
+                        setSelectedKey((prev) => (prev === row.key ? null : row.key));
+                      },
+                    }}
+                  />
+                )}
+              </div>
+
+              <div className="xl:col-span-5 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xs">
                 <EChartsContainer
-                  option={scatterOption}
-                  height="400px"
+                  option={gpDotOption}
+                  height={`${Math.max(240, 72 + topGpRows.length * 30)}px`}
                   onEvents={{
                     click: (params: { dataIndex?: unknown }) => {
                       const row =
-                        typeof params?.dataIndex === 'number' ? scatterRows[params.dataIndex] : undefined;
+                        typeof params?.dataIndex === 'number' ? topGpRows[params.dataIndex] : undefined;
                       if (!row) return;
-                      openCustomerDrill(row);
+                      setSelectedKey((prev) => (prev === row.key ? null : row.key));
                     },
                   }}
                 />
-              )}
+              </div>
             </div>
-
-            <div className="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xs">
-              <h3 className="text-sm font-semibold text-slate-900 dark:text-white">
-                {isZh ? '毛利額 Top 10 緊湊點圖（絕對毛利集中度）' : 'Top 10 gross profit dots (absolute GP concentration)'}
-              </h3>
-              <p className="mt-1 text-xs leading-5 text-slate-500 dark:text-slate-400">
-                {isZh
-                  ? '依毛利額排序，呈現前 10 家客戶；零為基準，負值在左。完整客戶資料見明細與 CSV。'
-                  : 'Top 10 by gross profit only (dots, not ranking bars); the full order stays in the table and CSV. Zero is the baseline; negatives sit left.'}
-              </p>
-              <EChartsContainer
-                option={gpDotOption}
-                height={`${Math.max(240, 72 + topGpRows.length * 30)}px`}
-                onEvents={{
-                  click: (params: { dataIndex?: unknown }) => {
-                    const row =
-                      typeof params?.dataIndex === 'number' ? topGpRows[params.dataIndex] : undefined;
-                    if (!row) return;
-                    openCustomerDrill(row);
-                  },
-                }}
-              />
-            </div>
-
+            {excludedRows.length > 0 && <section className="bg-white dark:bg-slate-900 rounded-xl border border-amber-300 dark:border-amber-800 p-5" data-testid="customer-bubble-exceptions">
+              <h3 className="text-sm font-bold">{isZh ? `未繪氣泡的例外客戶（${excludedRows.length} 家）` : `Customer bubble exceptions (${excludedRows.length})`}</h3>
+              <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">{isZh ? '缺少有限的營收／毛利率，或淨銷量非正值，不配置氣泡面積。原始值保留；選取後可用上方橫幅下鑽。' : 'Missing finite revenue or margin, or non-positive net quantity receives no bubble area. Source values remain; select a customer and drill from the banner.'}</p>
+              <div className="overflow-x-auto max-h-64 mt-3"><table className="w-full text-xs tabular-nums"><thead><tr><th className="p-2 text-left">{isZh ? '客戶' : 'Customer'}</th><th className="p-2 text-right">USD</th><th className="p-2 text-right">GM %</th><th className="p-2 text-right">KG</th><th className="p-2 text-left">{isZh ? '未繪原因' : 'Exclusion reason'}</th></tr></thead><tbody>{excludedRows.map(row => <tr key={row.key} className="border-t border-slate-200 dark:border-slate-700"><td className="p-2"><button type="button" className="text-left text-indigo-600 dark:text-indigo-300 underline" onClick={() => setSelectedKey(row.key)}>{row.label} · {row.key}</button></td><td className="p-2 text-right">{fmtUSD(row.netSalesUSD)}</td><td className="p-2 text-right">{fmtPercent(row.grossMarginPercent)}</td><td className="p-2 text-right">{fmtKG(row.netQtyKG)}</td><td className="p-2">{[!finite(row.netSalesUSD) ? (isZh ? '營收缺值' : 'Revenue missing') : null, !finite(row.grossMarginPercent) ? (isZh ? '毛利率缺值' : 'Margin missing') : null, !finite(row.netQtyKG) || row.netQtyKG <= 0 ? (isZh ? '淨銷量缺值或非正值' : 'Quantity missing or non-positive') : null].filter(Boolean).join(' · ')}</td></tr>)}</tbody></table></div>
+            </section>}
             <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-5 shadow-xs">
               <details open>
                 <summary className="text-sm font-bold text-slate-900 dark:text-white cursor-pointer">
                   {isZh
-                    ? `客戶貢獻明細（全體 ${customers.length} 家，點列下鑽產品）`
-                    : `Customer contribution table (all ${customers.length} customers)`}
+                    ? `客戶貢獻明細（全體 ${customers.length} 家，點列只高亮、用橫幅下鑽）`
+                    : `Customer contribution table (all ${customers.length} customers; click highlights, drill from banner)`}
                 </summary>
                 <div className="overflow-x-auto mt-3">
                   <table className="min-w-full divide-y divide-slate-200 dark:divide-slate-800 text-xs tabular-nums">
@@ -422,8 +504,12 @@ export const D06CustomerContribution: React.FC<Props> = ({ slicer }) => {
                       {customers.map((row, index) => (
                         <tr
                           key={row.key}
-                          onClick={() => openCustomerDrill(row)}
-                          className="hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer transition-colors"
+                          onClick={() => setSelectedKey((prev) => (prev === row.key ? null : row.key))}
+                          className={`cursor-pointer transition-colors ${
+                            row.key === selectedKey
+                              ? 'bg-indigo-50 dark:bg-indigo-950/50 hover:bg-indigo-100 dark:hover:bg-indigo-950/70'
+                              : 'hover:bg-slate-50 dark:hover:bg-slate-800/50'
+                          }`}
                         >
                           <td className="px-3 py-2 text-slate-400">{index + 1}</td>
                           <td className="px-3 py-2 font-sans">
@@ -452,7 +538,7 @@ export const D06CustomerContribution: React.FC<Props> = ({ slicer }) => {
               title={isZh ? 'D06 客戶營收與毛利貢獻摘要' : 'D06 Customer Contribution Summary'}
               data={{
                 observed: isZh
-                  ? `散佈共 ${scatterRows.length} 家（毛利率缺值 ${absentCount} 家未繪）。總淨銷售額 ${fmtUSD(
+                  ? `氣泡共 ${scatterRows.length} 家（三變數無效 ${absentCount} 家未繪，詳列例外表；面積正比於正淨銷量 KG）。總淨銷售額 ${fmtUSD(
                       kpis.netSalesUSD
                     )}，總毛利額 ${fmtUSD(kpis.grossProfitUSD)}（加權毛利率 ${fmtPercent(
                       kpis.grossMarginPercent
@@ -463,7 +549,7 @@ export const D06CustomerContribution: React.FC<Props> = ({ slicer }) => {
                           )}，毛利額 ${fmtUSD(topCustomer.grossProfitUSD)}。`
                         : '。'
                     }`
-                  : `Scatter covers ${scatterRows.length} customers (${absentCount} with null GM not plotted). Total Net Sales ${fmtUSD(
+                  : `Bubbles cover ${scatterRows.length} customers (${absentCount} invalid-axis or quantity rows in exceptions; area proportional to positive net qty KG). Total Net Sales ${fmtUSD(
                       kpis.netSalesUSD
                     )}, Gross Profit ${fmtUSD(kpis.grossProfitUSD)} (weighted GM% ${fmtPercent(
                       kpis.grossMarginPercent
@@ -477,10 +563,10 @@ export const D06CustomerContribution: React.FC<Props> = ({ slicer }) => {
                 interpretation: isZh
                   ? `前五大客戶集中度 CR5 為 ${
                       analysis?.concentrationStatus === 'available' ? fmtPercent(analysis?.cr5) : DASH
-                    }。散佈只描述位置，不做迴歸或因果推論；點擊任一點可下鑽該客戶的產品組合。`
+                    }。氣泡只描述營收規模、毛利率位置與銷量，不做迴歸或因果推論；點選任一點或表列只高亮，再用橫幅「下鑽」看該客戶的產品組合。`
                   : `Top-5 customer share (CR5) is ${
                       analysis?.concentrationStatus === 'available' ? fmtPercent(analysis?.cr5) : DASH
-                    }. The scatter describes positions only, with no regression or causal claim; click any point to drill into its products.`,
+                    }. Bubbles describe revenue scale, margin position and volume only, with no regression or causal claim; clicking highlights, and the banner drills into products.`,
                 claimType: 'OBSERVATION',
                 coverage: `${summaryLabels.monthLabel} · ${summaryLabels.companyLabel}`,
                 confidence: 'SSAS Direct',
@@ -489,8 +575,8 @@ export const D06CustomerContribution: React.FC<Props> = ({ slicer }) => {
                 source: data?.source,
                 limitations: [
                   isZh
-                    ? '散佈僅含淨銷售額與毛利率皆有值者；缺值客戶仍在明細與 CSV。圓點大小一致，不代表第三變數。'
-                    : 'The scatter includes only customers with both net sales and GM% present; absent rows remain in the table and CSV. Point size encodes nothing.',
+                    ? '氣泡只含營收、毛利率為有限值且淨銷量為正者；其他客戶列於例外表及完整明細與 CSV。面積正比於正淨銷量（直徑 k·√qty），不補最小尺寸；小量客戶請由完整明細選取。'
+                    : 'Bubbles require finite sales and margin and positive net quantity. Other customers remain in exceptions, full table and CSV. Area is proportional to quantity (diameter k*sqrt(qty)) without a minimum floor; select very small customers from the full table.',
                 ],
                 nextSteps: [
                   isZh ? '進入 D11 檢視客戶集中度 CR5 與 HHI 指數' : 'Go to D11 Customer Concentration',

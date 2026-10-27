@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { OperationsOverview } from '../composition/OperationsOverview';
 import { Filters, SalesRow } from '../types/sales';
 import { useSalesDashboard } from '../services/salesApi';
 import { StateGuard } from '../components/common/StateGuard';
@@ -60,7 +61,7 @@ function getMonthlyTrendSeries(
 }
 
 export const D00DecisionHome: React.FC<Props> = ({ slicer, onNavigate }) => {
-  const { theme, lang, navigate, openDrillDown, metadata, aiEnabled, setLastDashboardContext } =
+  const { theme, lang, navigate, openDrillDown, metadata, aiEnabled, operationsEnabled, setLastDashboardContext } =
     useApp();
   const isDark = theme === 'dark';
   const isZh = lang === 'zh-TW';
@@ -491,6 +492,8 @@ export const D00DecisionHome: React.FC<Props> = ({ slicer, onNavigate }) => {
                 </span>
               </div>
             </div>
+
+            {operationsEnabled && <OperationsOverview onNavigate={onNavigate} />}
 
             {/* Primary Charts Row: Core Monthly Trend + Company Comparison */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">

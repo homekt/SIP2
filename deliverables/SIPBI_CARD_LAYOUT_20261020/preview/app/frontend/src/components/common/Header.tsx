@@ -201,18 +201,20 @@ export const Header: React.FC<HeaderProps> = ({ evidence, activeTab, onTabChange
     aiEnabled,
   } = useApp();
   const isZh = lang === 'zh-TW';
+  const isOperations = activeTab.startsWith('OPS_');
   const [sourceProbe,setSourceProbe] = useState<{ready:boolean|null;at:string}>({ready:null,at:''});
   const [inspectorOpen, setInspectorOpen] = useState(false);
   useEffect(()=>{
     let active=true;let controller:AbortController|null=null;
     const check=async()=>{
       controller?.abort();controller=new AbortController();
-      try{const response=await fetch('/api/source/status',{signal:controller.signal});const result=await response.json();if(active)setSourceProbe({ready:response.ok&&result.ready===true,at:result.source?.queriedAt||new Date().toISOString()});}
+      try{const response=await fetch(isOperations ? '/api/operations/status' : '/api/source/status',{signal:controller.signal});const result=await response.json();if(active)setSourceProbe({ready:response.ok&&(isOperations ? result.status==='ok' : result.ready===true),at:result.source?.queriedAt||new Date().toISOString()});}
       catch{if(active && !controller.signal.aborted)setSourceProbe({ready:false,at:new Date().toISOString()});}
     };
+    setSourceProbe({ready:null,at:''});setInspectorOpen(false);
     void check();const timer=setInterval(check,30000);
     return()=>{active=false;controller?.abort();clearInterval(timer);};
-  },[]);
+  },[isOperations]);
   const visibleDashboards = getVisibleDashboards(aiEnabled);
   const currentDash = visibleDashboards.find((d) => d.id === activeTab) || visibleDashboards[0];
 
@@ -239,16 +241,16 @@ export const Header: React.FC<HeaderProps> = ({ evidence, activeTab, onTabChange
               <div>
                 <div className="flex items-center space-x-2">
                   <h1 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white tracking-tight truncate">
-                    {t('app.title')}
+                    {isOperations ? (isZh ? '營運決策看板' : 'Operations Decision Workspace') : t('app.title')}
                   </h1>
                   <span className="hidden sm:inline-block px-2 py-0.5 text-2xs font-semibold bg-indigo-50 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300 rounded-full border border-indigo-200 dark:border-indigo-800">
-                    {activeTab} · {isZh ? currentDash?.categoryZh : currentDash?.categoryEn}
+                    {activeTab} · {isOperations ? (isZh ? '營運模型' : 'Operations source') : (isZh ? currentDash?.categoryZh : currentDash?.categoryEn)}
                   </span>
                 </div>
                 <p className="text-2xs text-slate-500 dark:text-slate-400 font-mono hidden sm:block">
                   SSAS:{' '}
                   <code className="text-slate-700 dark:text-slate-300">
-                    localhost:25000 / JDE_SALES_CUBE_20261020 / JDE Sales
+                    {isOperations ? 'localhost:25000 / SI_Powered_BI / SI Manufacturing BI' : 'localhost:25000 / JDE_SALES_CUBE_20261020 / JDE Sales'}
                   </code>
                 </p>
               </div>
@@ -334,17 +336,17 @@ export const Header: React.FC<HeaderProps> = ({ evidence, activeTab, onTabChange
               </span>
             </button>
 
-            <button
-              onClick={() => setInspectorOpen(true)}
+            <button disabled={isOperations}
+              onClick={() => { if (!isOperations) setInspectorOpen(true); }}
               className="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 border border-emerald-200 dark:border-emerald-800 flex items-center space-x-1 transition-colors cursor-pointer"
               title={isZh ? '開啟 SSAS 語意目錄與三層式證據檢視器 (WP15 / WP16)' : 'Open SSAS Metadata & 3-Tier Evidence Inspector (WP15 / WP16)'}
             >
               <span>🛡️</span>
-              <span className="hidden sm:inline">{isZh ? '證據與目錄' : 'Evidence'}</span>
+              <span className="hidden sm:inline">{isOperations ? (isZh ? '證據見各圖下方' : 'Receipts below charts') : (isZh ? '證據與目錄' : 'Evidence')}</span>
             </button>
 
             <div
-              onClick={() => setInspectorOpen(true)}
+              onClick={() => { if (!isOperations) setInspectorOpen(true); }}
               className="text-right hidden xl:block pl-2 border-l border-slate-200 dark:border-slate-800 cursor-pointer hover:opacity-80 transition-opacity"
               title={isZh ? '點擊檢視完整 Query Hash 與 10 條算術誠實性規則' : 'Click to inspect full Query Hash & 10 arithmetic honesty rules'}
             >
@@ -355,12 +357,12 @@ export const Header: React.FC<HeaderProps> = ({ evidence, activeTab, onTabChange
                   </>
                 ) : (
                   <>
-                    Cube: <span className="text-slate-600 dark:text-slate-300">JDE Sales</span>
+                    Cube: <span className="text-slate-600 dark:text-slate-300">{isOperations ? 'SI Manufacturing BI' : 'JDE Sales'}</span>
                   </>
                 )}
               </div>
               <div className="text-2xs text-slate-500 dark:text-slate-400">
-                USD · KG · <span className="font-semibold">Invoice Date</span> |{' '}
+                {isOperations ? 'CNY · KG · ' : 'USD · KG · '}<span className="font-semibold">{isOperations ? 'ProductionDate / ActualShipDate / EventDate / AsOfDate' : 'Invoice Date'}</span> |{' '}
                 <span title={sourceProbe.at} className={sourceProbe.ready===true?'text-emerald-600 font-semibold':sourceProbe.ready===false?'text-rose-600 font-semibold':'text-slate-500'}>{sourceProbe.ready===null?(isZh?'來源探測中':'Checking source'):sourceProbe.ready?(isZh?'上次來源探測成功':'Last source probe OK'):(isZh?'來源無法使用':'Source unavailable')}</span>
               </div>
             </div>
@@ -368,7 +370,7 @@ export const Header: React.FC<HeaderProps> = ({ evidence, activeTab, onTabChange
         </div>
       </div>
       <EvidenceInspectorModal
-        isOpen={inspectorOpen}
+        isOpen={!isOperations && inspectorOpen}
         onClose={() => setInspectorOpen(false)}
         sourceProbe={sourceProbe}
       />

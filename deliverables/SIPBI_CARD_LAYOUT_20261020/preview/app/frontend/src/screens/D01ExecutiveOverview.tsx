@@ -126,9 +126,7 @@ export const D01ExecutiveOverview: React.FC<Props> = ({ slicer }) => {
     }
   };
 
-  // Primary Analytical View: Consolidate monthly monetary & GM% into ONE clear combo chart
-  // Blue bars: Net Sales USD (left y-axis, 0-baseline)
-  // Amber line: Weighted Gross Margin % (right y-axis)
+  // Two aligned panels share invoice months; each has its own meaningful unit.
   const monthlyComboOption = {
     tooltip: {
       trigger: 'axis',
@@ -162,7 +160,7 @@ export const D01ExecutiveOverview: React.FC<Props> = ({ slicer }) => {
         isZh ? '加權毛利率 (%, 折線)' : 'Weighted GM % (Line)',
       ],
     },
-    grid: { left: 16, right: 20, bottom: 42, top: 28, containLabel: true },
+    grid: { left: 66, right: 20, bottom: 42, top: 28, containLabel: false },
     xAxis: {
       type: 'category',
       data: monthly.map((m) => m.key),
@@ -233,6 +231,14 @@ export const D01ExecutiveOverview: React.FC<Props> = ({ slicer }) => {
 
   // Secondary Analytical View: Plant Net Sales Ranking (10 plants with key drill)
   const orderedPlants = [...plants].reverse();
+  const monthlyRevenueOption = { ...monthlyComboOption,
+    legend: { ...monthlyComboOption.legend, data: [monthlyComboOption.series[0].name] },
+    yAxis: [monthlyComboOption.yAxis[0]], series: [monthlyComboOption.series[0]] };
+  const monthlyMarginOption = { ...monthlyComboOption,
+    legend: { ...monthlyComboOption.legend, data: [monthlyComboOption.series[1].name] },
+    yAxis: [{ ...monthlyComboOption.yAxis[1], position: 'left' }],
+    series: [{ ...monthlyComboOption.series[1], yAxisIndex: 0 }] };
+
   const plantBarOption = {
     tooltip: {
       trigger: 'axis',
@@ -401,23 +407,24 @@ export const D01ExecutiveOverview: React.FC<Props> = ({ slicer }) => {
                     <div>
                       <h3 className="text-sm font-bold text-slate-900 dark:text-white">
                         {isZh
-                          ? '月度淨銷售額與加權毛利率走勢 (USD 長條 + GM% 折線組合圖)'
-                          : 'Monthly Net Sales & Weighted Gross Margin (USD Bars + GM% Line)'}
+                          ? '營收規模與毛利品質（上下對齊、各自單位）'
+                          : 'Revenue Scale & Margin Quality (Aligned Panels)'}
                       </h3>
                       <p className="text-xs text-slate-500 dark:text-slate-400">
                         {isZh
-                          ? '左軸淨銷售額（藍色柱狀，0 基線）· 右軸加權毛利率（琥珀色折線，動態焦點區間）· 點擊月份下鑽產品明細'
-                          : 'Left axis: Net Sales (blue bars, 0-baseline); Right axis: Weighted GM% (amber line); Click month to drill'}
+                          ? '上圖 USD 金額、下圖加權毛利率；相同月份對齊，點擊月份可鑽取。'
+                          : 'Revenue above (USD), weighted margin below (%); aligned invoice months. Click a month to drill.'}
                       </p>
                     </div>
                   </div>
                   <EChartsContainer
-                    option={monthlyComboOption}
-                    height="360px"
+                    option={monthlyRevenueOption}
+                    height="240px"
                     onEvents={{
                       click: (params: any) => handleMonthDrillDown(params.dataIndex),
                     }}
                   />
+                  <EChartsContainer option={monthlyMarginOption} height="180px" onEvents={{ click: (params: any) => handleMonthDrillDown(params.dataIndex) }} />
                 </div>
               </div>
 

@@ -1,3 +1,4 @@
+import {CategoryShareComparison} from '../composition/productViews';
 import React, { useState, useMemo } from 'react';
 import { Filters, SalesRow } from '../types/sales';
 import { useSalesDashboard } from '../services/salesApi';
@@ -875,6 +876,8 @@ export const D04ProductMix: React.FC<Props> = ({ slicer }) => {
             </details>
 
             {/* Compact Summary & Evidence Receipt */}
+            <CategoryShareComparison key={JSON.stringify(slicer)} rows={categories}/>
+
             <AiInsightCard
               title={isZh ? 'D04 產品組合結構分析' : 'D04 Product Mix Insights'}
               data={{
