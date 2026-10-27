@@ -1,0 +1,449 @@
+{
+  "startedAt": "2026-10-27T04:46:50.145Z",
+  "base": "http://127.0.0.1:55274",
+  "checks": [
+    "real JDE source status 60000/20111",
+    "12 sales pages; other cube and cloud model disabled",
+    "all 12 API dashboards match independent SSAS MDX for September",
+    "D16 full product waterfall reconciles with current minus prior KPI",
+    "actual month/company filters change source-backed values",
+    "first-year growth has no invented prior or waterfall",
+    "future period returns no_data",
+    "real deterministic interpretation binds selected product and snapshot; rejects stale snapshot and missing product; ignores client numeric claims",
+    "independent operations source blocked by live API"
+  ],
+  "pages": [
+    {
+      "id": "D00",
+      "kpis": {
+        "netSalesUSD": 16234174.4534,
+        "netCostUSD": 11872808.7568,
+        "grossProfitUSD": 4361365.6966,
+        "netQtyKG": 5564253.57,
+        "salesQtyKG": 5684976.86,
+        "returnQtyKG": 120723.29,
+        "orderCount": 811,
+        "salesLineCount": 2384,
+        "fullReturnLineCount": 24,
+        "partialReturnLineCount": 226,
+        "allowanceLineCount": 201,
+        "negativeMarginLineCount": 44,
+        "grossMarginPercent": 0.26865337126438105,
+        "returnRatePercent": 0.021235493648077926,
+        "averageSellingPriceUSD": 2.917583508581907
+      },
+      "requestId": "687f2042-e108-47ae-ac06-9c7778c5307d",
+      "queryHash": "956627c88a663b3c1afc5b4a287b2a03657f7bea4e93fb0a9ef2193a29923585",
+      "snapshotId": "4052cbe96656f5a2c43d9a5c56676e9c911e6ebb41b63a6f452866c4a5e1c3a1"
+    },
+    {
+      "id": "D01",
+      "kpis": {
+        "netSalesUSD": 16234174.4534,
+        "netCostUSD": 11872808.7568,
+        "grossProfitUSD": 4361365.6966,
+        "netQtyKG": 5564253.57,
+        "salesQtyKG": 5684976.86,
+        "returnQtyKG": 120723.29,
+        "orderCount": 811,
+        "salesLineCount": 2384,
+        "fullReturnLineCount": 24,
+        "partialReturnLineCount": 226,
+        "allowanceLineCount": 201,
+        "negativeMarginLineCount": 44,
+        "grossMarginPercent": 0.26865337126438105,
+        "returnRatePercent": 0.021235493648077926,
+        "averageSellingPriceUSD": 2.917583508581907
+      },
+      "requestId": "f773e49b-583e-42e6-906d-962b2f843188",
+      "queryHash": "f4a4cdfb3e44fcb474d1ccab82f46b773504f5e2931437a1fd1b73d508fdf85c",
+      "snapshotId": "76cbdca63066e0be43e6d438331f5f0f6c48d7eb97aee55f2240227ca9ce8ba9"
+    },
+    {
+      "id": "D02",
+      "kpis": {
+        "netSalesUSD": 16234174.4534,
+        "netCostUSD": 11872808.7568,
+        "grossProfitUSD": 4361365.6966,
+        "netQtyKG": 5564253.57,
+        "salesQtyKG": 5684976.86,
+        "returnQtyKG": 120723.29,
+        "orderCount": 811,
+        "salesLineCount": 2384,
+        "fullReturnLineCount": 24,
+        "partialReturnLineCount": 226,
+        "allowanceLineCount": 201,
+        "negativeMarginLineCount": 44,
+        "grossMarginPercent": 0.26865337126438105,
+        "returnRatePercent": 0.021235493648077926,
+        "averageSellingPriceUSD": 2.917583508581907
+      },
+      "requestId": "198e94eb-47da-456a-8d14-896124f5087a",
+      "queryHash": "daebeff8867c279e85cfb9b01997fbf2b4c03acfa95a879c0ef3d35c835c1d7e",
+      "snapshotId": "36d65872ba10eecf00602ebc12c7d06098f092aacb125a9b775c0f2314b84801"
+    },
+    {
+      "id": "D04",
+      "kpis": {
+        "netSalesUSD": 16234174.4534,
+        "netCostUSD": 11872808.7568,
+        "grossProfitUSD": 4361365.6966,
+        "netQtyKG": 5564253.57,
+        "salesQtyKG": 5684976.86,
+        "returnQtyKG": 120723.29,
+        "orderCount": 811,
+        "salesLineCount": 2384,
+        "fullReturnLineCount": 24,
+        "partialReturnLineCount": 226,
+        "allowanceLineCount": 201,
+        "negativeMarginLineCount": 44,
+        "grossMarginPercent": 0.26865337126438105,
+        "returnRatePercent": 0.021235493648077926,
+        "averageSellingPriceUSD": 2.917583508581907
+      },
+      "requestId": "1fc5fc8a-4ab1-43d0-9d03-f3a0d3661540",
+      "queryHash": "7e3ff5673bc1c67062d09be78686c5268e1300e77483085999c7a89ea158a163",
+      "snapshotId": "241c79f472b6d051b34c98936c2540a5adab09bdca17df37549a12a76bba1452"
+    },
+    {
+      "id": "D06",
+      "kpis": {
+        "netSalesUSD": 16234174.4534,
+        "netCostUSD": 11872808.7568,
+        "grossProfitUSD": 4361365.6966,
+        "netQtyKG": 5564253.57,
+        "salesQtyKG": 5684976.86,
+        "returnQtyKG": 120723.29,
+        "orderCount": 811,
+        "salesLineCount": 2384,
+        "fullReturnLineCount": 24,
+        "partialReturnLineCount": 226,
+        "allowanceLineCount": 201,
+        "negativeMarginLineCount": 44,
+        "grossMarginPercent": 0.26865337126438105,
+        "returnRatePercent": 0.021235493648077926,
+        "averageSellingPriceUSD": 2.917583508581907
+      },
+      "requestId": "c2eb3582-b2b3-4df8-96d8-ada0c1d916de",
+      "queryHash": "8267381768938c0f2236e989ca4309cefe871ed99ba82758f9f540b7a3542c6f",
+      "snapshotId": "ca0b9dd0518fd5e35d7ba41386daf29f5fc31d363e2ad324bb29ed572b7191d1"
+    },
+    {
+      "id": "D08",
+      "kpis": {
+        "netSalesUSD": 16234174.4534,
+        "netCostUSD": 11872808.7568,
+        "grossProfitUSD": 4361365.6966,
+        "netQtyKG": 5564253.57,
+        "salesQtyKG": 5684976.86,
+        "returnQtyKG": 120723.29,
+        "orderCount": 811,
+        "salesLineCount": 2384,
+        "fullReturnLineCount": 24,
+        "partialReturnLineCount": 226,
+        "allowanceLineCount": 201,
+        "negativeMarginLineCount": 44,
+        "grossMarginPercent": 0.26865337126438105,
+        "returnRatePercent": 0.021235493648077926,
+        "averageSellingPriceUSD": 2.917583508581907
+      },
+      "requestId": "7c110e75-83d1-442c-b2bb-75c6199413e2",
+      "queryHash": "ee62f73d54a8035bad15613f2efb3228d66b88464784161953e852e8565e8567",
+      "snapshotId": "1d4cefc9f87dd9c4456f599049ee52405ca0f797f36ae06ba8dd6d11839672d3"
+    },
+    {
+      "id": "D11",
+      "kpis": {
+        "netSalesUSD": 16234174.4534,
+        "netCostUSD": 11872808.7568,
+        "grossProfitUSD": 4361365.6966,
+        "netQtyKG": 5564253.57,
+        "salesQtyKG": 5684976.86,
+        "returnQtyKG": 120723.29,
+        "orderCount": 811,
+        "salesLineCount": 2384,
+        "fullReturnLineCount": 24,
+        "partialReturnLineCount": 226,
+        "allowanceLineCount": 201,
+        "negativeMarginLineCount": 44,
+        "grossMarginPercent": 0.26865337126438105,
+        "returnRatePercent": 0.021235493648077926,
+        "averageSellingPriceUSD": 2.917583508581907
+      },
+      "requestId": "4134f70d-f21e-4a6a-a128-e2bf43ca7a85",
+      "queryHash": "cd224f497987dae6b7ef7b9627f07d7b60381f94e0c25e37d7ad08771424cdfe",
+      "snapshotId": "5beb72ca6526b81e6f645edb9aa5acabed654644bce9bfc3d2385c6f4b04471f"
+    },
+    {
+      "id": "D13",
+      "kpis": {
+        "netSalesUSD": 16234174.4534,
+        "netCostUSD": 11872808.7568,
+        "grossProfitUSD": 4361365.6966,
+        "netQtyKG": 5564253.57,
+        "salesQtyKG": 5684976.86,
+        "returnQtyKG": 120723.29,
+        "orderCount": 811,
+        "salesLineCount": 2384,
+        "fullReturnLineCount": 24,
+        "partialReturnLineCount": 226,
+        "allowanceLineCount": 201,
+        "negativeMarginLineCount": 44,
+        "grossMarginPercent": 0.26865337126438105,
+        "returnRatePercent": 0.021235493648077926,
+        "averageSellingPriceUSD": 2.917583508581907
+      },
+      "requestId": "157889ba-8065-4623-a946-997f511b226b",
+      "queryHash": "6e9313e550196667e53e7e94f6675aa6e2f42c57492b09998dad66306b4ea82d",
+      "snapshotId": "70e4da1fb0c8a3dae6b6b58717b1ab20a66dd24892a619d21375ea1e099c42d3"
+    },
+    {
+      "id": "D14",
+      "kpis": {
+        "netSalesUSD": 16234174.4534,
+        "netCostUSD": 11872808.7568,
+        "grossProfitUSD": 4361365.6966,
+        "netQtyKG": 5564253.57,
+        "salesQtyKG": 5684976.86,
+        "returnQtyKG": 120723.29,
+        "orderCount": 811,
+        "salesLineCount": 2384,
+        "fullReturnLineCount": 24,
+        "partialReturnLineCount": 226,
+        "allowanceLineCount": 201,
+        "negativeMarginLineCount": 44,
+        "grossMarginPercent": 0.26865337126438105,
+        "returnRatePercent": 0.021235493648077926,
+        "averageSellingPriceUSD": 2.917583508581907
+      },
+      "requestId": "f070379f-17f6-4fda-afcd-f8abdfc66420",
+      "queryHash": "98cc489a52226e9cbf8f788ea91829982cf55c93247e1e7fc80a7d33e68cd17d",
+      "snapshotId": "2a80134442a97e9801957a4ddae26fd63621b643529c4ef06926d83d5a4d033e"
+    },
+    {
+      "id": "D15",
+      "kpis": {
+        "netSalesUSD": 16234174.4534,
+        "netCostUSD": 11872808.7568,
+        "grossProfitUSD": 4361365.6966,
+        "netQtyKG": 5564253.57,
+        "salesQtyKG": 5684976.86,
+        "returnQtyKG": 120723.29,
+        "orderCount": 811,
+        "salesLineCount": 2384,
+        "fullReturnLineCount": 24,
+        "partialReturnLineCount": 226,
+        "allowanceLineCount": 201,
+        "negativeMarginLineCount": 44,
+        "grossMarginPercent": 0.26865337126438105,
+        "returnRatePercent": 0.021235493648077926,
+        "averageSellingPriceUSD": 2.917583508581907
+      },
+      "requestId": "428e1605-9c53-46ea-8bbe-cae558cb3c65",
+      "queryHash": "2ed582795e65581a4b50960176ee289fa0f790329d2413bab482226efdb1e6ba",
+      "snapshotId": "84fbd24098f75064e1b08bacb0f5509755922456a4b60b83e502f3cbafd10ad2"
+    },
+    {
+      "id": "D16",
+      "kpis": {
+        "netSalesUSD": 16234174.4534,
+        "netCostUSD": 11872808.7568,
+        "grossProfitUSD": 4361365.6966,
+        "netQtyKG": 5564253.57,
+        "salesQtyKG": 5684976.86,
+        "returnQtyKG": 120723.29,
+        "orderCount": 811,
+        "salesLineCount": 2384,
+        "fullReturnLineCount": 24,
+        "partialReturnLineCount": 226,
+        "allowanceLineCount": 201,
+        "negativeMarginLineCount": 44,
+        "grossMarginPercent": 0.26865337126438105,
+        "returnRatePercent": 0.021235493648077926,
+        "averageSellingPriceUSD": 2.917583508581907
+      },
+      "requestId": "1fa0d88b-d0a8-4eac-80c7-e8381a37e105",
+      "queryHash": "48939ef546ccbe46d292d9407f18a23a4411965db17189d5c56979a5b7fc6312",
+      "snapshotId": "4e62d741c18e09b46ea403cb409bb62cb22c2783fe7ad12b8b602c9165e47d24"
+    },
+    {
+      "id": "D18",
+      "kpis": {
+        "netSalesUSD": 16234174.4534,
+        "netCostUSD": 11872808.7568,
+        "grossProfitUSD": 4361365.6966,
+        "netQtyKG": 5564253.57,
+        "salesQtyKG": 5684976.86,
+        "returnQtyKG": 120723.29,
+        "orderCount": 811,
+        "salesLineCount": 2384,
+        "fullReturnLineCount": 24,
+        "partialReturnLineCount": 226,
+        "allowanceLineCount": 201,
+        "negativeMarginLineCount": 44,
+        "grossMarginPercent": 0.26865337126438105,
+        "returnRatePercent": 0.021235493648077926,
+        "averageSellingPriceUSD": 2.917583508581907
+      },
+      "requestId": "b772e64a-98f6-4925-a6fc-6fffd7e86479",
+      "queryHash": "4b88dec849a71fac461420b53c9fe3f983a96595024705c614b7748625a18f51",
+      "snapshotId": "dc7ea364bece9797d54b7e24df4023fa4774bb8a96d050e7f93605710c49c4db"
+    }
+  ],
+  "completedAt": "2026-10-27T04:47:00.495Z",
+  "interpretation": {
+    "engine": "deterministic",
+    "claims": [
+      {
+        "id": "selected-netSalesUSD",
+        "text": "產品 BZT-06（虛擬PE袋產品06） 淨銷售額：275,840.04 USD",
+        "factIds": [
+          "selected-netSalesUSD"
+        ],
+        "evidenceRef": "3530da7c-67f5-44a6-924d-f67094638b34",
+        "kind": "observation"
+      },
+      {
+        "id": "selected-grossProfitUSD",
+        "text": "產品 BZT-06（虛擬PE袋產品06） 毛利額：73,333.88 USD",
+        "factIds": [
+          "selected-grossProfitUSD"
+        ],
+        "evidenceRef": "3530da7c-67f5-44a6-924d-f67094638b34",
+        "kind": "observation"
+      },
+      {
+        "id": "selected-grossMarginPercent",
+        "text": "產品 BZT-06（虛擬PE袋產品06） 毛利率：26.59%",
+        "factIds": [
+          "selected-grossMarginPercent"
+        ],
+        "evidenceRef": "3530da7c-67f5-44a6-924d-f67094638b34",
+        "kind": "observation"
+      },
+      {
+        "id": "selected-netQtyKG",
+        "text": "產品 BZT-06（虛擬PE袋產品06） 淨銷量：65,358.71 KG",
+        "factIds": [
+          "selected-netQtyKG"
+        ],
+        "evidenceRef": "3530da7c-67f5-44a6-924d-f67094638b34",
+        "kind": "observation"
+      },
+      {
+        "id": "scope-sales",
+        "text": "目前範圍淨銷售額：16,234,174.45 USD",
+        "factIds": [
+          "scope-sales"
+        ],
+        "evidenceRef": "3530da7c-67f5-44a6-924d-f67094638b34",
+        "kind": "observation"
+      },
+      {
+        "id": "scope-profit",
+        "text": "目前範圍毛利額：4,361,365.7 USD",
+        "factIds": [
+          "scope-profit"
+        ],
+        "evidenceRef": "3530da7c-67f5-44a6-924d-f67094638b34",
+        "kind": "observation"
+      },
+      {
+        "id": "scope-margin",
+        "text": "目前範圍加權毛利率：26.87%",
+        "factIds": [
+          "scope-margin"
+        ],
+        "evidenceRef": "3530da7c-67f5-44a6-924d-f67094638b34",
+        "kind": "observation"
+      },
+      {
+        "id": "scope-quantity",
+        "text": "目前範圍淨銷量：5,564,253.57 KG",
+        "factIds": [
+          "scope-quantity"
+        ],
+        "evidenceRef": "3530da7c-67f5-44a6-924d-f67094638b34",
+        "kind": "observation"
+      },
+      {
+        "id": "margin-below-reference",
+        "text": "此產品毛利率低於目前範圍的加權毛利率；這是相對比較，並非已核准的風險門檻。",
+        "factIds": [
+          "selected-grossMarginPercent",
+          "scope-weighted-margin"
+        ],
+        "evidenceRef": "3530da7c-67f5-44a6-924d-f67094638b34",
+        "kind": "arithmetic"
+      },
+      {
+        "id": "revenue-at-or-above-median",
+        "text": "此產品營收達到或高於目前產品母體的中位數。",
+        "factIds": [
+          "selected-netSalesUSD",
+          "scope-revenue-median"
+        ],
+        "evidenceRef": "3530da7c-67f5-44a6-924d-f67094638b34",
+        "kind": "arithmetic"
+      }
+    ],
+    "source": {
+      "pageId": "D14",
+      "panelId": "portfolio",
+      "productKey": "BZT-06",
+      "filters": {
+        "month": "202609",
+        "company": "All",
+        "product": "All",
+        "customer": "All",
+        "salesperson": "All",
+        "plant": "All",
+        "costCenter": "All"
+      },
+      "source": {
+        "server": "localhost:25000",
+        "database": "JDE_SALES_CUBE_20261020",
+        "cube": "JDE Sales",
+        "dateRole": "Invoice Date",
+        "currency": "USD",
+        "quantityUnit": "KG",
+        "synthetic": true,
+        "coverageStart": "202401",
+        "coverageEnd": "202609",
+        "queriedAt": "2026-10-27T04:46:53.253Z"
+      },
+      "requestId": "3530da7c-67f5-44a6-924d-f67094638b34",
+      "queryHash": "98cc489a52226e9cbf8f788ea91829982cf55c93247e1e7fc80a7d33e68cd17d",
+      "snapshotId": "2a80134442a97e9801957a4ddae26fd63621b643529c4ef06926d83d5a4d033e",
+      "queriedAt": "2026-10-27T04:46:53.253Z",
+      "grain": "invoice-date/D14",
+      "measures": [
+        "Net Sales USD",
+        "Net Cost USD",
+        "Gross Profit USD",
+        "Net Quantity KG",
+        "Sales Quantity KG",
+        "Return Quantity KG",
+        "Order Count",
+        "Sales Line Count",
+        "Full Return Line Count",
+        "Partial Return Line Count",
+        "Allowance Line Count",
+        "Negative Margin Line Count"
+      ],
+      "notes": [
+        "Synthetic sales cube shared by five companies. No login.",
+        "Date role is Invoice Date. Currency is USD. Quantity is KG. Local-currency measures are not queried.",
+        "Order count is the cube distinct-count aggregate at the requested grain. It is never a sum of monthly or group counts.",
+        "grossMarginPercent is gross profit divided by net sales when net sales is not zero. returnRatePercent is return KG divided by sales KG when sales KG is not zero. averageSellingPriceUSD is net sales divided by net KG when net KG is not zero. Ratios are fractions and match the cube calculated measures.",
+        "The monthly dataset runs from coverage start through the selected covered month. The month filter is the series endpoint. Empty covered months zero-fill additive measures. Distinct order count stays null on those months.",
+        "YoY uses the same invoice month one year earlier. It is null when prior net sales is missing or not positive. Rolling and YTD windows that leave 202401..202609 are null and are not extrapolated.",
+        "Waterfall unions current and prior-year products, including products that disappear. Missing sides are zero in that arithmetic. Delta sums to current product net sales minus prior product net sales.",
+        "CR5 and HHI use every customer in the slice. They are defined only when total net sales is positive and no customer net sales is negative. HHI is the sum of squared revenue shares.",
+        "Portfolio median is the median of selected product net sales. weightedMargin is aggregate gross profit divided by net sales when net sales is positive. It is not an external market classification.",
+        "Observations report measured values only. They do not apply invented thresholds."
+      ],
+      "locale": "zh-TW"
+    }
+  }
+}

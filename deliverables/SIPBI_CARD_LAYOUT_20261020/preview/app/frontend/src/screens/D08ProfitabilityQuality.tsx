@@ -1,4 +1,6 @@
-import React from 'react';
+import {VerifiedAnalysisPanel} from '../components/ai/VerifiedAnalysisPanel';
+import React, {useState,useEffect} from 'react';
+import {ProductProfitRanking,ProductFocus} from '../composition/productViews';
 import { Filters } from '../types/sales';
 import { useSalesDashboard } from '../services/salesApi';
 import { StateGuard } from '../components/common/StateGuard';
@@ -56,6 +58,10 @@ export const D08ProfitabilityQuality: React.FC<Props> = ({ slicer }) => {
   const summaryLabels = getFilterSummaryLabels(slicer, metadata, isZh);
   const kpis = data?.kpis;
   const products = data?.datasets?.products || [];
+  const [selectedKey,setSelectedKey]=useState<string|null>(null);
+  const filterContext=JSON.stringify(slicer);
+  useEffect(()=>setSelectedKey(null),[filterContext]);
+  const selectedProduct=products.find(row=>row.key===selectedKey);
   const costCenters = data?.datasets?.costCenters || [];
   const monthly = [...(data?.datasets?.monthly || [])].sort((a, b) =>
     a.key.localeCompare(b.key)
@@ -333,6 +339,11 @@ export const D08ProfitabilityQuality: React.FC<Props> = ({ slicer }) => {
                 drillThroughTarget="D18"
               />
             </div>
+
+            <ProductProfitRanking rows={products} selectedKey={selectedKey} onSelect={setSelectedKey} quality/>
+            <ProductFocus row={selectedProduct} page="D08" onReset={()=>setSelectedKey(null)}/>
+            <label className="flex flex-wrap items-center gap-3 text-sm text-slate-700 dark:text-slate-200">{isZh?'解讀產品':'Product to explain'}<select aria-label={isZh?'解讀產品':'Product to explain'} value={selectedKey||''} onChange={event=>setSelectedKey(event.target.value||null)} className="max-w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 p-2"><option value="">{isZh?'請選取產品':'Select a product'}</option>{products.map(row=><option key={row.key} value={row.key}>{row.key} · {row.label}</option>)}</select></label>
+            <VerifiedAnalysisPanel dashboard={data} panelId="profit" productKey={selectedKey} onRefresh={reload}/>
 
             <div className="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xs">
               <h3 className="text-sm font-semibold text-slate-900 dark:text-white">

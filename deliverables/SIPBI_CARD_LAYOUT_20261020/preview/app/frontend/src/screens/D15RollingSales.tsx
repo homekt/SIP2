@@ -1,4 +1,5 @@
 import React, { useCallback, useMemo, useState } from 'react';
+import { trailingAverage } from '../composition/comparisonMath';
 import { enrichMonthly } from '../utils/salesMath';
 import { Filters } from '../types/sales';
 import { useSalesDashboard } from '../services/salesApi';
@@ -9,7 +10,7 @@ import { AiInsightCard } from '../components/ai/AiInsightCard';
 import { useApp } from '../context/AppContext';
 import { getFilterSummaryLabels } from '../utils/slicerData';
 import {
-  exportSalesRowsCsv,
+  downloadCsv,
   fmtCount,
   fmtKG,
   fmtPercent,
@@ -59,6 +60,9 @@ export const D15RollingSales: React.FC<Props> = ({ slicer }) => {
 
   // Strictly preserve enrichMonthly calculation and time-gap behavior
   const enrichedMonthly = useMemo(() => enrichMonthly(monthly), [monthly]);
+
+  const averages = useMemo(() => trailingAverage(enrichedMonthly.map(m => ({ key: m.row.key, value: m.row.netSalesUSD })), 3), [enrichedMonthly]);
+  const averageLabel = isZh ? '3 個完整月移動平均（非 R3 總和）' : '3-complete-month average (not R3 sum)';
 
   const barColor = isDark ? '#60a5fa' : '#2563eb';
   const barSelectedColor = isDark ? '#93c5fd' : '#1d4ed8';
@@ -161,11 +165,11 @@ export const D15RollingSales: React.FC<Props> = ({ slicer }) => {
           : line(isZh ? '年度累計 (YTD · 1 月重設)' : 'YTD (Jan Reset)', ytdVal);
       const ctx =
         mode === 'monthly'
-          ? ''
+          ? `<br/>${line(averageLabel, averages[idx])}`
           : `<br/>${line(isZh ? '當月淨銷售額' : 'Monthly', row.netSalesUSD)}`;
       return `${head}<br/>${modeLine}${ctx}`;
     },
-    [enrichedMonthly, mode, isZh]
+    [enrichedMonthly, mode, isZh, averages, averageLabel]
   );
 
   const chartOption = useMemo(() => {
@@ -213,6 +217,12 @@ export const D15RollingSales: React.FC<Props> = ({ slicer }) => {
           markArea: selectedMarkArea,
         },
       ];
+      series.push({
+        name: averageLabel,
+        type: 'line', smooth: false, connectNulls: false, symbol: 'none',
+        data: averages,
+        lineStyle: { type: 'dashed', color: '#64748b', width: 2 }
+      });
     } else if (mode === 'ytd') {
       // One trace per calendar year under a shared legend entry so the line
       // never connects December into the January reset.
@@ -292,7 +302,7 @@ export const D15RollingSales: React.FC<Props> = ({ slicer }) => {
       legend: {
         bottom: 0,
         textStyle: { color: axisLabelColor, fontSize: 12 },
-        data: [meta.seriesName],
+        data: mode === 'monthly' ? [meta.seriesName, averageLabel] : [meta.seriesName],
       },
       grid: { left: 12, right: 16, bottom: 28, top: 28, containLabel: true },
       xAxis: {
@@ -383,7 +393,7 @@ export const D15RollingSales: React.FC<Props> = ({ slicer }) => {
           <button
             type="button"
             onClick={() =>
-              exportSalesRowsCsv(`D15_Rolling_${slicer.company}.csv`, monthly, 'MonthKey')
+              downloadCsv(`D15_Rolling_${slicer.company}.csv`, ['MonthKey','Label','NetSalesUSD','NetCostUSD','GrossProfitUSD','GrossMarginPercent','NetQtyKG','MovingAverage3USD','R3SumUSD','R12SumUSD','YTDUSD','RequestId','QueryHash'], enrichedMonthly.map((m,i) => [m.row.key,m.row.label,m.row.netSalesUSD,m.row.netCostUSD,m.row.grossProfitUSD,m.row.grossMarginPercent,m.row.netQtyKG,averages[i],m.r3Val,m.r12Val,m.ytdVal,data?.evidence.requestId,data?.evidence.queryHash]))
             }
             className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 cursor-pointer"
           >
@@ -418,7 +428,7 @@ export const D15RollingSales: React.FC<Props> = ({ slicer }) => {
                   footnote={summaryLabels.monthLabel}
                 trendSeries={miniTrend('monthly')}
                 />
-                
+
               </div>
               <div>
                 <KpiCard
@@ -431,7 +441,7 @@ export const D15RollingSales: React.FC<Props> = ({ slicer }) => {
                   }
                 trendSeries={miniTrend('r3Val')}
                 />
-                
+
               </div>
               <div>
                 <KpiCard
@@ -444,7 +454,7 @@ export const D15RollingSales: React.FC<Props> = ({ slicer }) => {
                   }
                 trendSeries={miniTrend('r12Val')}
                 />
-                
+
               </div>
               <div>
                 <KpiCard
@@ -460,7 +470,7 @@ export const D15RollingSales: React.FC<Props> = ({ slicer }) => {
                   }
                 trendSeries={miniTrend('ytdVal')}
                 />
-                
+
               </div>
             </div>
 
@@ -546,8 +556,9 @@ export const D15RollingSales: React.FC<Props> = ({ slicer }) => {
                         {isZh ? '當月淨銷售額 (1M)' : 'Monthly Sales'}
                       </th>
                       <th className="px-3 py-2.5 text-right font-semibold text-slate-600 dark:text-slate-300">
-                        {isZh ? '近 3 月總和 (R3M)' : 'R3M Sum'}
+                        {isZh ? '3 月移動平均' : '3M Average'}
                       </th>
+                      <th className="px-3 py-2.5 text-right font-semibold text-slate-600 dark:text-slate-300">{isZh ? '近 3 月總和 (R3M)' : 'R3M Sum'}</th>
                       <th className="px-3 py-2.5 text-right font-semibold text-slate-600 dark:text-slate-300">
                         {isZh ? '近 12 月總和 (R12M)' : 'R12M Sum'}
                       </th>
@@ -569,7 +580,7 @@ export const D15RollingSales: React.FC<Props> = ({ slicer }) => {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-mono tabular-nums">
-                    {enrichedMonthly.map(({ row: m, r3Val, r12Val, ytdVal }) => (
+                    {enrichedMonthly.map(({ row: m, r3Val, r12Val, ytdVal }, index) => (
                       <tr
                         key={m.key}
                         tabIndex={0}
@@ -583,6 +594,7 @@ export const D15RollingSales: React.FC<Props> = ({ slicer }) => {
                           {m.label ? `${m.label} (${m.key})` : m.key}
                         </td>
                         <td className="px-3 py-2 text-right font-bold">{fmtUSD(m.netSalesUSD)}</td>
+                        <td className="px-3 py-2 text-right">{fmtUSD(averages[index])}</td>
                         <td className="px-3 py-2 text-right">{fmtUSD(r3Val)}</td>
                         <td className="px-3 py-2 text-right">{fmtUSD(r12Val)}</td>
                         <td className="px-3 py-2 text-right font-semibold">{fmtUSD(ytdVal)}</td>

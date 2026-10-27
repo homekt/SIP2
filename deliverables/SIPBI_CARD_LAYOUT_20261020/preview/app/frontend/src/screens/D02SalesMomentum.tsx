@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { ComparisonHistory } from '../composition/ComparisonHistory';
 import { Filters, SalesRow } from '../types/sales';
 import { useSalesDashboard } from '../services/salesApi';
 import { StateGuard } from '../components/common/StateGuard';
@@ -459,6 +460,10 @@ export const D02SalesMomentum: React.FC<Props> = ({ slicer }) => {
                   />
                 </div>
               </div>
+            </div>
+
+            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4">
+              <ComparisonHistory slicer={slicer} dimension="company" maxMembers={5} showRanks />
             </div>
 
             {/* Subordinate Company Performance Table with native details */}

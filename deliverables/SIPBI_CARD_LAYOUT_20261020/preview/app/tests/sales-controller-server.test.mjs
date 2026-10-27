@@ -28,7 +28,7 @@ test('injection is rejected before the command boundary; malformed Host does not
 });
 test('AI daily quota limits requests across distinct IP addresses',async()=>{
  __resetAiRateLimits();let requests=0;
- const args={body:{question:'Describe aggregates',context:{status:'ok',pageId:'D01',filters:{month:'202609'}}},env:{OPENAI_API_KEY:'test-key',OPENAI_MODEL:'test-model'},now:100000000,fetchImpl:async()=>{requests++;return {ok:true,json:async()=>({output_text:JSON.stringify({observations:[],arithmeticContributions:[],hypotheses:[],evidence:[]})})}}};
+ const args={body:{question:'Describe aggregates',context:{status:'ok',pageId:'D01',filters:{month:'202609'},source:{currency:'USD',dateRole:'Invoice Date',cube:'JDE Sales'},kpis:{netSalesUSD:100},evidence:{requestId:'quota-request',queryHash:'quota-query'}}},env:{OPENAI_API_KEY:'test-key',OPENAI_MODEL:'test-model'},now:100000000,fetchImpl:async()=>{requests++;return {ok:true,json:async()=>({output_text:JSON.stringify({factIds:['scope-sales'],interpretationIds:[],actionIds:[]})})}}};
  for(let i=0;i<100;i++){assert.equal((await handleAnalysis({...args,ip:'client-'+i})).statusCode,200)}
  assert.equal((await handleAnalysis({...args,ip:'client-101'})).statusCode,429);assert.equal(requests,100);__resetAiRateLimits();
 });

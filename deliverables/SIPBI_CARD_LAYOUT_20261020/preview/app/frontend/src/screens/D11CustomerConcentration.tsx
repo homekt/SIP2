@@ -168,6 +168,11 @@ export const D11CustomerConcentration: React.FC<Props> = ({ slicer }) => {
 
   const { phase, data, error, reload } = useSalesDashboard('D11', slicer, setLastDashboardContext);
   const [view, setView] = useState<ViewMode>('top20');
+  // Local selection by stable key: highlight first, drill only on explicit action.
+  const [selectedKey, setSelectedKey] = useState<string | null>(null);
+  useEffect(() => {
+    setSelectedKey(null);
+  }, [slicer.month, slicer.company, slicer.product, slicer.customer, slicer.salesperson, slicer.plant, slicer.costCenter]);
   const [narrow, setNarrow] = useState(false);
 
   useEffect(() => {
@@ -216,6 +221,9 @@ export const D11CustomerConcentration: React.FC<Props> = ({ slicer }) => {
     };
   }, [customers, analysis?.concentrationStatus]);
 
+  const selectedItem: RankedShare | null = selectedKey
+    ? model.ranked.find((item) => item.row.key === selectedKey) ?? null
+    : null;
   const shownRef = useRef<RankedShare[]>([]);
   const drillRef = useRef<(row: SalesRow, share: number | null, cumShare: number | null) => void>(() => {});
   const onEvents = useMemo(
@@ -401,8 +409,16 @@ export const D11CustomerConcentration: React.FC<Props> = ({ slicer }) => {
             customerKey: item.row.key,
             itemStyle:
               typeof item.row.netSalesUSD === 'number' && item.row.netSalesUSD < 0
-                ? { color: declineColor, borderRadius: [0, 0, 3, 3] }
-                : { color: salesColor, borderRadius: [3, 3, 0, 0] },
+                ? item.row.key === selectedKey
+                  ? { color: '#4f46e5', borderRadius: [3, 3, 0, 0] }
+                  : selectedKey !== null
+                    ? { color: declineColor, opacity: 0.3, borderRadius: [0, 0, 3, 3] }
+                    : { color: declineColor, borderRadius: [0, 0, 3, 3] }
+                : item.row.key === selectedKey
+                  ? { color: '#4f46e5', borderRadius: [3, 3, 0, 0] }
+                  : selectedKey !== null
+                    ? { color: salesColor, opacity: 0.3, borderRadius: [3, 3, 0, 0] }
+                    : { color: salesColor, borderRadius: [3, 3, 0, 0] },
           })),
         },
         ...(model.sharesOk
@@ -467,10 +483,117 @@ export const D11CustomerConcentration: React.FC<Props> = ({ slicer }) => {
     model,
     summaryLabels.monthLabel,
     analysis?.concentrationStatus,
+    selectedKey,
   ]);
 
+  // Complementary view: revenue x margin quality scatter, synced by stable customer key.
+  // Fixed-size points (magnitude stays in Pareto bars + table); invalid-concentration
+  // populations still plot signed revenue/margin here, shares are simply withheld.
+  const qualityRows = useMemo(
+    () => (customers ?? []).filter((row) => row.netSalesUSD != null && row.grossMarginPercent != null),
+    [customers]
+  );
+  const qualityAbsent = (customers ?? []).length - qualityRows.length;
+  const qualityOption = useMemo(() => {
+    const salesColor = isDark ? '#60a5fa' : '#2563eb';
+    const zeroColor = '#64748b';
+    const labelColor = isDark ? '#cbd5e1' : '#334155';
+    const mutedColor = isDark ? '#94a3b8' : '#64748b';
+    const splitColor = isDark ? '#1e293b' : '#e2e8f0';
+    return {
+      title: {
+        text: isZh
+          ? `客戶營收 × 毛利品質散佈（x 淨銷售額 USD，y 毛利率 %，共 ${qualityRows.length} 家）`
+          : `Customer revenue x margin scatter (x net sales USD, y GM %, ${qualityRows.length} customers)`,
+        subtext: isZh
+          ? `與柏拉圖同一母體、同一穩定鍵同步高亮；越右營收越高，越上毛利率越高。缺值未繪 ${qualityAbsent} 家；點選只高亮不篩選。`
+          : `Same population as the Pareto, highlight synced by stable key. ${qualityAbsent} null-valued customers excluded. Click highlights only.`,
+        subtextStyle: { fontSize: 11, color: mutedColor },
+        textStyle: { fontSize: 14, fontWeight: 'bold', color: labelColor },
+      },
+      tooltip: {
+        trigger: 'item' as const,
+        confine: true,
+        textStyle: { fontSize: 12 },
+        extraCssText: 'max-width:380px;white-space:normal;',
+        formatter: (params: { dataIndex?: unknown }) => {
+          const row = typeof params?.dataIndex === 'number' ? qualityRows[params.dataIndex] : undefined;
+          if (!row) return '';
+          return `<div style="font-size:12px;line-height:1.45">
+            <div><b>${escapeHtml(row.label || DASH)}</b></div>
+            <div style="font-family:ui-monospace,monospace">${escapeHtml(row.key)}</div>
+            <div>${isZh ? '淨銷售額' : 'Net sales'}: ${exactUSD(row.netSalesUSD)}</div>
+            <div>${isZh ? '毛利額' : 'Gross profit'}: ${exactUSD(row.grossProfitUSD)}</div>
+            <div>${isZh ? '毛利率' : 'GM %'}: ${exactPct(row.grossMarginPercent)}</div>
+            <div>${isZh ? '訂單數' : 'Orders'}: ${row.orderCount ?? DASH}</div>
+            <div>${isZh ? '點選只高亮，再用摘要下鑽' : 'Click highlights; drill from the summary'}</div>
+          </div>`;
+        },
+      },
+      grid: { left: 8, right: 16, top: 24, bottom: 40, containLabel: true },
+      xAxis: {
+        type: 'value' as const,
+        name: 'USD',
+        nameLocation: 'middle' as const,
+        nameGap: 28,
+        nameTextStyle: { color: mutedColor, fontSize: 12 },
+        min: (bound: { min: number }) => Math.min(0, Number.isFinite(bound.min) ? bound.min : 0),
+        max: (bound: { max: number }) => Math.max(0, Number.isFinite(bound.max) ? bound.max : 0),
+        axisLabel: { color: mutedColor, fontSize: 12, formatter: (value: number) => axisUSD(value) },
+        axisLine: { show: true, onZero: true, lineStyle: { color: zeroColor, width: 1.25 } },
+        axisTick: { show: false },
+        splitLine: { lineStyle: { color: splitColor } },
+      },
+      yAxis: {
+        type: 'value' as const,
+        name: 'GM%',
+        nameTextStyle: { color: mutedColor, fontSize: 12 },
+        min: (bound: { min: number }) => Number.isFinite(bound.min) ? Math.floor(bound.min - 1) : 0,
+        max: (bound: { max: number }) => Number.isFinite(bound.max) ? Math.ceil(bound.max + 1) : 1,
+        axisLabel: { color: mutedColor, fontSize: 12, formatter: (value: number) => `${value.toFixed(1)}%` },
+        splitLine: { lineStyle: { color: splitColor } },
+      },
+      series: [
+        {
+          name: isZh ? '客戶（等尺寸圓點）' : 'Customers (fixed-size points)',
+          type: 'scatter' as const,
+          cursor: 'pointer',
+          symbolSize: 9,
+          data: qualityRows.map((row) => ({
+            value: [row.netSalesUSD, (row.grossMarginPercent as number) * 100],
+            customerKey: row.key,
+            itemStyle:
+              selectedKey !== null && row.key === selectedKey
+                ? { color: '#4f46e5', opacity: 1, borderColor: '#312e81', borderWidth: 1.5 }
+                : { color: salesColor, opacity: selectedKey === null ? 0.8 : 0.35 },
+          })),
+          markLine: {
+            silent: true,
+            symbol: 'none',
+            label: { show: false },
+            lineStyle: { color: zeroColor, width: 1, type: 'dashed' as const },
+            data: [{ yAxis: 0 }, { xAxis: 0 }],
+          },
+        },
+      ],
+    };
+  }, [qualityRows, qualityAbsent, selectedKey, isZh, isDark, summaryLabels.monthLabel]);
+  const onQualityEvents = useMemo(
+    () => ({
+      click: (params: { dataIndex?: unknown }) => {
+        const row = typeof params?.dataIndex === 'number' ? qualityRows[params.dataIndex] : undefined;
+        if (!row) return;
+        setSelectedKey((prev) => (prev === row.key ? null : row.key));
+      },
+    }),
+    [qualityRows]
+  );
   shownRef.current = chart.shown;
-  drillRef.current = (row, share, cumShare) => {
+  drillRef.current = (row) => {
+    setSelectedKey((prev) => (prev === row.key ? null : row.key));
+  };
+  // Explicit drill affordance: only the summary panel / table drill button calls this.
+  const drillCustomerParts = (row: SalesRow, share: number | null, cumShare: number | null) => {
     openDrillDown({
       title: isZh ? `${row.key} (${row.label}) 客戶下鑽` : `${row.key} (${row.label}) Drill-Down`,
       dimensionName: isZh ? '客戶' : 'Customer',
@@ -621,6 +744,91 @@ export const D11CustomerConcentration: React.FC<Props> = ({ slicer }) => {
               )}
             </div>
 
+            <div className="grid grid-cols-1 xl:grid-cols-12 gap-4">
+              <div className="xl:col-span-7 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xs">
+                {qualityRows.length === 0 ? (
+                  <p className="py-10 text-xs text-slate-500 dark:text-slate-400">
+                    {isZh ? '此切片沒有可繪製的客戶列。' : 'No plottable customer rows in this slice.'}
+                  </p>
+                ) : (
+                  <EChartsContainer option={qualityOption} height="360px" onEvents={onQualityEvents} />
+                )}
+              </div>
+
+              <div className="xl:col-span-5 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xs">
+                <h3 className="text-sm font-semibold text-slate-900 dark:text-white break-words">
+                  {isZh ? '選中客戶摘要（同一穩定鍵同步）' : 'Selected customer (synced by stable key)'}
+                </h3>
+                {selectedItem ? (
+                  <div className="mt-2 space-y-1.5 text-xs tabular-nums">
+                    <div className="font-bold text-indigo-600 dark:text-indigo-400 text-sm break-words">
+                      {selectedItem.row.label}
+                    </div>
+                    <div className="font-mono text-[11px] text-slate-400">{selectedItem.row.key}</div>
+                    <div className="flex justify-between gap-2">
+                      <span className="text-slate-500 dark:text-slate-400">{isZh ? '名次' : 'Rank'}</span>
+                      <span className="font-bold">#{selectedItem.rank} / {model.ranked.length}</span>
+                    </div>
+                    <div className="flex justify-between gap-2">
+                      <span className="text-slate-500 dark:text-slate-400">{isZh ? '淨銷售額 (USD)' : 'Net sales (USD)'}</span>
+                      <span className="font-bold">{fmtUSD(selectedItem.row.netSalesUSD)}</span>
+                    </div>
+                    <div className="flex justify-between gap-2">
+                      <span className="text-slate-500 dark:text-slate-400">{isZh ? '營收佔比' : 'Revenue share'}</span>
+                      <span className="font-semibold text-indigo-600 dark:text-indigo-400">{fmtPercent(selectedItem.share)}</span>
+                    </div>
+                    <div className="flex justify-between gap-2">
+                      <span className="text-slate-500 dark:text-slate-400">{isZh ? '累積佔比' : 'Cumulative share'}</span>
+                      <span className="font-semibold">{fmtPercent(selectedItem.cumShare)}</span>
+                    </div>
+                    <div className="flex justify-between gap-2">
+                      <span className="text-slate-500 dark:text-slate-400">{isZh ? '毛利額 (USD)' : 'Gross profit (USD)'}</span>
+                      <span className="font-semibold">{fmtUSD(selectedItem.row.grossProfitUSD)}</span>
+                    </div>
+                    <div className="flex justify-between gap-2">
+                      <span className="text-slate-500 dark:text-slate-400">{isZh ? '毛利率' : 'GM %'}</span>
+                      <span className="font-semibold">{fmtPercent(selectedItem.row.grossMarginPercent)}</span>
+                    </div>
+                    <div className="flex justify-between gap-2">
+                      <span className="text-slate-500 dark:text-slate-400">{isZh ? '淨銷量 (KG)' : 'Net qty (KG)'}</span>
+                      <span>{fmtKG(selectedItem.row.netQtyKG)}</span>
+                    </div>
+                    <div className="flex justify-between gap-2">
+                      <span className="text-slate-500 dark:text-slate-400">{isZh ? '訂單數' : 'Orders'}</span>
+                      <span>{fmtCount(selectedItem.row.orderCount)}</span>
+                    </div>
+                    {!model.sharesOk && (
+                      <p className="text-[11px] leading-4 text-slate-500 dark:text-slate-400">
+                        {reasonText(model.denial || 'status', analysis?.concentrationStatus, isZh)}
+                      </p>
+                    )}
+                    <div className="flex flex-wrap items-center gap-2 pt-2">
+                      <button
+                        type="button"
+                        onClick={() => drillCustomerParts(selectedItem.row, selectedItem.share, selectedItem.cumShare)}
+                        className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white border border-indigo-600 cursor-pointer focus-ring"
+                      >
+                        {isZh ? '下鑽該客戶產品 ➔' : 'Drill into products ➔'}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setSelectedKey(null)}
+                        className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 border border-slate-300 dark:border-slate-700 cursor-pointer focus-ring"
+                      >
+                        {isZh ? '清除選擇' : 'Reset selection'}
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <p className="mt-2 text-xs leading-5 text-slate-500 dark:text-slate-400">
+                    {isZh
+                      ? '點柏拉圖長條、散佈點或下表明細列，只高亮同一客戶（不篩選母體）；此處顯示精確摘要並可下鑽。'
+                      : 'Click a Pareto bar, scatter point, or table row to highlight one customer (no filtering); its exact summary and drill appear here.'}
+                  </p>
+                )}
+              </div>
+            </div>
+
             <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-5 shadow-xs">
               <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-3">
                 {isZh
@@ -662,14 +870,14 @@ export const D11CustomerConcentration: React.FC<Props> = ({ slicer }) => {
                         tabIndex={0}
                         role="button"
                         aria-label={`${item.row.key} ${item.row.label}`}
-                        onClick={() => openTableRow(item)}
+                        onClick={() => setSelectedKey((prev) => (prev === item.row.key ? null : item.row.key))}
                         onKeyDown={(event) => {
                           if (event.key === 'Enter' || event.key === ' ') {
                             event.preventDefault();
                             openTableRow(item);
                           }
                         }}
-                        className="hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer transition-colors focus-ring"
+                        className={`cursor-pointer transition-colors focus-ring ${item.row.key === selectedKey ? 'bg-indigo-50 dark:bg-indigo-950/50 hover:bg-indigo-100 dark:hover:bg-indigo-950/70' : 'hover:bg-slate-50 dark:hover:bg-slate-800/50'}`}
                       >
                         <td className="px-3 py-2 font-bold text-slate-500">#{item.rank}</td>
                         <td className="px-3 py-2 font-sans">

@@ -55,12 +55,16 @@ test('KPI: real monthly mini trends stop at focus, preserve nulls and have <=12 
   for(const k of ks){const s=k.props.trendSeries;assert.ok(s.labels.length<=12);assert.equal(s.labels.at(-1),'202503');assert.equal(s.labels.length,s.values.length);}
  }
 });
-test('D01: blue sales bars and amber GM line have separate color-matched axes',()=>{
- const t=renderer('D01ExecutiveOverview').render(); const c=mainCharts(t).find(c=>series(c).some(s=>s.type==='bar')&&series(c).some(s=>s.type==='line'));assert.ok(c);
- const bar=series(c).find(s=>s.type==='bar'),line=series(c).find(s=>s.type==='line');
- assert.equal(bar.yAxisIndex||0,0);assert.equal(line.yAxisIndex,1);assert.equal(line.connectNulls,false);
+test('D01: sales and margin occupy separate aligned panels with independent color-matched axes',()=>{
+ const t=renderer('D01ExecutiveOverview').render();
+ const monthly=mainCharts(t).filter(c=>c.props.option.xAxis?.data?.length===live.datasets.monthly.length);
+ const sales=monthly.find(c=>series(c).some(s=>s.type==='bar'));
+ const margin=monthly.find(c=>series(c).some(s=>s.type==='line'));assert.ok(sales);assert.ok(margin);assert.notEqual(sales,margin);
+ assert.equal(series(sales).length,1);assert.equal(series(margin).length,1);
+ assert.deepEqual(Array.from(sales.props.option.xAxis.data),Array.from(margin.props.option.xAxis.data));
+ const bar=series(sales)[0],line=series(margin)[0];assert.equal(line.connectNulls,false);
  near(val(bar.data.at(-1)),live.datasets.monthly.at(-1).netSalesUSD);near(val(line.data.at(-1)),live.datasets.monthly.at(-1).grossMarginPercent*100);
- assert.equal(c.props.option.yAxis[0].axisLabel.color,bar.itemStyle.color);assert.equal(c.props.option.yAxis[1].axisLabel.color,line.lineStyle.color);
+ assert.equal([sales.props.option.yAxis].flat()[0].axisLabel.color,bar.itemStyle.color);assert.equal([margin.props.option.yAxis].flat()[0].axisLabel.color,line.lineStyle.color);
 });
 test('D04: flat category treemap reconciles selected revenue without invented hierarchy',()=>{
  const t=renderer('D04ProductMix').render();const treemap=allSeries(t).find(s=>s.type==='treemap');assert.ok(treemap);
@@ -69,11 +73,13 @@ test('D04: flat category treemap reconciles selected revenue without invented hi
  assert.ok(!allSeries(t).some(s=>s.type==='pie'&&s.data.length>5));
  for(const invalid of [null,-5,0]){const d=structuredClone(live);if(invalid===0)d.datasets.categories.forEach(r=>r.netSalesUSD=0);else d.datasets.categories[0].netSalesUSD=invalid;const tree=renderer('D04ProductMix',d).render();assert.ok(!allSeries(tree).some(s=>s.type==='treemap'||s.type==='pie'));}
 });
-for(const [name,group,field]of[['D06CustomerContribution','customers','customer'],['D13SalespersonPerformance','salespeople','salesperson']])test(name+': complete scatter population with stable-key drill and no fabricated regression',()=>{
+for(const [name,group,field]of[['D06CustomerContribution','customers','customer'],['D13SalespersonPerformance','salespeople','salesperson']])test(name+': complete eligible scatter population, explicit stable-key drill and no fabricated regression',()=>{
  const r=renderer(name),t=r.render();const c=mainCharts(t).find(c=>series(c).some(s=>s.type==='scatter'&&s.data.length>15));assert.ok(c);
- const s=series(c).find(s=>s.type==='scatter');const rows=live.datasets[group].filter(r=>r.netSalesUSD!==null&&r.grossMarginPercent!==null);assert.equal(s.data.length,rows.length);
+ const s=series(c).find(s=>s.type==='scatter');const rows=live.datasets[group].filter(r=>r.netSalesUSD!==null&&r.grossMarginPercent!==null&&(field!=='customer'||r.netQtyKG>0));assert.equal(s.data.length,rows.length);
  near(val(s.data[0])[0],rows[0].netSalesUSD);near(val(s.data[0])[1],rows[0].grossMarginPercent*100);
- c.props.onEvents.click({dataIndex:0,componentType:'series',data:s.data[0]});assert.equal(r.calls.at(-1)[1].filterOverrides[field],rows[0].key);
+ c.props.onEvents.click({dataIndex:0,componentType:'series',data:s.data[0]});assert.equal(r.calls.length,0);
+ button(r.render(),field==='customer'?/下鑽該客戶產品|Drill into products/:/下鑽該業務員客戶|Drill into customers/).props.onClick();
+ assert.equal(r.calls.at(-1)[1].filterOverrides[field],rows[0].key);
  assert.ok(!allSeries(t).some(s=>s.type==='line'&&s.name?.match(/regression/i)));
 });
 test('D08: cost plus gross profit is the sales composition, orders never occupy a percentage axis',()=>{

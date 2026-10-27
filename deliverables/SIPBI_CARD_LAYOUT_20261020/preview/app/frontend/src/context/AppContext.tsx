@@ -22,7 +22,12 @@ export const AUTHORIZED_SALES_TABS = [
   'D18',
 ] as const;
 
+export const OPERATIONS_TABS = ['OPS_PRODUCTION', 'OPS_FULFILMENT', 'OPS_BUDGET'] as const;
+
 export const DASHBOARD_TITLES: Record<string, { zh: string; en: string }> = {
+  OPS_PRODUCTION: { zh: '生產效率與品質', en: 'Production Efficiency & Quality' },
+  OPS_FULFILMENT: { zh: '交付與積壓', en: 'Delivery & Backlog' },
+  OPS_BUDGET: { zh: '預算執行檢討', en: 'Budget Execution' },
   D00: { zh: '決策首頁', en: 'Decision Home' },
   D01: { zh: '銷售總覽', en: 'Executive Sales' },
   D02: { zh: '銷售動能', en: 'Sales Momentum' },
@@ -57,8 +62,11 @@ interface AppContextType {
   metadataLoading: boolean;
   metadataError: string | null;
   aiEnabled: boolean;
+  operationsEnabled: boolean;
 
   // Active Screen & Filters
+  operationsMonth: string;
+  setOperationsMonth: (month: string) => void;
   activeTab: string;
   setActiveTab: (tab: string) => void;
   filters: Filters;
@@ -168,6 +176,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [metadataLoading, setMetadataLoading] = useState<boolean>(true);
   const [metadataError, setMetadataError] = useState<string | null>(null);
 
+  const [operationsMonth, setOperationsMonth] = useState('202610');
   const [activeTab, setActiveTabState] = useState<string>('D00');
   const [filters, setFilters] = useState<Filters>({ ...DEFAULT_FILTERS });
   const [lastDashboardContext, setLastDashboardContext] = useState<DashboardResponse | null>(null);
@@ -202,6 +211,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   }, []);
 
   const aiEnabled = Boolean(metadata?.ai?.enabled);
+  const operationsEnabled = metadata?.operations?.enabled === true;
 
   useEffect(() => {
     localStorage.setItem('si_zoom_level', String(zoomLevel));
@@ -274,7 +284,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const isTabAuthorized = (tab: string): boolean => {
     if (tab === 'D07') return aiEnabled;
-    return (AUTHORIZED_SALES_TABS as readonly string[]).includes(tab);
+    return (AUTHORIZED_SALES_TABS as readonly string[]).includes(tab) || (operationsEnabled && (OPERATIONS_TABS as readonly string[]).includes(tab));
   };
 
   const setActiveTab = (tab: string) => {
@@ -363,6 +373,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         metadataLoading,
         metadataError,
         aiEnabled,
+        operationsEnabled,
+        operationsMonth,
+        setOperationsMonth,
         activeTab,
         setActiveTab,
         filters,

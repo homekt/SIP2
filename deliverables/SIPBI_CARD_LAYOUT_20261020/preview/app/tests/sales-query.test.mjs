@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { execFile } from 'node:child_process';
 import { PUBLIC_MEASURES } from '../scripts/sales-domain.mjs';
 
@@ -12,7 +13,7 @@ function readScript() {
 
 function run(args) {
   return new Promise((resolve) => {
-    execFile('powershell.exe', ['-NoProfile', '-File', script.pathname.replace(/^\//, ''), ...args], {
+    execFile('powershell.exe', ['-NoProfile', '-File', fileURLToPath(script), ...args], {
       encoding: 'utf8',
       timeout: 20000,
       windowsHide: true

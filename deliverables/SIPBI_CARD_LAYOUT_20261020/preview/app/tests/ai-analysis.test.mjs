@@ -21,12 +21,7 @@ function validContext() {
 }
 
 function okFetch(capture) {
-  const analysis = {
-    observations: ['sales rose'],
-    arithmeticContributions: ['product A contributed +10'],
-    hypotheses: ['maybe seasonality'],
-    evidence: ['request r1'],
-  };
+  const analysis = {factIds:['scope-sales'],interpretationIds:[],actionIds:[]};
   return async (url, opts) => {
     if (capture) capture.push({ url, opts });
     return {

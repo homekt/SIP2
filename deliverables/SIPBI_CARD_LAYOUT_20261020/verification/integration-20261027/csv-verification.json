@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "file": "C:\\Users\\user\\Downloads\\D06_Customers_202609.csv",
+  "rows": 238,
+  "sha256": "98566378A55DE8D1094B78E5AEB1B2DC7FC3C3840FA370274664FDB5BBF43B34",
+  "checkedColumns": [
+    "netSalesUSD",
+    "grossProfitUSD",
+    "netQtyKG",
+    "orderCount"
+  ],
+  "method": "native browser download; stable-key row comparison against live JDE API; order counts never summed"
+}

@@ -1,4 +1,6 @@
-import React from 'react';
+import {ProductDumbbell} from '../composition/productViews';
+import React, {useState,useEffect} from 'react';
+import {VerifiedAnalysisPanel} from '../components/ai/VerifiedAnalysisPanel';
 import {waterfallSteps} from '../utils/salesMath';
 import { Filters } from '../types/sales';
 import { useSalesDashboard } from '../services/salesApi';
@@ -47,8 +49,12 @@ export const D16GrowthDeclineContribution: React.FC<Props> = ({ slicer }) => {
   const kpis = data?.kpis;
   const analysis = data?.analysis;
   const waterfall = analysis?.waterfall || [];
+  const [selectedKey,setSelectedKey]=useState<string|null>(null);
+  const filterContext=JSON.stringify(slicer);
+  useEffect(()=>setSelectedKey(null),[filterContext]);
 
   const totalDelta = waterfall.reduce((acc, w) => acc + w.delta, 0);
+  const reconciliationVariance = analysis?.priorYearNetSalesUSD == null || kpis?.netSalesUSD == null ? null : kpis.netSalesUSD-analysis.priorYearNetSalesUSD-totalDelta;
   const positiveItems = waterfall.filter((w) => w.delta > 0);
   const negativeItems = waterfall.filter((w) => w.delta < 0);
 
@@ -244,13 +250,17 @@ export const D16GrowthDeclineContribution: React.FC<Props> = ({ slicer }) => {
                         {isZh ? '當期營收' : 'Current'}: <strong>{fmtUSD(kpis.netSalesUSD)}</strong>
                       </span>
                       <span className="text-2xs text-slate-500 dark:text-slate-400 font-sans ml-auto">
-                        {isZh ? '（算術差額 0.00 USD，完全閉合）' : '(Reconciled with 0.00 USD variance)'}
+                        {isZh ? `（實際對帳差額 ${fmtUSD(reconciliationVariance,2)}）` : `(Actual reconciliation variance ${fmtUSD(reconciliationVariance,2)})`}
                       </span>
                     </div>
                   </div>
                 )}
               </>
             )}
+
+            {waterfall.length>0 && <ProductDumbbell key={JSON.stringify(slicer)} rows={waterfall} onSelect={setSelectedKey}/>}
+
+            <VerifiedAnalysisPanel dashboard={data} panelId="growth" productKey={waterfall.some(row=>row.key===selectedKey)?selectedKey:null} onRefresh={reload}/>
 
             <AiInsightCard
               title={isZh ? 'D16 成長與衰退算術貢獻摘要' : 'D16 Growth Contribution Arithmetic Summary'}

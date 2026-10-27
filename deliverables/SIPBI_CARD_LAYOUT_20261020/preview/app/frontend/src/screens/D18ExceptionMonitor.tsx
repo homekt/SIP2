@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Filters } from '../types/sales';
 import { useSalesDashboard } from '../services/salesApi';
 import { StateGuard } from '../components/common/StateGuard';
@@ -9,6 +9,7 @@ import { useApp } from '../context/AppContext';
 import { getFilterSummaryLabels } from '../utils/slicerData';
 import {
   downloadCsv,
+  exportSalesRowsCsv,
   fmtCount,
   fmtKG,
   fmtObservation,
@@ -44,6 +45,172 @@ export const D18ExceptionMonitor: React.FC<Props> = ({ slicer }) => {
   const products = data?.datasets?.products || [];
   const customers = data?.datasets?.customers || [];
   const [customerSearch, setCustomerSearch] = useState('');
+  // Ranking dimension: counts (Lines) and amounts (KG) are NEVER mixed in one scale.
+  type RankField = 'negativeMarginLineCount' | 'fullReturnLineCount' | 'partialReturnLineCount' | 'allowanceLineCount' | 'returnQtyKG';
+  const [rankField, setRankField] = useState<RankField>('negativeMarginLineCount');
+  // Local product selection by stable key: highlight first, drill only on explicit action.
+  const [selectedProductKey, setSelectedProductKey] = useState<string | null>(null);
+  useEffect(() => {
+    setSelectedProductKey(null);
+  }, [slicer.month, slicer.company, slicer.product, slicer.customer, slicer.salesperson, slicer.plant, slicer.costCenter]);
+  const rankMeta: Record<RankField, { unit: 'Lines' | 'KG' }> = {
+    negativeMarginLineCount: { unit: 'Lines' },
+    fullReturnLineCount: { unit: 'Lines' },
+    partialReturnLineCount: { unit: 'Lines' },
+    allowanceLineCount: { unit: 'Lines' },
+    returnQtyKG: { unit: 'KG' },
+  };
+  const rankLabel = (field: RankField): string => {
+    switch (field) {
+      case 'negativeMarginLineCount': return isZh ? '負毛利行數' : 'Negative-margin lines';
+      case 'fullReturnLineCount': return isZh ? '全退行數' : 'Full-return lines';
+      case 'partialReturnLineCount': return isZh ? '部退行數' : 'Partial-return lines';
+      case 'allowanceLineCount': return isZh ? '折讓行數' : 'Allowance lines';
+      case 'returnQtyKG': return isZh ? '退貨量 (KG)' : 'Return qty (KG)';
+      default: return field;
+    }
+  };
+  // One metric at a time, Top 10 products. Nulls sort last and stay visible as dash.
+  const rankedByField = useMemo(
+    () =>
+      [...products]
+        .sort((a, b) => {
+          const av = a[rankField] ?? -Infinity;
+          const bv = b[rankField] ?? -Infinity;
+          if (av === -Infinity && bv === -Infinity) return a.key.localeCompare(b.key);
+          if (av === -Infinity) return 1;
+          if (bv === -Infinity) return -1;
+          return (bv as number) - (av as number) || a.key.localeCompare(b.key);
+        })
+        .slice(0, 10),
+    [products, rankField]
+  );
+  const selectedProduct = selectedProductKey
+    ? products.find((p) => p.key === selectedProductKey) ?? null
+    : null;
+  // Independent exception counts per flag: never summed across overlapping categories.
+  const exceptionCounts = useMemo(() => {
+    const flagged = (field: 'negativeMarginLineCount' | 'fullReturnLineCount' | 'partialReturnLineCount' | 'allowanceLineCount') =>
+      products.filter((p) => (p[field] ?? 0) > 0).length;
+    return {
+      negProducts: flagged('negativeMarginLineCount'),
+      fullProducts: flagged('fullReturnLineCount'),
+      partialProducts: flagged('partialReturnLineCount'),
+      allowProducts: flagged('allowanceLineCount'),
+      negCustomers: customers.filter((c) => (c.negativeMarginLineCount ?? 0) > 0).length,
+    };
+  }, [products, customers]);
+  const openProductDrill = (p: (typeof products)[number]) => {
+    openDrillDown({
+      title: isZh ? `${p.key} (${p.label}) 銷售觀察下鑽` : `${p.key} (${p.label}) Observation Drill-Down`,
+      dimensionName: isZh ? '產品' : 'Product',
+      dimensionValue: p.key,
+      sourceDashboard: 'D18',
+      groupBy: 'customer',
+      filterOverrides: { product: p.key },
+      summaryMetrics: [
+        { label: isZh ? '負毛利行數' : 'Neg Margin Lines', value: fmtCount(p.negativeMarginLineCount) },
+        { label: isZh ? '全退行數' : 'Full Returns', value: fmtCount(p.fullReturnLineCount) },
+        { label: isZh ? '部退行數' : 'Partial Returns', value: fmtCount(p.partialReturnLineCount) },
+        { label: isZh ? '折讓行數' : 'Allowances', value: fmtCount(p.allowanceLineCount) },
+        { label: isZh ? '退貨量' : 'Return Qty', value: fmtKG(p.returnQtyKG, 2) },
+      ],
+      rows: [],
+    });
+  };
+  const rankUnit = rankMeta[rankField].unit;
+  const rankOption = useMemo(() => {
+    const barColor = rankUnit === 'KG' ? (isDark ? '#2dd4bf' : '#0d9488') : (isDark ? '#818cf8' : '#4f46e5');
+    const labelColor = isDark ? '#cbd5e1' : '#334155';
+    const mutedColor = isDark ? '#94a3b8' : '#64748b';
+    const splitColor = isDark ? '#1e293b' : '#e2e8f0';
+    const fmtValue = (v: number | null | undefined): string =>
+      v === null || v === undefined || !Number.isFinite(v)
+        ? '—'
+        : rankUnit === 'KG'
+          ? fmtKG(v, 2)
+          : fmtCount(v);
+    return {
+      title: {
+        text: isZh
+          ? `產品${rankLabel(rankField)}排行 Top 10（單位 ${rankUnit}，單一指標）`
+          : `Product ${rankLabel(rankField)} Top 10 (unit ${rankUnit}, single metric)`,
+        subtext: isZh
+          ? `同一時間只排一種指標，不與其他單位混排；空值排最後並顯示為 —，仍保留於明細。旗標可能重疊，不可跨類加總。點選只高亮不篩選。`
+          : `One metric at a time, never mixed with other units; nulls sort last as — and stay in the table. Flags may overlap and must not be summed. Click highlights only.`,
+        subtextStyle: { fontSize: 11, color: mutedColor },
+        textStyle: { fontSize: 14, fontWeight: 'bold', color: labelColor },
+      },
+      tooltip: {
+        trigger: 'item' as const,
+        confine: true,
+        textStyle: { fontSize: 12 },
+        extraCssText: 'max-width:380px;white-space:normal;',
+        formatter: (params: { dataIndex?: unknown }) => {
+          const p = typeof params?.dataIndex === 'number' ? rankedByField[params.dataIndex] : undefined;
+          if (!p) return '';
+          const v = p[rankField];
+          return `<div style="font-size:12px;line-height:1.45">
+            <div><b>${escapeHtml(p.label || '—')}</b></div>
+            <div style="font-family:ui-monospace,monospace">${escapeHtml(p.key)}</div>
+            <div>${escapeHtml(rankLabel(rankField))}: ${fmtValue(v)}${rankUnit === 'Lines' && v !== null ? ' Lines' : ''}</div>
+            <div>${isZh ? '點選只高亮，再用橫幅下鑽客戶' : 'Click highlights; drill into customers from the banner'}</div>
+          </div>`;
+        },
+      },
+      grid: { left: 8, right: 72, top: 24, bottom: 8, containLabel: true },
+      xAxis: {
+        type: 'value' as const,
+        min: (bound: { min: number }) => Math.min(0, Number.isFinite(bound.min) ? bound.min : 0),
+        max: (bound: { max: number }) => Math.max(0, Number.isFinite(bound.max) ? bound.max : 0),
+        axisLabel: {
+          color: mutedColor,
+          fontSize: 12,
+          formatter: (value: number) => (rankUnit === 'KG'
+            ? (Math.abs(value) >= 10000 ? `${Math.round(value / 1000)}k` : `${value}`)
+            : fmtCount(value)),
+        },
+        axisLine: { show: true, onZero: true, lineStyle: { color: '#64748b', width: 1.25 } },
+        axisTick: { show: false },
+        splitLine: { lineStyle: { color: splitColor } },
+      },
+      yAxis: {
+        type: 'category' as const,
+        inverse: true,
+        data: rankedByField.map((p) => p.key),
+        axisLabel: { color: labelColor, fontSize: 12, width: 150, overflow: 'truncate' as const, margin: 8 },
+        axisTick: { show: false },
+        axisLine: { show: false },
+      },
+      series: [
+        {
+          name: rankLabel(rankField),
+          type: 'bar' as const,
+          cursor: 'pointer',
+          barMaxWidth: 18,
+          label: {
+            show: true,
+            position: 'right' as const,
+            fontSize: 11,
+            color: mutedColor,
+            formatter: (p: { value?: unknown }) => {
+              const raw = p && typeof p.value === 'object' && p.value !== null
+                ? (p.value as { value?: unknown }).value
+                : p?.value;
+              return fmtValue(typeof raw === 'number' ? raw : null);
+            },
+          },
+          data: rankedByField.map((p) => ({
+            value: p[rankField],
+            itemStyle:
+              selectedProductKey !== null && p.key === selectedProductKey
+                ? { color: '#312e81', borderRadius: [0, 3, 3, 0] }
+                : { color: barColor, opacity: selectedProductKey === null ? 0.9 : 0.35, borderRadius: [0, 3, 3, 0] },
+          })),
+        },
+      ],
+    };
+  }, [rankedByField, rankField, rankUnit, selectedProductKey, isZh, isDark]);
 
   const filteredCustomers = customers.filter(
     (c) =>
@@ -135,7 +302,7 @@ export const D18ExceptionMonitor: React.FC<Props> = ({ slicer }) => {
       {
         name: isZh ? '觀察行數 (Lines)' : 'Observation Lines',
         type: 'heatmap',
-        data: heatData.map(([x, y, v]) => ({ value: [x, y, v ?? '-'] })),
+        data: heatData.map(([x, y, v]) => ({ value: [x, y, v ?? '-'], itemStyle: { opacity: selectedProductKey === null || topProducts[y].key === selectedProductKey ? 1 : .3 } })),
         label: {
           show: true,
           fontSize: 12,
@@ -208,6 +375,36 @@ export const D18ExceptionMonitor: React.FC<Props> = ({ slicer }) => {
       >
         {kpis && (
           <>
+            {selectedProduct && (
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 rounded-xl border border-indigo-300 dark:border-indigo-700 bg-indigo-50/70 dark:bg-indigo-950/40 px-4 py-3 mb-4">
+                <div className="text-xs text-slate-700 dark:text-slate-200">
+                  {isZh ? '已選產品（僅高亮，未篩選）' : 'Selected product (highlighted, not filtered)'}:{' '}
+                  <span className="font-bold text-indigo-700 dark:text-indigo-300">{selectedProduct.label}</span>
+                  <span className="ml-2 font-mono text-[11px] text-slate-500 dark:text-slate-400">{selectedProduct.key}</span>
+                  <span className="ml-2 font-mono">
+                    {fmtCount(selectedProduct.negativeMarginLineCount)} / {fmtCount(selectedProduct.fullReturnLineCount)} / {fmtCount(selectedProduct.partialReturnLineCount)} / {fmtCount(selectedProduct.allowanceLineCount)}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 sm:ml-auto">
+                  <button
+                    type="button"
+                    onClick={() => openProductDrill(selectedProduct)}
+                    className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white border border-indigo-600 cursor-pointer"
+                  >
+                    {isZh ? '下鑽該產品客戶 ➔' : 'Drill into customers ➔'}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedProductKey(null)}
+                    className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 border border-slate-300 dark:border-slate-700 cursor-pointer"
+                  >
+                    {isZh ? '清除選擇' : 'Reset selection'}
+                  </button>
+                </div>
+              </div>
+            )}
+          <>
+          </>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <KpiCard
                 title={isZh ? '負毛利明細行數' : 'Negative Margin Lines'}
@@ -248,32 +445,86 @@ export const D18ExceptionMonitor: React.FC<Props> = ({ slicer }) => {
                   click: (params: any) => {
                     const v = params.value as [number, number, number | string] | undefined;
                     const p = v ? topProducts[v[1]] : undefined;
-                    if (p) {
-                      openDrillDown({
-                        title: isZh ? `${escapeHtml(p.key)} (${escapeHtml(p.label)}) 銷售觀察下鑽` : `${escapeHtml(p.key)} (${escapeHtml(p.label)}) Observation Drill-Down`,
-                        dimensionName: isZh ? '產品' : 'Product',
-                        dimensionValue: p.key,
-                        sourceDashboard: 'D18',
-                        groupBy: 'customer',
-                        filterOverrides: { product: p.key },
-                        summaryMetrics: [
-                          { label: isZh ? '負毛利行數' : 'Neg Margin Lines', value: fmtCount(p.negativeMarginLineCount) },
-                          { label: isZh ? '全退行數' : 'Full Returns', value: fmtCount(p.fullReturnLineCount) },
-                          { label: isZh ? '部退行數' : 'Partial Returns', value: fmtCount(p.partialReturnLineCount) },
-                          { label: isZh ? '折讓行數' : 'Allowances', value: fmtCount(p.allowanceLineCount) },
-                        ],
-                        rows: [],
-                      });
-                    }
+                    if (p) setSelectedProductKey(prev => prev === p.key ? null : p.key);
                   },
                 }}
               />
               <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">
                 {isZh
-                  ? '註：負毛利、全退、部退、折讓四類觀察旗標可能重疊於同一交易行，單元格計數為各類獨立實測行數，不可跨類加總為「唯一事件總數」。'
-                  : 'Note: negative-margin, full-return, partial-return, and allowance flags may overlap on the same sales line; each cell is an independent actual count and must not be summed across categories into a "unique event total".'}
+                  ? '註：負毛利、全退、部退、折讓四類旗標可能重疊，不能相加成唯一事件數。點選只高亮同一產品；用上方已選產品橫幅明確下鑽。'
+                  : 'Flags can overlap and must not be summed into unique events. Clicking highlights the same product; use the selected-product banner to drill explicitly.'}
               </p>
             </div>
+
+            <div className="grid grid-cols-1 xl:grid-cols-12 gap-4">
+              <div className="xl:col-span-7 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xs">
+                <div className="mb-3 flex flex-wrap gap-2" role="group" aria-label={isZh ? '排行指標' : 'Ranking metric'}>
+                  {(['negativeMarginLineCount', 'fullReturnLineCount', 'partialReturnLineCount', 'allowanceLineCount', 'returnQtyKG'] as RankField[]).map((field) => (
+                    <button
+                      key={field}
+                      type="button"
+                      aria-pressed={rankField === field}
+                      onClick={() => setRankField(field)}
+                      className={rankField === field
+                        ? 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white border border-indigo-600 cursor-pointer'
+                        : 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 border border-slate-300 dark:border-slate-700 cursor-pointer'}
+                    >
+                      {rankLabel(field)}
+                    </button>
+                  ))}
+                </div>
+                <EChartsContainer
+                  option={rankOption}
+                  height={`${Math.max(300, 110 + rankedByField.length * 34)}px`}
+                  onEvents={{
+                    click: (params: { dataIndex?: unknown }) => {
+                      const p = typeof params?.dataIndex === 'number' ? rankedByField[params.dataIndex] : undefined;
+                      if (!p) return;
+                      setSelectedProductKey((prev) => (prev === p.key ? null : p.key));
+                    },
+                  }}
+                />
+              </div>
+
+              <div className="xl:col-span-5 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xs">
+                <h3 className="text-sm font-semibold text-slate-900 dark:text-white break-words">
+                  {isZh ? '例外概覽（各旗標獨立計數，不加總）' : 'Exception overview (independent counts, never summed)'}
+                </h3>
+                <p className="mt-1 text-xs leading-5 text-slate-500 dark:text-slate-400 break-words">
+                  {isZh
+                    ? `共 ${products.length} 項產品。同一交易行可同時帶多個旗標，故各類計數不可相加為事件總數；此處只呈現實測計數，不設嚴重度。`
+                    : `${products.length} products. One sales line may carry several flags, so category counts must not be added into an event total; actual counts only, no severity invented.`}
+                </p>
+                <div className="mt-2 space-y-1.5 text-xs tabular-nums">
+                  <div className="flex justify-between gap-2">
+                    <span className="text-slate-500 dark:text-slate-400">{isZh ? '有負毛利行產品數' : 'Products with neg-margin lines'}</span>
+                    <span className="font-bold text-rose-600 dark:text-rose-400">{exceptionCounts.negProducts}</span>
+                  </div>
+                  <div className="flex justify-between gap-2">
+                    <span className="text-slate-500 dark:text-slate-400">{isZh ? '有全退行產品數' : 'Products with full returns'}</span>
+                    <span className="font-bold">{exceptionCounts.fullProducts}</span>
+                  </div>
+                  <div className="flex justify-between gap-2">
+                    <span className="text-slate-500 dark:text-slate-400">{isZh ? '有部退行產品數' : 'Products with partial returns'}</span>
+                    <span className="font-bold">{exceptionCounts.partialProducts}</span>
+                  </div>
+                  <div className="flex justify-between gap-2">
+                    <span className="text-slate-500 dark:text-slate-400">{isZh ? '有折讓行產品數' : 'Products with allowances'}</span>
+                    <span className="font-bold">{exceptionCounts.allowProducts}</span>
+                  </div>
+                  <div className="flex justify-between gap-2">
+                    <span className="text-slate-500 dark:text-slate-400">{isZh ? '有負毛利行客戶數' : 'Customers with neg-margin lines'}</span>
+                    <span className="font-bold text-rose-600 dark:text-rose-400">{exceptionCounts.negCustomers}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <section className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-5 shadow-xs" data-testid="product-observations-full">
+              <div className="flex flex-wrap items-center justify-between gap-3"><h3 className="text-sm font-bold">{isZh ? `完整產品觀察表（全體 ${products.length} 項）` : `Full product observations (${products.length} products)`}</h3><button type="button" disabled={!products.length} onClick={() => exportSalesRowsCsv(`D18_Product_Observations_${slicer.month}.csv`, products, 'ProductKey')} className="text-xs text-indigo-600 dark:text-indigo-300 underline disabled:opacity-40">{isZh ? '匯出完整產品 CSV' : 'Export all products CSV'}</button></div>
+              <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">{isZh ? '與上方圖表相同查詢版本；Top N 外產品與空值完整保留（—），各旗標獨立計數。選取只高亮；點「下鑽」才開啟客戶組合。' : 'Same query version as the charts; all products outside Top N and nulls (—) remain. Flags are counted independently. Selection highlights only; Drill opens the customer mix.'} · Request ID: {data?.evidence.requestId}</p>
+              <div className="overflow-auto max-h-96 mt-3"><table className="w-full text-xs tabular-nums"><thead><tr><th className="p-2 text-left">{isZh ? '產品' : 'Product'}</th>{obsTypes.map(item => <th className="p-2 text-right whitespace-nowrap" key={item.field}>{item.label}</th>)}<th className="p-2 text-right whitespace-nowrap">{isZh ? '退貨量 KG' : 'Return qty KG'}</th><th className="p-2 text-right whitespace-nowrap">{isZh ? '淨銷售 USD' : 'Net sales USD'}</th><th className="p-2 text-right whitespace-nowrap">{isZh ? '毛利 USD' : 'Gross profit USD'}</th><th className="p-2">{isZh ? '分析' : 'Analysis'}</th></tr></thead><tbody>{products.map(product => <tr key={product.key} className={`border-t border-slate-200 dark:border-slate-700 ${selectedProductKey === product.key ? 'bg-indigo-50 dark:bg-indigo-950/50' : ''}`}><td className="p-2"><button type="button" aria-pressed={selectedProductKey === product.key} className="text-left text-indigo-600 dark:text-indigo-300 underline" onClick={() => setSelectedProductKey(prev => prev === product.key ? null : product.key)}>{product.label}<span className="block font-mono text-slate-500">{product.key}</span></button></td>{obsTypes.map(item => <td className="p-2 text-right" key={item.field}>{fmtCount(product[item.field])}</td>)}<td className="p-2 text-right">{fmtKG(product.returnQtyKG, 2)}</td><td className="p-2 text-right">{fmtUSD(product.netSalesUSD)}</td><td className="p-2 text-right">{fmtUSD(product.grossProfitUSD)}</td><td className="p-2"><button type="button" className="text-indigo-600 dark:text-indigo-300 underline whitespace-nowrap" onClick={() => openProductDrill(product)}>{isZh ? '下鑽' : 'Drill'}</button></td></tr>)}</tbody></table></div>
+            </section>
 
             <AiInsightCard
               title={isZh ? 'D18 銷售觀察實測計數摘要' : 'D18 Sales Observations Summary'}
@@ -365,6 +616,7 @@ export const D18ExceptionMonitor: React.FC<Props> = ({ slicer }) => {
                   {isZh ? '各客戶退貨、折讓與負毛利明細行數統計表' : 'Customer Return, Allowance & Negative Margin Line Counts'}
                 </h3>
                 <div className="flex items-center space-x-2">
+                  <button type="button" disabled={!customers.length} onClick={() => exportSalesRowsCsv(`D18_Customer_Observations_${slicer.month}.csv`, customers, 'CustomerKey')} className="text-xs text-indigo-600 dark:text-indigo-300 underline disabled:opacity-40">{isZh ? '匯出完整客戶 CSV' : 'Export all customers CSV'}</button>
                   <input
                     type="text"
                     value={customerSearch}

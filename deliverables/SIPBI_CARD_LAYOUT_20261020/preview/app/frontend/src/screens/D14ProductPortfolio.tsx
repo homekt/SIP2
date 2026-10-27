@@ -1,4 +1,7 @@
-import React from 'react';
+import {VerifiedAnalysisPanel} from '../components/ai/VerifiedAnalysisPanel';
+import React, {useState,useEffect} from 'react';
+import {bubbleEligible,quantityDiameter} from '../composition/productMath';
+import {ProductProfitRanking,ProductFocus} from '../composition/productViews';
 import { Filters, SalesRow } from '../types/sales';
 import { useSalesDashboard } from '../services/salesApi';
 import { StateGuard } from '../components/common/StateGuard';
@@ -40,6 +43,10 @@ export const D14ProductPortfolio: React.FC<Props> = ({ slicer }) => {
   const summaryLabels = getFilterSummaryLabels(slicer, metadata, isZh);
   const kpis = data?.kpis;
   const products = data?.datasets?.products || [];
+  const [selectedKey,setSelectedKey]=useState<string|null>(null);
+  const filterContext=JSON.stringify(slicer);
+  useEffect(()=>setSelectedKey(null),[filterContext]);
+  const selectedProduct=products.find(row=>row.key===selectedKey);
   const revenueMedian = data?.analysis?.portfolio?.revenueMedian ?? null;
   const weightedMargin = data?.analysis?.portfolio?.weightedMargin ?? null;
   const thresholdsValid = revenueMedian !== null && weightedMargin !== null;
@@ -69,7 +76,9 @@ export const D14ProductPortfolio: React.FC<Props> = ({ slicer }) => {
     { label: isZh ? '低於中位營收 · 低於加權毛利' : 'Below-Median Rev · Below-Avg Margin', color: isDark ? '#94a3b8' : '#64748b' },
   ];
 
-  const plotted = products.filter((p) => p.netSalesUSD !== null && p.grossMarginPercent !== null);
+  const plotted = products.filter(bubbleEligible);
+  const excludedRows=products.filter(p=>!bubbleEligible(p));
+  const maxQuantity=Math.max(0,...plotted.map(p=>p.netQtyKG!));
   const excluded = products.length - plotted.length;
   const unclassifiedLabel = isZh ? '未分類（基準缺值）' : 'Unclassified (null thresholds)';
 
@@ -77,14 +86,14 @@ export const D14ProductPortfolio: React.FC<Props> = ({ slicer }) => {
 
   const scatterOption = {
     title: {
-      text: isZh ? '產品營收與毛利率分佈矩陣 (USD vs GM%)' : 'Product Revenue vs. Gross Margin % Matrix',
+      text: isZh ? '產品營收 × 毛利率 × 銷量' : 'Product revenue × margin × quantity',
       subtext: isZh
         ? `分界：營收中位數 ${fmtUSD(revenueMedian)} · 加權毛利率 ${fmtPercent(weightedMargin)}；散點 ${plotted.length} 項${
             excluded > 0 ? `（缺值未繪 ${excluded} 項，見明細表）` : ''
-          }；毛利率軸依資料範圍顯示，內部統計比較`
+          }；圓形面積依正淨銷量 KG 比例縮放，無最小點徑；內部統計比較`
         : `Thresholds: Revenue Median ${fmtUSD(revenueMedian)} · Weighted GM% ${fmtPercent(weightedMargin)}; plotted ${plotted.length}${
-            excluded > 0 ? ` (${excluded} null-valued excluded, see table)` : ''
-          }; internal statistical comparison, not market BCG`,
+            excluded > 0 ? ` (${excluded} invalid bubble coordinates/quantity excluded, see table)` : ''
+          }; circle area proportional to positive net KG, no minimum diameter; internal comparison`,
       subtextStyle: { fontSize: 11, color: isDark ? '#94a3b8' : '#64748b' },
       textStyle: { fontSize: 14, fontWeight: 'bold', color: isDark ? '#f1f5f9' : '#0f172a' },
     },
@@ -103,12 +112,6 @@ export const D14ProductPortfolio: React.FC<Props> = ({ slicer }) => {
           isZh ? '象限' : 'Quadrant'
         }: ${qi >= 0 ? quadrants[qi].label : DASH}`;
       },
-    },
-    legend: {
-      type: 'scroll',
-      bottom: 0,
-      textStyle: { color: isDark ? '#cbd5e1' : '#475569', fontSize: 12 },
-      data: thresholdsValid ? quadrants.map((q) => q.label) : [unclassifiedLabel],
     },
     grid: { left: '6%', right: '8%', bottom: '16%', top: '22%', containLabel: true },
     xAxis: {
@@ -136,52 +139,12 @@ export const D14ProductPortfolio: React.FC<Props> = ({ slicer }) => {
       },
       splitLine: { lineStyle: { color: isDark ? '#1e293b' : '#f1f5f9' } },
     },
-    series: [...quadrants.map((q, qi) => ({
-      name: q.label,
-      type: 'scatter',
-      symbol: ['circle', 'diamond', 'rect', 'triangle'][qi],
-      symbolSize: 8,
-      itemStyle: { color: q.color },
-      data: plotted
-        .filter((p) => quadrantOf(p) === qi)
-        .map((p) => ({
-          key: p.key,
-          label: p.label,
-          qty: p.netQtyKG,
-          gp: p.grossProfitUSD,
-          value: [p.netSalesUSD, (p.grossMarginPercent as number) * 100],
-          itemStyle: { color: q.color, borderColor: isDark ? '#0f172a' : '#ffffff', borderWidth: 1 },
-        })),
-      markLine: thresholdsValid && qi === 0
-        ? {
-            silent: true,
-            symbol: 'none',
-            lineStyle: markLineStyle,
-            label: { position: 'insideEndTop', fontSize: 12, color: isDark ? '#94a3b8' : '#64748b', formatter: (params: any) => params.name === 'Revenue Median' ? (isZh ? '營收中位數' : 'Revenue median') : (isZh ? '加權毛利率' : 'Weighted GM') },
-            data: [
-              { xAxis: revenueMedian as number, name: 'Revenue Median' },
-              { yAxis: weightedMarginPct as number, name: 'Weighted GM%' },
-            ],
-          }
-        : undefined,
-    })),
-    {
-      name: unclassifiedLabel,
-      type: 'scatter',
-      symbolSize: 8,
-      itemStyle: { color: '#64748b' },
-      data: plotted
-        .filter((p) => quadrantOf(p) === -1)
-        .map((p) => ({
-          key: p.key,
-          label: p.label,
-          qty: p.netQtyKG,
-          gp: p.grossProfitUSD,
-          value: [p.netSalesUSD, (p.grossMarginPercent as number) * 100],
-          itemStyle: { color: '#64748b', borderColor: isDark ? '#0f172a' : '#ffffff', borderWidth: 1 },
-        })),
-    },
-    ],
+    series: [{
+      name: isZh?'產品（面積 = KG）':'Products (area = KG)',type:'scatter',symbol:'circle',
+      symbolSize:(_value:any,params:any)=>quantityDiameter(params.data.qty,maxQuantity),
+      data:plotted.map(p=>({key:p.key,label:p.label,qty:p.netQtyKG,gp:p.grossProfitUSD,value:[p.netSalesUSD,p.grossMarginPercent!*100],itemStyle:{color:isDark?'#818cf8':'#4f46e5',opacity:selectedKey&&selectedKey!==p.key?0.25:0.7,borderColor:selectedKey===p.key?'#f59e0b':isDark?'#0f172a':'#ffffff',borderWidth:selectedKey===p.key?3:1}})),
+      markLine:thresholdsValid?{silent:true,symbol:'none',lineStyle:markLineStyle,label:{fontSize:11,color:isDark?'#94a3b8':'#64748b',formatter:(params:any)=>params.name},data:[{xAxis:revenueMedian!,name:isZh?'營收中位數':'Revenue median'},{yAxis:weightedMarginPct!,name:isZh?'加權毛利率':'Weighted GM%'}]}:undefined,
+    }],
   };
 
   return (
@@ -259,7 +222,8 @@ export const D14ProductPortfolio: React.FC<Props> = ({ slicer }) => {
               />
             </div>
 
-            <div className="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xs">
+            <div className="grid grid-cols-1 xl:grid-cols-12 gap-4">
+            <div className="xl:col-span-7 bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xs">
               <EChartsContainer
                 option={scatterOption}
                 height="400px"
@@ -267,26 +231,22 @@ export const D14ProductPortfolio: React.FC<Props> = ({ slicer }) => {
                   click: (params: any) => {
                     const key = params.data?.key;
                     const p = products.find((x) => x.key === key);
-                    if (p) {
-                      openDrillDown({
-                        title: isZh ? `${p.key} (${p.label}) 矩陣下鑽` : `${p.key} (${p.label}) Matrix Drill-Down`,
-                        dimensionName: isZh ? '產品' : 'Product',
-                        dimensionValue: p.key,
-                        sourceDashboard: 'D14',
-                        groupBy: 'customer',
-                        filterOverrides: { product: p.key },
-                        summaryMetrics: [
-                          { label: isZh ? '淨銷售額' : 'Net Sales', value: fmtUSD(p.netSalesUSD) },
-                          { label: isZh ? '毛利率' : 'GM %', value: fmtPercent(p.grossMarginPercent) },
-                          { label: isZh ? '平均單價' : 'ASP', value: fmtPriceUSD(p.averageSellingPriceUSD) },
-                        ],
-                        rows: [],
-                      });
-                    }
+                    if (p) setSelectedKey(p.key);
                   },
                 }}
               />
             </div>
+
+            <div className="xl:col-span-5"><ProductProfitRanking rows={products} selectedKey={selectedKey} onSelect={setSelectedKey}/></div>
+            </div>
+            <ProductFocus row={selectedProduct} page="D14" onReset={()=>setSelectedKey(null)}/>
+            <label className="flex flex-wrap items-center gap-3 text-sm text-slate-700 dark:text-slate-200">{isZh?'解讀產品':'Product to explain'}<select aria-label={isZh?'解讀產品':'Product to explain'} value={selectedKey||''} onChange={event=>setSelectedKey(event.target.value||null)} className="max-w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 p-2"><option value="">{isZh?'請選取產品':'Select a product'}</option>{products.map(row=><option key={row.key} value={row.key}>{row.key} · {row.label}</option>)}</select></label>
+            <VerifiedAnalysisPanel dashboard={data} panelId="portfolio" productKey={selectedKey} onRefresh={reload}/>
+            <section className="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+              <h3 className="text-sm font-semibold text-slate-900 dark:text-white">{isZh?`氣泡未繪例外（${excludedRows.length} 項）`:`Bubble exclusions (${excludedRows.length})`}</h3>
+              <p className="text-xs leading-5 text-slate-500 dark:text-slate-400">{isZh?'非正營收、毛利率缺值或非正／缺值銷量不繪成氣泡。原始數值保留於本表、完整明細及 CSV。':'Nonpositive revenue, missing margin, or nonpositive/missing quantity has no bubble. Original values remain here, in the full table and CSV.'}</p>
+              {excludedRows.length===0?<p className="mt-2 text-xs text-slate-500">{isZh?'無未繪例外':'No exclusions'}</p>:<div className="overflow-x-auto"><table className="min-w-full text-xs text-slate-700 dark:text-slate-200"><thead><tr>{['Product','USD','GP USD','GM%','KG'].map(h=><th key={h} className="p-2 text-left">{h}</th>)}</tr></thead><tbody>{excludedRows.map(p=><tr key={p.key} className="border-t border-slate-200 dark:border-slate-700"><td className="p-2"><button className="text-indigo-600 dark:text-indigo-300 underline cursor-pointer" onClick={()=>setSelectedKey(p.key)}>{p.key} · {p.label}</button></td><td className="p-2">{fmtUSD(p.netSalesUSD,2)}</td><td className="p-2">{fmtUSD(p.grossProfitUSD,2)}</td><td className="p-2">{fmtPercent(p.grossMarginPercent)}</td><td className="p-2">{fmtKG(p.netQtyKG)}</td></tr>)}</tbody></table></div>}
+            </section>
 
             <AiInsightCard
               title={isZh ? 'D14 產品營收與毛利矩陣基準說明' : 'D14 Product Portfolio Thresholds'}
@@ -295,16 +255,16 @@ export const D14ProductPortfolio: React.FC<Props> = ({ slicer }) => {
                   ? `當前切片共 ${products.length} 項產品，產品營收中位數 (revenueMedian) 為 ${fmtUSD(
                       revenueMedian
                     )}，整體加權毛利率 (weightedMargin) 為 ${fmtPercent(weightedMargin)}；散點繪製 ${plotted.length} 項${
-                      excluded > 0 ? `，${excluded} 項因營收或毛利率缺值未繪（見明細表）` : ''
+                      excluded > 0 ? `，${excluded} 項因非正營收、毛利率缺值或非正／缺值銷量未繪（見明細表）` : ''
                     }。`
                   : `Active slice covers ${products.length} products with Revenue Median of ${fmtUSD(
                       revenueMedian
                     )} and Weighted Gross Margin of ${fmtPercent(weightedMargin)}; ${plotted.length} plotted${
-                      excluded > 0 ? `, ${excluded} null-valued excluded (see table)` : ''
+                      excluded > 0 ? `, ${excluded} invalid bubble coordinates/quantity excluded (see table)` : ''
                     }.`,
                 interpretation: isZh
-                  ? '水平分界線代表所選範圍之整體加權毛利率（總毛利 / 總淨銷售額），垂直分界線代表各產品淨銷售額之中位數，完全由實測數據內生決定；點徑固定，不代表營收規模。'
-                  : 'Horizontal threshold is the aggregate weighted gross margin (Total GP / Total Net Sales), and vertical threshold is the median product Net Sales. Dot size is fixed and encodes nothing.',
+                  ? '水平分界線代表所選範圍之整體加權毛利率（總毛利 / 總淨銷售額），垂直分界線代表各產品淨銷售額之中位數，完全由實測數據內生決定；圓形面積依正淨銷量 KG 比例縮放，直徑按平方根縮放；不設最小點徑。非正營收、毛利率缺值或非正／缺值銷量保留於例外表。'
+                  : 'Horizontal threshold is the aggregate weighted gross margin (Total GP / Total Net Sales), and vertical threshold is the median product Net Sales. Circle area encodes positive net quantity KG; diameter uses its square root without a positive minimum. Nonpositive revenue, missing margin, and invalid quantity remain in the exclusions table.',
                 claimType: 'ARITHMETIC_CONTRIBUTION',
                 coverage: `${summaryLabels.monthLabel} · ${summaryLabels.companyLabel}`,
                 confidence: 'SSAS Direct',
