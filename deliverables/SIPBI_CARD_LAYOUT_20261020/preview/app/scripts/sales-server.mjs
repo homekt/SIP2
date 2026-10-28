@@ -1,5 +1,4 @@
 import { stampDashboardSnapshot, buildFactEnvelope, defaultSelection, renderSelection } from './analysis-facts.mjs';
-import { handleOperationsRequest } from './operations-http.mjs';
 /**
  * Sales BI HTTP server. Static files and /api on one origin. No wildcard CORS.
  * Cube work goes through scripts/sales-query.ps1 via execFile -File.
@@ -54,6 +53,11 @@ export function sourceConfigFrom(env = process.env, overrides = {}) {
   const database = overrides.database || env.SIPBI_SSAS_DATABASE || 'JDE_SALES_CUBE_20261020';
   assertHost(server, 'server');
   assertHost(database, 'database');
+  if (server !== 'localhost:25000' || database !== 'JDE_SALES_CUBE_20261020') {
+    const error = new Error('source outside SIP2 sales boundary');
+    error.code = 'invalid_config';
+    throw error;
+  }
   return { server, database, cube: 'JDE Sales' };
 }
 
@@ -239,8 +243,13 @@ function sanitizeOutbound(body) {
 }
 
 export function createSalesServer(options = {}) {
-  const operationsEnabled = (options.env || process.env).SIPBI_ENABLE_OPERATIONS === '1';
+  const operationsEnabled = false;
   const config = options.sourceConfig || sourceConfigFrom(options.env || process.env, options);
+  if (config.server !== 'localhost:25000' || config.database !== 'JDE_SALES_CUBE_20261020' || config.cube !== 'JDE Sales') {
+    const error = new Error('source outside SIP2 sales boundary');
+    error.code = 'invalid_config';
+    throw error;
+  }
   const distDir = options.distDir || path.join(rootDir, 'frontend', 'dist');
   const rawQuery = options.query || createPowerShellQuery({
     scriptPath: options.scriptPath || path.join(__dirname, 'sales-query.ps1'),
@@ -397,11 +406,8 @@ export function createSalesServer(options = {}) {
   async function handle(req, res) {
     const url = new URL(req.url || '/', 'http://127.0.0.1');
     if (url.pathname.startsWith('/api/operations/')) {
-      if (!operationsEnabled) {
-        sendJson(res, 404, errorBody('operations_disabled', 'Independent operations source is not enabled.'));
-        return;
-      }
-      if (await handleOperationsRequest(req, res, { url, runQuery: options.operationsRunQuery })) return;
+      sendJson(res, 404, errorBody('operations_disabled', 'Independent operations source is not enabled.'));
+      return;
     }
     if (req.method === 'OPTIONS') {
       res.writeHead(204, { Allow: 'GET, POST, OPTIONS', 'X-Content-Type-Options': 'nosniff' });

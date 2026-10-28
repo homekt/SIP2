@@ -2,17 +2,26 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createSalesServer } from '../scripts/sales-server.mjs';
 
-test('same-origin operations routes reach their own validated source handler', async () => {
-  let calls=0;
-  const server=createSalesServer({ env: { SIPBI_ENABLE_OPERATIONS: '1' }, operationsRunQuery: async request=>{ calls++; return {status:'ok',queriedAt:'2026-10-21T00:00:00Z',datasets:[{name:'summary',dateRole:'ProductionDate',grain:[],period:request.month,measures:['Input KG'],mdx:'SELECT approved',rows:[{'Input KG':100}]}]}; } });
-  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+test('other project operations remain blocked even if enabled', async () => {
+  let calls = 0;
+  const server = createSalesServer({env: {SIPBI_ENABLE_OPERATIONS: '1'}, operationsRunQuery: async () => { calls++; }});
+  await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
   try {
-    const base=`http://127.0.0.1:${server.address().port}`;
-    const response=await fetch(`${base}/api/operations/dashboard?kind=production&month=202610`);
-    assert.equal(response.status,200); const body=await response.json();
-    assert.equal(body.kind,'production'); assert.equal(body.source.currency,'CNY'); assert.equal(body.datasets[0].rows[0]['Input KG'],100);
-    const invalid=await fetch(`${base}/api/operations/dashboard?kind=production&month=202610&customer=C01`);
-    assert.equal(invalid.status,400); assert.equal(calls,1);
-    const health=await fetch(`${base}/api/health`); assert.equal(health.status,200);
-  } finally { await new Promise(resolve=>server.close(resolve)); }
+    const base = `http://127.0.0.1:${server.address().port}`;
+    for (const route of ['/api/operations/status', '/api/operations/dashboard?kind=production&month=202610']) {
+      const response = await fetch(base + route);
+      assert.equal(response.status, 404);
+      assert.equal((await response.json()).error.code, 'operations_disabled');
+    }
+    assert.equal(calls, 0);
+  } finally { await new Promise(resolve => server.close(resolve)); }
+});
+
+test('sales server rejects alternate source settings before querying', () => {
+  for (const options of [
+    {env: {SIPBI_SSAS_DATABASE: 'SI_Powered_BI'}},
+    {env: {SIPBI_SSAS_SERVER: 'otherhost:25000'}},
+    {env: {}, sourceConfig: {server: 'localhost:25000', database: 'SI_Powered_BI', cube: 'JDE Sales'}},
+    {env: {}, sourceConfig: {server: 'localhost:25000', database: 'JDE_SALES_CUBE_20261020', cube: 'SI Manufacturing BI'}},
+  ]) assert.throws(() => createSalesServer(options), {code: 'invalid_config'});
 });
